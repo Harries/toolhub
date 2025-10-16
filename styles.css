@@ -213,6 +213,7 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .tool-card {
@@ -610,11 +611,11 @@ textarea::placeholder {
 
 /* 页脚 */
 footer {
-    margin-top: 40px;
     padding: 20px;
     text-align: center;
     color: #909399;
     font-size: 13px;
+    border-top: 1px solid #f0f2f5;
 }
 
 /* 响应式设计 */
