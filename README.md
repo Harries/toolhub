@@ -1,8 +1,8 @@
 # 🛠️ Developer Toolbox
 
-一个纯静态的开发者工具网站，提供 JSON 格式化和时间戳转换功能，支持多语言切换。
+一个纯静态的开发者工具网站，提供 JSON 格式化、XML 格式化和时间戳转换功能，支持多语言切换。
 
-**🏠 [访问主页](index.html)** | **📝 [JSON 格式化](json-formatter.html)** | **⏰ [时间戳转换](timestamp-converter.html)**
+**🏠 [访问主页](index.html)** | **📝 [JSON 格式化](json-formatter.html)** | **📄 [XML 格式化](xml-formatter.html)** | **⏰ [时间戳转换](timestamp-converter.html)**
 
 ## ✨ 功能特性
 
@@ -20,7 +20,15 @@
 - ✅ 错误提示
 - ✅ 支持快捷键 (Ctrl + Enter 格式化)
 
-### 2. 时间戳转换工具
+### 2. XML 格式化工具
+- ✅ XML 格式化美化
+- ✅ XML 压缩
+- ✅ XML 语法校验
+- ✅ 一键复制结果
+- ✅ 错误提示
+- ✅ 支持快捷键 (Ctrl + Enter 格式化)
+
+### 3. 时间戳转换工具
 - ✅ 实时显示当前时间和时间戳
 - ✅ 时间戳转日期时间（支持秒/毫秒）
 - ✅ 日期时间转时间戳
@@ -38,6 +46,9 @@
 ### 部署到服务器
 将以下文件上传到服务器即可：
 - index.html
+- json-formatter.html
+- xml-formatter.html
+- timestamp-converter.html
 - styles.css
 - script.js
 
@@ -45,6 +56,13 @@
 
 ### JSON 格式化
 1. 在左侧输入框粘贴或输入 JSON 数据
+2. 点击"格式化"按钮进行美化
+3. 点击"压缩"按钮进行压缩
+4. 点击"复制"按钮复制结果
+5. 点击"清空"按钮清空所有内容
+
+### XML 格式化
+1. 在左侧输入框粘贴或输入 XML 数据
 2. 点击"格式化"按钮进行美化
 3. 点击"压缩"按钮进行压缩
 4. 点击"复制"按钮复制结果
@@ -81,8 +99,12 @@
 参考了专业在线工具网站的设计风格：
 - **Header 设计**：模仿 [exceltoimage.online](https://exceltoimage.online/)
   - 简洁的白色导航栏
-  - Logo + 语言选择器 + GitHub 链接
+  - Logo（可点击返回首页）+ 导航菜单 + 语言选择器 + GitHub 链接
   - 响应式布局
+- **多页面架构**：每个工具独立页面，SEO 友好
+  - 首页：工具卡片展示
+  - 工具页：专注单一功能
+  - 独立的页面标题和描述
 - **整体风格**：参考 [bejson.com](https://www.bejson.com/)
   - 清爽简洁的界面
   - 明显的功能按钮
@@ -108,11 +130,24 @@
 
 ```
 .
-├── index.html      # 主页面
-├── styles.css      # 样式文件
-├── script.js       # 功能脚本
-└── README.md       # 说明文档
+├── index.html              # 主页（工具导航）
+├── json-formatter.html     # JSON 格式化工具页
+├── xml-formatter.html      # XML 格式化工具页
+├── timestamp-converter.html # 时间戳转换工具页
+├── styles.css              # 样式文件
+├── script.js               # 功能脚本
+└── README.md               # 说明文档
 ```
+
+## 🌟 特色亮点
+
+- 🎯 **SEO 优化**：每个工具独立页面，便于搜索引擎索引
+- 🌍 **国际化**：支持 10 种语言，覆盖全球主要地区
+- 🚀 **性能优异**：纯静态页面，加载速度快
+- 🔒 **隐私安全**：所有数据本地处理，不上传服务器
+- 📱 **响应式设计**：完美适配桌面、平板、手机
+- ⌨️ **快捷键支持**：Ctrl+Enter 快速格式化
+- 💾 **记忆功能**：自动保存语言偏好和时区设置
 
 ## 🤝 贡献
 
