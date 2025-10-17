@@ -8,17 +8,24 @@ const translations = {
         home_subtitle: '快速、安全、易用的开发者工具。所有处理都在浏览器本地完成。',
         json_tab: 'JSON 格式化',
         json_card_desc: '格式化、压缩和验证 JSON 数据，支持语法高亮',
+        xml_tab: 'XML 格式化',
+        xml_card_desc: '格式化、压缩和验证 XML 数据，支持语法高亮',
         timestamp_tab: '时间戳转换',
         timestamp_card_desc: '时间戳与日期时间互转，支持多时区',
         json_title: 'JSON 格式化工具',
+        xml_title: 'XML 格式化工具',
         format_btn: '格式化',
         compress_btn: '压缩',
         clear_btn: '清空',
         copy_btn: '复制',
+        input_label: '输入:',
+        output_label: '输出:',
         json_input_label: '输入 JSON:',
         json_output_label: '格式化结果:',
         json_input_placeholder: '粘贴或输入 JSON 数据，例如：{"name":"张三","age":25}',
         json_output_placeholder: '格式化后的 JSON 将显示在这里',
+        xml_input_placeholder: '在此粘贴您的 XML...',
+        xml_output_placeholder: '格式化后的 XML 将显示在这里...',
         timestamp_title: '时间戳转换工具',
         timezone_label: '选择时区:',
         current_time_title: '当前时间',
@@ -55,6 +62,8 @@ const translations = {
         home_subtitle: '快速、安全、易用的開發者工具。所有處理都在瀏覽器本地完成。',
         json_tab: 'JSON 格式化',
         json_card_desc: '格式化、壓縮和驗證 JSON 資料，支援語法高亮',
+        xml_tab: 'XML 格式化',
+        xml_card_desc: '格式化、壓縮和驗證 XML 資料，支援語法高亮',
         timestamp_tab: '時間戳轉換',
         timestamp_card_desc: '時間戳與日期時間互轉，支援多時區',
         json_title: 'JSON 格式化工具',
@@ -102,17 +111,24 @@ const translations = {
         home_subtitle: 'Fast, secure, and easy-to-use tools for developers. All processing is done locally in your browser.',
         json_tab: 'JSON Formatter',
         json_card_desc: 'Format, compress, and validate JSON data with syntax highlighting',
+        xml_tab: 'XML Formatter',
+        xml_card_desc: 'Format, compress, and validate XML data with syntax highlighting',
         timestamp_tab: 'Timestamp Converter',
         timestamp_card_desc: 'Convert between Unix timestamp and datetime with timezone support',
         json_title: 'JSON Formatter Tool',
+        xml_title: 'XML Formatter Tool',
         format_btn: 'Format',
         compress_btn: 'Compress',
         clear_btn: 'Clear',
         copy_btn: 'Copy',
+        input_label: 'Input:',
+        output_label: 'Output:',
         json_input_label: 'Input JSON:',
         json_output_label: 'Formatted Result:',
         json_input_placeholder: 'Paste or input JSON data, e.g.: {"name":"John","age":25}',
         json_output_placeholder: 'Formatted JSON will be displayed here',
+        xml_input_placeholder: 'Paste your XML here...',
+        xml_output_placeholder: 'Formatted XML will appear here...',
         timestamp_title: 'Timestamp Converter Tool',
         timezone_label: 'Select Timezone:',
         current_time_title: 'Current Time',
@@ -149,43 +165,71 @@ const translations = {
 translations['ja'] = Object.assign({}, translations['en'], {
     app_title: 'デベロッパーツールボックス',
     home_title: '無料オンライン開発者ツール',
-    home_subtitle: '高速、安全、使いやすい開発者ツール。すべての処理はブラウザ内でローカルに行われます。'
+    home_subtitle: '高速、安全、使いやすい開発者ツール。すべての処理はブラウザ内でローカルに行われます。',
+    json_tab: 'JSONフォーマッター',
+    xml_tab: 'XMLフォーマッター',
+    timestamp_tab: 'タイムスタンプ変換',
+    footer_text: '© 2025 デベロッパーツールボックス | 静的ツール、データはサーバーにアップロードされません'
 });
 
 translations['ko'] = Object.assign({}, translations['en'], {
     app_title: '개발자 도구 상자',
     home_title: '무료 온라인 개발자 도구',
-    home_subtitle: '빠르고 안전하며 사용하기 쉬운 개발자 도구. 모든 처리는 브라우저에서 로컬로 수행됩니다.'
+    home_subtitle: '빠르고 안전하며 사용하기 쉬운 개발자 도구. 모든 처리는 브라우저에서 로컬로 수행됩니다.',
+    json_tab: 'JSON 포맷터',
+    xml_tab: 'XML 포맷터',
+    timestamp_tab: '타임스탬프 변환',
+    footer_text: '© 2025 개발자 도구 상자 | 정적 도구, 데이터는 서버에 업로드되지 않습니다'
 });
 
 translations['es'] = Object.assign({}, translations['en'], {
     app_title: 'Caja de Herramientas para Desarrolladores',
     home_title: 'Herramientas Gratuitas en Línea para Desarrolladores',
-    home_subtitle: 'Herramientas rápidas, seguras y fáciles de usar para desarrolladores. Todo el procesamiento se realiza localmente en su navegador.'
+    home_subtitle: 'Herramientas rápidas, seguras y fáciles de usar para desarrolladores. Todo el procesamiento se realiza localmente en su navegador.',
+    json_tab: 'Formateador JSON',
+    xml_tab: 'Formateador XML',
+    timestamp_tab: 'Conversor de Marca de Tiempo',
+    footer_text: '© 2025 Caja de Herramientas para Desarrolladores | Herramienta estática, los datos no se cargan en el servidor'
 });
 
 translations['fr'] = Object.assign({}, translations['en'], {
     app_title: 'Boîte à Outils pour Développeurs',
     home_title: 'Outils Gratuits en Ligne pour Développeurs',
-    home_subtitle: 'Outils rapides, sécurisés et faciles à utiliser pour les développeurs. Tout le traitement est effectué localement dans votre navigateur.'
+    home_subtitle: 'Outils rapides, sécurisés et faciles à utiliser pour les développeurs. Tout le traitement est effectué localement dans votre navigateur.',
+    json_tab: 'Formateur JSON',
+    xml_tab: 'Formateur XML',
+    timestamp_tab: 'Convertisseur d\'Horodatage',
+    footer_text: '© 2025 Boîte à Outils pour Développeurs | Outil statique, les données ne sont pas téléchargées sur le serveur'
 });
 
 translations['de'] = Object.assign({}, translations['en'], {
     app_title: 'Entwickler-Toolbox',
     home_title: 'Kostenlose Online-Entwicklertools',
-    home_subtitle: 'Schnelle, sichere und benutzerfreundliche Tools für Entwickler. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser.'
+    home_subtitle: 'Schnelle, sichere und benutzerfreundliche Tools für Entwickler. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser.',
+    json_tab: 'JSON-Formatierer',
+    xml_tab: 'XML-Formatierer',
+    timestamp_tab: 'Zeitstempel-Konverter',
+    footer_text: '© 2025 Entwickler-Toolbox | Statisches Tool, Daten werden nicht auf den Server hochgeladen'
 });
 
 translations['pt'] = Object.assign({}, translations['en'], {
     app_title: 'Caixa de Ferramentas do Desenvolvedor',
     home_title: 'Ferramentas Gratuitas Online para Desenvolvedores',
-    home_subtitle: 'Ferramentas rápidas, seguras e fáceis de usar para desenvolvedores. Todo o processamento é feito localmente no seu navegador.'
+    home_subtitle: 'Ferramentas rápidas, seguras e fáceis de usar para desenvolvedores. Todo o processamento é feito localmente no seu navegador.',
+    json_tab: 'Formatador JSON',
+    xml_tab: 'Formatador XML',
+    timestamp_tab: 'Conversor de Timestamp',
+    footer_text: '© 2025 Caixa de Ferramentas do Desenvolvedor | Ferramenta estática, os dados não são enviados para o servidor'
 });
 
 translations['ru'] = Object.assign({}, translations['en'], {
     app_title: 'Инструменты разработчика',
     home_title: 'Бесплатные онлайн-инструменты для разработчиков',
-    home_subtitle: 'Быстрые, безопасные и простые в использовании инструменты для разработчиков. Вся обработка выполняется локально в вашем браузере.'
+    home_subtitle: 'Быстрые, безопасные и простые в использовании инструменты для разработчиков. Вся обработка выполняется локально в вашем браузере.',
+    json_tab: 'Форматтер JSON',
+    xml_tab: 'Форматтер XML',
+    timestamp_tab: 'Конвертер временных меток',
+    footer_text: '© 2025 Инструменты разработчика | Статический инструмент, данные не загружаются на сервер'
 });
 
 let currentLang = 'en';
@@ -312,6 +356,141 @@ function copyJSON() {
         event.target.textContent = originalText;
         event.target.style.background = '';
     }, 1500);
+}
+
+// ==========================================
+// XML 格式化功能
+// ==========================================
+function formatXML() {
+    const input = document.getElementById('xml-input');
+    const output = document.getElementById('xml-output');
+    const errorDiv = document.getElementById('xml-error');
+
+    if (!input || !output) return;
+
+    const xmlText = input.value.trim();
+
+    if (!xmlText) {
+        showError(errorDiv, translations[currentLang].error_no_input || 'Please input XML data');
+        return;
+    }
+
+    try {
+        // 解析 XML
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        // 检查解析错误
+        const parserError = xmlDoc.querySelector('parsererror');
+        if (parserError) {
+            throw new Error('XML parsing error');
+        }
+
+        // 格式化 XML
+        const formatted = formatXMLString(xmlDoc);
+        output.value = formatted;
+        errorDiv.textContent = '';
+        errorDiv.style.display = 'none';
+    } catch (error) {
+        showError(errorDiv, translations[currentLang].error_json_invalid || 'XML format error: ' + error.message);
+        output.value = '';
+    }
+}
+
+function formatXMLString(xmlDoc) {
+    const serializer = new XMLSerializer();
+    let xmlString = serializer.serializeToString(xmlDoc);
+
+    // 美化 XML
+    let formatted = '';
+    let indent = 0;
+    const tab = '  ';
+
+    xmlString.split(/>\s*</).forEach((node, index, arr) => {
+        if (index > 0) {
+            node = '<' + node;
+        }
+        if (index < arr.length - 1) {
+            node = node + '>';
+        }
+
+        // 减少缩进（闭合标签）
+        if (node.match(/^<\/\w/)) {
+            indent--;
+        }
+
+        // 添加缩进
+        formatted += tab.repeat(indent) + node + '\n';
+
+        // 增加缩进（开始标签）
+        if (node.match(/^<\w[^>]*[^\/]>$/)) {
+            indent++;
+        }
+    });
+
+    return formatted.trim();
+}
+
+function compressXML() {
+    const input = document.getElementById('xml-input');
+    const output = document.getElementById('xml-output');
+    const errorDiv = document.getElementById('xml-error');
+
+    if (!input || !output) return;
+
+    const xmlText = input.value.trim();
+
+    if (!xmlText) {
+        showError(errorDiv, translations[currentLang].error_no_input || 'Please input XML data');
+        return;
+    }
+
+    try {
+        // 解析 XML
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        // 检查解析错误
+        const parserError = xmlDoc.querySelector('parsererror');
+        if (parserError) {
+            throw new Error('XML parsing error');
+        }
+
+        // 压缩 XML（移除空白）
+        const serializer = new XMLSerializer();
+        const compressed = serializer.serializeToString(xmlDoc).replace(/>\s+</g, '><');
+
+        output.value = compressed;
+        errorDiv.textContent = '';
+        errorDiv.style.display = 'none';
+    } catch (error) {
+        showError(errorDiv, translations[currentLang].error_json_invalid || 'XML format error: ' + error.message);
+        output.value = '';
+    }
+}
+
+function copyXML() {
+    const output = document.getElementById('xml-output');
+    if (!output) return;
+
+    if (output.value) {
+        output.select();
+        document.execCommand('copy');
+        showCopySuccess(document.querySelector('#xml-tool .btn-success'));
+    }
+}
+
+function clearXML() {
+    const input = document.getElementById('xml-input');
+    const output = document.getElementById('xml-output');
+    const errorDiv = document.getElementById('xml-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) {
+        errorDiv.textContent = '';
+        errorDiv.style.display = 'none';
+    }
 }
 
 // ==========================================
@@ -531,17 +710,32 @@ document.addEventListener('DOMContentLoaded', function() {
     datetimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
 
     // 添加回车键快捷操作
-    document.getElementById('json-input').addEventListener('keydown', function(e) {
-        if (e.ctrlKey && e.key === 'Enter') {
-            formatJSON();
-        }
-    });
+    const jsonInput = document.getElementById('json-input');
+    if (jsonInput) {
+        jsonInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                formatJSON();
+            }
+        });
+    }
 
-    document.getElementById('timestamp-input').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            convertTimestamp();
-        }
-    });
+    const xmlInput = document.getElementById('xml-input');
+    if (xmlInput) {
+        xmlInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                formatXML();
+            }
+        });
+    }
+
+    const timestampInput = document.getElementById('timestamp-input');
+    if (timestampInput) {
+        timestampInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                convertTimestamp();
+            }
+        });
+    }
 
     console.log('🛠️ 开发者工具箱已加载完成');
 });
