@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crontab Editor - Toolhub</title>
+    <meta name="description" content="Free online Crontab expression editor and validator. Create, validate, and understand cron expressions with visual explanation.">
+    <meta name="keywords" content="Crontab, Cron expression, Cron editor, Cron validator, Schedule">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- Crontab 编写器工具 -->
+        <div id="crontab-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="crontab_title">Crontab Expression Editor</h1>
+            </div>
+
+            <div class="crontab-container">
+                <!-- 左侧：可视化表单 -->
+                <div class="crontab-form-section">
+                    <h3 data-i18n="crontab_schedule_settings">Schedule Settings:</h3>
+
+                    <div class="form-group">
+                        <label data-i18n="crontab_minute">Minute:</label>
+                        <div class="input-group">
+                            <select id="minute-type" onchange="updateCrontab()">
+                                <option value="*" data-i18n="crontab_every">Every</option>
+                                <option value="specific" data-i18n="crontab_specific">Specific</option>
+                                <option value="range" data-i18n="crontab_range">Range</option>
+                                <option value="interval" data-i18n="crontab_interval">Interval</option>
+                            </select>
+                            <input type="number" id="minute-value" min="0" max="59" value="0" onchange="updateCrontab()" style="display:none;">
+                            <input type="number" id="minute-interval" min="1" max="59" value="15" onchange="updateCrontab()" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="crontab_hour">Hour:</label>
+                        <div class="input-group">
+                            <select id="hour-type" onchange="updateCrontab()">
+                                <option value="*" data-i18n="crontab_every">Every</option>
+                                <option value="specific" data-i18n="crontab_specific">Specific</option>
+                                <option value="range" data-i18n="crontab_range">Range</option>
+                                <option value="interval" data-i18n="crontab_interval">Interval</option>
+                            </select>
+                            <input type="number" id="hour-value" min="0" max="23" value="0" onchange="updateCrontab()" style="display:none;">
+                            <input type="number" id="hour-interval" min="1" max="23" value="4" onchange="updateCrontab()" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="crontab_day">Day of Month:</label>
+                        <div class="input-group">
+                            <select id="day-type" onchange="updateCrontab()">
+                                <option value="*" data-i18n="crontab_every">Every</option>
+                                <option value="?" data-i18n="crontab_not_specified">Not Specified</option>
+                                <option value="specific" data-i18n="crontab_specific">Specific</option>
+                                <option value="range" data-i18n="crontab_range">Range</option>
+                            </select>
+                            <input type="number" id="day-value" min="1" max="31" value="1" onchange="updateCrontab()" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="crontab_month">Month:</label>
+                        <div class="input-group">
+                            <select id="month-type" onchange="updateCrontab()">
+                                <option value="*" data-i18n="crontab_every">Every</option>
+                                <option value="specific" data-i18n="crontab_specific">Specific</option>
+                                <option value="range" data-i18n="crontab_range">Range</option>
+                            </select>
+                            <select id="month-value" onchange="updateCrontab()" style="display:none;">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="crontab_weekday">Day of Week:</label>
+                        <div class="input-group">
+                            <select id="weekday-type" onchange="updateCrontab()">
+                                <option value="?" data-i18n="crontab_not_specified">Not Specified</option>
+                                <option value="*" data-i18n="crontab_every">Every</option>
+                                <option value="specific" data-i18n="crontab_specific">Specific</option>
+                                <option value="range" data-i18n="crontab_range">Range</option>
+                            </select>
+                            <select id="weekday-value" onchange="updateCrontab()" style="display:none;">
+                                <option value="0">Sunday</option>
+                                <option value="1">Monday</option>
+                                <option value="2">Tuesday</option>
+                                <option value="3">Wednesday</option>
+                                <option value="4">Thursday</option>
+                                <option value="5">Friday</option>
+                                <option value="6">Saturday</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button onclick="generateCrontab()" class="btn btn-primary" data-i18n="generate_btn">Generate</button>
+                        <button onclick="clearCrontabForm()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                    </div>
+                </div>
+
+                <!-- 右侧：表达式和预览 -->
+                <div class="crontab-result-section">
+                    <div class="crontab-expression-box">
+                        <label data-i18n="crontab_expression">Crontab Expression:</label>
+                        <div class="expression-display">
+                            <input type="text" id="crontab-expression" readonly>
+                            <button onclick="copyCrontab()" class="btn btn-small btn-primary" data-i18n="copy_btn">Copy</button>
+                        </div>
+                    </div>
+
+                    <div id="crontab-error" class="error-message"></div>
+
+                    <div class="crontab-preview-box">
+                        <h3 data-i18n="crontab_next_runs">Next 5 Execution Times:</h3>
+                        <ul id="crontab-next-runs" class="next-runs-list">
+                            <li>-</li>
+                        </ul>
+                    </div>
+
+                    <div class="crontab-examples-box">
+                        <h3 data-i18n="crontab_common_examples">Common Examples:</h3>
+                        <div class="examples-grid">
+                            <button onclick="setExample('0 0 * * *')" class="example-btn" data-i18n="example_midnight">Every day at midnight</button>
+                            <button onclick="setExample('0 */2 * * *')" class="example-btn" data-i18n="example_every2h">Every 2 hours</button>
+                            <button onclick="setExample('*/5 * * * *')" class="example-btn" data-i18n="example_every5m">Every 5 minutes</button>
+                            <button onclick="setExample('0 9 * * 1-5')" class="example-btn" data-i18n="example_workday9">Workday at 9 AM</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

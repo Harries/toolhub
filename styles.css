@@ -736,3 +736,450 @@ footer {
         width: 100%;
     }
 }
+
+/* Markdown 预览样式 */
+.markdown-preview {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 400px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.markdown-preview h1 {
+    font-size: 28px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.markdown-preview h2 {
+    font-size: 24px;
+}
+
+.markdown-preview h3 {
+    font-size: 20px;
+}
+
+.markdown-preview p {
+    margin-bottom: 12px;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.markdown-preview li {
+    margin-bottom: 6px;
+}
+
+.markdown-preview code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+}
+
+.markdown-preview pre {
+    background: #f5f5f5;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    padding: 12px;
+    overflow-x: auto;
+    margin-bottom: 12px;
+}
+
+.markdown-preview pre code {
+    background: none;
+    padding: 0;
+    color: #333;
+}
+
+.markdown-preview blockquote {
+    border-left: 4px solid #3b82f6;
+    padding-left: 12px;
+    margin-left: 0;
+    margin-bottom: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.markdown-preview table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.markdown-preview table th,
+.markdown-preview table td {
+    border: 1px solid #e5e7eb;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.markdown-preview table th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.markdown-preview a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.markdown-preview a:hover {
+    text-decoration: underline;
+}
+
+.markdown-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 12px 0;
+}
+
+/* Crontab 编写器样式 */
+.crontab-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.crontab-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.crontab-form-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #606266;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group select,
+.input-group input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input-group select:focus,
+.input-group input:focus {
+    outline: none;
+    border-color: #409eff;
+    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+}
+
+.crontab-result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.crontab-expression-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.crontab-expression-box label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #606266;
+}
+
+.expression-display {
+    display: flex;
+    gap: 10px;
+}
+
+.expression-display input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    background: #f5f7fa;
+}
+
+.expression-display input:focus {
+    outline: none;
+    border-color: #409eff;
+    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+}
+
+.btn-small {
+    padding: 10px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.crontab-preview-box,
+.crontab-examples-box {
+    background: #f5f7fa;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.crontab-preview-box h3,
+.crontab-examples-box h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.next-runs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.next-runs-list li {
+    background: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    border-left: 3px solid #67c23a;
+}
+
+.next-runs-list li:last-child {
+    margin-bottom: 0;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.example-btn {
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.example-btn:hover {
+    background: #409eff;
+    color: white;
+    border-color: #409eff;
+}
+
+.error-message {
+    color: #f56c6c;
+    padding: 10px 12px;
+    background: #fef0f0;
+    border-left: 3px solid #f56c6c;
+    border-radius: 4px;
+    display: none;
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .crontab-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
+/* URL 编解码工具样式 */
+.url-encoder-container {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.url-input-section,
+.url-result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.url-input-section label,
+.url-result-section label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #606266;
+}
+
+.url-input-section input,
+.url-result-section input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.url-input-section input:focus,
+.url-result-section input:focus {
+    outline: none;
+    border-color: #409eff;
+    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+}
+
+.url-result-section input[readonly] {
+    background: #f5f7fa;
+    color: #606266;
+}
+
+.url-options-section {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #606266;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.url-button-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.url-button-section .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.url-mapping-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.url-mapping-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.url-mapping-table-wrapper {
+    overflow-x: auto;
+}
+
+.url-mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.url-mapping-table th {
+    background: #409eff;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.url-mapping-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.url-mapping-table tr:last-child td {
+    border-bottom: none;
+}
+
+.url-mapping-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.url-mapping-table tr:hover {
+    background: #f0f9ff;
+}
+
+/* URL 编解码响应式设计 */
+@media (max-width: 768px) {
+    .url-encoder-container {
+        padding: 20px;
+    }
+
+    .url-button-section {
+        flex-direction: column;
+    }
+
+    .url-button-section .btn {
+        width: 100%;
+    }
+}

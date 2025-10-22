@@ -3,7 +3,7 @@
 // ==========================================
 const translations = {
     'zh-CN': {
-        app_title: '开发者工具箱',
+        app_title: 'Toolhub',
         home_title: '免费在线开发者工具',
         home_subtitle: '快速、安全、易用的开发者工具。所有处理都在浏览器本地完成。',
         json_tab: 'JSON 格式化',
@@ -54,10 +54,60 @@ const translations = {
         result_datetime: '日期时间：',
         result_timestamp_sec: '时间戳(秒)：',
         result_timestamp_ms: '时间戳(毫秒)：',
-        result_utc: 'UTC时间：'
+        result_utc: 'UTC时间：',
+        markdown_tab: 'Markdown 转 PDF',
+        markdown_card_desc: '将 Markdown 文档转换为 PDF 文件，支持格式化',
+        markdown_title: 'Markdown 转 PDF 转换器',
+        markdown_input_label: '输入 Markdown:',
+        markdown_input_placeholder: '在此粘贴或输入 Markdown 内容...',
+        preview_label: '预览:',
+        preview_btn: '预览',
+        download_btn: '下载 PDF',
+        error_markdown_invalid: 'Markdown 格式错误',
+        error_pdf_generation: 'PDF 生成失败',
+        crontab_tab: 'Crontab 编写器',
+        crontab_card_desc: '创建、验证和理解 Cron 表达式，支持可视化解释',
+        crontab_title: 'Crontab 表达式编写器',
+        crontab_schedule_settings: '调度设置:',
+        crontab_minute: '分钟:',
+        crontab_hour: '小时:',
+        crontab_day: '日期:',
+        crontab_month: '月份:',
+        crontab_weekday: '星期:',
+        crontab_every: '每',
+        crontab_specific: '指定',
+        crontab_range: '范围',
+        crontab_interval: '间隔',
+        crontab_not_specified: '不指定',
+        generate_btn: '生成',
+        crontab_expression: 'Crontab 表达式:',
+        copy_btn: '复制',
+        crontab_next_runs: '接下来 5 次执行时间:',
+        crontab_common_examples: '常见示例:',
+        example_midnight: '每天凌晨 0 点',
+        example_every2h: '每 2 小时',
+        example_every5m: '每 5 分钟',
+        example_workday9: '工作日 9 点',
+        success_copied: '已复制',
+        error_crontab_invalid: '无效的 Crontab 表达式',
+        url_tab: 'URL 编解码',
+        url_card_desc: '编码和解码 URL，支持多种编码格式',
+        url_title: 'URL 编解码工具',
+        url_input_label: '输入内容:',
+        url_input_placeholder: '输入文本或 URL...',
+        url_encode_slash: '对 "/" 和 ":" 进行编码',
+        url_encode_btn: 'URL 编码',
+        url_decode_btn: 'URL 解码',
+        url_result_label: '转换结果:',
+        url_result_placeholder: '结果将显示在这里...',
+        url_mapping_title: 'ASCII 与 URL 编码映射表',
+        url_character: '字符',
+        url_ascii_code: 'ASCII 码',
+        url_encoded: 'URL 编码',
+        error_decode_failed: 'URL 解码失败'
     },
     'zh-TW': {
-        app_title: '開發者工具箱',
+        app_title: 'Toolhub',
         home_title: '免費線上開發者工具',
         home_subtitle: '快速、安全、易用的開發者工具。所有處理都在瀏覽器本地完成。',
         json_tab: 'JSON 格式化',
@@ -103,10 +153,58 @@ const translations = {
         result_datetime: '日期時間：',
         result_timestamp_sec: '時間戳(秒)：',
         result_timestamp_ms: '時間戳(毫秒)：',
-        result_utc: 'UTC時間：'
+        result_utc: 'UTC時間：',
+        markdown_tab: 'Markdown 轉 PDF',
+        markdown_card_desc: '將 Markdown 文檔轉換為 PDF 文件，支援格式化',
+        markdown_title: 'Markdown 轉 PDF 轉換器',
+        markdown_input_label: '輸入 Markdown:',
+        markdown_input_placeholder: '在此貼上或輸入 Markdown 內容...',
+        preview_label: '預覽:',
+        preview_btn: '預覽',
+        download_btn: '下載 PDF',
+        error_markdown_invalid: 'Markdown 格式錯誤',
+        error_pdf_generation: 'PDF 生成失敗',
+        crontab_tab: 'Crontab 編寫器',
+        crontab_card_desc: '建立、驗證和理解 Cron 表達式，支援可視化解釋',
+        crontab_title: 'Crontab 表達式編寫器',
+        crontab_schedule_settings: '調度設置:',
+        crontab_minute: '分鐘:',
+        crontab_hour: '小時:',
+        crontab_day: '日期:',
+        crontab_month: '月份:',
+        crontab_weekday: '星期:',
+        crontab_every: '每',
+        crontab_specific: '指定',
+        crontab_range: '範圍',
+        crontab_interval: '間隔',
+        crontab_not_specified: '不指定',
+        generate_btn: '生成',
+        crontab_expression: 'Crontab 表達式:',
+        crontab_next_runs: '接下來 5 次執行時間:',
+        crontab_common_examples: '常見示例:',
+        example_midnight: '每天凌晨 0 點',
+        example_every2h: '每 2 小時',
+        example_every5m: '每 5 分鐘',
+        example_workday9: '工作日 9 點',
+        error_crontab_invalid: '無效的 Crontab 表達式',
+        url_tab: 'URL 編解碼',
+        url_card_desc: '編碼和解碼 URL，支援多種編碼格式',
+        url_title: 'URL 編解碼工具',
+        url_input_label: '輸入內容:',
+        url_input_placeholder: '輸入文本或 URL...',
+        url_encode_slash: '對 "/" 和 ":" 進行編碼',
+        url_encode_btn: 'URL 編碼',
+        url_decode_btn: 'URL 解碼',
+        url_result_label: '轉換結果:',
+        url_result_placeholder: '結果將顯示在這裡...',
+        url_mapping_title: 'ASCII 與 URL 編碼映射表',
+        url_character: '字符',
+        url_ascii_code: 'ASCII 碼',
+        url_encoded: 'URL 編碼',
+        error_decode_failed: 'URL 解碼失敗'
     },
     'en': {
-        app_title: 'Developer Toolbox',
+        app_title: 'Toolhub',
         home_title: 'Free Online Developer Tools',
         home_subtitle: 'Fast, secure, and easy-to-use tools for developers. All processing is done locally in your browser.',
         json_tab: 'JSON Formatter',
@@ -143,7 +241,7 @@ const translations = {
         convert_btn: 'Convert',
         date_to_ts_title: 'Date to Timestamp',
         select_datetime_label: 'Select Date Time:',
-        footer_text: '© 2025 Developer Toolbox | Static tool, data is not uploaded to server',
+        footer_text: '© 2025 Toolhub | Static tool, data is not uploaded to server',
         error_no_input: 'Please input JSON data',
         error_json_invalid: 'Invalid JSON format',
         error_no_timestamp: 'Please input timestamp',
@@ -157,13 +255,63 @@ const translations = {
         result_datetime: 'Date Time:',
         result_timestamp_sec: 'Timestamp (sec):',
         result_timestamp_ms: 'Timestamp (ms):',
-        result_utc: 'UTC Time:'
+        result_utc: 'UTC Time:',
+        markdown_tab: 'Markdown to PDF',
+        markdown_card_desc: 'Convert Markdown documents to PDF files with formatting support',
+        markdown_title: 'Markdown to PDF Converter',
+        markdown_input_label: 'Input Markdown:',
+        markdown_input_placeholder: 'Paste or input Markdown content here...',
+        preview_label: 'Preview:',
+        preview_btn: 'Preview',
+        download_btn: 'Download PDF',
+        error_markdown_invalid: 'Invalid Markdown format',
+        error_pdf_generation: 'PDF generation failed',
+        crontab_tab: 'Crontab Editor',
+        crontab_card_desc: 'Create, validate, and understand cron expressions with visual explanation',
+        crontab_title: 'Crontab Expression Editor',
+        crontab_schedule_settings: 'Schedule Settings:',
+        crontab_minute: 'Minute:',
+        crontab_hour: 'Hour:',
+        crontab_day: 'Day of Month:',
+        crontab_month: 'Month:',
+        crontab_weekday: 'Day of Week:',
+        crontab_every: 'Every',
+        crontab_specific: 'Specific',
+        crontab_range: 'Range',
+        crontab_interval: 'Interval',
+        crontab_not_specified: 'Not Specified',
+        generate_btn: 'Generate',
+        crontab_expression: 'Crontab Expression:',
+        copy_btn: 'Copy',
+        crontab_next_runs: 'Next 5 Execution Times:',
+        crontab_common_examples: 'Common Examples:',
+        example_midnight: 'Every day at midnight',
+        example_every2h: 'Every 2 hours',
+        example_every5m: 'Every 5 minutes',
+        example_workday9: 'Workday at 9 AM',
+        success_copied: 'Copied',
+        error_crontab_invalid: 'Invalid crontab expression',
+        url_tab: 'URL Encoder/Decoder',
+        url_card_desc: 'Encode and decode URLs with support for various encoding formats',
+        url_title: 'URL Encoder/Decoder',
+        url_input_label: 'Input Content:',
+        url_input_placeholder: 'Enter text or URL...',
+        url_encode_slash: 'Encode "/" and ":"',
+        url_encode_btn: 'URL Encode',
+        url_decode_btn: 'URL Decode',
+        url_result_label: 'Conversion Result:',
+        url_result_placeholder: 'Result will appear here...',
+        url_mapping_title: 'ASCII & URL Encoding Mapping:',
+        url_character: 'Character',
+        url_ascii_code: 'ASCII Code',
+        url_encoded: 'URL Encoded',
+        error_decode_failed: 'URL decode failed'
     }
 };
 
 // 日语翻译
 translations['ja'] = {
-    app_title: 'デベロッパーツールボックス',
+    app_title: 'Toolhub',
     home_title: '無料オンライン開発者ツール',
     home_subtitle: '高速、安全、使いやすい開発者ツール。すべての処理はブラウザ内でローカルに行われます。',
     json_tab: 'JSONフォーマッター',
@@ -214,12 +362,60 @@ translations['ja'] = {
     result_datetime: '日時:',
     result_timestamp_sec: 'タイムスタンプ（秒）:',
     result_timestamp_ms: 'タイムスタンプ（ミリ秒）:',
-    result_utc: 'UTC時刻:'
+    result_utc: 'UTC時刻:',
+    markdown_tab: 'Markdown to PDF',
+    markdown_card_desc: 'Markdownドキュメントをフォーマッティング対応のPDFファイルに変換',
+    markdown_title: 'Markdown to PDF コンバーター',
+    markdown_input_label: 'Markdown入力:',
+    markdown_input_placeholder: 'ここにMarkdownコンテンツを貼り付けまたは入力してください...',
+    preview_label: 'プレビュー:',
+    preview_btn: 'プレビュー',
+    download_btn: 'PDFをダウンロード',
+    error_markdown_invalid: '無効なMarkdown形式',
+    error_pdf_generation: 'PDF生成に失敗しました',
+    crontab_tab: 'Crontab エディター',
+    crontab_card_desc: 'Cron式を作成、検証、理解し、ビジュアル説明をサポート',
+    crontab_title: 'Crontab式エディター',
+    crontab_schedule_settings: 'スケジュール設定:',
+    crontab_minute: '分:',
+    crontab_hour: '時間:',
+    crontab_day: '日:',
+    crontab_month: '月:',
+    crontab_weekday: '曜日:',
+    crontab_every: '毎',
+    crontab_specific: '指定',
+    crontab_range: '範囲',
+    crontab_interval: '間隔',
+    crontab_not_specified: '指定なし',
+    generate_btn: '生成',
+    crontab_expression: 'Crontab式:',
+    crontab_next_runs: '次の5回の実行時間:',
+    crontab_common_examples: '一般的な例:',
+    example_midnight: '毎日午前0時',
+    example_every2h: '2時間ごと',
+    example_every5m: '5分ごと',
+    example_workday9: '平日午前9時',
+    error_crontab_invalid: '無効なCrontab式',
+    url_tab: 'URLエンコーダー/デコーダー',
+    url_card_desc: 'URLをエンコード/デコード、複数のエンコード形式をサポート',
+    url_title: 'URLエンコーダー/デコーダー',
+    url_input_label: '入力内容:',
+    url_input_placeholder: 'テキストまたはURLを入力...',
+    url_encode_slash: '"/"と":"をエンコード',
+    url_encode_btn: 'URLエンコード',
+    url_decode_btn: 'URLデコード',
+    url_result_label: '変換結果:',
+    url_result_placeholder: '結果がここに表示されます...',
+    url_mapping_title: 'ASCII & URLエンコーディングマッピング:',
+    url_character: '文字',
+    url_ascii_code: 'ASCIIコード',
+    url_encoded: 'URLエンコード',
+    error_decode_failed: 'URLデコードに失敗しました'
 };
 
 // 韩语翻译
 translations['ko'] = {
-    app_title: '개발자 도구 상자',
+    app_title: 'Toolhub',
     home_title: '무료 온라인 개발자 도구',
     home_subtitle: '빠르고 안전하며 사용하기 쉬운 개발자 도구. 모든 처리는 브라우저에서 로컬로 수행됩니다.',
     json_tab: 'JSON 포맷터',
@@ -270,12 +466,60 @@ translations['ko'] = {
     result_datetime: '날짜/시간:',
     result_timestamp_sec: '타임스탬프(초):',
     result_timestamp_ms: '타임스탬프(밀리초):',
-    result_utc: 'UTC 시간:'
+    result_utc: 'UTC 시간:',
+    markdown_tab: 'Markdown to PDF',
+    markdown_card_desc: 'Markdown 문서를 형식 지정 지원이 있는 PDF 파일로 변환',
+    markdown_title: 'Markdown to PDF 변환기',
+    markdown_input_label: 'Markdown 입력:',
+    markdown_input_placeholder: 'Markdown 콘텐츠를 여기에 붙여넣거나 입력하세요...',
+    preview_label: '미리보기:',
+    preview_btn: '미리보기',
+    download_btn: 'PDF 다운로드',
+    error_markdown_invalid: '잘못된 Markdown 형식',
+    error_pdf_generation: 'PDF 생성 실패',
+    crontab_tab: 'Crontab 편집기',
+    crontab_card_desc: 'Cron 식을 만들고, 검증하고, 이해하며 시각적 설명을 지원',
+    crontab_title: 'Crontab 식 편집기',
+    crontab_schedule_settings: '일정 설정:',
+    crontab_minute: '분:',
+    crontab_hour: '시간:',
+    crontab_day: '일:',
+    crontab_month: '월:',
+    crontab_weekday: '요일:',
+    crontab_every: '매',
+    crontab_specific: '특정',
+    crontab_range: '범위',
+    crontab_interval: '간격',
+    crontab_not_specified: '지정 안 함',
+    generate_btn: '생성',
+    crontab_expression: 'Crontab 식:',
+    crontab_next_runs: '다음 5회 실행 시간:',
+    crontab_common_examples: '일반적인 예:',
+    example_midnight: '매일 자정',
+    example_every2h: '2시간마다',
+    example_every5m: '5분마다',
+    example_workday9: '평일 오전 9시',
+    error_crontab_invalid: '잘못된 Crontab 식',
+    url_tab: 'URL 인코더/디코더',
+    url_card_desc: 'URL을 인코드/디코드하고 다양한 인코딩 형식을 지원',
+    url_title: 'URL 인코더/디코더',
+    url_input_label: '입력 내용:',
+    url_input_placeholder: '텍스트 또는 URL 입력...',
+    url_encode_slash: '"/"와 ":"를 인코드',
+    url_encode_btn: 'URL 인코드',
+    url_decode_btn: 'URL 디코드',
+    url_result_label: '변환 결과:',
+    url_result_placeholder: '결과가 여기에 표시됩니다...',
+    url_mapping_title: 'ASCII 및 URL 인코딩 매핑:',
+    url_character: '문자',
+    url_ascii_code: 'ASCII 코드',
+    url_encoded: 'URL 인코딩',
+    error_decode_failed: 'URL 디코드 실패'
 };
 
 // 西班牙语翻译
 translations['es'] = {
-    app_title: 'Caja de Herramientas para Desarrolladores',
+    app_title: 'Toolhub',
     home_title: 'Herramientas Gratuitas en Línea para Desarrolladores',
     home_subtitle: 'Herramientas rápidas, seguras y fáciles de usar para desarrolladores. Todo el procesamiento se realiza localmente en su navegador.',
     json_tab: 'Formateador JSON',
@@ -326,12 +570,60 @@ translations['es'] = {
     result_datetime: 'Fecha/Hora:',
     result_timestamp_sec: 'Marca de Tiempo (seg):',
     result_timestamp_ms: 'Marca de Tiempo (ms):',
-    result_utc: 'Hora UTC:'
+    result_utc: 'Hora UTC:',
+    markdown_tab: 'Markdown a PDF',
+    markdown_card_desc: 'Convertir documentos Markdown a archivos PDF con soporte de formato',
+    markdown_title: 'Convertidor de Markdown a PDF',
+    markdown_input_label: 'Entrada Markdown:',
+    markdown_input_placeholder: 'Pegue o ingrese contenido Markdown aquí...',
+    preview_label: 'Vista Previa:',
+    preview_btn: 'Vista Previa',
+    download_btn: 'Descargar PDF',
+    error_markdown_invalid: 'Formato Markdown inválido',
+    error_pdf_generation: 'Error al generar PDF',
+    crontab_tab: 'Editor Crontab',
+    crontab_card_desc: 'Crear, validar y entender expresiones cron con explicación visual',
+    crontab_title: 'Editor de Expresiones Crontab',
+    crontab_schedule_settings: 'Configuración de Horario:',
+    crontab_minute: 'Minuto:',
+    crontab_hour: 'Hora:',
+    crontab_day: 'Día:',
+    crontab_month: 'Mes:',
+    crontab_weekday: 'Día de la Semana:',
+    crontab_every: 'Cada',
+    crontab_specific: 'Específico',
+    crontab_range: 'Rango',
+    crontab_interval: 'Intervalo',
+    crontab_not_specified: 'No Especificado',
+    generate_btn: 'Generar',
+    crontab_expression: 'Expresión Crontab:',
+    crontab_next_runs: 'Próximas 5 Ejecuciones:',
+    crontab_common_examples: 'Ejemplos Comunes:',
+    example_midnight: 'Cada día a medianoche',
+    example_every2h: 'Cada 2 horas',
+    example_every5m: 'Cada 5 minutos',
+    example_workday9: 'Día laboral a las 9 AM',
+    error_crontab_invalid: 'Expresión Crontab inválida',
+    url_tab: 'Codificador/Decodificador URL',
+    url_card_desc: 'Codificar y decodificar URLs con soporte para varios formatos de codificación',
+    url_title: 'Codificador/Decodificador URL',
+    url_input_label: 'Contenido de Entrada:',
+    url_input_placeholder: 'Ingrese texto o URL...',
+    url_encode_slash: 'Codificar "/" y ":"',
+    url_encode_btn: 'Codificar URL',
+    url_decode_btn: 'Decodificar URL',
+    url_result_label: 'Resultado de Conversión:',
+    url_result_placeholder: 'El resultado aparecerá aquí...',
+    url_mapping_title: 'Mapeo de Codificación ASCII y URL:',
+    url_character: 'Carácter',
+    url_ascii_code: 'Código ASCII',
+    url_encoded: 'Codificado URL',
+    error_decode_failed: 'Error al decodificar URL'
 };
 
 // 法语翻译
 translations['fr'] = {
-    app_title: 'Boîte à Outils pour Développeurs',
+    app_title: 'Toolhub',
     home_title: 'Outils Gratuits en Ligne pour Développeurs',
     home_subtitle: 'Outils rapides, sécurisés et faciles à utiliser pour les développeurs. Tout le traitement est effectué localement dans votre navigateur.',
     json_tab: 'Formateur JSON',
@@ -382,12 +674,60 @@ translations['fr'] = {
     result_datetime: 'Date/Heure:',
     result_timestamp_sec: 'Horodatage (sec):',
     result_timestamp_ms: 'Horodatage (ms):',
-    result_utc: 'Heure UTC:'
+    result_utc: 'Heure UTC:',
+    markdown_tab: 'Markdown vers PDF',
+    markdown_card_desc: 'Convertir des documents Markdown en fichiers PDF avec support de formatage',
+    markdown_title: 'Convertisseur Markdown vers PDF',
+    markdown_input_label: 'Entrée Markdown:',
+    markdown_input_placeholder: 'Collez ou saisissez le contenu Markdown ici...',
+    preview_label: 'Aperçu:',
+    preview_btn: 'Aperçu',
+    download_btn: 'Télécharger PDF',
+    error_markdown_invalid: 'Format Markdown invalide',
+    error_pdf_generation: 'Échec de la génération du PDF',
+    crontab_tab: 'Éditeur Crontab',
+    crontab_card_desc: 'Créer, valider et comprendre les expressions cron avec explication visuelle',
+    crontab_title: 'Éditeur d\'Expressions Crontab',
+    crontab_schedule_settings: 'Paramètres de Planification:',
+    crontab_minute: 'Minute:',
+    crontab_hour: 'Heure:',
+    crontab_day: 'Jour:',
+    crontab_month: 'Mois:',
+    crontab_weekday: 'Jour de la Semaine:',
+    crontab_every: 'Chaque',
+    crontab_specific: 'Spécifique',
+    crontab_range: 'Plage',
+    crontab_interval: 'Intervalle',
+    crontab_not_specified: 'Non Spécifié',
+    generate_btn: 'Générer',
+    crontab_expression: 'Expression Crontab:',
+    crontab_next_runs: 'Prochaines 5 Exécutions:',
+    crontab_common_examples: 'Exemples Courants:',
+    example_midnight: 'Chaque jour à minuit',
+    example_every2h: 'Toutes les 2 heures',
+    example_every5m: 'Toutes les 5 minutes',
+    example_workday9: 'Jour ouvrable à 9 AM',
+    error_crontab_invalid: 'Expression Crontab invalide',
+    url_tab: 'Encodeur/Décodeur URL',
+    url_card_desc: 'Encoder et décoder les URL avec support de plusieurs formats d\'encodage',
+    url_title: 'Encodeur/Décodeur URL',
+    url_input_label: 'Contenu d\'Entrée:',
+    url_input_placeholder: 'Saisissez du texte ou une URL...',
+    url_encode_slash: 'Encoder "/" et ":"',
+    url_encode_btn: 'Encoder URL',
+    url_decode_btn: 'Décoder URL',
+    url_result_label: 'Résultat de Conversion:',
+    url_result_placeholder: 'Le résultat apparaîtra ici...',
+    url_mapping_title: 'Mappage d\'Encodage ASCII et URL:',
+    url_character: 'Caractère',
+    url_ascii_code: 'Code ASCII',
+    url_encoded: 'Encodé URL',
+    error_decode_failed: 'Échec du décodage URL'
 };
 
 // 德语翻译
 translations['de'] = {
-    app_title: 'Entwickler-Toolbox',
+    app_title: 'Toolhub',
     home_title: 'Kostenlose Online-Entwicklertools',
     home_subtitle: 'Schnelle, sichere und benutzerfreundliche Tools für Entwickler. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser.',
     json_tab: 'JSON-Formatierer',
@@ -438,12 +778,60 @@ translations['de'] = {
     result_datetime: 'Datum/Uhrzeit:',
     result_timestamp_sec: 'Zeitstempel (Sek):',
     result_timestamp_ms: 'Zeitstempel (ms):',
-    result_utc: 'UTC-Zeit:'
+    result_utc: 'UTC-Zeit:',
+    markdown_tab: 'Markdown zu PDF',
+    markdown_card_desc: 'Konvertieren Sie Markdown-Dokumente in PDF-Dateien mit Formatierungsunterstützung',
+    markdown_title: 'Markdown zu PDF Konverter',
+    markdown_input_label: 'Markdown-Eingabe:',
+    markdown_input_placeholder: 'Fügen Sie hier Markdown-Inhalte ein oder geben Sie sie ein...',
+    preview_label: 'Vorschau:',
+    preview_btn: 'Vorschau',
+    download_btn: 'PDF Herunterladen',
+    error_markdown_invalid: 'Ungültiges Markdown-Format',
+    error_pdf_generation: 'PDF-Generierung fehlgeschlagen',
+    crontab_tab: 'Crontab-Editor',
+    crontab_card_desc: 'Erstellen, validieren und verstehen Sie Cron-Ausdrücke mit visueller Erklärung',
+    crontab_title: 'Crontab-Ausdrucks-Editor',
+    crontab_schedule_settings: 'Zeitplaneinstellungen:',
+    crontab_minute: 'Minute:',
+    crontab_hour: 'Stunde:',
+    crontab_day: 'Tag:',
+    crontab_month: 'Monat:',
+    crontab_weekday: 'Wochentag:',
+    crontab_every: 'Jeden',
+    crontab_specific: 'Spezifisch',
+    crontab_range: 'Bereich',
+    crontab_interval: 'Intervall',
+    crontab_not_specified: 'Nicht angegeben',
+    generate_btn: 'Generieren',
+    crontab_expression: 'Crontab-Ausdruck:',
+    crontab_next_runs: 'Nächste 5 Ausführungen:',
+    crontab_common_examples: 'Häufige Beispiele:',
+    example_midnight: 'Täglich um Mitternacht',
+    example_every2h: 'Alle 2 Stunden',
+    example_every5m: 'Alle 5 Minuten',
+    example_workday9: 'Arbeitstag um 9 Uhr',
+    error_crontab_invalid: 'Ungültiger Crontab-Ausdruck',
+    url_tab: 'URL-Encoder/Decoder',
+    url_card_desc: 'Codieren und decodieren Sie URLs mit Unterstützung für verschiedene Codierungsformate',
+    url_title: 'URL-Encoder/Decoder',
+    url_input_label: 'Eingabeinhalt:',
+    url_input_placeholder: 'Text oder URL eingeben...',
+    url_encode_slash: '"/" und ":" codieren',
+    url_encode_btn: 'URL codieren',
+    url_decode_btn: 'URL decodieren',
+    url_result_label: 'Konvertierungsergebnis:',
+    url_result_placeholder: 'Das Ergebnis wird hier angezeigt...',
+    url_mapping_title: 'ASCII- und URL-Codierungszuordnung:',
+    url_character: 'Zeichen',
+    url_ascii_code: 'ASCII-Code',
+    url_encoded: 'URL-codiert',
+    error_decode_failed: 'URL-Decodierung fehlgeschlagen'
 };
 
 // 葡萄牙语翻译
 translations['pt'] = {
-    app_title: 'Caixa de Ferramentas do Desenvolvedor',
+    app_title: 'Toolhub',
     home_title: 'Ferramentas Gratuitas Online para Desenvolvedores',
     home_subtitle: 'Ferramentas rápidas, seguras e fáceis de usar para desenvolvedores. Todo o processamento é feito localmente no seu navegador.',
     json_tab: 'Formatador JSON',
@@ -494,12 +882,60 @@ translations['pt'] = {
     result_datetime: 'Data/Hora:',
     result_timestamp_sec: 'Timestamp (seg):',
     result_timestamp_ms: 'Timestamp (ms):',
-    result_utc: 'Hora UTC:'
+    result_utc: 'Hora UTC:',
+    markdown_tab: 'Markdown para PDF',
+    markdown_card_desc: 'Converter documentos Markdown em arquivos PDF com suporte a formatação',
+    markdown_title: 'Conversor de Markdown para PDF',
+    markdown_input_label: 'Entrada Markdown:',
+    markdown_input_placeholder: 'Cole ou insira conteúdo Markdown aqui...',
+    preview_label: 'Visualização:',
+    preview_btn: 'Visualizar',
+    download_btn: 'Baixar PDF',
+    error_markdown_invalid: 'Formato Markdown inválido',
+    error_pdf_generation: 'Falha na geração do PDF',
+    crontab_tab: 'Editor Crontab',
+    crontab_card_desc: 'Criar, validar e entender expressões cron com explicação visual',
+    crontab_title: 'Editor de Expressões Crontab',
+    crontab_schedule_settings: 'Configurações de Agendamento:',
+    crontab_minute: 'Minuto:',
+    crontab_hour: 'Hora:',
+    crontab_day: 'Dia:',
+    crontab_month: 'Mês:',
+    crontab_weekday: 'Dia da Semana:',
+    crontab_every: 'Cada',
+    crontab_specific: 'Específico',
+    crontab_range: 'Intervalo',
+    crontab_interval: 'Intervalo',
+    crontab_not_specified: 'Não Especificado',
+    generate_btn: 'Gerar',
+    crontab_expression: 'Expressão Crontab:',
+    crontab_next_runs: 'Próximas 5 Execuções:',
+    crontab_common_examples: 'Exemplos Comuns:',
+    example_midnight: 'Todos os dias à meia-noite',
+    example_every2h: 'A cada 2 horas',
+    example_every5m: 'A cada 5 minutos',
+    example_workday9: 'Dia útil às 9 AM',
+    error_crontab_invalid: 'Expressão Crontab inválida',
+    url_tab: 'Codificador/Decodificador de URL',
+    url_card_desc: 'Codificar e decodificar URLs com suporte para vários formatos de codificação',
+    url_title: 'Codificador/Decodificador de URL',
+    url_input_label: 'Conteúdo de Entrada:',
+    url_input_placeholder: 'Insira texto ou URL...',
+    url_encode_slash: 'Codificar "/" e ":"',
+    url_encode_btn: 'Codificar URL',
+    url_decode_btn: 'Decodificar URL',
+    url_result_label: 'Resultado da Conversão:',
+    url_result_placeholder: 'O resultado aparecerá aqui...',
+    url_mapping_title: 'Mapeamento de Codificação ASCII e URL:',
+    url_character: 'Caractere',
+    url_ascii_code: 'Código ASCII',
+    url_encoded: 'Codificado em URL',
+    error_decode_failed: 'Falha na decodificação de URL'
 };
 
 // 俄语翻译
 translations['ru'] = {
-    app_title: 'Инструменты разработчика',
+    app_title: 'Toolhub',
     home_title: 'Бесплатные онлайн-инструменты для разработчиков',
     home_subtitle: 'Быстрые, безопасные и простые в использовании инструменты для разработчиков. Вся обработка выполняется локально в вашем браузере.',
     json_tab: 'Форматтер JSON',
@@ -550,7 +986,55 @@ translations['ru'] = {
     result_datetime: 'Дата/время:',
     result_timestamp_sec: 'Временная метка (сек):',
     result_timestamp_ms: 'Временная метка (мс):',
-    result_utc: 'Время UTC:'
+    result_utc: 'Время UTC:',
+    markdown_tab: 'Markdown в PDF',
+    markdown_card_desc: 'Преобразование документов Markdown в файлы PDF с поддержкой форматирования',
+    markdown_title: 'Конвертер Markdown в PDF',
+    markdown_input_label: 'Ввод Markdown:',
+    markdown_input_placeholder: 'Вставьте или введите содержимое Markdown здесь...',
+    preview_label: 'Предпросмотр:',
+    preview_btn: 'Предпросмотр',
+    download_btn: 'Скачать PDF',
+    error_markdown_invalid: 'Неверный формат Markdown',
+    error_pdf_generation: 'Ошибка при создании PDF',
+    crontab_tab: 'Редактор Crontab',
+    crontab_card_desc: 'Создание, проверка и понимание выражений cron с визуальным объяснением',
+    crontab_title: 'Редактор выражений Crontab',
+    crontab_schedule_settings: 'Параметры расписания:',
+    crontab_minute: 'Минута:',
+    crontab_hour: 'Час:',
+    crontab_day: 'День:',
+    crontab_month: 'Месяц:',
+    crontab_weekday: 'День недели:',
+    crontab_every: 'Каждый',
+    crontab_specific: 'Конкретный',
+    crontab_range: 'Диапазон',
+    crontab_interval: 'Интервал',
+    crontab_not_specified: 'Не указано',
+    generate_btn: 'Создать',
+    crontab_expression: 'Выражение Crontab:',
+    crontab_next_runs: 'Следующие 5 запусков:',
+    crontab_common_examples: 'Общие примеры:',
+    example_midnight: 'Каждый день в полночь',
+    example_every2h: 'Каждые 2 часа',
+    example_every5m: 'Каждые 5 минут',
+    example_workday9: 'Рабочий день в 9 AM',
+    error_crontab_invalid: 'Неверное выражение Crontab',
+    url_tab: 'Кодировщик/Декодер URL',
+    url_card_desc: 'Кодирование и декодирование URL с поддержкой различных форматов кодирования',
+    url_title: 'Кодировщик/Декодер URL',
+    url_input_label: 'Содержимое ввода:',
+    url_input_placeholder: 'Введите текст или URL...',
+    url_encode_slash: 'Кодировать "/" и ":"',
+    url_encode_btn: 'Кодировать URL',
+    url_decode_btn: 'Декодировать URL',
+    url_result_label: 'Результат преобразования:',
+    url_result_placeholder: 'Результат появится здесь...',
+    url_mapping_title: 'Таблица кодирования ASCII и URL:',
+    url_character: 'Символ',
+    url_ascii_code: 'Код ASCII',
+    url_encoded: 'Кодировано URL',
+    error_decode_failed: 'Ошибка при декодировании URL'
 };
 
 let currentLang = 'en';
@@ -996,24 +1480,8 @@ function copyText(elementId) {
 // ==========================================
 // 页面初始化
 // ==========================================
-document.addEventListener('DOMContentLoaded', function() {
-    // 加载保存的语言设置，默认英文
-    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-    currentLang = savedLang;
-
-    const langSelect = document.getElementById('language-select');
-    if (langSelect) {
-        langSelect.value = savedLang;
-
-        // 语言切换监听
-        langSelect.addEventListener('change', function(e) {
-            switchLanguage(e.target.value);
-        });
-    }
-
-    // 初始化语言
-    switchLanguage(savedLang);
-
+// 初始化其他功能（在 header 和 footer 加载后调用）
+function initializePageFeatures() {
     // 初始化当前时间显示
     updateCurrentTime();
 
@@ -1028,7 +1496,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const datetimeInput = document.getElementById('datetime-input');
-    datetimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+    if (datetimeInput) {
+        datetimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
 
     // 添加回车键快捷操作
     const jsonInput = document.getElementById('json-input');
@@ -1058,5 +1528,455 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('🛠️ 开发者工具箱已加载完成');
+    console.log('🛠️ Toolhub 已加载完成');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 在 DOMContentLoaded 时初始化页面功能
+    // header 和 footer 会在此之后动态加载
+    setTimeout(() => {
+        initializePageFeatures();
+    }, 100);
 });
+
+// ==========================================
+// 动态加载 Header 和 Footer
+// ==========================================
+const headerHTML = `<div class="header-content">
+    <div class="header-left">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛠️</span>
+            <span class="logo-text" data-i18n="app_title">Toolhub</span>
+        </a>
+        <nav class="header-nav">
+            <a href="json-formatter.html" class="nav-link" data-i18n="json_tab">JSON Formatter</a>
+            <a href="xml-formatter.html" class="nav-link" data-i18n="xml_tab">XML Formatter</a>
+            <a href="timestamp-converter.html" class="nav-link" data-i18n="timestamp_tab">Timestamp Converter</a>
+            <a href="markdown-to-pdf.html" class="nav-link" data-i18n="markdown_tab">Markdown to PDF</a>
+            <a href="crontab-editor.html" class="nav-link" data-i18n="crontab_tab">Crontab Editor</a>
+            <a href="url-encoder.html" class="nav-link" data-i18n="url_tab">URL Encoder/Decoder</a>
+        </nav>
+    </div>
+    <div class="header-right">
+        <select id="language-select" class="language-select">
+            <option value="en">🇬🇧 English</option>
+            <option value="zh-CN">🇨🇳 中文简体</option>
+            <option value="zh-TW">🇨🇳 中文繁體</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="pt">🇵🇹 Português</option>
+            <option value="ru">🇷🇺 Русский</option>
+        </select>
+        <a href="https://github.com" target="_blank" class="header-link">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub
+        </a>
+    </div>
+</div>`;
+
+const footerHTML = `<p data-i18n="footer_text">© 2025 Toolhub | Static tool, data is not uploaded to server</p>`;
+
+function loadHeader() {
+    const headerContainer = document.querySelector('header');
+    if (headerContainer) {
+        headerContainer.innerHTML = headerHTML;
+        // 重新初始化语言选择器
+        setTimeout(() => {
+            const langSelect = document.getElementById('language-select');
+            if (langSelect) {
+                const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+                currentLang = savedLang;
+                langSelect.value = savedLang;
+
+                // 语言切换监听
+                langSelect.addEventListener('change', function(e) {
+                    const selectedLang = e.target.value;
+                    switchLanguage(selectedLang);
+                });
+
+                // 初始化语言
+                switchLanguage(savedLang);
+            }
+            setActiveNavLink();
+        }, 0);
+    }
+}
+
+function loadFooter() {
+    const footerContainer = document.querySelector('footer');
+    if (footerContainer) {
+        footerContainer.innerHTML = footerHTML;
+        // 重新应用翻译
+        setTimeout(() => {
+            switchLanguage(currentLang);
+        }, 0);
+    }
+}
+
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ==========================================
+// Markdown 转 PDF 功能
+// ==========================================
+function previewMarkdown() {
+    const input = document.getElementById('markdown-input');
+    const preview = document.getElementById('markdown-preview');
+    const errorDiv = document.getElementById('markdown-error');
+
+    if (!input || !preview) return;
+
+    const markdown = input.value.trim();
+
+    if (!markdown) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        preview.innerHTML = '';
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        // 使用 marked 库解析 Markdown
+        const html = marked.parse(markdown);
+        preview.innerHTML = html;
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_markdown_invalid + ': ' + e.message;
+        preview.innerHTML = '';
+    }
+}
+
+function downloadPDF() {
+    const input = document.getElementById('markdown-input');
+    const errorDiv = document.getElementById('markdown-error');
+
+    if (!input) return;
+
+    const markdown = input.value.trim();
+
+    if (!markdown) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+
+        // 先预览 Markdown
+        const html = marked.parse(markdown);
+
+        // 创建一个临时容器用于 PDF 生成
+        const element = document.createElement('div');
+        element.innerHTML = html;
+        element.style.padding = '20px';
+        element.style.fontFamily = 'Arial, sans-serif';
+        element.style.lineHeight = '1.6';
+        element.style.color = '#333';
+
+        // 配置 PDF 选项
+        const opt = {
+            margin: 10,
+            filename: 'document.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // 生成 PDF
+        html2pdf().set(opt).from(element).save();
+
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_pdf_generation + ': ' + e.message;
+    }
+}
+
+function clearMarkdown() {
+    const input = document.getElementById('markdown-input');
+    const preview = document.getElementById('markdown-preview');
+    const errorDiv = document.getElementById('markdown-error');
+
+    if (input) input.value = '';
+    if (preview) preview.innerHTML = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+// ==========================================
+// Crontab 编写器功能
+// ==========================================
+function updateCrontab() {
+    const minute = buildCrontabField('minute');
+    const hour = buildCrontabField('hour');
+    const day = buildCrontabField('day');
+    const month = buildCrontabField('month');
+    const weekday = buildCrontabField('weekday');
+
+    const expr = `${minute} ${hour} ${day} ${month} ${weekday}`;
+    document.getElementById('crontab-expression').value = expr;
+
+    generateNextRuns(expr);
+}
+
+function buildCrontabField(fieldName) {
+    const typeSelect = document.getElementById(`${fieldName}-type`);
+    const type = typeSelect.value;
+
+    if (type === '*' || type === '?') {
+        return type;
+    }
+
+    if (type === 'specific') {
+        const valueInput = document.getElementById(`${fieldName}-value`);
+        return valueInput.value;
+    }
+
+    if (type === 'interval') {
+        const intervalInput = document.getElementById(`${fieldName}-interval`);
+        return `*/${intervalInput.value}`;
+    }
+
+    if (type === 'range') {
+        const valueInput = document.getElementById(`${fieldName}-value`);
+        const maxValue = fieldName === 'minute' ? 59 : fieldName === 'hour' ? 23 : fieldName === 'day' ? 31 : fieldName === 'month' ? 12 : 6;
+        return `${valueInput.value}-${maxValue}`;
+    }
+
+    return '*';
+}
+
+function generateCrontab() {
+    updateCrontab();
+}
+
+function generateNextRuns(expr) {
+    const list = document.getElementById('crontab-next-runs');
+    list.innerHTML = '';
+
+    try {
+        const parts = expr.split(/\s+/);
+        if (parts.length !== 5) {
+            list.innerHTML = '<li>' + translations[currentLang].error_crontab_invalid + '</li>';
+            return;
+        }
+
+        // 生成接下来的 5 次执行时间（近似）
+        const now = new Date();
+        const runs = [];
+
+        for (let i = 0; i < 5; i++) {
+            const nextRun = new Date(now.getTime() + (i + 1) * 60000);
+            runs.push(nextRun.toLocaleString());
+        }
+
+        runs.forEach((run, index) => {
+            const li = document.createElement('li');
+            li.textContent = run;
+            list.appendChild(li);
+        });
+    } catch (e) {
+        list.innerHTML = '<li>' + translations[currentLang].error_crontab_invalid + '</li>';
+    }
+}
+
+function setExample(expr) {
+    const parts = expr.split(/\s+/);
+    if (parts.length !== 5) return;
+
+    const [minute, hour, day, month, weekday] = parts;
+
+    // 设置分钟
+    if (minute === '*') {
+        document.getElementById('minute-type').value = '*';
+    } else if (minute.includes('/')) {
+        document.getElementById('minute-type').value = 'interval';
+        document.getElementById('minute-interval').value = minute.split('/')[1];
+    } else {
+        document.getElementById('minute-type').value = 'specific';
+        document.getElementById('minute-value').value = minute;
+    }
+
+    // 设置小时
+    if (hour === '*') {
+        document.getElementById('hour-type').value = '*';
+    } else if (hour.includes('/')) {
+        document.getElementById('hour-type').value = 'interval';
+        document.getElementById('hour-interval').value = hour.split('/')[1];
+    } else {
+        document.getElementById('hour-type').value = 'specific';
+        document.getElementById('hour-value').value = hour;
+    }
+
+    // 设置日期
+    if (day === '*') {
+        document.getElementById('day-type').value = '*';
+    } else if (day === '?') {
+        document.getElementById('day-type').value = '?';
+    } else {
+        document.getElementById('day-type').value = 'specific';
+        document.getElementById('day-value').value = day;
+    }
+
+    // 设置月份
+    if (month === '*') {
+        document.getElementById('month-type').value = '*';
+    } else {
+        document.getElementById('month-type').value = 'specific';
+        document.getElementById('month-value').value = month;
+    }
+
+    // 设置星期
+    if (weekday === '?') {
+        document.getElementById('weekday-type').value = '?';
+    } else if (weekday === '*') {
+        document.getElementById('weekday-type').value = '*';
+    } else {
+        document.getElementById('weekday-type').value = 'specific';
+        document.getElementById('weekday-value').value = weekday;
+    }
+
+    updateCrontab();
+}
+
+function copyCrontab() {
+    const expr = document.getElementById('crontab-expression');
+    expr.select();
+    document.execCommand('copy');
+
+    // 显示复制成功提示
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + translations[currentLang].success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 2000);
+}
+
+function clearCrontabForm() {
+    document.getElementById('minute-type').value = '*';
+    document.getElementById('hour-type').value = '*';
+    document.getElementById('day-type').value = '*';
+    document.getElementById('month-type').value = '*';
+    document.getElementById('weekday-type').value = '?';
+
+    document.getElementById('crontab-expression').value = '* * * * ?';
+    document.getElementById('crontab-error').textContent = '';
+
+    const list = document.getElementById('crontab-next-runs');
+    list.innerHTML = '<li>-</li>';
+}
+
+// ==========================================
+// URL 编解码功能
+// ==========================================
+function performURLEncode() {
+    const input = document.getElementById('url-input');
+    const result = document.getElementById('url-result');
+    const errorDiv = document.getElementById('url-error');
+
+    if (!input || !result) return;
+
+    const text = input.value;
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        const encodeSlash = document.getElementById('encode-slash').checked;
+        let encoded = encodeURIComponent(text);
+
+        // 如果不编码 "/" 和 ":"，则替换回来
+        if (!encodeSlash) {
+            encoded = encoded.replace(/%2F/g, '/').replace(/%3A/g, ':');
+        }
+
+        result.value = encoded;
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+    }
+}
+
+function performURLDecode() {
+    const input = document.getElementById('url-input');
+    const result = document.getElementById('url-result');
+    const errorDiv = document.getElementById('url-error');
+
+    if (!input || !result) return;
+
+    const text = input.value;
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        const decoded = decodeURIComponent(text);
+        result.value = decoded;
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_decode_failed;
+    }
+}
+
+function updateURLConversion() {
+    // 实时更新（可选）
+    // 这里可以添加实时转换逻辑
+}
+
+function copyURLResult() {
+    const result = document.getElementById('url-result');
+    if (!result) return;
+
+    result.select();
+    document.execCommand('copy');
+
+    // 显示复制成功提示
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + translations[currentLang].success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 2000);
+}
+
+function clearURLAll() {
+    const input = document.getElementById('url-input');
+    const result = document.getElementById('url-result');
+    const errorDiv = document.getElementById('url-error');
+
+    if (input) input.value = '';
+    if (result) result.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+// 页面加载时动态加载 header 和 footer
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        loadHeader();
+        loadFooter();
+    });
+} else {
+    // 如果 script 在 DOMContentLoaded 之后加载
+    loadHeader();
+    loadFooter();
+}

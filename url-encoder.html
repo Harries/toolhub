@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder/Decoder - Toolhub</title>
+    <meta name="description" content="Free online URL encoder and decoder. Encode and decode URLs with support for various encoding formats.">
+    <meta name="keywords" content="URL encoder, URL decoder, URL encoding, URL decoding, percent encoding">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- URL 编解码工具 -->
+        <div id="url-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="url_title">URL Encoder/Decoder</h1>
+            </div>
+
+            <div class="url-encoder-container">
+                <!-- 输入部分 -->
+                <div class="url-input-section">
+                    <label data-i18n="url_input_label">Input Content:</label>
+                    <input type="text" id="url-input" placeholder="Enter text or URL..." data-i18n="url_input_placeholder" oninput="updateURLConversion()">
+                </div>
+
+                <!-- 选项部分 -->
+                <div class="url-options-section">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="encode-slash" checked onchange="updateURLConversion()">
+                        <span data-i18n="url_encode_slash">Encode "/" and ":"</span>
+                    </label>
+                </div>
+
+                <!-- 按钮部分 -->
+                <div class="url-button-section">
+                    <button onclick="performURLEncode()" class="btn btn-primary" data-i18n="url_encode_btn">URL Encode</button>
+                    <button onclick="performURLDecode()" class="btn btn-primary" data-i18n="url_decode_btn">URL Decode</button>
+                    <button onclick="copyURLResult()" class="btn btn-info" data-i18n="copy_btn">Copy Result</button>
+                    <button onclick="clearURLAll()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                </div>
+
+                <!-- 结果部分 -->
+                <div class="url-result-section">
+                    <label data-i18n="url_result_label">Conversion Result:</label>
+                    <input type="text" id="url-result" placeholder="Result will appear here..." data-i18n="url_result_placeholder" readonly>
+                </div>
+
+                <!-- 错误提示 -->
+                <div id="url-error" class="error-message"></div>
+            </div>
+
+            <!-- ASCII 与 URL 编码映射表 -->
+            <div class="url-mapping-section">
+                <h3 data-i18n="url_mapping_title">ASCII & URL Encoding Mapping:</h3>
+                <div class="url-mapping-table-wrapper">
+                    <table class="url-mapping-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="url_character">Character</th>
+                                <th data-i18n="url_ascii_code">ASCII Code</th>
+                                <th data-i18n="url_encoded">URL Encoded</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Space</td>
+                                <td>32</td>
+                                <td>%20</td>
+                            </tr>
+                            <tr>
+                                <td>!</td>
+                                <td>33</td>
+                                <td>%21</td>
+                            </tr>
+                            <tr>
+                                <td>"</td>
+                                <td>34</td>
+                                <td>%22</td>
+                            </tr>
+                            <tr>
+                                <td>#</td>
+                                <td>35</td>
+                                <td>%23</td>
+                            </tr>
+                            <tr>
+                                <td>$</td>
+                                <td>36</td>
+                                <td>%24</td>
+                            </tr>
+                            <tr>
+                                <td>%</td>
+                                <td>37</td>
+                                <td>%25</td>
+                            </tr>
+                            <tr>
+                                <td>&</td>
+                                <td>38</td>
+                                <td>%26</td>
+                            </tr>
+                            <tr>
+                                <td>'</td>
+                                <td>39</td>
+                                <td>%27</td>
+                            </tr>
+                            <tr>
+                                <td>(</td>
+                                <td>40</td>
+                                <td>%28</td>
+                            </tr>
+                            <tr>
+                                <td>)</td>
+                                <td>41</td>
+                                <td>%29</td>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>42</td>
+                                <td>%2A</td>
+                            </tr>
+                            <tr>
+                                <td>+</td>
+                                <td>43</td>
+                                <td>%2B</td>
+                            </tr>
+                            <tr>
+                                <td>,</td>
+                                <td>44</td>
+                                <td>%2C</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>45</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>.</td>
+                                <td>46</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td>/</td>
+                                <td>47</td>
+                                <td>%2F</td>
+                            </tr>
+                            <tr>
+                                <td>:</td>
+                                <td>58</td>
+                                <td>%3A</td>
+                            </tr>
+                            <tr>
+                                <td>;</td>
+                                <td>59</td>
+                                <td>%3B</td>
+                            </tr>
+                            <tr>
+                                <td>=</td>
+                                <td>61</td>
+                                <td>%3D</td>
+                            </tr>
+                            <tr>
+                                <td>?</td>
+                                <td>63</td>
+                                <td>%3F</td>
+                            </tr>
+                            <tr>
+                                <td>@</td>
+                                <td>64</td>
+                                <td>%40</td>
+                            </tr>
+                            <tr>
+                                <td>[</td>
+                                <td>91</td>
+                                <td>%5B</td>
+                            </tr>
+                            <tr>
+                                <td>]</td>
+                                <td>93</td>
+                                <td>%5D</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to PDF - Toolhub</title>
+    <meta name="description" content="Free online Markdown to PDF converter. Convert Markdown documents to PDF files with support for formatting, tables, code blocks, and more.">
+    <meta name="keywords" content="Markdown to PDF, Markdown converter, PDF generator, online converter">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- Markdown to PDF 工具 -->
+        <div id="markdown-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="markdown_title">Markdown to PDF Converter</h1>
+                <div class="button-group">
+                    <button onclick="previewMarkdown()" class="btn btn-primary" data-i18n="preview_btn">Preview</button>
+                    <button onclick="downloadPDF()" class="btn btn-success" data-i18n="download_btn">Download PDF</button>
+                    <button onclick="clearMarkdown()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="markdown_input_label">Input Markdown:</label>
+                    <textarea id="markdown-input" data-i18n="markdown_input_placeholder" placeholder="Paste or input Markdown content here..."></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="preview_label">Preview:</label>
+                    <div id="markdown-preview" class="markdown-preview"></div>
+                </div>
+            </div>
+            
+            <div id="markdown-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <!-- 引入 marked.js 用于 Markdown 解析 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- 引入 html2pdf.js 用于 PDF 生成 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

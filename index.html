@@ -3,48 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Toolbox - Free Online JSON Formatter & Timestamp Converter</title>
+    <title>Toolhub - Free Online JSON Formatter & Timestamp Converter</title>
     <meta name="description" content="Free online developer tools including JSON formatter, validator, and timestamp converter with timezone support. No registration required.">
     <meta name="keywords" content="developer tools, JSON formatter, timestamp converter, online tools, free tools">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="header-content">
-                <div class="header-left">
-                    <a href="index.html" class="logo">
-                        <span class="logo-icon">🛠️</span>
-                        <span class="logo-text" data-i18n="app_title">Developer Toolbox</span>
-                    </a>
-                    <nav class="header-nav">
-                        <a href="json-formatter.html" class="nav-link" data-i18n="json_tab">JSON Formatter</a>
-                        <a href="xml-formatter.html" class="nav-link" data-i18n="xml_tab">XML Formatter</a>
-                        <a href="timestamp-converter.html" class="nav-link" data-i18n="timestamp_tab">Timestamp Converter</a>
-                    </nav>
-                </div>
-                <div class="header-right">
-                    <select id="language-select" class="language-select">
-                        <option value="en">🇬🇧 English</option>
-                        <option value="zh-CN">🇨🇳 中文简体</option>
-                        <option value="zh-TW">🇨🇳 中文繁體</option>
-                        <option value="ja">🇯🇵 日本語</option>
-                        <option value="ko">🇰🇷 한국어</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="pt">🇵🇹 Português</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                    </select>
-                    <a href="https://github.com" target="_blank" class="header-link">
-                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-        </header>
+        <header></header>
 
         <!-- 首页工具菜单 -->
         <div class="home-tools">
@@ -72,12 +38,31 @@
                     <p data-i18n="timestamp_card_desc">Convert between Unix timestamp and datetime with timezone support</p>
                     <div class="tool-card-arrow">→</div>
                 </a>
+
+                <a href="markdown-to-pdf.html" class="tool-card">
+                    <div class="tool-card-icon">📑</div>
+                    <h2 data-i18n="markdown_tab">Markdown to PDF</h2>
+                    <p data-i18n="markdown_card_desc">Convert Markdown documents to PDF files with formatting support</p>
+                    <div class="tool-card-arrow">→</div>
+                </a>
+
+                <a href="crontab-editor.html" class="tool-card">
+                    <div class="tool-card-icon">⏱️</div>
+                    <h2 data-i18n="crontab_tab">Crontab Editor</h2>
+                    <p data-i18n="crontab_card_desc">Create, validate, and understand cron expressions with visual explanation</p>
+                    <div class="tool-card-arrow">→</div>
+                </a>
+
+                <a href="url-encoder.html" class="tool-card">
+                    <div class="tool-card-icon">🔗</div>
+                    <h2 data-i18n="url_tab">URL Encoder/Decoder</h2>
+                    <p data-i18n="url_card_desc">Encode and decode URLs with support for various encoding formats</p>
+                    <div class="tool-card-arrow">→</div>
+                </a>
             </div>
         </div>
 
-        <footer>
-            <p data-i18n="footer_text">© 2025 Developer Toolbox | Static tool, data is not uploaded to server</p>
-        </footer>
+        <footer></footer>
     </div>
 
     <script src="script.js"></script>
