@@ -6,6 +6,82 @@ const translations = {
         app_title: 'Toolhub',
         home_title: '免费在线开发者工具',
         home_subtitle: '快速、安全、易用的开发者工具。所有处理都在浏览器本地完成。',
+
+        // 导航分类
+        nav_encryption: '🔐 加密与编码',
+        nav_format: '📝 格式化与转换',
+        nav_time: '⏰ 时间与任务',
+        nav_devtools: '🔧 开发工具',
+
+        // 加密与编码工具
+        tool_text_encryption: '文本加解密',
+        tool_text_encryption_desc: '一个简单的文本加解密工具，为用户提供便捷的信息保护方案',
+        tool_base64: 'Base64 编码',
+        tool_base64_desc: '将文本或文件编码为 Base64 格式，或解码 Base64 字符串',
+        tool_md5: 'MD5 加密',
+        tool_md5_desc: '将文本转换为 MD5 哈希值，支持大写或小写格式输出',
+        tool_jwt: 'JWT Token 生成',
+        tool_jwt_desc: '生成和解析 JSON Web Token，并且支持选择多种算法',
+        tool_rsa: 'RSA 公私钥生成',
+        tool_rsa_desc: '生成 RSA 公钥和私钥，并且支持多种密钥长度选择',
+        tool_url: 'URL 编解码',
+        tool_url_desc: '使用 ASCII 映射对 URL 中的非标准字符进行编码或解码',
+
+        // 格式化与转换工具
+        tool_json_validator: 'JSON 格式校验',
+        tool_json_validator_desc: '验证 JSON 数据格式是否正确，支持格式化和错误提示',
+        tool_json_compress: 'JSON 压缩',
+        tool_json_compress_desc: '将 JSON 数据压缩为一行的紧凑格式，以便节省空间',
+        tool_yaml: 'YAML-Properties 转换',
+        tool_yaml_desc: '在 YAML 和 Properties 格式之间相互转换，简化配置文件管理',
+        tool_xml: 'XML 压缩和格式化',
+        tool_xml_desc: '压缩 XML 数据以优化加载，或格式化为易读的样式',
+        tool_sql_format: 'SQL 格式化',
+        tool_sql_format_desc: '格式化SQL语句以提高代码的可读性、可维护性和可理解性',
+        tool_sql_validator: 'SQL验证器',
+        tool_sql_validator_desc: '格式化和校验SQL DDL语句，支持多种数据库，提升代码可读性',
+        tool_css: 'CSS 压缩和格式化',
+        tool_css_desc: '压缩 CSS 代码以优化加载，或格式化为易读的样式',
+        tool_naming: '命名格式转换',
+        tool_naming_desc: '在驼峰命名和下划线命名之间进行转换，支持大小驼峰和多种下划线格式',
+        tool_unicode: 'Unicode 转换',
+        tool_unicode_desc: '在中文和 Unicode 字符之间进行双向转换，以方便进行字符处理',
+        tool_chinese: '中文简繁转换',
+        tool_chinese_desc: '在简体中文和繁体中文之间进行双向转换，支持文本和文件转换',
+
+        // 时间与任务工具
+        tool_timestamp: '时间戳转换',
+        tool_timestamp_desc: '将时间戳与可读日期时间之间相互转换，支持多种格式',
+        tool_crontab: 'Crontab 编写器',
+        tool_crontab_desc: '轻松生成和管理 Crontab 调度表达式，支持实时预览和常见示例',
+        tool_calendar: '日历查看',
+        tool_calendar_desc: '可以随时随地查看月份日历数据，如日期和节气等信息',
+        tool_timer: '简单计时器',
+        tool_timer_desc: '一个简单易用的计时器工具，支持计数器和倒计时功能',
+
+        // 开发工具
+        tool_qrcode: '二维码工具',
+        tool_qrcode_desc: '支持生成简单二维码或解码二维码图片，使用非常简单',
+        tool_regex: '正则表达式测试',
+        tool_regex_desc: '验证正则表达式否能够准确地匹配、提取或替换符合特定模式的字符串',
+        tool_char_counter: '字符数统计',
+        tool_char_counter_desc: '快速统计文本的字符数、单词数和行数，适合写作、编程和数据分析',
+        tool_ip: 'IP地址获取与查询',
+        tool_ip_desc: '快速获取您的出口公网 IP 地址，或者查询IP地址归属地信息，非常简单便捷又实用',
+        tool_uuid: 'UUID 生成器',
+        tool_uuid_desc: '支持生成 v1、v3、v4、v5 和 NIL 版本的 UUID，满足不同场景需求',
+        tool_password: '随机密码生成',
+        tool_password_desc: '生成包含数字、字母和特殊字符的随机密码，可自定义长度',
+        tool_modulo: '取模计算器',
+        tool_modulo_desc: '计算两个数的模，即一个数除以另一个数所得的余数',
+        tool_calculator: '简单计算器',
+        tool_calculator_desc: '一个可以随时随地使用的简单计算器，支持基本的加减乘除运算',
+        tool_ascii: 'ASCII 艺术字',
+        tool_ascii_desc: '将英文字符转化为由 ASCII 字符精心排列组合成的文本形式',
+        tool_color: '颜色选择器',
+        tool_color_desc: '能够让用户通过直观简单的操作方式精确选取所需颜色',
+
+        // 旧的翻译保留
         json_tab: 'JSON 格式化',
         json_card_desc: '格式化、压缩和验证 JSON 数据，支持语法高亮',
         xml_tab: 'XML 格式化',
@@ -110,6 +186,82 @@ const translations = {
         app_title: 'Toolhub',
         home_title: '免費線上開發者工具',
         home_subtitle: '快速、安全、易用的開發者工具。所有處理都在瀏覽器本地完成。',
+
+        // 導航分類
+        nav_encryption: '🔐 加密與編碼',
+        nav_format: '📝 格式化與轉換',
+        nav_time: '⏰ 時間與任務',
+        nav_devtools: '🔧 開發工具',
+
+        // 加密與編碼工具
+        tool_text_encryption: '文本加解密',
+        tool_text_encryption_desc: '一個簡單的文本加解密工具，為用戶提供便捷的信息保護方案',
+        tool_base64: 'Base64 編碼',
+        tool_base64_desc: '將文本或文件編碼為 Base64 格式，或解碼 Base64 字符串',
+        tool_md5: 'MD5 加密',
+        tool_md5_desc: '將文本轉換為 MD5 哈希值，支持大寫或小寫格式輸出',
+        tool_jwt: 'JWT Token 生成',
+        tool_jwt_desc: '生成和解析 JSON Web Token，並且支持選擇多種算法',
+        tool_rsa: 'RSA 公私鑰生成',
+        tool_rsa_desc: '生成 RSA 公鑰和私鑰，並且支持多種密鑰長度選擇',
+        tool_url: 'URL 編解碼',
+        tool_url_desc: '使用 ASCII 映射對 URL 中的非標準字符進行編碼或解碼',
+
+        // 格式化與轉換工具
+        tool_json_validator: 'JSON 格式校驗',
+        tool_json_validator_desc: '驗證 JSON 數據格式是否正確，支持格式化和錯誤提示',
+        tool_json_compress: 'JSON 壓縮',
+        tool_json_compress_desc: '將 JSON 數據壓縮為一行的緊湊格式，以便節省空間',
+        tool_yaml: 'YAML-Properties 轉換',
+        tool_yaml_desc: '在 YAML 和 Properties 格式之間相互轉換，簡化配置文件管理',
+        tool_xml: 'XML 壓縮和格式化',
+        tool_xml_desc: '壓縮 XML 數據以優化加載，或格式化為易讀的樣式',
+        tool_sql_format: 'SQL 格式化',
+        tool_sql_format_desc: '格式化SQL語句以提高代碼的可讀性、可維護性和可理解性',
+        tool_sql_validator: 'SQL驗證器',
+        tool_sql_validator_desc: '格式化和校驗SQL DDL語句，支持多種數據庫，提升代碼可讀性',
+        tool_css: 'CSS 壓縮和格式化',
+        tool_css_desc: '壓縮 CSS 代碼以優化加載，或格式化為易讀的樣式',
+        tool_naming: '命名格式轉換',
+        tool_naming_desc: '在駝峰命名和下劃線命名之間進行轉換，支持大小駝峰和多種下劃線格式',
+        tool_unicode: 'Unicode 轉換',
+        tool_unicode_desc: '在中文和 Unicode 字符之間進行雙向轉換，以方便進行字符處理',
+        tool_chinese: '中文簡繁轉換',
+        tool_chinese_desc: '在簡體中文和繁體中文之間進行雙向轉換，支持文本和文件轉換',
+
+        // 時間與任務工具
+        tool_timestamp: '時間戳轉換',
+        tool_timestamp_desc: '將時間戳與可讀日期時間之間相互轉換，支持多種格式',
+        tool_crontab: 'Crontab 編寫器',
+        tool_crontab_desc: '輕鬆生成和管理 Crontab 調度表達式，支持實時預覽和常見示例',
+        tool_calendar: '日曆查看',
+        tool_calendar_desc: '可以隨時隨地查看月份日曆數據，如日期和節氣等信息',
+        tool_timer: '簡單計時器',
+        tool_timer_desc: '一個簡單易用的計時器工具，支持計數器和倒計時功能',
+
+        // 開發工具
+        tool_qrcode: '二維碼工具',
+        tool_qrcode_desc: '支持生成簡單二維碼或解碼二維碼圖片，使用非常簡單',
+        tool_regex: '正則表達式測試',
+        tool_regex_desc: '驗證正則表達式否能夠準確地匹配、提取或替換符合特定模式的字符串',
+        tool_char_counter: '字符數統計',
+        tool_char_counter_desc: '快速統計文本的字符數、單詞數和行數，適合寫作、編程和數據分析',
+        tool_ip: 'IP地址獲取與查詢',
+        tool_ip_desc: '快速獲取您的出口公網 IP 地址，或者查詢IP地址歸屬地信息，非常簡單便捷又實用',
+        tool_uuid: 'UUID 生成器',
+        tool_uuid_desc: '支持生成 v1、v3、v4、v5 和 NIL 版本的 UUID，滿足不同場景需求',
+        tool_password: '隨機密碼生成',
+        tool_password_desc: '生成包含數字、字母和特殊字符的隨機密碼，可自定義長度',
+        tool_modulo: '取模計算器',
+        tool_modulo_desc: '計算兩個數的模，即一個數除以另一個數所得的餘數',
+        tool_calculator: '簡單計算器',
+        tool_calculator_desc: '一個可以隨時隨地使用的簡單計算器，支持基本的加減乘除運算',
+        tool_ascii: 'ASCII 藝術字',
+        tool_ascii_desc: '將英文字符轉化為由 ASCII 字符精心排列組合成的文本形式',
+        tool_color: '顏色選擇器',
+        tool_color_desc: '能夠讓用戶通過直觀簡單的操作方式精確選取所需顏色',
+
+        // 舊的翻譯保留
         json_tab: 'JSON 格式化',
         json_card_desc: '格式化、壓縮和驗證 JSON 資料，支援語法高亮',
         xml_tab: 'XML 格式化',
@@ -207,6 +359,82 @@ const translations = {
         app_title: 'Toolhub',
         home_title: 'Free Online Developer Tools',
         home_subtitle: 'Fast, secure, and easy-to-use tools for developers. All processing is done locally in your browser.',
+
+        // Navigation categories
+        nav_encryption: '🔐 Encryption & Encoding',
+        nav_format: '📝 Format & Convert',
+        nav_time: '⏰ Time & Schedule',
+        nav_devtools: '🔧 Developer Tools',
+
+        // Encryption & Encoding tools
+        tool_text_encryption: 'Text Encryption',
+        tool_text_encryption_desc: 'A simple text encryption and decryption tool for convenient information protection',
+        tool_base64: 'Base64 Encoding',
+        tool_base64_desc: 'Encode text or files to Base64 format, or decode Base64 strings',
+        tool_md5: 'MD5 Encryption',
+        tool_md5_desc: 'Convert text to MD5 hash value, supports uppercase or lowercase output',
+        tool_jwt: 'JWT Token Generator',
+        tool_jwt_desc: 'Generate and parse JSON Web Tokens with support for multiple algorithms',
+        tool_rsa: 'RSA Key Generator',
+        tool_rsa_desc: 'Generate RSA public and private keys with support for various key lengths',
+        tool_url: 'URL Encoder/Decoder',
+        tool_url_desc: 'Encode or decode non-standard characters in URLs using ASCII mapping',
+
+        // Format & Convert tools
+        tool_json_validator: 'JSON Validator',
+        tool_json_validator_desc: 'Validate JSON data format with formatting and error hints',
+        tool_json_compress: 'JSON Compressor',
+        tool_json_compress_desc: 'Compress JSON data into a compact one-line format to save space',
+        tool_yaml: 'YAML-Properties Converter',
+        tool_yaml_desc: 'Convert between YAML and Properties formats to simplify configuration file management',
+        tool_xml: 'XML Formatter',
+        tool_xml_desc: 'Compress XML data to optimize loading, or format for readability',
+        tool_sql_format: 'SQL Formatter',
+        tool_sql_format_desc: 'Format SQL statements to improve code readability, maintainability and comprehension',
+        tool_sql_validator: 'SQL Validator',
+        tool_sql_validator_desc: 'Format and validate SQL DDL statements, supports multiple databases',
+        tool_css: 'CSS Formatter',
+        tool_css_desc: 'Compress CSS code to optimize loading, or format for readability',
+        tool_naming: 'Naming Converter',
+        tool_naming_desc: 'Convert between camelCase and snake_case, supports various formats',
+        tool_unicode: 'Unicode Converter',
+        tool_unicode_desc: 'Bidirectional conversion between Chinese and Unicode characters',
+        tool_chinese: 'Chinese Converter',
+        tool_chinese_desc: 'Bidirectional conversion between Simplified and Traditional Chinese',
+
+        // Time & Schedule tools
+        tool_timestamp: 'Timestamp Converter',
+        tool_timestamp_desc: 'Convert between timestamp and readable datetime, supports multiple formats',
+        tool_crontab: 'Crontab Editor',
+        tool_crontab_desc: 'Easily generate and manage Crontab schedule expressions with real-time preview',
+        tool_calendar: 'Calendar Viewer',
+        tool_calendar_desc: 'View monthly calendar data including dates and solar terms anytime, anywhere',
+        tool_timer: 'Simple Timer',
+        tool_timer_desc: 'A simple and easy-to-use timer tool with counter and countdown functions',
+
+        // Developer tools
+        tool_qrcode: 'QR Code Tool',
+        tool_qrcode_desc: 'Generate simple QR codes or decode QR code images, very easy to use',
+        tool_regex: 'Regex Tester',
+        tool_regex_desc: 'Test if regular expressions can accurately match, extract or replace strings',
+        tool_char_counter: 'Character Counter',
+        tool_char_counter_desc: 'Quickly count characters, words and lines in text, suitable for writing and programming',
+        tool_ip: 'IP Address Lookup',
+        tool_ip_desc: 'Quickly get your public IP address or query IP address location information',
+        tool_uuid: 'UUID Generator',
+        tool_uuid_desc: 'Generate v1, v3, v4, v5 and NIL versions of UUID for different scenarios',
+        tool_password: 'Password Generator',
+        tool_password_desc: 'Generate random passwords with numbers, letters and special characters',
+        tool_modulo: 'Modulo Calculator',
+        tool_modulo_desc: 'Calculate the modulo of two numbers, i.e., the remainder of division',
+        tool_calculator: 'Simple Calculator',
+        tool_calculator_desc: 'A simple calculator that can be used anytime, anywhere',
+        tool_ascii: 'ASCII Art',
+        tool_ascii_desc: 'Convert English characters into text art made of ASCII characters',
+        tool_color: 'Color Picker',
+        tool_color_desc: 'Precisely select colors through intuitive and simple operations',
+
+        // Legacy translations
         json_tab: 'JSON Formatter',
         json_card_desc: 'Format, compress, and validate JSON data with syntax highlighting',
         xml_tab: 'XML Formatter',
@@ -314,6 +542,52 @@ translations['ja'] = {
     app_title: 'Toolhub',
     home_title: '無料オンライン開発者ツール',
     home_subtitle: '高速、安全、使いやすい開発者ツール。すべての処理はブラウザ内でローカルに行われます。',
+
+    // ナビゲーションカテゴリ
+    nav_encryption: '🔐 暗号化とエンコーディング',
+    nav_format: '📝 フォーマットと変換',
+    nav_time: '⏰ 時間とスケジュール',
+    nav_devtools: '🔧 開発ツール',
+
+    // 暗号化とエンコーディングツール
+    tool_text_encryption: 'テキスト暗号化',
+    tool_base64: 'Base64エンコーディング',
+    tool_md5: 'MD5暗号化',
+    tool_jwt: 'JWTトークン生成',
+    tool_rsa: 'RSA鍵生成',
+    tool_url: 'URLエンコーダー/デコーダー',
+
+    // フォーマットと変換ツール
+    tool_json_validator: 'JSONバリデーター',
+    tool_json_compress: 'JSON圧縮',
+    tool_yaml: 'YAML-Properties変換',
+    tool_xml: 'XMLフォーマッター',
+    tool_sql_format: 'SQLフォーマッター',
+    tool_sql_validator: 'SQLバリデーター',
+    tool_css: 'CSSフォーマッター',
+    tool_naming: '命名規則変換',
+    tool_unicode: 'Unicode変換',
+    tool_chinese: '中国語簡繁変換',
+
+    // 時間とスケジュールツール
+    tool_timestamp: 'タイムスタンプ変換',
+    tool_crontab: 'Crontabエディター',
+    tool_calendar: 'カレンダービューアー',
+    tool_timer: 'シンプルタイマー',
+
+    // 開発ツール
+    tool_qrcode: 'QRコードツール',
+    tool_regex: '正規表現テスター',
+    tool_char_counter: '文字数カウンター',
+    tool_ip: 'IPアドレス検索',
+    tool_uuid: 'UUID生成器',
+    tool_password: 'パスワード生成器',
+    tool_modulo: 'モジュロ計算機',
+    tool_calculator: 'シンプル計算機',
+    tool_ascii: 'ASCIIアート',
+    tool_color: 'カラーピッカー',
+
+    // 旧翻訳
     json_tab: 'JSONフォーマッター',
     json_card_desc: 'JSON データのフォーマット、圧縮、検証をシンタックスハイライト付きで実行',
     xml_tab: 'XMLフォーマッター',
@@ -418,6 +692,52 @@ translations['ko'] = {
     app_title: 'Toolhub',
     home_title: '무료 온라인 개발자 도구',
     home_subtitle: '빠르고 안전하며 사용하기 쉬운 개발자 도구. 모든 처리는 브라우저에서 로컬로 수행됩니다.',
+
+    // 네비게이션 카테고리
+    nav_encryption: '🔐 암호화 및 인코딩',
+    nav_format: '📝 포맷 및 변환',
+    nav_time: '⏰ 시간 및 일정',
+    nav_devtools: '🔧 개발 도구',
+
+    // 암호화 및 인코딩 도구
+    tool_text_encryption: '텍스트 암호화',
+    tool_base64: 'Base64 인코딩',
+    tool_md5: 'MD5 암호화',
+    tool_jwt: 'JWT 토큰 생성기',
+    tool_rsa: 'RSA 키 생성기',
+    tool_url: 'URL 인코더/디코더',
+
+    // 포맷 및 변환 도구
+    tool_json_validator: 'JSON 검증기',
+    tool_json_compress: 'JSON 압축',
+    tool_yaml: 'YAML-Properties 변환',
+    tool_xml: 'XML 포맷터',
+    tool_sql_format: 'SQL 포맷터',
+    tool_sql_validator: 'SQL 검증기',
+    tool_css: 'CSS 포맷터',
+    tool_naming: '명명 규칙 변환',
+    tool_unicode: 'Unicode 변환',
+    tool_chinese: '중국어 간체/번체 변환',
+
+    // 시간 및 일정 도구
+    tool_timestamp: '타임스탬프 변환',
+    tool_crontab: 'Crontab 편집기',
+    tool_calendar: '캘린더 뷰어',
+    tool_timer: '간단한 타이머',
+
+    // 개발 도구
+    tool_qrcode: 'QR 코드 도구',
+    tool_regex: '정규식 테스터',
+    tool_char_counter: '문자 수 카운터',
+    tool_ip: 'IP 주소 조회',
+    tool_uuid: 'UUID 생성기',
+    tool_password: '비밀번호 생성기',
+    tool_modulo: '모듈로 계산기',
+    tool_calculator: '간단한 계산기',
+    tool_ascii: 'ASCII 아트',
+    tool_color: '색상 선택기',
+
+    // 기존 번역
     json_tab: 'JSON 포맷터',
     json_card_desc: '구문 강조 표시로 JSON 데이터 형식 지정, 압축 및 검증',
     xml_tab: 'XML 포맷터',
@@ -522,6 +842,52 @@ translations['es'] = {
     app_title: 'Toolhub',
     home_title: 'Herramientas Gratuitas en Línea para Desarrolladores',
     home_subtitle: 'Herramientas rápidas, seguras y fáciles de usar para desarrolladores. Todo el procesamiento se realiza localmente en su navegador.',
+
+    // Categorías de navegación
+    nav_encryption: '🔐 Cifrado y Codificación',
+    nav_format: '📝 Formato y Conversión',
+    nav_time: '⏰ Tiempo y Programación',
+    nav_devtools: '🔧 Herramientas de Desarrollo',
+
+    // Herramientas de cifrado y codificación
+    tool_text_encryption: 'Cifrado de Texto',
+    tool_base64: 'Codificación Base64',
+    tool_md5: 'Cifrado MD5',
+    tool_jwt: 'Generador de Token JWT',
+    tool_rsa: 'Generador de Claves RSA',
+    tool_url: 'Codificador/Decodificador URL',
+
+    // Herramientas de formato y conversión
+    tool_json_validator: 'Validador JSON',
+    tool_json_compress: 'Compresor JSON',
+    tool_yaml: 'Conversor YAML-Properties',
+    tool_xml: 'Formateador XML',
+    tool_sql_format: 'Formateador SQL',
+    tool_sql_validator: 'Validador SQL',
+    tool_css: 'Formateador CSS',
+    tool_naming: 'Conversor de Nomenclatura',
+    tool_unicode: 'Conversor Unicode',
+    tool_chinese: 'Conversor Chino',
+
+    // Herramientas de tiempo y programación
+    tool_timestamp: 'Conversor de Marca de Tiempo',
+    tool_crontab: 'Editor Crontab',
+    tool_calendar: 'Visor de Calendario',
+    tool_timer: 'Temporizador Simple',
+
+    // Herramientas de desarrollo
+    tool_qrcode: 'Herramienta de Código QR',
+    tool_regex: 'Probador de Expresiones Regulares',
+    tool_char_counter: 'Contador de Caracteres',
+    tool_ip: 'Búsqueda de Dirección IP',
+    tool_uuid: 'Generador UUID',
+    tool_password: 'Generador de Contraseñas',
+    tool_modulo: 'Calculadora de Módulo',
+    tool_calculator: 'Calculadora Simple',
+    tool_ascii: 'Arte ASCII',
+    tool_color: 'Selector de Color',
+
+    // Traducciones antiguas
     json_tab: 'Formateador JSON',
     json_card_desc: 'Formatear, comprimir y validar datos JSON con resaltado de sintaxis',
     xml_tab: 'Formateador XML',
@@ -626,6 +992,52 @@ translations['fr'] = {
     app_title: 'Toolhub',
     home_title: 'Outils Gratuits en Ligne pour Développeurs',
     home_subtitle: 'Outils rapides, sécurisés et faciles à utiliser pour les développeurs. Tout le traitement est effectué localement dans votre navigateur.',
+
+    // Catégories de navigation
+    nav_encryption: '🔐 Chiffrement et Encodage',
+    nav_format: '📝 Format et Conversion',
+    nav_time: '⏰ Temps et Planification',
+    nav_devtools: '🔧 Outils de Développement',
+
+    // Outils de chiffrement et encodage
+    tool_text_encryption: 'Chiffrement de Texte',
+    tool_base64: 'Encodage Base64',
+    tool_md5: 'Chiffrement MD5',
+    tool_jwt: 'Générateur de Token JWT',
+    tool_rsa: 'Générateur de Clés RSA',
+    tool_url: 'Encodeur/Décodeur URL',
+
+    // Outils de format et conversion
+    tool_json_validator: 'Validateur JSON',
+    tool_json_compress: 'Compresseur JSON',
+    tool_yaml: 'Convertisseur YAML-Properties',
+    tool_xml: 'Formateur XML',
+    tool_sql_format: 'Formateur SQL',
+    tool_sql_validator: 'Validateur SQL',
+    tool_css: 'Formateur CSS',
+    tool_naming: 'Convertisseur de Nomenclature',
+    tool_unicode: 'Convertisseur Unicode',
+    tool_chinese: 'Convertisseur Chinois',
+
+    // Outils de temps et planification
+    tool_timestamp: 'Convertisseur d\'Horodatage',
+    tool_crontab: 'Éditeur Crontab',
+    tool_calendar: 'Visualiseur de Calendrier',
+    tool_timer: 'Minuteur Simple',
+
+    // Outils de développement
+    tool_qrcode: 'Outil de Code QR',
+    tool_regex: 'Testeur d\'Expressions Régulières',
+    tool_char_counter: 'Compteur de Caractères',
+    tool_ip: 'Recherche d\'Adresse IP',
+    tool_uuid: 'Générateur UUID',
+    tool_password: 'Générateur de Mot de Passe',
+    tool_modulo: 'Calculatrice de Modulo',
+    tool_calculator: 'Calculatrice Simple',
+    tool_ascii: 'Art ASCII',
+    tool_color: 'Sélecteur de Couleur',
+
+    // Anciennes traductions
     json_tab: 'Formateur JSON',
     json_card_desc: 'Formater, compresser et valider les données JSON avec coloration syntaxique',
     xml_tab: 'Formateur XML',
@@ -730,6 +1142,52 @@ translations['de'] = {
     app_title: 'Toolhub',
     home_title: 'Kostenlose Online-Entwicklertools',
     home_subtitle: 'Schnelle, sichere und benutzerfreundliche Tools für Entwickler. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser.',
+
+    // Navigationskategorien
+    nav_encryption: '🔐 Verschlüsselung & Kodierung',
+    nav_format: '📝 Format & Konvertierung',
+    nav_time: '⏰ Zeit & Planung',
+    nav_devtools: '🔧 Entwicklertools',
+
+    // Verschlüsselung & Kodierung Tools
+    tool_text_encryption: 'Textverschlüsselung',
+    tool_base64: 'Base64-Kodierung',
+    tool_md5: 'MD5-Verschlüsselung',
+    tool_jwt: 'JWT-Token-Generator',
+    tool_rsa: 'RSA-Schlüsselgenerator',
+    tool_url: 'URL-Encoder/Decoder',
+
+    // Format & Konvertierung Tools
+    tool_json_validator: 'JSON-Validator',
+    tool_json_compress: 'JSON-Kompressor',
+    tool_yaml: 'YAML-Properties-Konverter',
+    tool_xml: 'XML-Formatierer',
+    tool_sql_format: 'SQL-Formatierer',
+    tool_sql_validator: 'SQL-Validator',
+    tool_css: 'CSS-Formatierer',
+    tool_naming: 'Namenskonverter',
+    tool_unicode: 'Unicode-Konverter',
+    tool_chinese: 'Chinesischer Konverter',
+
+    // Zeit & Planung Tools
+    tool_timestamp: 'Zeitstempel-Konverter',
+    tool_crontab: 'Crontab-Editor',
+    tool_calendar: 'Kalender-Viewer',
+    tool_timer: 'Einfacher Timer',
+
+    // Entwicklertools
+    tool_qrcode: 'QR-Code-Tool',
+    tool_regex: 'Regex-Tester',
+    tool_char_counter: 'Zeichenzähler',
+    tool_ip: 'IP-Adress-Suche',
+    tool_uuid: 'UUID-Generator',
+    tool_password: 'Passwort-Generator',
+    tool_modulo: 'Modulo-Rechner',
+    tool_calculator: 'Einfacher Rechner',
+    tool_ascii: 'ASCII-Kunst',
+    tool_color: 'Farbwähler',
+
+    // Alte Übersetzungen
     json_tab: 'JSON-Formatierer',
     json_card_desc: 'JSON-Daten mit Syntaxhervorhebung formatieren, komprimieren und validieren',
     xml_tab: 'XML-Formatierer',
@@ -834,6 +1292,52 @@ translations['pt'] = {
     app_title: 'Toolhub',
     home_title: 'Ferramentas Gratuitas Online para Desenvolvedores',
     home_subtitle: 'Ferramentas rápidas, seguras e fáceis de usar para desenvolvedores. Todo o processamento é feito localmente no seu navegador.',
+
+    // Categorias de navegação
+    nav_encryption: '🔐 Criptografia e Codificação',
+    nav_format: '📝 Formato e Conversão',
+    nav_time: '⏰ Tempo e Agendamento',
+    nav_devtools: '🔧 Ferramentas de Desenvolvimento',
+
+    // Ferramentas de criptografia e codificação
+    tool_text_encryption: 'Criptografia de Texto',
+    tool_base64: 'Codificação Base64',
+    tool_md5: 'Criptografia MD5',
+    tool_jwt: 'Gerador de Token JWT',
+    tool_rsa: 'Gerador de Chaves RSA',
+    tool_url: 'Codificador/Decodificador URL',
+
+    // Ferramentas de formato e conversão
+    tool_json_validator: 'Validador JSON',
+    tool_json_compress: 'Compressor JSON',
+    tool_yaml: 'Conversor YAML-Properties',
+    tool_xml: 'Formatador XML',
+    tool_sql_format: 'Formatador SQL',
+    tool_sql_validator: 'Validador SQL',
+    tool_css: 'Formatador CSS',
+    tool_naming: 'Conversor de Nomenclatura',
+    tool_unicode: 'Conversor Unicode',
+    tool_chinese: 'Conversor Chinês',
+
+    // Ferramentas de tempo e agendamento
+    tool_timestamp: 'Conversor de Timestamp',
+    tool_crontab: 'Editor Crontab',
+    tool_calendar: 'Visualizador de Calendário',
+    tool_timer: 'Temporizador Simples',
+
+    // Ferramentas de desenvolvimento
+    tool_qrcode: 'Ferramenta de Código QR',
+    tool_regex: 'Testador de Expressões Regulares',
+    tool_char_counter: 'Contador de Caracteres',
+    tool_ip: 'Pesquisa de Endereço IP',
+    tool_uuid: 'Gerador UUID',
+    tool_password: 'Gerador de Senha',
+    tool_modulo: 'Calculadora de Módulo',
+    tool_calculator: 'Calculadora Simples',
+    tool_ascii: 'Arte ASCII',
+    tool_color: 'Seletor de Cores',
+
+    // Traduções antigas
     json_tab: 'Formatador JSON',
     json_card_desc: 'Formatar, comprimir e validar dados JSON com destaque de sintaxe',
     xml_tab: 'Formatador XML',
@@ -938,6 +1442,52 @@ translations['ru'] = {
     app_title: 'Toolhub',
     home_title: 'Бесплатные онлайн-инструменты для разработчиков',
     home_subtitle: 'Быстрые, безопасные и простые в использовании инструменты для разработчиков. Вся обработка выполняется локально в вашем браузере.',
+
+    // Категории навигации
+    nav_encryption: '🔐 Шифрование и Кодирование',
+    nav_format: '📝 Форматирование и Конвертация',
+    nav_time: '⏰ Время и Планирование',
+    nav_devtools: '🔧 Инструменты Разработчика',
+
+    // Инструменты шифрования и кодирования
+    tool_text_encryption: 'Шифрование Текста',
+    tool_base64: 'Кодирование Base64',
+    tool_md5: 'Шифрование MD5',
+    tool_jwt: 'Генератор JWT Токенов',
+    tool_rsa: 'Генератор RSA Ключей',
+    tool_url: 'Кодировщик/Декодировщик URL',
+
+    // Инструменты форматирования и конвертации
+    tool_json_validator: 'Валидатор JSON',
+    tool_json_compress: 'Компрессор JSON',
+    tool_yaml: 'Конвертер YAML-Properties',
+    tool_xml: 'Форматтер XML',
+    tool_sql_format: 'Форматтер SQL',
+    tool_sql_validator: 'Валидатор SQL',
+    tool_css: 'Форматтер CSS',
+    tool_naming: 'Конвертер Именования',
+    tool_unicode: 'Конвертер Unicode',
+    tool_chinese: 'Конвертер Китайского',
+
+    // Инструменты времени и планирования
+    tool_timestamp: 'Конвертер Временных Меток',
+    tool_crontab: 'Редактор Crontab',
+    tool_calendar: 'Просмотр Календаря',
+    tool_timer: 'Простой Таймер',
+
+    // Инструменты разработчика
+    tool_qrcode: 'Инструмент QR-кода',
+    tool_regex: 'Тестер Регулярных Выражений',
+    tool_char_counter: 'Счетчик Символов',
+    tool_ip: 'Поиск IP-адреса',
+    tool_uuid: 'Генератор UUID',
+    tool_password: 'Генератор Паролей',
+    tool_modulo: 'Калькулятор Модуля',
+    tool_calculator: 'Простой Калькулятор',
+    tool_ascii: 'ASCII Искусство',
+    tool_color: 'Выбор Цвета',
+
+    // Старые переводы
     json_tab: 'Форматтер JSON',
     json_card_desc: 'Форматирование, сжатие и проверка данных JSON с подсветкой синтаксиса',
     xml_tab: 'Форматтер XML',
@@ -1567,12 +2117,63 @@ const headerHTML = `<div class="header-content">
             <span class="logo-text" data-i18n="app_title">Toolhub</span>
         </a>
         <nav class="header-nav">
-            <a href="json-formatter.html" class="nav-link" data-i18n="json_tab">JSON Formatter</a>
-            <a href="xml-formatter.html" class="nav-link" data-i18n="xml_tab">XML Formatter</a>
-            <a href="timestamp-converter.html" class="nav-link" data-i18n="timestamp_tab">Timestamp Converter</a>
-            <a href="markdown-to-pdf.html" class="nav-link" data-i18n="markdown_tab">Markdown to PDF</a>
-            <a href="crontab-editor.html" class="nav-link" data-i18n="crontab_tab">Crontab Editor</a>
-            <a href="url-encoder.html" class="nav-link" data-i18n="url_tab">URL Encoder/Decoder</a>
+            <!-- 加密与编码 -->
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link" data-i18n="nav_encryption">🔐 加密与编码</a>
+                <div class="dropdown-menu">
+                    <a href="text-encryption.html" class="dropdown-item" data-i18n="tool_text_encryption">文本加解密</a>
+                    <a href="base64.html" class="dropdown-item" data-i18n="tool_base64">Base64 编码</a>
+                    <a href="md5.html" class="dropdown-item" data-i18n="tool_md5">MD5 加密</a>
+                    <a href="jwt.html" class="dropdown-item" data-i18n="tool_jwt">JWT Token 生成</a>
+                    <a href="rsa.html" class="dropdown-item" data-i18n="tool_rsa">RSA 公私钥生成</a>
+                    <a href="url-encoder.html" class="dropdown-item" data-i18n="tool_url">URL 编解码</a>
+                </div>
+            </div>
+
+            <!-- 格式化与转换 -->
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link" data-i18n="nav_format">📝 格式化与转换</a>
+                <div class="dropdown-menu">
+                    <a href="json-formatter.html" class="dropdown-item" data-i18n="tool_json_validator">JSON 格式校验</a>
+                    <a href="json-formatter.html" class="dropdown-item" data-i18n="tool_json_compress">JSON 压缩</a>
+                    <a href="yaml-properties.html" class="dropdown-item" data-i18n="tool_yaml">YAML-Properties 转换</a>
+                    <a href="xml-formatter.html" class="dropdown-item" data-i18n="tool_xml">XML 压缩和格式化</a>
+                    <a href="sql-formatter.html" class="dropdown-item" data-i18n="tool_sql_format">SQL 格式化</a>
+                    <a href="sql-validator.html" class="dropdown-item" data-i18n="tool_sql_validator">SQL验证器</a>
+                    <a href="css-formatter.html" class="dropdown-item" data-i18n="tool_css">CSS 压缩和格式化</a>
+                    <a href="naming-converter.html" class="dropdown-item" data-i18n="tool_naming">命名格式转换</a>
+                    <a href="unicode.html" class="dropdown-item" data-i18n="tool_unicode">Unicode 转换</a>
+                    <a href="chinese-converter.html" class="dropdown-item" data-i18n="tool_chinese">中文简繁转换</a>
+                </div>
+            </div>
+
+            <!-- 时间与任务 -->
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link" data-i18n="nav_time">⏰ 时间与任务</a>
+                <div class="dropdown-menu">
+                    <a href="timestamp-converter.html" class="dropdown-item" data-i18n="tool_timestamp">时间戳转换</a>
+                    <a href="crontab-editor.html" class="dropdown-item" data-i18n="tool_crontab">Crontab 编写器</a>
+                    <a href="calendar.html" class="dropdown-item" data-i18n="tool_calendar">日历查看</a>
+                    <a href="timer.html" class="dropdown-item" data-i18n="tool_timer">简单计时器</a>
+                </div>
+            </div>
+
+            <!-- 开发工具 -->
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link" data-i18n="nav_devtools">🔧 开发工具</a>
+                <div class="dropdown-menu">
+                    <a href="qrcode.html" class="dropdown-item" data-i18n="tool_qrcode">二维码工具</a>
+                    <a href="regex.html" class="dropdown-item" data-i18n="tool_regex">正则表达式测试</a>
+                    <a href="char-counter.html" class="dropdown-item" data-i18n="tool_char_counter">字符数统计</a>
+                    <a href="ip-lookup.html" class="dropdown-item" data-i18n="tool_ip">IP地址获取与查询</a>
+                    <a href="uuid.html" class="dropdown-item" data-i18n="tool_uuid">UUID 生成器</a>
+                    <a href="password-generator.html" class="dropdown-item" data-i18n="tool_password">随机密码生成</a>
+                    <a href="modulo.html" class="dropdown-item" data-i18n="tool_modulo">取模计算器</a>
+                    <a href="calculator.html" class="dropdown-item" data-i18n="tool_calculator">简单计算器</a>
+                    <a href="ascii-art.html" class="dropdown-item" data-i18n="tool_ascii">ASCII 艺术字</a>
+                    <a href="color-picker.html" class="dropdown-item" data-i18n="tool_color">颜色选择器</a>
+                </div>
+            </div>
         </nav>
     </div>
     <div class="header-right">
@@ -1597,7 +2198,12 @@ const headerHTML = `<div class="header-content">
     </div>
 </div>`;
 
-const footerHTML = `<p data-i18n="footer_text">© 2025 Toolhub | Static tool, data is not uploaded to server</p>`;
+const footerHTML = `
+<div class="footer-content">
+    <div class="footer-copyright">
+        <span data-i18n="footer_text">© 2025 Toolhub | Static tool, data is not uploaded to server</span>
+    </div>
+</div>`;
 
 function loadHeader() {
     const headerContainer = document.querySelector('header');

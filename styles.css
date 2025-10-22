@@ -17,7 +17,7 @@ body {
     padding: 0;
 }
 
-.container > *:not(header) {
+.container > *:not(header):not(footer) {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
@@ -65,6 +65,11 @@ header {
     gap: 8px;
 }
 
+/* 下拉菜单容器 */
+.nav-dropdown {
+    position: relative;
+}
+
 .nav-link {
     padding: 8px 16px;
     color: #6b7280;
@@ -74,6 +79,8 @@ header {
     border-radius: 6px;
     transition: all 0.3s;
     position: relative;
+    display: block;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -95,6 +102,47 @@ header {
     width: 60%;
     height: 2px;
     background: #667eea;
+}
+
+/* 下拉菜单 */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+    margin-top: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid #e5e7eb;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background: #f3f4f6;
+    color: #667eea;
+    padding-left: 24px;
 }
 
 .logo-icon {
@@ -208,6 +256,22 @@ header {
     line-height: 1.6;
 }
 
+/* 工具分类 */
+.tool-category {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 32px;
+    text-align: left;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+}
+
 .tool-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -256,8 +320,9 @@ header {
     margin-bottom: 24px;
 }
 
-.tool-card h2 {
-    font-size: 24px;
+.tool-card h2,
+.tool-card h3 {
+    font-size: 20px;
     font-weight: 600;
     color: #1f2937;
     margin-bottom: 12px;
@@ -611,11 +676,30 @@ textarea::placeholder {
 
 /* 页脚 */
 footer {
-    padding: 20px;
+    padding: 40px 0;
     text-align: center;
-    color: #909399;
+    background: linear-gradient(to bottom, #2c3e50 0%, #1a252f 100%);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 13px;
-    border-top: 1px solid #f0f2f5;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer .footer-copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+footer .footer-copyright span {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* 响应式设计 */
@@ -623,13 +707,13 @@ footer {
     .editor-container {
         grid-template-columns: 1fr;
     }
-    
+
     .tool-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
     }
-    
+
     .button-group {
         width: 100%;
         flex-wrap: wrap;
@@ -645,10 +729,14 @@ footer {
         padding: 6px 12px;
         font-size: 13px;
     }
+
+    footer {
+        padding: 30px 0;
+    }
 }
 
 @media (max-width: 768px) {
-    .container > *:not(header) {
+    .container > *:not(header):not(footer) {
         padding: 0 10px;
     }
 
@@ -695,6 +783,11 @@ footer {
 
     .logo-text {
         font-size: 20px;
+    }
+
+    footer {
+        padding: 25px 0;
+        font-size: 12px;
     }
 
     .home-tools {
@@ -1181,5 +1274,57 @@ footer {
 
     .url-button-section .btn {
         width: 100%;
+    }
+}
+
+
+/* 导航下拉菜单响应式设计 */
+@media (max-width: 1024px) {
+    .header-nav {
+        display: none;
+    }
+
+    .header-left {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .language-select {
+        min-width: 140px;
+    }
+
+    .tool-category {
+        margin-bottom: 40px;
+    }
+
+    .category-title {
+        font-size: 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }

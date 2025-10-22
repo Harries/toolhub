@@ -6,9 +6,63 @@
                 <span class="logo-text" data-i18n="app_title">Toolhub</span>
             </a>
             <nav class="header-nav">
-                <a href="json-formatter.html" class="nav-link" data-i18n="json_tab">JSON Formatter</a>
-                <a href="xml-formatter.html" class="nav-link" data-i18n="xml_tab">XML Formatter</a>
-                <a href="timestamp-converter.html" class="nav-link" data-i18n="timestamp_tab">Timestamp Converter</a>
+                <!-- 加密与编码 -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav_encryption">🔐 加密与编码</a>
+                    <div class="dropdown-menu">
+                        <a href="text-encryption.html" class="dropdown-item" data-i18n="tool_text_encryption">文本加解密</a>
+                        <a href="base64.html" class="dropdown-item" data-i18n="tool_base64">Base64 编码</a>
+                        <a href="md5.html" class="dropdown-item" data-i18n="tool_md5">MD5 加密</a>
+                        <a href="jwt.html" class="dropdown-item" data-i18n="tool_jwt">JWT Token 生成</a>
+                        <a href="rsa.html" class="dropdown-item" data-i18n="tool_rsa">RSA 公私钥生成</a>
+                        <a href="url-encoder.html" class="dropdown-item" data-i18n="tool_url">URL 编解码</a>
+                    </div>
+                </div>
+
+                <!-- 格式化与转换 -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav_format">📝 格式化与转换</a>
+                    <div class="dropdown-menu">
+                        <a href="json-formatter.html" class="dropdown-item" data-i18n="tool_json_validator">JSON 格式校验</a>
+                        <a href="json-formatter.html" class="dropdown-item" data-i18n="tool_json_compress">JSON 压缩</a>
+                        <a href="yaml-properties.html" class="dropdown-item" data-i18n="tool_yaml">YAML-Properties 转换</a>
+                        <a href="xml-formatter.html" class="dropdown-item" data-i18n="tool_xml">XML 压缩和格式化</a>
+                        <a href="sql-formatter.html" class="dropdown-item" data-i18n="tool_sql_format">SQL 格式化</a>
+                        <a href="sql-validator.html" class="dropdown-item" data-i18n="tool_sql_validator">SQL验证器</a>
+                        <a href="css-formatter.html" class="dropdown-item" data-i18n="tool_css">CSS 压缩和格式化</a>
+                        <a href="naming-converter.html" class="dropdown-item" data-i18n="tool_naming">命名格式转换</a>
+                        <a href="unicode.html" class="dropdown-item" data-i18n="tool_unicode">Unicode 转换</a>
+                        <a href="chinese-converter.html" class="dropdown-item" data-i18n="tool_chinese">中文简繁转换</a>
+                    </div>
+                </div>
+
+                <!-- 时间与任务 -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav_time">⏰ 时间与任务</a>
+                    <div class="dropdown-menu">
+                        <a href="timestamp-converter.html" class="dropdown-item" data-i18n="tool_timestamp">时间戳转换</a>
+                        <a href="crontab-editor.html" class="dropdown-item" data-i18n="tool_crontab">Crontab 编写器</a>
+                        <a href="calendar.html" class="dropdown-item" data-i18n="tool_calendar">日历查看</a>
+                        <a href="timer.html" class="dropdown-item" data-i18n="tool_timer">简单计时器</a>
+                    </div>
+                </div>
+
+                <!-- 开发工具 -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav_devtools">🔧 开发工具</a>
+                    <div class="dropdown-menu">
+                        <a href="qrcode.html" class="dropdown-item" data-i18n="tool_qrcode">二维码工具</a>
+                        <a href="regex.html" class="dropdown-item" data-i18n="tool_regex">正则表达式测试</a>
+                        <a href="char-counter.html" class="dropdown-item" data-i18n="tool_char_counter">字符数统计</a>
+                        <a href="ip-lookup.html" class="dropdown-item" data-i18n="tool_ip">IP地址获取与查询</a>
+                        <a href="uuid.html" class="dropdown-item" data-i18n="tool_uuid">UUID 生成器</a>
+                        <a href="password-generator.html" class="dropdown-item" data-i18n="tool_password">随机密码生成</a>
+                        <a href="modulo.html" class="dropdown-item" data-i18n="tool_modulo">取模计算器</a>
+                        <a href="calculator.html" class="dropdown-item" data-i18n="tool_calculator">简单计算器</a>
+                        <a href="ascii-art.html" class="dropdown-item" data-i18n="tool_ascii">ASCII 艺术字</a>
+                        <a href="color-picker.html" class="dropdown-item" data-i18n="tool_color">颜色选择器</a>
+                    </div>
+                </div>
             </nav>
         </div>
         <div class="header-right">

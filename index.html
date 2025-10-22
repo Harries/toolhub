@@ -17,48 +17,212 @@
             <h1 class="home-title" data-i18n="home_title">Free Online Developer Tools</h1>
             <p class="home-subtitle" data-i18n="home_subtitle">Fast, secure, and easy-to-use tools for developers. All processing is done locally in your browser.</p>
 
-            <div class="tool-grid">
-                <a href="json-formatter.html" class="tool-card">
-                    <div class="tool-card-icon">📝</div>
-                    <h2 data-i18n="json_tab">JSON Formatter</h2>
-                    <p data-i18n="json_card_desc">Format, compress, and validate JSON data with syntax highlighting</p>
-                    <div class="tool-card-arrow">→</div>
-                </a>
+            <!-- 加密与编码 -->
+            <div class="tool-category">
+                <h2 class="category-title" data-i18n="nav_encryption">🔐 加密与编码</h2>
+                <div class="tool-grid">
+                    <a href="text-encryption.html" class="tool-card">
+                        <div class="tool-card-icon">🔒</div>
+                        <h3 data-i18n="tool_text_encryption">文本加解密</h3>
+                        <p data-i18n="tool_text_encryption_desc">一个简单的文本加解密工具，为用户提供便捷的信息保护方案</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="base64.html" class="tool-card">
+                        <div class="tool-card-icon">📦</div>
+                        <h3 data-i18n="tool_base64">Base64 编码</h3>
+                        <p data-i18n="tool_base64_desc">将文本或文件编码为 Base64 格式，或解码 Base64 字符串</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="md5.html" class="tool-card">
+                        <div class="tool-card-icon">🔑</div>
+                        <h3 data-i18n="tool_md5">MD5 加密</h3>
+                        <p data-i18n="tool_md5_desc">将文本转换为 MD5 哈希值，支持大写或小写格式输出</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="jwt.html" class="tool-card">
+                        <div class="tool-card-icon">🎫</div>
+                        <h3 data-i18n="tool_jwt">JWT Token 生成</h3>
+                        <p data-i18n="tool_jwt_desc">生成和解析 JSON Web Token，并且支持选择多种算法</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="rsa.html" class="tool-card">
+                        <div class="tool-card-icon">🔐</div>
+                        <h3 data-i18n="tool_rsa">RSA 公私钥生成</h3>
+                        <p data-i18n="tool_rsa_desc">生成 RSA 公钥和私钥，并且支持多种密钥长度选择</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="url-encoder.html" class="tool-card">
+                        <div class="tool-card-icon">🔗</div>
+                        <h3 data-i18n="tool_url">URL 编解码</h3>
+                        <p data-i18n="tool_url_desc">使用 ASCII 映射对 URL 中的非标准字符进行编码或解码</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                </div>
+            </div>
 
-                <a href="xml-formatter.html" class="tool-card">
-                    <div class="tool-card-icon">📄</div>
-                    <h2 data-i18n="xml_tab">XML Formatter</h2>
-                    <p data-i18n="xml_card_desc">Format, compress, and validate XML data with syntax highlighting</p>
-                    <div class="tool-card-arrow">→</div>
-                </a>
+            <!-- 格式化与转换 -->
+            <div class="tool-category">
+                <h2 class="category-title" data-i18n="nav_format">📝 格式化与转换</h2>
+                <div class="tool-grid">
+                    <a href="json-formatter.html" class="tool-card">
+                        <div class="tool-card-icon">📝</div>
+                        <h3 data-i18n="tool_json_validator">JSON 格式校验</h3>
+                        <p data-i18n="tool_json_validator_desc">验证 JSON 数据格式是否正确，支持格式化和错误提示</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="json-formatter.html" class="tool-card">
+                        <div class="tool-card-icon">🗜️</div>
+                        <h3 data-i18n="tool_json_compress">JSON 压缩</h3>
+                        <p data-i18n="tool_json_compress_desc">将 JSON 数据压缩为一行的紧凑格式，以便节省空间</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="yaml-properties.html" class="tool-card">
+                        <div class="tool-card-icon">🔄</div>
+                        <h3 data-i18n="tool_yaml">YAML-Properties 转换</h3>
+                        <p data-i18n="tool_yaml_desc">在 YAML 和 Properties 格式之间相互转换，简化配置文件管理</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="xml-formatter.html" class="tool-card">
+                        <div class="tool-card-icon">📄</div>
+                        <h3 data-i18n="tool_xml">XML 压缩和格式化</h3>
+                        <p data-i18n="tool_xml_desc">压缩 XML 数据以优化加载，或格式化为易读的样式</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="sql-formatter.html" class="tool-card">
+                        <div class="tool-card-icon">🗄️</div>
+                        <h3 data-i18n="tool_sql_format">SQL 格式化</h3>
+                        <p data-i18n="tool_sql_format_desc">格式化SQL语句以提高代码的可读性、可维护性和可理解性</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="sql-validator.html" class="tool-card">
+                        <div class="tool-card-icon">✅</div>
+                        <h3 data-i18n="tool_sql_validator">SQL验证器</h3>
+                        <p data-i18n="tool_sql_validator_desc">格式化和校验SQL DDL语句，支持多种数据库，提升代码可读性</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="css-formatter.html" class="tool-card">
+                        <div class="tool-card-icon">🎨</div>
+                        <h3 data-i18n="tool_css">CSS 压缩和格式化</h3>
+                        <p data-i18n="tool_css_desc">压缩 CSS 代码以优化加载，或格式化为易读的样式</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="naming-converter.html" class="tool-card">
+                        <div class="tool-card-icon">🔤</div>
+                        <h3 data-i18n="tool_naming">命名格式转换</h3>
+                        <p data-i18n="tool_naming_desc">在驼峰命名和下划线命名之间进行转换，支持大小驼峰和多种下划线格式</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="unicode.html" class="tool-card">
+                        <div class="tool-card-icon">🌐</div>
+                        <h3 data-i18n="tool_unicode">Unicode 转换</h3>
+                        <p data-i18n="tool_unicode_desc">在中文和 Unicode 字符之间进行双向转换，以方便进行字符处理</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="chinese-converter.html" class="tool-card">
+                        <div class="tool-card-icon">🈳</div>
+                        <h3 data-i18n="tool_chinese">中文简繁转换</h3>
+                        <p data-i18n="tool_chinese_desc">在简体中文和繁体中文之间进行双向转换，支持文本和文件转换</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                </div>
+            </div>
 
-                <a href="timestamp-converter.html" class="tool-card">
-                    <div class="tool-card-icon">⏰</div>
-                    <h2 data-i18n="timestamp_tab">Timestamp Converter</h2>
-                    <p data-i18n="timestamp_card_desc">Convert between Unix timestamp and datetime with timezone support</p>
-                    <div class="tool-card-arrow">→</div>
-                </a>
+            <!-- 时间与任务 -->
+            <div class="tool-category">
+                <h2 class="category-title" data-i18n="nav_time">⏰ 时间与任务</h2>
+                <div class="tool-grid">
+                    <a href="timestamp-converter.html" class="tool-card">
+                        <div class="tool-card-icon">⏰</div>
+                        <h3 data-i18n="tool_timestamp">时间戳转换</h3>
+                        <p data-i18n="tool_timestamp_desc">将时间戳与可读日期时间之间相互转换，支持多种格式</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="crontab-editor.html" class="tool-card">
+                        <div class="tool-card-icon">⏱️</div>
+                        <h3 data-i18n="tool_crontab">Crontab 编写器</h3>
+                        <p data-i18n="tool_crontab_desc">轻松生成和管理 Crontab 调度表达式，支持实时预览和常见示例</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="calendar.html" class="tool-card">
+                        <div class="tool-card-icon">📅</div>
+                        <h3 data-i18n="tool_calendar">日历查看</h3>
+                        <p data-i18n="tool_calendar_desc">可以随时随地查看月份日历数据，如日期和节气等信息</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="timer.html" class="tool-card">
+                        <div class="tool-card-icon">⏲️</div>
+                        <h3 data-i18n="tool_timer">简单计时器</h3>
+                        <p data-i18n="tool_timer_desc">一个简单易用的计时器工具，支持计数器和倒计时功能</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                </div>
+            </div>
 
-                <a href="markdown-to-pdf.html" class="tool-card">
-                    <div class="tool-card-icon">📑</div>
-                    <h2 data-i18n="markdown_tab">Markdown to PDF</h2>
-                    <p data-i18n="markdown_card_desc">Convert Markdown documents to PDF files with formatting support</p>
-                    <div class="tool-card-arrow">→</div>
-                </a>
-
-                <a href="crontab-editor.html" class="tool-card">
-                    <div class="tool-card-icon">⏱️</div>
-                    <h2 data-i18n="crontab_tab">Crontab Editor</h2>
-                    <p data-i18n="crontab_card_desc">Create, validate, and understand cron expressions with visual explanation</p>
-                    <div class="tool-card-arrow">→</div>
-                </a>
-
-                <a href="url-encoder.html" class="tool-card">
-                    <div class="tool-card-icon">🔗</div>
-                    <h2 data-i18n="url_tab">URL Encoder/Decoder</h2>
-                    <p data-i18n="url_card_desc">Encode and decode URLs with support for various encoding formats</p>
-                    <div class="tool-card-arrow">→</div>
-                </a>
+            <!-- 开发工具 -->
+            <div class="tool-category">
+                <h2 class="category-title" data-i18n="nav_devtools">🔧 开发工具</h2>
+                <div class="tool-grid">
+                    <a href="qrcode.html" class="tool-card">
+                        <div class="tool-card-icon">📱</div>
+                        <h3 data-i18n="tool_qrcode">二维码工具</h3>
+                        <p data-i18n="tool_qrcode_desc">支持生成简单二维码或解码二维码图片，使用非常简单</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="regex.html" class="tool-card">
+                        <div class="tool-card-icon">🔍</div>
+                        <h3 data-i18n="tool_regex">正则表达式测试</h3>
+                        <p data-i18n="tool_regex_desc">验证正则表达式否能够准确地匹配、提取或替换符合特定模式的字符串</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="char-counter.html" class="tool-card">
+                        <div class="tool-card-icon">🔢</div>
+                        <h3 data-i18n="tool_char_counter">字符数统计</h3>
+                        <p data-i18n="tool_char_counter_desc">快速统计文本的字符数、单词数和行数，适合写作、编程和数据分析</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="ip-lookup.html" class="tool-card">
+                        <div class="tool-card-icon">🌍</div>
+                        <h3 data-i18n="tool_ip">IP地址获取与查询</h3>
+                        <p data-i18n="tool_ip_desc">快速获取您的出口公网 IP 地址，或者查询IP地址归属地信息，非常简单便捷又实用</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="uuid.html" class="tool-card">
+                        <div class="tool-card-icon">🆔</div>
+                        <h3 data-i18n="tool_uuid">UUID 生成器</h3>
+                        <p data-i18n="tool_uuid_desc">支持生成 v1、v3、v4、v5 和 NIL 版本的 UUID，满足不同场景需求</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="password-generator.html" class="tool-card">
+                        <div class="tool-card-icon">🔐</div>
+                        <h3 data-i18n="tool_password">随机密码生成</h3>
+                        <p data-i18n="tool_password_desc">生成包含数字、字母和特殊字符的随机密码，可自定义长度</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="modulo.html" class="tool-card">
+                        <div class="tool-card-icon">➗</div>
+                        <h3 data-i18n="tool_modulo">取模计算器</h3>
+                        <p data-i18n="tool_modulo_desc">计算两个数的模，即一个数除以另一个数所得的余数</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="calculator.html" class="tool-card">
+                        <div class="tool-card-icon">🧮</div>
+                        <h3 data-i18n="tool_calculator">简单计算器</h3>
+                        <p data-i18n="tool_calculator_desc">一个可以随时随地使用的简单计算器，支持基本的加减乘除运算</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="ascii-art.html" class="tool-card">
+                        <div class="tool-card-icon">🎭</div>
+                        <h3 data-i18n="tool_ascii">ASCII 艺术字</h3>
+                        <p data-i18n="tool_ascii_desc">将英文字符转化为由 ASCII 字符精心排列组合成的文本形式</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                    <a href="color-picker.html" class="tool-card">
+                        <div class="tool-card-icon">🎨</div>
+                        <h3 data-i18n="tool_color">颜色选择器</h3>
+                        <p data-i18n="tool_color_desc">能够让用户通过直观简单的操作方式精确选取所需颜色</p>
+                        <div class="tool-card-arrow">→</div>
+                    </a>
+                </div>
             </div>
         </div>
 
