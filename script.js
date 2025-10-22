@@ -1345,6 +1345,12 @@ function formatDateTime(date, timezone) {
 
 // 更新当前时间显示
 function updateCurrentTime() {
+    // 检查必要的 DOM 元素是否存在（仅在 index.html 中存在）
+    const currentDatetimeEl = document.getElementById('current-datetime');
+    if (!currentDatetimeEl) {
+        return; // 如果不在 index.html 中，直接返回
+    }
+
     const now = new Date();
     const timestampSec = Math.floor(now.getTime() / 1000);
     const timestampMs = now.getTime();
@@ -1352,7 +1358,7 @@ function updateCurrentTime() {
 
     const dateInfo = formatDateTime(now, timezone);
 
-    document.getElementById('current-datetime').textContent = dateInfo.formatted;
+    currentDatetimeEl.textContent = dateInfo.formatted;
     document.getElementById('current-timestamp-sec').textContent = timestampSec;
     document.getElementById('current-timestamp-ms').textContent = timestampMs;
 }
@@ -1362,16 +1368,23 @@ function updateAllTimes() {
     updateCurrentTime();
 
     // 如果有转换结果，重新转换
-    const timestampInput = document.getElementById('timestamp-input').value.trim();
-    if (timestampInput) {
+    const timestampInput = document.getElementById('timestamp-input');
+    if (timestampInput && timestampInput.value.trim()) {
         convertTimestamp();
     }
 }
 
 // 时间戳转日期
 function convertTimestamp() {
-    const input = document.getElementById('timestamp-input').value.trim();
+    const timestampInput = document.getElementById('timestamp-input');
     const resultDiv = document.getElementById('timestamp-result');
+
+    // 检查必要的 DOM 元素是否存在
+    if (!timestampInput || !resultDiv) {
+        return; // 如果不在 index.html 中，直接返回
+    }
+
+    const input = timestampInput.value.trim();
     const t = translations[currentLang];
 
     if (!input) {
@@ -1387,7 +1400,12 @@ function convertTimestamp() {
     }
 
     // 判断是秒还是毫秒
-    const unit = document.querySelector('input[name="ts-unit"]:checked').value;
+    const unitRadio = document.querySelector('input[name="ts-unit"]:checked');
+    if (!unitRadio) {
+        return; // 如果单位选择不存在，直接返回
+    }
+
+    const unit = unitRadio.value;
     const date = unit === 'sec' ? new Date(timestamp * 1000) : new Date(timestamp);
 
     if (isNaN(date.getTime())) {
