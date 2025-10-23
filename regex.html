@@ -16,13 +16,6 @@
             margin-right: auto;
         }
 
-        .regex-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
         .form-group {
             margin-bottom: 20px;
         }
@@ -55,11 +48,16 @@
             min-height: 50px;
         }
 
+        #testText {
+            height: 280px;
+        }
+
         .regex-flags {
             display: flex;
             gap: 20px;
             margin-top: 10px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            align-items: center;
         }
 
         .flag-checkbox {
@@ -77,13 +75,6 @@
         .flag-checkbox label {
             cursor: pointer;
             margin: 0;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
         }
 
         .btn {
@@ -208,6 +199,10 @@
             .two-column {
                 grid-template-columns: 1fr;
             }
+
+            .regex-flags {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -216,7 +211,13 @@
         <header></header>
 
         <div class="regex-container">
-            <h1 class="regex-title" data-i18n="tool_regex">正则表达式测试</h1>
+            <div class="tool-header">
+                <h1 data-i18n="tool_regex">正则表达式测试</h1>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="updateResults()">测试</button>
+                    <button class="btn btn-secondary" onclick="clearAll()">清空</button>
+                </div>
+            </div>
 
             <div class="form-group">
                 <label class="form-label">正则表达式</label>
@@ -245,11 +246,6 @@
             <div class="form-group">
                 <label class="form-label">替换文本（可选）</label>
                 <input type="text" class="form-input" id="replaceText" placeholder="输入替换文本，留空则不进行替换">
-            </div>
-
-            <div class="button-group">
-                <button class="btn btn-primary" onclick="updateResults()">测试</button>
-                <button class="btn btn-secondary" onclick="clearAll()">清空</button>
             </div>
 
             <div id="message"></div>
