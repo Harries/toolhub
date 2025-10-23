@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Text Encryption</title>
+</head>
+<body>
+    <h1>Text Encryption Test</h1>
+    
+    <div id="test-results"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        const results = document.getElementById('test-results');
+        
+        function addResult(testName, passed, message) {
+            const div = document.createElement('div');
+            div.style.padding = '10px';
+            div.style.margin = '5px';
+            div.style.border = '1px solid #ccc';
+            div.style.backgroundColor = passed ? '#d4edda' : '#f8d7da';
+            div.innerHTML = `<strong>${testName}:</strong> ${passed ? '✓ PASS' : '✗ FAIL'} - ${message}`;
+            results.appendChild(div);
+        }
+        
+        // Test 1: Basic encryption
+        try {
+            const text = 'Hello World';
+            const password = 'test123';
+            const encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            addResult('Test 1: Basic Encryption', encrypted.length > 0, `Encrypted: ${encrypted.substring(0, 50)}...`);
+        } catch (e) {
+            addResult('Test 1: Basic Encryption', false, e.message);
+        }
+        
+        // Test 2: Encryption and Decryption
+        try {
+            const text = 'Hello World';
+            const password = 'test123';
+            const encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            const decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
+            addResult('Test 2: Encryption & Decryption', decrypted === text, `Original: ${text}, Decrypted: ${decrypted}`);
+        } catch (e) {
+            addResult('Test 2: Encryption & Decryption', false, e.message);
+        }
+        
+        // Test 3: Wrong password decryption
+        try {
+            const text = 'Hello World';
+            const password = 'test123';
+            const wrongPassword = 'wrong';
+            const encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            const decrypted = CryptoJS.AES.decrypt(encrypted, wrongPassword).toString(CryptoJS.enc.Utf8);
+            addResult('Test 3: Wrong Password', decrypted !== text, `Decrypted with wrong password: ${decrypted}`);
+        } catch (e) {
+            addResult('Test 3: Wrong Password', false, e.message);
+        }
+        
+        // Test 4: Chinese text encryption
+        try {
+            const text = '你好世界';
+            const password = 'password123';
+            const encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            const decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
+            addResult('Test 4: Chinese Text', decrypted === text, `Original: ${text}, Decrypted: ${decrypted}`);
+        } catch (e) {
+            addResult('Test 4: Chinese Text', false, e.message);
+        }
+        
+        // Test 5: Special characters
+        try {
+            const text = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            const password = 'special123';
+            const encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            const decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
+            addResult('Test 5: Special Characters', decrypted === text, `Original: ${text}, Decrypted: ${decrypted}`);
+        } catch (e) {
+            addResult('Test 5: Special Characters', false, e.message);
+        }
+        
+        // Test 6: Long text
+        try {
+            const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '.repeat(10);
+            const password = 'longtext123';
+            const encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            const decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
+            addResult('Test 6: Long Text', decrypted === text, `Text length: ${text.length}, Decrypted length: ${decrypted.length}`);
+        } catch (e) {
+            addResult('Test 6: Long Text', false, e.message);
+        }
+    </script>
+</body>
+</html>
+

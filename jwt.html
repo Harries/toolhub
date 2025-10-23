@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Token Generator & Parser - Toolhub</title>
+    <meta name="description" content="Free online JWT token generator and parser. Create and decode JSON Web Tokens with support for SHA-256, SHA-384, and SHA-512 algorithms.">
+    <meta name="keywords" content="JWT, JSON Web Token, JWT generator, JWT parser, JWT decoder, token generator, online JWT tool">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- JWT Token 生成与解析工具 -->
+        <div id="jwt-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="jwt_title">JWT Token Generator & Parser</h1>
+                <div class="button-group">
+                    <button onclick="generateJWT()" class="btn btn-primary" data-i18n="jwt_generate_btn">Generate</button>
+                    <button onclick="parseJWT()" class="btn btn-primary" data-i18n="jwt_parse_btn">Parse</button>
+                    <button onclick="clearJWT()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                    <button onclick="copyJWT()" class="btn btn-success" data-i18n="copy_btn">Copy</button>
+                </div>
+            </div>
+
+            <div class="jwt-container">
+                <!-- 左侧：输入区域 -->
+                <div class="jwt-panel jwt-input-panel">
+                    <div class="jwt-panel-header">
+                        <h3 data-i18n="jwt_input_label">Input</h3>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_header_label">Header:</label>
+                        <textarea id="jwt-header" placeholder='{"alg":"HS256","typ":"JWT"}' class="jwt-textarea"></textarea>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_payload_label">Payload:</label>
+                        <textarea id="jwt-payload" placeholder='{"sub":"1234567890","name":"John Doe","iat":1516239022}' class="jwt-textarea"></textarea>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_secret_label">Secret:</label>
+                        <input type="text" id="jwt-secret" placeholder="Enter your secret key..." class="jwt-input">
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_algorithm_label">Algorithm:</label>
+                        <div class="jwt-radio-group">
+                            <label class="jwt-radio-label">
+                                <input type="radio" name="jwt-algorithm" value="HS256" checked>
+                                <span>HS256</span>
+                            </label>
+                            <label class="jwt-radio-label">
+                                <input type="radio" name="jwt-algorithm" value="HS384">
+                                <span>HS384</span>
+                            </label>
+                            <label class="jwt-radio-label">
+                                <input type="radio" name="jwt-algorithm" value="HS512">
+                                <span>HS512</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：输出区域 -->
+                <div class="jwt-panel jwt-output-panel">
+                    <div class="jwt-panel-header">
+                        <h3 data-i18n="jwt_output_label">Output</h3>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_token_label">Token:</label>
+                        <textarea id="jwt-token" readonly placeholder="Generated JWT token will appear here..." class="jwt-textarea"></textarea>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_header_label">Header:</label>
+                        <textarea id="jwt-parsed-header" readonly placeholder="Decoded header..." class="jwt-textarea-small"></textarea>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_payload_label">Payload:</label>
+                        <textarea id="jwt-parsed-payload" readonly placeholder="Decoded payload..." class="jwt-textarea-small"></textarea>
+                    </div>
+
+                    <div class="jwt-form-group">
+                        <label data-i18n="jwt_signature_label">Signature:</label>
+                        <textarea id="jwt-parsed-signature" readonly placeholder="Signature..." class="jwt-textarea-small"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="jwt-error" class="error-message"></div>
+            <div id="jwt-success" class="success-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

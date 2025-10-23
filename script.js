@@ -46,8 +46,6 @@ const translations = {
         tool_naming_desc: '在驼峰命名和下划线命名之间进行转换，支持大小驼峰和多种下划线格式',
         tool_unicode: 'Unicode 转换',
         tool_unicode_desc: '在中文和 Unicode 字符之间进行双向转换，以方便进行字符处理',
-        tool_chinese: '中文简繁转换',
-        tool_chinese_desc: '在简体中文和繁体中文之间进行双向转换，支持文本和文件转换',
 
         // 时间与任务工具
         tool_timestamp: '时间戳转换',
@@ -80,6 +78,24 @@ const translations = {
         tool_ascii_desc: '将英文字符转化为由 ASCII 字符精心排列组合成的文本形式',
         tool_color: '颜色选择器',
         tool_color_desc: '能够让用户通过直观简单的操作方式精确选取所需颜色',
+
+        // IP地址查询工具
+        ip_get_my_ip: '获取 IP',
+        ip_query: '查询',
+        ip_get_button: '获取',
+        ip_input_label: '输入IP地址:',
+        ip_input_placeholder: '输入IP地址',
+        ip_query_button: '查询',
+        ip_your_ip_info: '您的IP信息:',
+        ip_query_result: '查询结果:',
+        ip_query_desc: '查询 IP 地址归属地信息。',
+        ip_click_query: '点击"查询"按钮开始',
+        ip_loading: '正在获取IP地址',
+        ip_get_failed: '获取IP失败，请稍后重试',
+        ip_input_required: '请输入IP地址',
+        ip_querying: '正在查询IP信息',
+        ip_address: 'IP地址:',
+        ip_copy: '复制',
 
         // 旧的翻译保留
         json_tab: 'JSON 格式化',
@@ -180,7 +196,223 @@ const translations = {
         url_character: '字符',
         url_ascii_code: 'ASCII 码',
         url_encoded: 'URL 编码',
-        error_decode_failed: 'URL 解码失败'
+        error_decode_failed: 'URL 解码失败',
+
+        // 文本加解密
+        encryption_title: '文本加解密工具',
+        encryption_input_label: '输入文本:',
+        encryption_input_placeholder: '输入要加密或解密的文本...',
+        encryption_password_label: '密码:',
+        encryption_password_placeholder: '输入加密/解密密码',
+        encryption_output_label: '结果:',
+        encryption_output_placeholder: '加密或解密的结果将显示在这里',
+        encrypt_btn: '加密',
+        decrypt_btn: '解密',
+        show_password: '显示密码',
+        error_encryption_no_input: '请输入要加密的文本',
+        error_encryption_no_password: '请输入密码',
+        error_decryption_failed: '解密失败，请检查密码是否正确',
+        success_encrypted: '加密成功',
+        success_decrypted: '解密成功',
+
+        // Base64 编码解码
+        base64_title: 'Base64 编码工具',
+        base64_input_label: '输入文本:',
+        base64_input_placeholder: '输入要编码或解码的文本...',
+        base64_file_label: '或上传文件:',
+        base64_file_hint: '最大文件大小: 10MB',
+        base64_output_label: '结果:',
+        base64_output_placeholder: '编码或解码的结果将显示在这里',
+        base64_encode_btn: '编码',
+        base64_decode_btn: '解码',
+        error_base64_encode_failed: 'Base64 编码失败',
+        error_base64_decode_failed: 'Base64 解码失败，请检查输入是否为有效的 Base64 字符串',
+        error_file_too_large: '文件过大，请选择小于 10MB 的文件',
+        error_file_read_failed: '文件读取失败',
+
+        // MD5 加密
+        md5_title: 'MD5 加密工具',
+        md5_input_label: '输入文本:',
+        md5_input_placeholder: '输入要转换为 MD5 的文本...',
+        md5_output_label: '结果:',
+        md5_output_placeholder: 'MD5 哈希结果将显示在这里',
+        md5_compute_btn: '计算',
+        md5_lowercase: '小写',
+        md5_uppercase: '大写',
+        md5_32bit: '32位',
+        md5_16bit: '16位',
+        error_md5_compute_failed: 'MD5 计算失败',
+
+        // JWT Token 生成与解析
+        jwt_title: 'JWT Token 生成与解析工具',
+        jwt_generate_btn: '生成',
+        jwt_parse_btn: '解析',
+        jwt_generate_mode: '生成模式',
+        jwt_parse_mode: '解析模式',
+        jwt_input_label: '输入',
+        jwt_output_label: '输出',
+        jwt_header_label: '头部 (Header):',
+        jwt_payload_label: '载荷 (Payload):',
+        jwt_secret_label: '密钥 (Secret):',
+        jwt_algorithm_label: '算法 (Algorithm):',
+        jwt_token_label: 'JWT Token:',
+        jwt_input_token_label: '输入 Token:',
+        jwt_signature_label: '签名 (Signature):',
+        error_jwt_invalid_json: 'JSON 格式错误',
+        error_jwt_invalid_token: 'Token 格式无效',
+        error_jwt_verification_failed: 'Token 验证失败',
+        success_jwt_generated: 'JWT Token 生成成功',
+        success_jwt_parsed: 'JWT Token 解析成功',
+
+        // RSA 公私钥生成
+        rsa_title: 'RSA 公私钥生成工具',
+        rsa_generate_btn: '生成',
+        rsa_copy_public_btn: '复制公钥',
+        rsa_copy_private_btn: '复制私钥',
+        rsa_config_label: '配置',
+        rsa_output_label: '输出',
+        rsa_key_length_label: '密钥长度:',
+        rsa_format_label: '格式:',
+        rsa_public_key_label: '公钥:',
+        rsa_private_key_label: '私钥:',
+        rsa_info_title: '信息:',
+        rsa_info_1: '1024 位: 快速生成，适合测试',
+        rsa_info_2: '2048 位: 推荐用于一般用途',
+        rsa_info_3: '4096 位: 高安全性，生成较慢',
+        error_rsa_generate_failed: 'RSA 密钥生成失败',
+        success_rsa_generated: 'RSA 密钥对生成成功',
+
+        // YAML-Properties 转换
+        yaml_title: 'YAML-Properties 转换工具',
+        yaml_to_properties_btn: 'YAML → Properties',
+        properties_to_yaml_btn: 'Properties → YAML',
+        yaml_input_label: '输入:',
+        yaml_output_label: '输出:',
+        yaml_input_placeholder: '粘贴 YAML 或 Properties 格式数据...',
+        yaml_output_placeholder: '转换结果将显示在这里',
+        error_yaml_invalid: 'YAML 格式错误',
+        error_properties_invalid: 'Properties 格式错误',
+        success_yaml_converted: 'YAML 转换成功',
+        success_properties_converted: 'Properties 转换成功',
+
+        // SQL 格式化
+        sql_format_title: 'SQL 格式化工具',
+        sql_input_label: '输入:',
+        sql_output_label: '输出:',
+        sql_input_placeholder: '粘贴 SQL 语句...',
+        sql_output_placeholder: '格式化后的 SQL 将显示在这里',
+        error_sql_invalid: 'SQL 格式错误',
+
+        // SQL 验证器
+        sql_validator_title: 'SQL 验证器',
+        sql_validator_input_placeholder: '粘贴 SQL DDL 语句...',
+        sql_validator_output_placeholder: '验证结果将显示在这里',
+        validate_btn: '验证',
+        db_mysql: 'MySQL',
+        db_postgresql: 'PostgreSQL',
+        db_sqlserver: 'SQL Server',
+        db_oracle: 'Oracle',
+        db_sqlite: 'SQLite',
+        validation_success: 'SQL 验证通过',
+        validation_error: 'SQL 验证失败',
+        validation_warning: 'SQL 验证警告',
+        error_sql_syntax: 'SQL 语法错误',
+        error_sql_reserved_word: '保留字使用不当',
+        error_sql_invalid_type: '无效的数据类型',
+        error_sql_missing_constraint: '缺少约束定义',
+
+        // CSS 格式化
+        css_title: 'CSS 格式化工具',
+        css_input_label: '输入:',
+        css_output_label: '输出:',
+        css_input_placeholder: '粘贴 CSS 代码...',
+        css_output_placeholder: '格式化或压缩后的 CSS 将显示在这里',
+        error_css_invalid: 'CSS 格式错误',
+
+        // 命名格式转换
+        naming_title: '命名格式转换工具',
+        naming_input_label: '输入:',
+        naming_output_label: '输出:',
+        naming_input_placeholder: '输入命名文本（支持驼峰、下划线等格式）...',
+        convert_btn: '转换',
+        error_naming_invalid: '命名格式错误',
+
+        // Unicode 转换
+        unicode_title: 'Unicode 转换工具',
+        unicode_input_label: '输入:',
+        unicode_output_label: '输出:',
+        unicode_input_placeholder: '输入中文文本或 Unicode 编码...',
+        unicode_output_placeholder: '转换结果将显示在这里',
+        to_unicode_btn: '转为 Unicode',
+        from_unicode_btn: '从 Unicode 转换',
+        unicode_info_title: 'Unicode 格式示例:',
+        error_unicode_invalid: 'Unicode 格式错误',
+
+        // 简单计算器
+        history: '计算历史',
+        history_empty: '暂无历史记录',
+
+        // 简单计时器
+        timer_stopwatch: '计时器',
+        timer_stopwatch_label: '计时器',
+        timer_countdown: '倒计时',
+        timer_countdown_label: '倒计时',
+        timer_hours: '小时',
+        timer_minutes: '分钟',
+        timer_seconds: '秒',
+        timer_start: '开始',
+        timer_pause: '暂停',
+        timer_reset: '重置',
+
+        // 字符数统计
+        char_counter_input_placeholder: '输入或粘贴文本内容...',
+        char_counter_characters: '字符数',
+        char_counter_words: '单词数',
+        char_counter_lines: '行数',
+        char_counter_spaces: '空格数',
+        char_counter_info_title: '统计说明',
+        char_counter_info_1: '• 字符数：包括所有字符（包括空格、标点符号等）',
+        char_counter_info_2: '• 单词数：以空格分隔的单词数量',
+        char_counter_info_3: '• 行数：按换行符分隔的行数',
+        char_counter_info_4: '• 空格数：文本中的空格数量',
+
+        // UUID 生成器
+        uuid_generate_settings: '生成设置',
+        uuid_results: '生成结果',
+        uuid_info_title: 'UUID 版本说明',
+        uuid_info_v1: '• UUID v1: 基于时间戳和 MAC 地址生成，具有时间顺序性',
+        uuid_info_v3: '• UUID v3: 基于 MD5 哈希的命名空间 UUID，确定性生成',
+        uuid_info_v4: '• UUID v4: 基于随机数生成，最常用的 UUID 版本',
+        uuid_info_v5: '• UUID v5: 基于 SHA-1 哈希的命名空间 UUID，确定性生成',
+        uuid_info_nil: '• UUID NIL: 全零 UUID (00000000-0000-0000-0000-000000000000)',
+        uuid_validate_title: 'UUID 验证',
+        uuid_validate_desc: '验证输入的字符串是否为有效的 UUID',
+        uuid_validate_placeholder: '输入 UUID 进行验证',
+        uuid_value: 'UUID:',
+        uuid_version: '版本:',
+        uuid_type: '类型:',
+        uuid_input_required: '请输入 UUID',
+        uuid_invalid: '无效的 UUID 格式',
+        uuid_copy_all: '复制全部',
+        uuid_download: '下载',
+
+        // 密码生成器
+        password_generate_settings: '生成设置',
+        password_length_placeholder: '密码长度',
+        password_uppercase: '大写字母 (A-Z)',
+        password_lowercase: '小写字母 (a-z)',
+        password_numbers: '数字 (0-9)',
+        password_special: '特殊字符 (!@#$%^&*)',
+        password_results: '生成结果',
+        password_info_title: '密码生成说明',
+        password_info_desc: '• 支持自定义密码长度（4-128 字符）',
+        password_info_chars: '• 可选择包含大写字母、小写字母、数字和特殊字符',
+        password_info_secure: '• 生成的密码完全随机，所有处理都在本地浏览器完成',
+        password_error_length: '密码长度必须在 4 到 128 之间',
+        password_error_no_options: '请至少选择一种字符类型',
+        password_copy_success: '密码已复制到剪贴板',
+        validate_btn: '验证',
+
     },
     'zh-TW': {
         app_title: 'Toolhub',
@@ -226,8 +458,6 @@ const translations = {
         tool_naming_desc: '在駝峰命名和下劃線命名之間進行轉換，支持大小駝峰和多種下劃線格式',
         tool_unicode: 'Unicode 轉換',
         tool_unicode_desc: '在中文和 Unicode 字符之間進行雙向轉換，以方便進行字符處理',
-        tool_chinese: '中文簡繁轉換',
-        tool_chinese_desc: '在簡體中文和繁體中文之間進行雙向轉換，支持文本和文件轉換',
 
         // 時間與任務工具
         tool_timestamp: '時間戳轉換',
@@ -353,7 +583,223 @@ const translations = {
         url_character: '字符',
         url_ascii_code: 'ASCII 碼',
         url_encoded: 'URL 編碼',
-        error_decode_failed: 'URL 解碼失敗'
+        error_decode_failed: 'URL 解碼失敗',
+
+        // 文本加解密
+        encryption_title: '文本加解密工具',
+        encryption_input_label: '輸入文本:',
+        encryption_input_placeholder: '輸入要加密或解密的文本...',
+        encryption_password_label: '密碼:',
+        encryption_password_placeholder: '輸入加密/解密密碼',
+        encryption_output_label: '結果:',
+        encryption_output_placeholder: '加密或解密的結果將顯示在這裡',
+        encrypt_btn: '加密',
+        decrypt_btn: '解密',
+        show_password: '顯示密碼',
+        error_encryption_no_input: '請輸入要加密的文本',
+        error_encryption_no_password: '請輸入密碼',
+        error_decryption_failed: '解密失敗，請檢查密碼是否正確',
+        success_encrypted: '加密成功',
+        success_decrypted: '解密成功',
+
+        // Base64 編碼解碼
+        base64_title: 'Base64 編碼工具',
+        base64_input_label: '輸入文本:',
+        base64_input_placeholder: '輸入要編碼或解碼的文本...',
+        base64_file_label: '或上傳文件:',
+        base64_file_hint: '最大文件大小: 10MB',
+        base64_output_label: '結果:',
+        base64_output_placeholder: '編碼或解碼的結果將顯示在這裡',
+        base64_encode_btn: '編碼',
+        base64_decode_btn: '解碼',
+        error_base64_encode_failed: 'Base64 編碼失敗',
+        error_base64_decode_failed: 'Base64 解碼失敗，請檢查輸入是否為有效的 Base64 字符串',
+        error_file_too_large: '文件過大，請選擇小於 10MB 的文件',
+        error_file_read_failed: '文件讀取失敗',
+
+        // MD5 加密
+        md5_title: 'MD5 加密工具',
+        md5_input_label: '輸入文本:',
+        md5_input_placeholder: '輸入要轉換為 MD5 的文本...',
+        md5_output_label: '結果:',
+        md5_output_placeholder: 'MD5 哈希結果將顯示在這裡',
+        md5_compute_btn: '計算',
+        md5_lowercase: '小寫',
+        md5_uppercase: '大寫',
+        md5_32bit: '32位',
+        md5_16bit: '16位',
+        error_md5_compute_failed: 'MD5 計算失敗',
+
+        // JWT Token 生成與解析
+        jwt_title: 'JWT Token 生成與解析工具',
+        jwt_generate_btn: '生成',
+        jwt_parse_btn: '解析',
+        jwt_generate_mode: '生成模式',
+        jwt_parse_mode: '解析模式',
+        jwt_input_label: '輸入',
+        jwt_output_label: '輸出',
+        jwt_header_label: '頭部 (Header):',
+        jwt_payload_label: '載荷 (Payload):',
+        jwt_secret_label: '密鑰 (Secret):',
+        jwt_algorithm_label: '算法 (Algorithm):',
+        jwt_token_label: 'JWT Token:',
+        jwt_input_token_label: '輸入 Token:',
+        jwt_signature_label: '簽名 (Signature):',
+        error_jwt_invalid_json: 'JSON 格式錯誤',
+        error_jwt_invalid_token: 'Token 格式無效',
+        error_jwt_verification_failed: 'Token 驗證失敗',
+        success_jwt_generated: 'JWT Token 生成成功',
+        success_jwt_parsed: 'JWT Token 解析成功',
+
+        // RSA 公私鑰生成
+        rsa_title: 'RSA 公私鑰生成工具',
+        rsa_generate_btn: '生成',
+        rsa_copy_public_btn: '複製公鑰',
+        rsa_copy_private_btn: '複製私鑰',
+        rsa_config_label: '配置',
+        rsa_output_label: '輸出',
+        rsa_key_length_label: '密鑰長度:',
+        rsa_format_label: '格式:',
+        rsa_public_key_label: '公鑰:',
+        rsa_private_key_label: '私鑰:',
+        rsa_info_title: '信息:',
+        rsa_info_1: '1024 位: 快速生成，適合測試',
+        rsa_info_2: '2048 位: 推薦用於一般用途',
+        rsa_info_3: '4096 位: 高安全性，生成較慢',
+        error_rsa_generate_failed: 'RSA 密鑰生成失敗',
+        success_rsa_generated: 'RSA 密鑰對生成成功',
+
+        // YAML-Properties 轉換
+        yaml_title: 'YAML-Properties 轉換工具',
+        yaml_to_properties_btn: 'YAML → Properties',
+        properties_to_yaml_btn: 'Properties → YAML',
+        yaml_input_label: '輸入:',
+        yaml_output_label: '輸出:',
+        yaml_input_placeholder: '粘貼 YAML 或 Properties 格式數據...',
+        yaml_output_placeholder: '轉換結果將顯示在這裡',
+        error_yaml_invalid: 'YAML 格式錯誤',
+        error_properties_invalid: 'Properties 格式錯誤',
+        success_yaml_converted: 'YAML 轉換成功',
+        success_properties_converted: 'Properties 轉換成功',
+
+        // SQL 格式化
+        sql_format_title: 'SQL 格式化工具',
+        sql_input_label: '輸入:',
+        sql_output_label: '輸出:',
+        sql_input_placeholder: '粘貼 SQL 語句...',
+        sql_output_placeholder: '格式化後的 SQL 將顯示在這裡',
+        error_sql_invalid: 'SQL 格式錯誤',
+
+        // SQL 驗證器
+        sql_validator_title: 'SQL 驗證器',
+        sql_validator_input_placeholder: '粘貼 SQL DDL 語句...',
+        sql_validator_output_placeholder: '驗證結果將顯示在這裡',
+        validate_btn: '驗證',
+        db_mysql: 'MySQL',
+        db_postgresql: 'PostgreSQL',
+        db_sqlserver: 'SQL Server',
+        db_oracle: 'Oracle',
+        db_sqlite: 'SQLite',
+        validation_success: 'SQL 驗證通過',
+        validation_error: 'SQL 驗證失敗',
+        validation_warning: 'SQL 驗證警告',
+        error_sql_syntax: 'SQL 語法錯誤',
+        error_sql_reserved_word: '保留字使用不當',
+        error_sql_invalid_type: '無效的數據類型',
+        error_sql_missing_constraint: '缺少約束定義',
+
+        // CSS 格式化
+        css_title: 'CSS 格式化工具',
+        css_input_label: '輸入:',
+        css_output_label: '輸出:',
+        css_input_placeholder: '粘貼 CSS 代碼...',
+        css_output_placeholder: '格式化或壓縮後的 CSS 將顯示在這裡',
+        error_css_invalid: 'CSS 格式錯誤',
+
+        // 命名格式轉換
+        naming_title: '命名格式轉換工具',
+        naming_input_label: '輸入:',
+        naming_output_label: '輸出:',
+        naming_input_placeholder: '輸入命名文本（支持駝峰、下劃線等格式）...',
+        convert_btn: '轉換',
+        error_naming_invalid: '命名格式錯誤',
+
+        // Unicode 轉換
+        unicode_title: 'Unicode 轉換工具',
+        unicode_input_label: '輸入:',
+        unicode_output_label: '輸出:',
+        unicode_input_placeholder: '輸入中文文本或 Unicode 編碼...',
+        unicode_output_placeholder: '轉換結果將顯示在這裡',
+        to_unicode_btn: '轉為 Unicode',
+        from_unicode_btn: '從 Unicode 轉換',
+        unicode_info_title: 'Unicode 格式示例:',
+        error_unicode_invalid: 'Unicode 格式錯誤',
+
+        // 簡單計算器
+        history: '計算歷史',
+        history_empty: '暫無歷史記錄',
+
+        // 簡單計時器
+        timer_stopwatch: '計時器',
+        timer_stopwatch_label: '計時器',
+        timer_countdown: '倒計時',
+        timer_countdown_label: '倒計時',
+        timer_hours: '小時',
+        timer_minutes: '分鐘',
+        timer_seconds: '秒',
+        timer_start: '開始',
+        timer_pause: '暫停',
+        timer_reset: '重置',
+
+        // 字符數統計
+        char_counter_input_placeholder: '輸入或粘貼文本內容...',
+        char_counter_characters: '字符數',
+        char_counter_words: '單詞數',
+        char_counter_lines: '行數',
+        char_counter_spaces: '空格數',
+        char_counter_info_title: '統計說明',
+        char_counter_info_1: '• 字符數：包括所有字符（包括空格、標點符號等）',
+        char_counter_info_2: '• 單詞數：以空格分隔的單詞數量',
+        char_counter_info_3: '• 行數：按換行符分隔的行數',
+        char_counter_info_4: '• 空格數：文本中的空格數量',
+
+        // UUID 生成器
+        uuid_generate_settings: '生成設置',
+        uuid_results: '生成結果',
+        uuid_info_title: 'UUID 版本說明',
+        uuid_info_v1: '• UUID v1: 基於時間戳和 MAC 地址生成，具有時間順序性',
+        uuid_info_v3: '• UUID v3: 基於 MD5 哈希的命名空間 UUID，確定性生成',
+        uuid_info_v4: '• UUID v4: 基於隨機數生成，最常用的 UUID 版本',
+        uuid_info_v5: '• UUID v5: 基於 SHA-1 哈希的命名空間 UUID，確定性生成',
+        uuid_info_nil: '• UUID NIL: 全零 UUID (00000000-0000-0000-0000-000000000000)',
+        uuid_validate_title: 'UUID 驗證',
+        uuid_validate_desc: '驗證輸入的字符串是否為有效的 UUID',
+        uuid_validate_placeholder: '輸入 UUID 進行驗證',
+        uuid_value: 'UUID:',
+        uuid_version: '版本:',
+        uuid_type: '類型:',
+        uuid_input_required: '請輸入 UUID',
+        uuid_invalid: '無效的 UUID 格式',
+        uuid_copy_all: '複製全部',
+        uuid_download: '下載',
+
+        // 密碼生成器
+        password_generate_settings: '生成設置',
+        password_length_placeholder: '密碼長度',
+        password_uppercase: '大寫字母 (A-Z)',
+        password_lowercase: '小寫字母 (a-z)',
+        password_numbers: '數字 (0-9)',
+        password_special: '特殊字符 (!@#$%^&*)',
+        password_results: '生成結果',
+        password_info_title: '密碼生成說明',
+        password_info_desc: '• 支持自定義密碼長度（4-128 字符）',
+        password_info_chars: '• 可選擇包含大寫字母、小寫字母、數字和特殊字符',
+        password_info_secure: '• 生成的密碼完全隨機，所有處理都在本地瀏覽器完成',
+        password_error_length: '密碼長度必須在 4 到 128 之間',
+        password_error_no_options: '請至少選擇一種字符類型',
+        password_copy_success: '密碼已複製到剪貼板',
+        validate_btn: '驗證',
+
     },
     'en': {
         app_title: 'Toolhub',
@@ -399,8 +845,6 @@ const translations = {
         tool_naming_desc: 'Convert between camelCase and snake_case, supports various formats',
         tool_unicode: 'Unicode Converter',
         tool_unicode_desc: 'Bidirectional conversion between Chinese and Unicode characters',
-        tool_chinese: 'Chinese Converter',
-        tool_chinese_desc: 'Bidirectional conversion between Simplified and Traditional Chinese',
 
         // Time & Schedule tools
         tool_timestamp: 'Timestamp Converter',
@@ -433,6 +877,24 @@ const translations = {
         tool_ascii_desc: 'Convert English characters into text art made of ASCII characters',
         tool_color: 'Color Picker',
         tool_color_desc: 'Precisely select colors through intuitive and simple operations',
+
+        // IP Address Lookup Tool
+        ip_get_my_ip: 'Get IP',
+        ip_query: 'Query',
+        ip_get_button: 'Get',
+        ip_input_label: 'Input IP Address:',
+        ip_input_placeholder: 'Input IP Address',
+        ip_query_button: 'Query',
+        ip_your_ip_info: 'Your IP Info:',
+        ip_query_result: 'Query Result:',
+        ip_query_desc: 'Query IP address location information.',
+        ip_click_query: 'Click "Query" button to start',
+        ip_loading: 'Getting IP address',
+        ip_get_failed: 'Failed to get IP, please try again later',
+        ip_input_required: 'Please input IP address',
+        ip_querying: 'Querying IP information',
+        ip_address: 'IP Address:',
+        ip_copy: 'Copy',
 
         // Legacy translations
         json_tab: 'JSON Formatter',
@@ -533,7 +995,223 @@ const translations = {
         url_character: 'Character',
         url_ascii_code: 'ASCII Code',
         url_encoded: 'URL Encoded',
-        error_decode_failed: 'URL decode failed'
+        error_decode_failed: 'URL decode failed',
+
+        // Text Encryption
+        encryption_title: 'Text Encryption & Decryption Tool',
+        encryption_input_label: 'Input Text:',
+        encryption_input_placeholder: 'Enter text to encrypt or decrypt...',
+        encryption_password_label: 'Password:',
+        encryption_password_placeholder: 'Enter password for encryption/decryption',
+        encryption_output_label: 'Result:',
+        encryption_output_placeholder: 'Encrypted or decrypted result will be displayed here',
+        encrypt_btn: 'Encrypt',
+        decrypt_btn: 'Decrypt',
+        show_password: 'Show Password',
+        error_encryption_no_input: 'Please enter text to encrypt',
+        error_encryption_no_password: 'Please enter password',
+        error_decryption_failed: 'Decryption failed, please check if password is correct',
+        success_encrypted: 'Encryption successful',
+        success_decrypted: 'Decryption successful',
+
+        // Base64 Encoding
+        base64_title: 'Base64 Encoding Tool',
+        base64_input_label: 'Input Text:',
+        base64_input_placeholder: 'Enter text to encode or decode...',
+        base64_file_label: 'Or Upload File:',
+        base64_file_hint: 'Max file size: 10MB',
+        base64_output_label: 'Result:',
+        base64_output_placeholder: 'Encoded or decoded result will be displayed here',
+        base64_encode_btn: 'Encode',
+        base64_decode_btn: 'Decode',
+        error_base64_encode_failed: 'Base64 encoding failed',
+        error_base64_decode_failed: 'Base64 decoding failed, please check if input is valid Base64 string',
+        error_file_too_large: 'File is too large, please select a file smaller than 10MB',
+        error_file_read_failed: 'File read failed',
+
+        // MD5 Encryption
+        md5_title: 'MD5 Encryption Tool',
+        md5_input_label: 'Input Text:',
+        md5_input_placeholder: 'Enter text to convert to MD5...',
+        md5_output_label: 'Result:',
+        md5_output_placeholder: 'MD5 hash result will be displayed here',
+        md5_compute_btn: 'Compute',
+        md5_lowercase: 'Lowercase',
+        md5_uppercase: 'Uppercase',
+        md5_32bit: '32-bit',
+        md5_16bit: '16-bit',
+        error_md5_compute_failed: 'MD5 computation failed',
+
+        // JWT Token Generator & Parser
+        jwt_title: 'JWT Token Generator & Parser',
+        jwt_generate_btn: 'Generate',
+        jwt_parse_btn: 'Parse',
+        jwt_generate_mode: 'Generate Mode',
+        jwt_parse_mode: 'Parse Mode',
+        jwt_input_label: 'Input',
+        jwt_output_label: 'Output',
+        jwt_header_label: 'Header:',
+        jwt_payload_label: 'Payload:',
+        jwt_secret_label: 'Secret Key:',
+        jwt_algorithm_label: 'Algorithm:',
+        jwt_token_label: 'JWT Token:',
+        jwt_input_token_label: 'Input Token:',
+        jwt_signature_label: 'Signature:',
+        error_jwt_invalid_json: 'Invalid JSON format',
+        error_jwt_invalid_token: 'Invalid token format',
+        error_jwt_verification_failed: 'Token verification failed',
+        success_jwt_generated: 'JWT Token generated successfully',
+        success_jwt_parsed: 'JWT Token parsed successfully',
+
+        // RSA Key Pair Generator
+        rsa_title: 'RSA Key Pair Generator',
+        rsa_generate_btn: 'Generate',
+        rsa_copy_public_btn: 'Copy Public',
+        rsa_copy_private_btn: 'Copy Private',
+        rsa_config_label: 'Configuration',
+        rsa_output_label: 'Output',
+        rsa_key_length_label: 'Key Length:',
+        rsa_format_label: 'Format:',
+        rsa_public_key_label: 'Public Key:',
+        rsa_private_key_label: 'Private Key:',
+        rsa_info_title: 'Info:',
+        rsa_info_1: '1024 bits: Fast generation, suitable for testing',
+        rsa_info_2: '2048 bits: Recommended for general use',
+        rsa_info_3: '4096 bits: High security, slower generation',
+        error_rsa_generate_failed: 'RSA key generation failed',
+        success_rsa_generated: 'RSA key pair generated successfully',
+
+        // YAML-Properties Converter
+        yaml_title: 'YAML-Properties Converter',
+        yaml_to_properties_btn: 'YAML → Properties',
+        properties_to_yaml_btn: 'Properties → YAML',
+        yaml_input_label: 'Input:',
+        yaml_output_label: 'Output:',
+        yaml_input_placeholder: 'Paste YAML or Properties format data...',
+        yaml_output_placeholder: 'Converted result will appear here',
+        error_yaml_invalid: 'Invalid YAML format',
+        error_properties_invalid: 'Invalid Properties format',
+        success_yaml_converted: 'YAML converted successfully',
+        success_properties_converted: 'Properties converted successfully',
+
+        // SQL Formatter
+        sql_format_title: 'SQL Formatter',
+        sql_input_label: 'Input:',
+        sql_output_label: 'Output:',
+        sql_input_placeholder: 'Paste SQL statement...',
+        sql_output_placeholder: 'Formatted SQL will appear here',
+        error_sql_invalid: 'Invalid SQL format',
+
+        // SQL Validator
+        sql_validator_title: 'SQL Validator',
+        sql_validator_input_placeholder: 'Paste SQL DDL statement here...',
+        sql_validator_output_placeholder: 'Validation result will appear here',
+        validate_btn: 'Validate',
+        db_mysql: 'MySQL',
+        db_postgresql: 'PostgreSQL',
+        db_sqlserver: 'SQL Server',
+        db_oracle: 'Oracle',
+        db_sqlite: 'SQLite',
+        validation_success: 'SQL validation passed',
+        validation_error: 'SQL validation failed',
+        validation_warning: 'SQL validation warning',
+        error_sql_syntax: 'SQL syntax error',
+        error_sql_reserved_word: 'Reserved word used incorrectly',
+        error_sql_invalid_type: 'Invalid data type',
+        error_sql_missing_constraint: 'Missing constraint definition',
+
+        // CSS Formatter
+        css_title: 'CSS Formatter',
+        css_input_label: 'Input:',
+        css_output_label: 'Output:',
+        css_input_placeholder: 'Paste CSS code here...',
+        css_output_placeholder: 'Formatted or compressed CSS will appear here',
+        error_css_invalid: 'Invalid CSS format',
+
+        // Naming Converter
+        naming_title: 'Naming Converter',
+        naming_input_label: 'Input:',
+        naming_output_label: 'Output:',
+        naming_input_placeholder: 'Enter naming text (supports camelCase, snake_case, etc.)...',
+        convert_btn: 'Convert',
+        error_naming_invalid: 'Invalid naming format',
+
+        // Unicode Converter
+        unicode_title: 'Unicode Converter',
+        unicode_input_label: 'Input:',
+        unicode_output_label: 'Output:',
+        unicode_input_placeholder: 'Enter Chinese text or Unicode encoding...',
+        unicode_output_placeholder: 'Conversion result will appear here',
+        to_unicode_btn: 'To Unicode',
+        from_unicode_btn: 'From Unicode',
+        unicode_info_title: 'Unicode Format Examples:',
+        error_unicode_invalid: 'Invalid Unicode format',
+
+        // Simple Calculator
+        history: 'Calculation History',
+        history_empty: 'No history records',
+
+        // Simple Timer
+        timer_stopwatch: 'Stopwatch',
+        timer_stopwatch_label: 'Stopwatch',
+        timer_countdown: 'Countdown',
+        timer_countdown_label: 'Countdown',
+        timer_hours: 'Hours',
+        timer_minutes: 'Minutes',
+        timer_seconds: 'Seconds',
+        timer_start: 'Start',
+        timer_pause: 'Pause',
+        timer_reset: 'Reset',
+
+        // Character Counter
+        char_counter_input_placeholder: 'Enter or paste text content...',
+        char_counter_characters: 'Characters',
+        char_counter_words: 'Words',
+        char_counter_lines: 'Lines',
+        char_counter_spaces: 'Spaces',
+        char_counter_info_title: 'Statistics Explanation',
+        char_counter_info_1: '• Characters: Includes all characters (including spaces, punctuation, etc.)',
+        char_counter_info_2: '• Words: Number of words separated by spaces',
+        char_counter_info_3: '• Lines: Number of lines separated by line breaks',
+        char_counter_info_4: '• Spaces: Number of spaces in the text',
+
+        // UUID Generator
+        uuid_generate_settings: 'Generate Settings',
+        uuid_results: 'Generation Results',
+        uuid_info_title: 'UUID Version Information',
+        uuid_info_v1: '• UUID v1: Time-based UUID with MAC address, has time ordering',
+        uuid_info_v3: '• UUID v3: MD5-based namespace UUID, deterministic generation',
+        uuid_info_v4: '• UUID v4: Random-based UUID, most commonly used version',
+        uuid_info_v5: '• UUID v5: SHA-1-based namespace UUID, deterministic generation',
+        uuid_info_nil: '• UUID NIL: All-zero UUID (00000000-0000-0000-0000-000000000000)',
+        uuid_validate_title: 'UUID Validation',
+        uuid_validate_desc: 'Validate whether the input string is a valid UUID',
+        uuid_validate_placeholder: 'Enter UUID to validate',
+        uuid_value: 'UUID:',
+        uuid_version: 'Version:',
+        uuid_type: 'Type:',
+        uuid_input_required: 'Please enter UUID',
+        uuid_invalid: 'Invalid UUID format',
+        uuid_copy_all: 'Copy All',
+        uuid_download: 'Download',
+
+        // Password Generator
+        password_generate_settings: 'Generate Settings',
+        password_length_placeholder: 'Password Length',
+        password_uppercase: 'Uppercase Letters (A-Z)',
+        password_lowercase: 'Lowercase Letters (a-z)',
+        password_numbers: 'Numbers (0-9)',
+        password_special: 'Special Characters (!@#$%^&*)',
+        password_results: 'Generation Results',
+        password_info_title: 'Password Generation Information',
+        password_info_desc: '• Support custom password length (4-128 characters)',
+        password_info_chars: '• Choose to include uppercase letters, lowercase letters, numbers and special characters',
+        password_info_secure: '• Generated passwords are completely random, all processing is done locally in your browser',
+        password_error_length: 'Password length must be between 4 and 128',
+        password_error_no_options: 'Please select at least one character type',
+        password_copy_success: 'Password copied to clipboard',
+        validate_btn: 'Validate',
+
     }
 };
 
@@ -567,7 +1245,6 @@ translations['ja'] = {
     tool_css: 'CSSフォーマッター',
     tool_naming: '命名規則変換',
     tool_unicode: 'Unicode変換',
-    tool_chinese: '中国語簡繁変換',
 
     // 時間とスケジュールツール
     tool_timestamp: 'タイムスタンプ変換',
@@ -586,6 +1263,55 @@ translations['ja'] = {
     tool_calculator: 'シンプル計算機',
     tool_ascii: 'ASCIIアート',
     tool_color: 'カラーピッカー',
+
+    // 文字数カウンター
+    char_counter_input_placeholder: 'テキストを入力または貼り付けてください...',
+    char_counter_characters: '文字数',
+    char_counter_words: '単語数',
+    char_counter_lines: '行数',
+    char_counter_spaces: 'スペース数',
+    char_counter_info_title: '統計説明',
+    char_counter_info_1: '• 文字数：すべての文字を含む（スペース、句読点など）',
+    char_counter_info_2: '• 単語数：スペースで区切られた単語の数',
+    char_counter_info_3: '• 行数：改行で区切られた行の数',
+    char_counter_info_4: '• スペース数：テキスト内のスペースの数',
+
+    // UUID生成器
+    uuid_generate_settings: '生成設定',
+    uuid_results: '生成結果',
+    uuid_info_title: 'UUIDバージョン情報',
+    uuid_info_v1: '• UUID v1: タイムスタンプとMACアドレスベースのUUID、時間順序性あり',
+    uuid_info_v3: '• UUID v3: MD5ハッシュベースの名前空間UUID、決定論的生成',
+    uuid_info_v4: '• UUID v4: ランダムベースのUUID、最も一般的なバージョン',
+    uuid_info_v5: '• UUID v5: SHA-1ハッシュベースの名前空間UUID、決定論的生成',
+    uuid_info_nil: '• UUID NIL: 全ゼロUUID (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'UUID検証',
+    uuid_validate_desc: '入力文字列が有効なUUIDであるかを検証',
+    uuid_validate_placeholder: 'UUIDを入力して検証',
+    uuid_value: 'UUID:',
+    uuid_version: 'バージョン:',
+    uuid_type: 'タイプ:',
+    uuid_input_required: 'UUIDを入力してください',
+    uuid_invalid: '無効なUUID形式',
+    uuid_copy_all: 'すべてコピー',
+    uuid_download: 'ダウンロード',
+
+    // パスワード生成器
+    password_generate_settings: '生成設定',
+    password_length_placeholder: 'パスワード長',
+    password_uppercase: '大文字 (A-Z)',
+    password_lowercase: '小文字 (a-z)',
+    password_numbers: '数字 (0-9)',
+    password_special: '特殊文字 (!@#$%^&*)',
+    password_results: '生成結果',
+    password_info_title: 'パスワード生成情報',
+    password_info_desc: '• カスタムパスワード長をサポート（4-128文字）',
+    password_info_chars: '• 大文字、小文字、数字、特殊文字を含めることを選択できます',
+    password_info_secure: '• 生成されたパスワードは完全にランダムで、すべての処理はブラウザで行われます',
+    password_error_length: 'パスワード長は4〜128の間である必要があります',
+    password_error_no_options: '少なくとも1つの文字タイプを選択してください',
+    password_copy_success: 'パスワードをクリップボードにコピーしました',
+    validate_btn: '検証',
 
     // 旧翻訳
     json_tab: 'JSONフォーマッター',
@@ -684,7 +1410,174 @@ translations['ja'] = {
     url_character: '文字',
     url_ascii_code: 'ASCIIコード',
     url_encoded: 'URLエンコード',
-    error_decode_failed: 'URLデコードに失敗しました'
+    error_decode_failed: 'URLデコードに失敗しました',
+
+    // テキスト暗号化
+    encryption_title: 'テキスト暗号化・復号化ツール',
+    encryption_input_label: '入力テキスト:',
+    encryption_input_placeholder: '暗号化または復号化するテキストを入力...',
+    encryption_password_label: 'パスワード:',
+    encryption_password_placeholder: '暗号化/復号化用パスワードを入力',
+    encryption_output_label: '結果:',
+    encryption_output_placeholder: '暗号化または復号化された結果がここに表示されます',
+    encrypt_btn: '暗号化',
+    decrypt_btn: '復号化',
+    show_password: 'パスワードを表示',
+    error_encryption_no_input: '暗号化するテキストを入力してください',
+    error_encryption_no_password: 'パスワードを入力してください',
+    error_decryption_failed: '復号化に失敗しました。パスワードが正しいか確認してください',
+    success_encrypted: '暗号化成功',
+    success_decrypted: '復号化成功',
+
+    // Base64エンコーディング
+    base64_title: 'Base64エンコーディングツール',
+    base64_input_label: '入力テキスト:',
+    base64_input_placeholder: 'エンコードまたはデコードするテキストを入力...',
+    base64_file_label: 'またはファイルをアップロード:',
+    base64_file_hint: '最大ファイルサイズ: 10MB',
+    base64_output_label: '結果:',
+    base64_output_placeholder: 'エンコードまたはデコードされた結果がここに表示されます',
+    base64_encode_btn: 'エンコード',
+    base64_decode_btn: 'デコード',
+    error_base64_encode_failed: 'Base64エンコードに失敗しました',
+    error_base64_decode_failed: 'Base64デコードに失敗しました。入力が有効なBase64文字列であるか確認してください',
+    error_file_too_large: 'ファイルが大きすぎます。10MB未満のファイルを選択してください',
+    error_file_read_failed: 'ファイルの読み込みに失敗しました',
+
+    // MD5暗号化
+    md5_title: 'MD5暗号化ツール',
+    md5_input_label: '入力テキスト:',
+    md5_input_placeholder: 'MD5に変換するテキストを入力...',
+    md5_output_label: '結果:',
+    md5_output_placeholder: 'MD5ハッシュ結果がここに表示されます',
+    md5_compute_btn: '計算',
+    md5_lowercase: '小文字',
+    md5_uppercase: '大文字',
+    md5_32bit: '32ビット',
+    md5_16bit: '16ビット',
+    error_md5_compute_failed: 'MD5計算に失敗しました',
+
+    // JWT Token生成とパーサー
+    jwt_title: 'JWT Token生成とパーサーツール',
+    jwt_generate_btn: '生成',
+    jwt_parse_btn: '解析',
+    jwt_generate_mode: '生成モード',
+    jwt_parse_mode: '解析モード',
+    jwt_input_label: '入力',
+    jwt_output_label: '出力',
+    jwt_header_label: 'ヘッダー:',
+    jwt_payload_label: 'ペイロード:',
+    jwt_secret_label: 'シークレットキー:',
+    jwt_algorithm_label: 'アルゴリズム:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: '入力Token:',
+    jwt_signature_label: '署名:',
+    error_jwt_invalid_json: '無効なJSON形式',
+    error_jwt_invalid_token: '無効なトークン形式',
+    error_jwt_verification_failed: 'トークン検証に失敗しました',
+    success_jwt_generated: 'JWT Tokenが正常に生成されました',
+    success_jwt_parsed: 'JWT Tokenが正常に解析されました',
+
+    // RSA鍵ペア生成
+    rsa_title: 'RSA鍵ペア生成ツール',
+    rsa_generate_btn: '生成',
+    rsa_copy_public_btn: '公開鍵をコピー',
+    rsa_copy_private_btn: '秘密鍵をコピー',
+    rsa_config_label: '設定',
+    rsa_output_label: '出力',
+    rsa_key_length_label: '鍵長:',
+    rsa_format_label: 'フォーマット:',
+    rsa_public_key_label: '公開鍵:',
+    rsa_private_key_label: '秘密鍵:',
+    rsa_info_title: '情報:',
+    rsa_info_1: '1024ビット: 高速生成、テストに適している',
+    rsa_info_2: '2048ビット: 一般的な用途に推奨',
+    rsa_info_3: '4096ビット: 高セキュリティ、生成が遅い',
+    error_rsa_generate_failed: 'RSA鍵生成に失敗しました',
+    success_rsa_generated: 'RSA鍵ペア生成成功',
+
+    // YAML-Properties変換
+    yaml_title: 'YAML-Properties変換ツール',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: '入力:',
+    yaml_output_label: '出力:',
+    yaml_input_placeholder: 'YAMLまたはPropertiesフォーマットデータを貼り付けてください...',
+    yaml_output_placeholder: '変換結果がここに表示されます',
+    error_yaml_invalid: '無効なYAMLフォーマット',
+    error_properties_invalid: '無効なPropertiesフォーマット',
+    success_yaml_converted: 'YAML変換成功',
+    success_properties_converted: 'Properties変換成功',
+
+    // SQL フォーマッター
+    sql_format_title: 'SQL フォーマッター',
+    sql_input_label: '入力:',
+    sql_output_label: '出力:',
+    sql_input_placeholder: 'SQL ステートメントを貼り付けてください...',
+    sql_output_placeholder: 'フォーマットされた SQL がここに表示されます',
+    error_sql_invalid: '無効な SQL フォーマット',
+
+    // SQL バリデーター
+    sql_validator_title: 'SQL バリデーター',
+    sql_validator_input_placeholder: 'SQL DDL ステートメントを貼り付けてください...',
+    sql_validator_output_placeholder: '検証結果がここに表示されます',
+    validate_btn: '検証',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'SQL 検証に成功しました',
+    validation_error: 'SQL 検証に失敗しました',
+    validation_warning: 'SQL 検証警告',
+    error_sql_syntax: 'SQL 構文エラー',
+    error_sql_reserved_word: '予約語の使用が不適切です',
+    error_sql_invalid_type: '無効なデータ型',
+    error_sql_missing_constraint: '制約定義がありません',
+
+    // CSS フォーマッター
+    css_title: 'CSS フォーマッター',
+    css_input_label: '入力:',
+    css_output_label: '出力:',
+    css_input_placeholder: 'CSS コードを貼り付けてください...',
+    css_output_placeholder: 'フォーマットまたは圧縮された CSS がここに表示されます',
+    error_css_invalid: '無効な CSS フォーマット',
+
+    // 命名規則変換
+    naming_title: '命名規則変換ツール',
+    naming_input_label: '入力:',
+    naming_output_label: '出力:',
+    naming_input_placeholder: '命名テキストを入力してください（キャメルケース、スネークケースなど対応）...',
+    convert_btn: '変換',
+    error_naming_invalid: '無効な命名フォーマット',
+
+    // Unicode 変換
+    unicode_title: 'Unicode 変換ツール',
+    unicode_input_label: '入力:',
+    unicode_output_label: '出力:',
+    unicode_input_placeholder: '中国語テキストまたは Unicode エンコーディングを入力してください...',
+    unicode_output_placeholder: '変換結果がここに表示されます',
+    to_unicode_btn: 'Unicode に変換',
+    from_unicode_btn: 'Unicode から変換',
+    unicode_info_title: 'Unicode フォーマット例:',
+    error_unicode_invalid: '無効な Unicode フォーマット',
+
+    // シンプル計算機
+    history: '計算履歴',
+    history_empty: '履歴記録なし',
+
+    // シンプルタイマー
+    timer_stopwatch: 'ストップウォッチ',
+    timer_stopwatch_label: 'ストップウォッチ',
+    timer_countdown: 'カウントダウン',
+    timer_countdown_label: 'カウントダウン',
+    timer_hours: '時間',
+    timer_minutes: '分',
+    timer_seconds: '秒',
+    timer_start: '開始',
+    timer_pause: '一時停止',
+    timer_reset: 'リセット',
+
 };
 
 // 韩语翻译
@@ -717,7 +1610,6 @@ translations['ko'] = {
     tool_css: 'CSS 포맷터',
     tool_naming: '명명 규칙 변환',
     tool_unicode: 'Unicode 변환',
-    tool_chinese: '중국어 간체/번체 변환',
 
     // 시간 및 일정 도구
     tool_timestamp: '타임스탬프 변환',
@@ -736,6 +1628,42 @@ translations['ko'] = {
     tool_calculator: '간단한 계산기',
     tool_ascii: 'ASCII 아트',
     tool_color: '색상 선택기',
+
+    // UUID 생성기
+    uuid_generate_settings: '생성 설정',
+    uuid_results: '생성 결과',
+    uuid_info_title: 'UUID 버전 정보',
+    uuid_info_v1: '• UUID v1: 타임스탬프 및 MAC 주소 기반, 시간 순서 있음',
+    uuid_info_v3: '• UUID v3: MD5 해시 기반 네임스페이스 UUID, 결정론적 생성',
+    uuid_info_v4: '• UUID v4: 무작위 기반 UUID, 가장 일반적인 버전',
+    uuid_info_v5: '• UUID v5: SHA-1 해시 기반 네임스페이스 UUID, 결정론적 생성',
+    uuid_info_nil: '• UUID NIL: 모두 0인 UUID (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'UUID 검증',
+    uuid_validate_desc: '입력 문자열이 유효한 UUID인지 검증',
+    uuid_validate_placeholder: 'UUID를 입력하여 검증',
+    uuid_value: 'UUID:',
+    uuid_version: '버전:',
+    uuid_type: '유형:',
+    uuid_input_required: 'UUID를 입력하세요',
+    uuid_invalid: '잘못된 UUID 형식',
+    uuid_copy_all: '모두 복사',
+    uuid_download: '다운로드',
+
+    // 비밀번호 생성기
+    password_generate_settings: '생성 설정',
+    password_length_placeholder: '비밀번호 길이',
+    password_uppercase: '대문자 (A-Z)',
+    password_lowercase: '소문자 (a-z)',
+    password_numbers: '숫자 (0-9)',
+    password_special: '특수 문자 (!@#$%^&*)',
+    password_results: '생성 결과',
+    password_info_title: '비밀번호 생성 정보',
+    password_info_desc: '• 사용자 정의 비밀번호 길이 지원 (4-128 문자)',
+    password_info_chars: '• 대문자, 소문자, 숫자 및 특수 문자 포함 선택 가능',
+    password_info_secure: '• 생성된 비밀번호는 완전히 무작위이며 모든 처리는 브라우저에서 수행됩니다',
+    password_error_length: '비밀번호 길이는 4에서 128 사이여야 합니다',
+    password_error_no_options: '최소 1개의 문자 유형을 선택하세요',
+    password_copy_success: '비밀번호가 클립보드에 복사되었습니다',
 
     // 기존 번역
     json_tab: 'JSON 포맷터',
@@ -834,7 +1762,159 @@ translations['ko'] = {
     url_character: '문자',
     url_ascii_code: 'ASCII 코드',
     url_encoded: 'URL 인코딩',
-    error_decode_failed: 'URL 디코드 실패'
+    error_decode_failed: 'URL 디코드 실패',
+
+    // 텍스트 암호화
+    encryption_title: '텍스트 암호화 및 복호화 도구',
+    encryption_input_label: '입력 텍스트:',
+    encryption_input_placeholder: '암호화 또는 복호화할 텍스트 입력...',
+    encryption_password_label: '비밀번호:',
+    encryption_password_placeholder: '암호화/복호화 비밀번호 입력',
+    encryption_output_label: '결과:',
+    encryption_output_placeholder: '암호화 또는 복호화된 결과가 여기에 표시됩니다',
+    encrypt_btn: '암호화',
+    decrypt_btn: '복호화',
+    show_password: '비밀번호 표시',
+    error_encryption_no_input: '암호화할 텍스트를 입력하세요',
+    error_encryption_no_password: '비밀번호를 입력하세요',
+    error_decryption_failed: '복호화 실패, 비밀번호가 올바른지 확인하세요',
+    success_encrypted: '암호화 성공',
+    success_decrypted: '복호화 성공',
+
+    // Base64 인코딩
+    base64_title: 'Base64 인코딩 도구',
+    base64_input_label: '입력 텍스트:',
+    base64_input_placeholder: '인코드 또는 디코드할 텍스트 입력...',
+    base64_file_label: '또는 파일 업로드:',
+    base64_file_hint: '최대 파일 크기: 10MB',
+    base64_output_label: '결과:',
+    base64_output_placeholder: '인코드 또는 디코드된 결과가 여기에 표시됩니다',
+    base64_encode_btn: '인코드',
+    base64_decode_btn: '디코드',
+    error_base64_encode_failed: 'Base64 인코딩 실패',
+    error_base64_decode_failed: 'Base64 디코딩 실패, 입력이 유효한 Base64 문자열인지 확인하세요',
+    error_file_too_large: '파일이 너무 큽니다. 10MB 미만의 파일을 선택하세요',
+    error_file_read_failed: '파일 읽기 실패',
+
+    // MD5 암호화
+    md5_title: 'MD5 암호화 도구',
+    md5_input_label: '입력 텍스트:',
+    md5_input_placeholder: 'MD5로 변환할 텍스트 입력...',
+    md5_output_label: '결과:',
+    md5_output_placeholder: 'MD5 해시 결과가 여기에 표시됩니다',
+    md5_compute_btn: '계산',
+    md5_lowercase: '소문자',
+    md5_uppercase: '대문자',
+    md5_32bit: '32비트',
+    md5_16bit: '16비트',
+    error_md5_compute_failed: 'MD5 계산 실패',
+
+    // JWT Token 생성 및 파서
+    jwt_title: 'JWT Token 생성 및 파서 도구',
+    jwt_generate_btn: '생성',
+    jwt_parse_btn: '파싱',
+    jwt_generate_mode: '생성 모드',
+    jwt_parse_mode: '파싱 모드',
+    jwt_input_label: '입력',
+    jwt_output_label: '출력',
+    jwt_header_label: '헤더:',
+    jwt_payload_label: '페이로드:',
+    jwt_secret_label: '비밀 키:',
+    jwt_algorithm_label: '알고리즘:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: '입력 Token:',
+    jwt_signature_label: '서명:',
+    error_jwt_invalid_json: '잘못된 JSON 형식',
+    error_jwt_invalid_token: '잘못된 토큰 형식',
+    error_jwt_verification_failed: '토큰 검증 실패',
+    success_jwt_generated: 'JWT Token이 성공적으로 생성되었습니다',
+    success_jwt_parsed: 'JWT Token이 성공적으로 파싱되었습니다',
+
+    // RSA 키 쌍 생성
+    rsa_title: 'RSA 키 쌍 생성 도구',
+    rsa_generate_btn: '생성',
+    rsa_copy_public_btn: '공개 키 복사',
+    rsa_copy_private_btn: '개인 키 복사',
+    rsa_config_label: '설정',
+    rsa_output_label: '출력',
+    rsa_key_length_label: '키 길이:',
+    rsa_format_label: '형식:',
+    rsa_public_key_label: '공개 키:',
+    rsa_private_key_label: '개인 키:',
+    rsa_info_title: '정보:',
+    rsa_info_1: '1024비트: 빠른 생성, 테스트에 적합',
+    rsa_info_2: '2048비트: 일반 용도에 권장',
+    rsa_info_3: '4096비트: 높은 보안, 생성 속도 느림',
+    error_rsa_generate_failed: 'RSA 키 생성 실패',
+    success_rsa_generated: 'RSA 키 쌍이 성공적으로 생성되었습니다',
+
+    // YAML-Properties 변환
+    yaml_title: 'YAML-Properties 변환 도구',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: '입력:',
+    yaml_output_label: '출력:',
+    yaml_input_placeholder: 'YAML 또는 Properties 형식 데이터를 붙여넣으세요...',
+    yaml_output_placeholder: '변환 결과가 여기에 표시됩니다',
+    error_yaml_invalid: '잘못된 YAML 형식',
+    error_properties_invalid: '잘못된 Properties 형식',
+    success_yaml_converted: 'YAML 변환 성공',
+    success_properties_converted: 'Properties 변환 성공',
+
+    // SQL 포맷터
+    sql_format_title: 'SQL 포맷터',
+    sql_input_label: '입력:',
+    sql_output_label: '출력:',
+    sql_input_placeholder: 'SQL 문을 붙여넣으세요...',
+    sql_output_placeholder: '포맷된 SQL이 여기에 표시됩니다',
+    error_sql_invalid: '잘못된 SQL 형식',
+
+    // SQL 검증기
+    sql_validator_title: 'SQL 검증기',
+    sql_validator_input_placeholder: 'SQL DDL 문을 붙여넣으세요...',
+    sql_validator_output_placeholder: '검증 결과가 여기에 표시됩니다',
+    validate_btn: '검증',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'SQL 검증 통과',
+    validation_error: 'SQL 검증 실패',
+    validation_warning: 'SQL 검증 경고',
+    error_sql_syntax: 'SQL 구문 오류',
+    error_sql_reserved_word: '예약어 사용 오류',
+    error_sql_invalid_type: '잘못된 데이터 유형',
+    error_sql_missing_constraint: '제약 조건 정의 누락',
+
+    // CSS 포맷터
+    css_title: 'CSS 포맷터',
+    css_input_label: '입력:',
+    css_output_label: '출력:',
+    css_input_placeholder: 'CSS 코드를 붙여넣으세요...',
+    css_output_placeholder: '포맷되거나 압축된 CSS가 여기에 표시됩니다',
+    error_css_invalid: '잘못된 CSS 형식',
+
+    // 명명 규칙 변환
+    naming_title: '명명 규칙 변환 도구',
+    naming_input_label: '입력:',
+    naming_output_label: '출력:',
+    naming_input_placeholder: '명명 텍스트를 입력하세요 (camelCase, snake_case 등 지원)...',
+    convert_btn: '변환',
+    error_naming_invalid: '잘못된 명명 형식',
+
+    // Unicode 변환
+    unicode_title: 'Unicode 변환 도구',
+    unicode_input_label: '입력:',
+    unicode_output_label: '출력:',
+    unicode_input_placeholder: '중국어 텍스트 또는 Unicode 인코딩을 입력하세요...',
+    unicode_output_placeholder: '변환 결과가 여기에 표시됩니다',
+    to_unicode_btn: 'Unicode로 변환',
+    from_unicode_btn: 'Unicode에서 변환',
+    unicode_info_title: 'Unicode 형식 예:',
+    error_unicode_invalid: '잘못된 Unicode 형식',
+
+
 };
 
 // 西班牙语翻译
@@ -867,7 +1947,6 @@ translations['es'] = {
     tool_css: 'Formateador CSS',
     tool_naming: 'Conversor de Nomenclatura',
     tool_unicode: 'Conversor Unicode',
-    tool_chinese: 'Conversor Chino',
 
     // Herramientas de tiempo y programación
     tool_timestamp: 'Conversor de Marca de Tiempo',
@@ -886,6 +1965,42 @@ translations['es'] = {
     tool_calculator: 'Calculadora Simple',
     tool_ascii: 'Arte ASCII',
     tool_color: 'Selector de Color',
+
+    // Generador UUID
+    uuid_generate_settings: 'Configuración de Generación',
+    uuid_results: 'Resultados de Generación',
+    uuid_info_title: 'Información de Versión UUID',
+    uuid_info_v1: '• UUID v1: UUID basado en marca de tiempo y dirección MAC, con orden temporal',
+    uuid_info_v3: '• UUID v3: UUID de espacio de nombres basado en MD5, generación determinista',
+    uuid_info_v4: '• UUID v4: UUID basado en aleatorio, versión más comúnmente utilizada',
+    uuid_info_v5: '• UUID v5: UUID de espacio de nombres basado en SHA-1, generación determinista',
+    uuid_info_nil: '• UUID NIL: UUID todo ceros (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'Validación UUID',
+    uuid_validate_desc: 'Validar si la cadena de entrada es un UUID válido',
+    uuid_validate_placeholder: 'Ingrese UUID para validar',
+    uuid_value: 'UUID:',
+    uuid_version: 'Versión:',
+    uuid_type: 'Tipo:',
+    uuid_input_required: 'Por favor ingrese UUID',
+    uuid_invalid: 'Formato UUID inválido',
+    uuid_copy_all: 'Copiar Todo',
+    uuid_download: 'Descargar',
+
+    // Generador de Contraseñas
+    password_generate_settings: 'Configuración de Generación',
+    password_length_placeholder: 'Longitud de Contraseña',
+    password_uppercase: 'Letras Mayúsculas (A-Z)',
+    password_lowercase: 'Letras Minúsculas (a-z)',
+    password_numbers: 'Números (0-9)',
+    password_special: 'Caracteres Especiales (!@#$%^&*)',
+    password_results: 'Resultados de Generación',
+    password_info_title: 'Información de Generación de Contraseña',
+    password_info_desc: '• Soporta longitud de contraseña personalizada (4-128 caracteres)',
+    password_info_chars: '• Elija incluir letras mayúsculas, minúsculas, números y caracteres especiales',
+    password_info_secure: '• Las contraseñas generadas son completamente aleatorias, todo el procesamiento se realiza localmente en su navegador',
+    password_error_length: 'La longitud de la contraseña debe estar entre 4 y 128',
+    password_error_no_options: 'Por favor seleccione al menos un tipo de carácter',
+    password_copy_success: 'Contraseña copiada al portapapeles',
 
     // Traducciones antiguas
     json_tab: 'Formateador JSON',
@@ -984,7 +2099,159 @@ translations['es'] = {
     url_character: 'Carácter',
     url_ascii_code: 'Código ASCII',
     url_encoded: 'Codificado URL',
-    error_decode_failed: 'Error al decodificar URL'
+    error_decode_failed: 'Error al decodificar URL',
+
+    // Cifrado de Texto
+    encryption_title: 'Herramienta de Cifrado y Descifrado de Texto',
+    encryption_input_label: 'Texto de Entrada:',
+    encryption_input_placeholder: 'Ingrese texto para cifrar o descifrar...',
+    encryption_password_label: 'Contraseña:',
+    encryption_password_placeholder: 'Ingrese contraseña para cifrado/descifrado',
+    encryption_output_label: 'Resultado:',
+    encryption_output_placeholder: 'El resultado cifrado o descifrado se mostrará aquí',
+    encrypt_btn: 'Cifrar',
+    decrypt_btn: 'Descifrar',
+    show_password: 'Mostrar Contraseña',
+    error_encryption_no_input: 'Por favor ingrese texto para cifrar',
+    error_encryption_no_password: 'Por favor ingrese contraseña',
+    error_decryption_failed: 'Error al descifrar, verifique si la contraseña es correcta',
+    success_encrypted: 'Cifrado exitoso',
+    success_decrypted: 'Descifrado exitoso',
+
+    // Codificación Base64
+    base64_title: 'Herramienta de Codificación Base64',
+    base64_input_label: 'Texto de Entrada:',
+    base64_input_placeholder: 'Ingrese texto para codificar o decodificar...',
+    base64_file_label: 'O Cargar Archivo:',
+    base64_file_hint: 'Tamaño máximo de archivo: 10MB',
+    base64_output_label: 'Resultado:',
+    base64_output_placeholder: 'El resultado codificado o decodificado se mostrará aquí',
+    base64_encode_btn: 'Codificar',
+    base64_decode_btn: 'Decodificar',
+    error_base64_encode_failed: 'Error al codificar Base64',
+    error_base64_decode_failed: 'Error al decodificar Base64, verifique si la entrada es una cadena Base64 válida',
+    error_file_too_large: 'El archivo es demasiado grande, seleccione un archivo menor a 10MB',
+    error_file_read_failed: 'Error al leer el archivo',
+
+    // Cifrado MD5
+    md5_title: 'Herramienta de Cifrado MD5',
+    md5_input_label: 'Texto de Entrada:',
+    md5_input_placeholder: 'Ingrese texto para convertir a MD5...',
+    md5_output_label: 'Resultado:',
+    md5_output_placeholder: 'El resultado del hash MD5 se mostrará aquí',
+    md5_compute_btn: 'Calcular',
+    md5_lowercase: 'Minúsculas',
+    md5_uppercase: 'Mayúsculas',
+    md5_32bit: '32 bits',
+    md5_16bit: '16 bits',
+    error_md5_compute_failed: 'Error al calcular MD5',
+
+    // Generador y Analizador de JWT Token
+    jwt_title: 'Generador y Analizador de JWT Token',
+    jwt_generate_btn: 'Generar',
+    jwt_parse_btn: 'Analizar',
+    jwt_generate_mode: 'Modo Generar',
+    jwt_parse_mode: 'Modo Analizar',
+    jwt_input_label: 'Entrada',
+    jwt_output_label: 'Salida',
+    jwt_header_label: 'Encabezado:',
+    jwt_payload_label: 'Carga Útil:',
+    jwt_secret_label: 'Clave Secreta:',
+    jwt_algorithm_label: 'Algoritmo:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: 'Token de Entrada:',
+    jwt_signature_label: 'Firma:',
+    error_jwt_invalid_json: 'Formato JSON inválido',
+    error_jwt_invalid_token: 'Formato de token inválido',
+    error_jwt_verification_failed: 'Falló la verificación del token',
+    success_jwt_generated: 'JWT Token generado exitosamente',
+    success_jwt_parsed: 'JWT Token analizado exitosamente',
+
+    // Generador de Pares de Claves RSA
+    rsa_title: 'Generador de Pares de Claves RSA',
+    rsa_generate_btn: 'Generar',
+    rsa_copy_public_btn: 'Copiar Clave Pública',
+    rsa_copy_private_btn: 'Copiar Clave Privada',
+    rsa_config_label: 'Configuración',
+    rsa_output_label: 'Salida',
+    rsa_key_length_label: 'Longitud de Clave:',
+    rsa_format_label: 'Formato:',
+    rsa_public_key_label: 'Clave Pública:',
+    rsa_private_key_label: 'Clave Privada:',
+    rsa_info_title: 'Información:',
+    rsa_info_1: '1024 bits: Generación rápida, adecuado para pruebas',
+    rsa_info_2: '2048 bits: Recomendado para uso general',
+    rsa_info_3: '4096 bits: Alta seguridad, generación más lenta',
+    error_rsa_generate_failed: 'Error al generar claves RSA',
+    success_rsa_generated: 'Par de claves RSA generado exitosamente',
+
+    // Conversor YAML-Properties
+    yaml_title: 'Conversor YAML-Properties',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: 'Entrada:',
+    yaml_output_label: 'Salida:',
+    yaml_input_placeholder: 'Pegue datos en formato YAML o Properties...',
+    yaml_output_placeholder: 'El resultado convertido aparecerá aquí',
+    error_yaml_invalid: 'Formato YAML inválido',
+    error_properties_invalid: 'Formato Properties inválido',
+    success_yaml_converted: 'YAML convertido exitosamente',
+    success_properties_converted: 'Properties convertido exitosamente',
+
+    // Formateador SQL
+    sql_format_title: 'Formateador SQL',
+    sql_input_label: 'Entrada:',
+    sql_output_label: 'Salida:',
+    sql_input_placeholder: 'Pegue la declaración SQL...',
+    sql_output_placeholder: 'El SQL formateado aparecerá aquí',
+    error_sql_invalid: 'Formato SQL inválido',
+
+    // Validador SQL
+    sql_validator_title: 'Validador SQL',
+    sql_validator_input_placeholder: 'Pegue la declaración SQL DDL...',
+    sql_validator_output_placeholder: 'El resultado de validación aparecerá aquí',
+    validate_btn: 'Validar',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'Validación SQL exitosa',
+    validation_error: 'Validación SQL fallida',
+    validation_warning: 'Advertencia de validación SQL',
+    error_sql_syntax: 'Error de sintaxis SQL',
+    error_sql_reserved_word: 'Uso incorrecto de palabra reservada',
+    error_sql_invalid_type: 'Tipo de dato inválido',
+    error_sql_missing_constraint: 'Definición de restricción faltante',
+
+    // Formateador CSS
+    css_title: 'Formateador CSS',
+    css_input_label: 'Entrada:',
+    css_output_label: 'Salida:',
+    css_input_placeholder: 'Pegue código CSS aquí...',
+    css_output_placeholder: 'El CSS formateado o comprimido aparecerá aquí',
+    error_css_invalid: 'Formato CSS inválido',
+
+    // Convertidor de Nombres
+    naming_title: 'Convertidor de Nombres',
+    naming_input_label: 'Entrada:',
+    naming_output_label: 'Salida:',
+    naming_input_placeholder: 'Ingrese texto de nombres (soporta camelCase, snake_case, etc.)...',
+    convert_btn: 'Convertir',
+    error_naming_invalid: 'Formato de nombre inválido',
+
+    // Convertidor Unicode
+    unicode_title: 'Convertidor Unicode',
+    unicode_input_label: 'Entrada:',
+    unicode_output_label: 'Salida:',
+    unicode_input_placeholder: 'Ingrese texto chino o codificación Unicode...',
+    unicode_output_placeholder: 'El resultado de la conversión aparecerá aquí',
+    to_unicode_btn: 'A Unicode',
+    from_unicode_btn: 'Desde Unicode',
+    unicode_info_title: 'Ejemplos de Formato Unicode:',
+    error_unicode_invalid: 'Formato Unicode inválido',
+
+
 };
 
 // 法语翻译
@@ -1017,7 +2284,6 @@ translations['fr'] = {
     tool_css: 'Formateur CSS',
     tool_naming: 'Convertisseur de Nomenclature',
     tool_unicode: 'Convertisseur Unicode',
-    tool_chinese: 'Convertisseur Chinois',
 
     // Outils de temps et planification
     tool_timestamp: 'Convertisseur d\'Horodatage',
@@ -1036,6 +2302,42 @@ translations['fr'] = {
     tool_calculator: 'Calculatrice Simple',
     tool_ascii: 'Art ASCII',
     tool_color: 'Sélecteur de Couleur',
+
+    // Générateur UUID
+    uuid_generate_settings: 'Paramètres de Génération',
+    uuid_results: 'Résultats de Génération',
+    uuid_info_title: 'Informations sur la Version UUID',
+    uuid_info_v1: '• UUID v1: UUID basé sur l\'horodatage et l\'adresse MAC, avec ordre temporel',
+    uuid_info_v3: '• UUID v3: UUID d\'espace de noms basé sur MD5, génération déterministe',
+    uuid_info_v4: '• UUID v4: UUID basé sur aléatoire, version la plus couramment utilisée',
+    uuid_info_v5: '• UUID v5: UUID d\'espace de noms basé sur SHA-1, génération déterministe',
+    uuid_info_nil: '• UUID NIL: UUID tout zéro (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'Validation UUID',
+    uuid_validate_desc: 'Valider si la chaîne d\'entrée est un UUID valide',
+    uuid_validate_placeholder: 'Saisir UUID pour valider',
+    uuid_value: 'UUID:',
+    uuid_version: 'Version:',
+    uuid_type: 'Type:',
+    uuid_input_required: 'Veuillez saisir UUID',
+    uuid_invalid: 'Format UUID invalide',
+    uuid_copy_all: 'Copier Tout',
+    uuid_download: 'Télécharger',
+
+    // Générateur de Mot de Passe
+    password_generate_settings: 'Paramètres de Génération',
+    password_length_placeholder: 'Longueur du Mot de Passe',
+    password_uppercase: 'Lettres Majuscules (A-Z)',
+    password_lowercase: 'Lettres Minuscules (a-z)',
+    password_numbers: 'Chiffres (0-9)',
+    password_special: 'Caractères Spéciaux (!@#$%^&*)',
+    password_results: 'Résultats de Génération',
+    password_info_title: 'Informations sur la Génération de Mot de Passe',
+    password_info_desc: '• Supporte la longueur de mot de passe personnalisée (4-128 caractères)',
+    password_info_chars: '• Choisissez d\'inclure des lettres majuscules, minuscules, des chiffres et des caractères spéciaux',
+    password_info_secure: '• Les mots de passe générés sont complètement aléatoires, tout le traitement est effectué localement dans votre navigateur',
+    password_error_length: 'La longueur du mot de passe doit être entre 4 et 128',
+    password_error_no_options: 'Veuillez sélectionner au moins un type de caractère',
+    password_copy_success: 'Mot de passe copié dans le presse-papiers',
 
     // Anciennes traductions
     json_tab: 'Formateur JSON',
@@ -1134,7 +2436,159 @@ translations['fr'] = {
     url_character: 'Caractère',
     url_ascii_code: 'Code ASCII',
     url_encoded: 'Encodé URL',
-    error_decode_failed: 'Échec du décodage URL'
+    error_decode_failed: 'Échec du décodage URL',
+
+    // Chiffrement de Texte
+    encryption_title: 'Outil de Chiffrement et Déchiffrement de Texte',
+    encryption_input_label: 'Texte d\'Entrée:',
+    encryption_input_placeholder: 'Entrez le texte à chiffrer ou déchiffrer...',
+    encryption_password_label: 'Mot de Passe:',
+    encryption_password_placeholder: 'Entrez le mot de passe pour chiffrement/déchiffrement',
+    encryption_output_label: 'Résultat:',
+    encryption_output_placeholder: 'Le résultat chiffré ou déchiffré s\'affichera ici',
+    encrypt_btn: 'Chiffrer',
+    decrypt_btn: 'Déchiffrer',
+    show_password: 'Afficher le Mot de Passe',
+    error_encryption_no_input: 'Veuillez entrer le texte à chiffrer',
+    error_encryption_no_password: 'Veuillez entrer le mot de passe',
+    error_decryption_failed: 'Échec du déchiffrement, veuillez vérifier si le mot de passe est correct',
+    success_encrypted: 'Chiffrement réussi',
+    success_decrypted: 'Déchiffrement réussi',
+
+    // Encodage Base64
+    base64_title: 'Outil d\'Encodage Base64',
+    base64_input_label: 'Texte d\'Entrée:',
+    base64_input_placeholder: 'Entrez le texte à encoder ou décoder...',
+    base64_file_label: 'Ou Télécharger un Fichier:',
+    base64_file_hint: 'Taille maximale du fichier: 10MB',
+    base64_output_label: 'Résultat:',
+    base64_output_placeholder: 'Le résultat encodé ou décodé s\'affichera ici',
+    base64_encode_btn: 'Encoder',
+    base64_decode_btn: 'Décoder',
+    error_base64_encode_failed: 'Échec de l\'encodage Base64',
+    error_base64_decode_failed: 'Échec du décodage Base64, veuillez vérifier si l\'entrée est une chaîne Base64 valide',
+    error_file_too_large: 'Le fichier est trop volumineux, sélectionnez un fichier inférieur à 10MB',
+    error_file_read_failed: 'Échec de la lecture du fichier',
+
+    // Chiffrement MD5
+    md5_title: 'Outil de Chiffrement MD5',
+    md5_input_label: 'Texte d\'Entrée:',
+    md5_input_placeholder: 'Entrez le texte à convertir en MD5...',
+    md5_output_label: 'Résultat:',
+    md5_output_placeholder: 'Le résultat du hash MD5 s\'affichera ici',
+    md5_compute_btn: 'Calculer',
+    md5_lowercase: 'Minuscules',
+    md5_uppercase: 'Majuscules',
+    md5_32bit: '32 bits',
+    md5_16bit: '16 bits',
+    error_md5_compute_failed: 'Échec du calcul MD5',
+
+    // Générateur et Analyseur de JWT Token
+    jwt_title: 'Générateur et Analyseur de JWT Token',
+    jwt_generate_btn: 'Générer',
+    jwt_parse_btn: 'Analyser',
+    jwt_generate_mode: 'Mode Génération',
+    jwt_parse_mode: 'Mode Analyse',
+    jwt_input_label: 'Entrée',
+    jwt_output_label: 'Sortie',
+    jwt_header_label: 'En-tête:',
+    jwt_payload_label: 'Charge Utile:',
+    jwt_secret_label: 'Clé Secrète:',
+    jwt_algorithm_label: 'Algorithme:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: 'Token d\'Entrée:',
+    jwt_signature_label: 'Signature:',
+    error_jwt_invalid_json: 'Format JSON invalide',
+    error_jwt_invalid_token: 'Format de token invalide',
+    error_jwt_verification_failed: 'Échec de la vérification du token',
+    success_jwt_generated: 'JWT Token généré avec succès',
+    success_jwt_parsed: 'JWT Token analysé avec succès',
+
+    // Générateur de Paires de Clés RSA
+    rsa_title: 'Générateur de Paires de Clés RSA',
+    rsa_generate_btn: 'Générer',
+    rsa_copy_public_btn: 'Copier la Clé Publique',
+    rsa_copy_private_btn: 'Copier la Clé Privée',
+    rsa_config_label: 'Configuration',
+    rsa_output_label: 'Sortie',
+    rsa_key_length_label: 'Longueur de Clé:',
+    rsa_format_label: 'Format:',
+    rsa_public_key_label: 'Clé Publique:',
+    rsa_private_key_label: 'Clé Privée:',
+    rsa_info_title: 'Information:',
+    rsa_info_1: '1024 bits: Génération rapide, adapté aux tests',
+    rsa_info_2: '2048 bits: Recommandé pour un usage général',
+    rsa_info_3: '4096 bits: Haute sécurité, génération plus lente',
+    error_rsa_generate_failed: 'Échec de la génération des clés RSA',
+    success_rsa_generated: 'Paire de clés RSA générée avec succès',
+
+    // Convertisseur YAML-Properties
+    yaml_title: 'Convertisseur YAML-Properties',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: 'Entrée:',
+    yaml_output_label: 'Sortie:',
+    yaml_input_placeholder: 'Collez les données au format YAML ou Properties...',
+    yaml_output_placeholder: 'Le résultat converti apparaîtra ici',
+    error_yaml_invalid: 'Format YAML invalide',
+    error_properties_invalid: 'Format Properties invalide',
+    success_yaml_converted: 'YAML converti avec succès',
+    success_properties_converted: 'Properties converti avec succès',
+
+    // Formateur SQL
+    sql_format_title: 'Formateur SQL',
+    sql_input_label: 'Entrée:',
+    sql_output_label: 'Sortie:',
+    sql_input_placeholder: 'Collez la déclaration SQL...',
+    sql_output_placeholder: 'Le SQL formaté apparaîtra ici',
+    error_sql_invalid: 'Format SQL invalide',
+
+    // Validateur SQL
+    sql_validator_title: 'Validateur SQL',
+    sql_validator_input_placeholder: 'Collez la déclaration SQL DDL...',
+    sql_validator_output_placeholder: 'Le résultat de validation apparaîtra ici',
+    validate_btn: 'Valider',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'Validation SQL réussie',
+    validation_error: 'Validation SQL échouée',
+    validation_warning: 'Avertissement de validation SQL',
+    error_sql_syntax: 'Erreur de syntaxe SQL',
+    error_sql_reserved_word: 'Utilisation incorrecte du mot réservé',
+    error_sql_invalid_type: 'Type de données invalide',
+    error_sql_missing_constraint: 'Définition de contrainte manquante',
+
+    // Formateur CSS
+    css_title: 'Formateur CSS',
+    css_input_label: 'Entrée:',
+    css_output_label: 'Sortie:',
+    css_input_placeholder: 'Collez le code CSS ici...',
+    css_output_placeholder: 'Le CSS formaté ou compressé apparaîtra ici',
+    error_css_invalid: 'Format CSS invalide',
+
+    // Convertisseur de Noms
+    naming_title: 'Convertisseur de Noms',
+    naming_input_label: 'Entrée:',
+    naming_output_label: 'Sortie:',
+    naming_input_placeholder: 'Entrez le texte de noms (supporte camelCase, snake_case, etc.)...',
+    convert_btn: 'Convertir',
+    error_naming_invalid: 'Format de nom invalide',
+
+    // Convertisseur Unicode
+    unicode_title: 'Convertisseur Unicode',
+    unicode_input_label: 'Entrée:',
+    unicode_output_label: 'Sortie:',
+    unicode_input_placeholder: 'Entrez le texte chinois ou l\'encodage Unicode...',
+    unicode_output_placeholder: 'Le résultat de la conversion apparaîtra ici',
+    to_unicode_btn: 'Vers Unicode',
+    from_unicode_btn: 'Depuis Unicode',
+    unicode_info_title: 'Exemples de Format Unicode:',
+    error_unicode_invalid: 'Format Unicode invalide',
+
+
 };
 
 // 德语翻译
@@ -1167,7 +2621,6 @@ translations['de'] = {
     tool_css: 'CSS-Formatierer',
     tool_naming: 'Namenskonverter',
     tool_unicode: 'Unicode-Konverter',
-    tool_chinese: 'Chinesischer Konverter',
 
     // Zeit & Planung Tools
     tool_timestamp: 'Zeitstempel-Konverter',
@@ -1186,6 +2639,42 @@ translations['de'] = {
     tool_calculator: 'Einfacher Rechner',
     tool_ascii: 'ASCII-Kunst',
     tool_color: 'Farbwähler',
+
+    // UUID-Generator
+    uuid_generate_settings: 'Generierungseinstellungen',
+    uuid_results: 'Generierungsergebnisse',
+    uuid_info_title: 'UUID-Versionsinformationen',
+    uuid_info_v1: '• UUID v1: Zeitstempel- und MAC-Adressen-basierte UUID mit zeitlicher Reihenfolge',
+    uuid_info_v3: '• UUID v3: MD5-Hash-basierte Namespace-UUID, deterministische Generierung',
+    uuid_info_v4: '• UUID v4: Zufallsbasierte UUID, am häufigsten verwendete Version',
+    uuid_info_v5: '• UUID v5: SHA-1-Hash-basierte Namespace-UUID, deterministische Generierung',
+    uuid_info_nil: '• UUID NIL: Alle-Null-UUID (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'UUID-Validierung',
+    uuid_validate_desc: 'Überprüfen Sie, ob die Eingabezeichenfolge eine gültige UUID ist',
+    uuid_validate_placeholder: 'UUID zur Validierung eingeben',
+    uuid_value: 'UUID:',
+    uuid_version: 'Version:',
+    uuid_type: 'Typ:',
+    uuid_input_required: 'Bitte geben Sie UUID ein',
+    uuid_invalid: 'Ungültiges UUID-Format',
+    uuid_copy_all: 'Alles kopieren',
+    uuid_download: 'Herunterladen',
+
+    // Passwort-Generator
+    password_generate_settings: 'Generierungseinstellungen',
+    password_length_placeholder: 'Passwortlänge',
+    password_uppercase: 'Großbuchstaben (A-Z)',
+    password_lowercase: 'Kleinbuchstaben (a-z)',
+    password_numbers: 'Zahlen (0-9)',
+    password_special: 'Sonderzeichen (!@#$%^&*)',
+    password_results: 'Generierungsergebnisse',
+    password_info_title: 'Passwortgenerierungsinformationen',
+    password_info_desc: '• Unterstützt benutzerdefinierte Passwortlänge (4-128 Zeichen)',
+    password_info_chars: '• Wählen Sie, ob Sie Großbuchstaben, Kleinbuchstaben, Zahlen und Sonderzeichen einbeziehen möchten',
+    password_info_secure: '• Generierte Passwörter sind vollständig zufällig, alle Verarbeitung erfolgt lokal in Ihrem Browser',
+    password_error_length: 'Die Passwortlänge muss zwischen 4 und 128 liegen',
+    password_error_no_options: 'Bitte wählen Sie mindestens einen Zeichentyp',
+    password_copy_success: 'Passwort in die Zwischenablage kopiert',
 
     // Alte Übersetzungen
     json_tab: 'JSON-Formatierer',
@@ -1284,7 +2773,159 @@ translations['de'] = {
     url_character: 'Zeichen',
     url_ascii_code: 'ASCII-Code',
     url_encoded: 'URL-codiert',
-    error_decode_failed: 'URL-Decodierung fehlgeschlagen'
+    error_decode_failed: 'URL-Decodierung fehlgeschlagen',
+
+    // Textverschlüsselung
+    encryption_title: 'Text-Verschlüsselungs- und Entschlüsselungstool',
+    encryption_input_label: 'Eingabetext:',
+    encryption_input_placeholder: 'Geben Sie Text zum Verschlüsseln oder Entschlüsseln ein...',
+    encryption_password_label: 'Passwort:',
+    encryption_password_placeholder: 'Geben Sie das Passwort für Verschlüsselung/Entschlüsselung ein',
+    encryption_output_label: 'Ergebnis:',
+    encryption_output_placeholder: 'Das verschlüsselte oder entschlüsselte Ergebnis wird hier angezeigt',
+    encrypt_btn: 'Verschlüsseln',
+    decrypt_btn: 'Entschlüsseln',
+    show_password: 'Passwort anzeigen',
+    error_encryption_no_input: 'Bitte geben Sie Text zum Verschlüsseln ein',
+    error_encryption_no_password: 'Bitte geben Sie ein Passwort ein',
+    error_decryption_failed: 'Entschlüsselung fehlgeschlagen, bitte überprüfen Sie das Passwort',
+    success_encrypted: 'Verschlüsselung erfolgreich',
+    success_decrypted: 'Entschlüsselung erfolgreich',
+
+    // Base64-Kodierung
+    base64_title: 'Base64-Kodierungstool',
+    base64_input_label: 'Eingabetext:',
+    base64_input_placeholder: 'Geben Sie Text zum Codieren oder Decodieren ein...',
+    base64_file_label: 'Oder Datei hochladen:',
+    base64_file_hint: 'Maximale Dateigröße: 10MB',
+    base64_output_label: 'Ergebnis:',
+    base64_output_placeholder: 'Das codierte oder decodierte Ergebnis wird hier angezeigt',
+    base64_encode_btn: 'Codieren',
+    base64_decode_btn: 'Decodieren',
+    error_base64_encode_failed: 'Base64-Codierung fehlgeschlagen',
+    error_base64_decode_failed: 'Base64-Decodierung fehlgeschlagen, bitte überprüfen Sie, ob die Eingabe eine gültige Base64-Zeichenkette ist',
+    error_file_too_large: 'Datei ist zu groß, wählen Sie eine Datei kleiner als 10MB',
+    error_file_read_failed: 'Dateilesefehler',
+
+    // MD5-Verschlüsselung
+    md5_title: 'MD5-Verschlüsselungstool',
+    md5_input_label: 'Eingabetext:',
+    md5_input_placeholder: 'Geben Sie Text ein, um ihn in MD5 umzuwandeln...',
+    md5_output_label: 'Ergebnis:',
+    md5_output_placeholder: 'Das MD5-Hash-Ergebnis wird hier angezeigt',
+    md5_compute_btn: 'Berechnen',
+    md5_lowercase: 'Kleinbuchstaben',
+    md5_uppercase: 'Großbuchstaben',
+    md5_32bit: '32-Bit',
+    md5_16bit: '16-Bit',
+    error_md5_compute_failed: 'MD5-Berechnung fehlgeschlagen',
+
+    // JWT Token Generator und Parser
+    jwt_title: 'JWT Token Generator und Parser',
+    jwt_generate_btn: 'Generieren',
+    jwt_parse_btn: 'Analysieren',
+    jwt_generate_mode: 'Generierungsmodus',
+    jwt_parse_mode: 'Analysemodus',
+    jwt_input_label: 'Eingabe',
+    jwt_output_label: 'Ausgabe',
+    jwt_header_label: 'Kopfzeile:',
+    jwt_payload_label: 'Nutzlast:',
+    jwt_secret_label: 'Geheimer Schlüssel:',
+    jwt_algorithm_label: 'Algorithmus:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: 'Eingabe-Token:',
+    jwt_signature_label: 'Signatur:',
+    error_jwt_invalid_json: 'Ungültiges JSON-Format',
+    error_jwt_invalid_token: 'Ungültiges Token-Format',
+    error_jwt_verification_failed: 'Token-Verifizierung fehlgeschlagen',
+    success_jwt_generated: 'JWT Token erfolgreich generiert',
+    success_jwt_parsed: 'JWT Token erfolgreich analysiert',
+
+    // RSA-Schlüsselpaar-Generator
+    rsa_title: 'RSA-Schlüsselpaar-Generator',
+    rsa_generate_btn: 'Generieren',
+    rsa_copy_public_btn: 'Öffentlichen Schlüssel kopieren',
+    rsa_copy_private_btn: 'Privaten Schlüssel kopieren',
+    rsa_config_label: 'Konfiguration',
+    rsa_output_label: 'Ausgabe',
+    rsa_key_length_label: 'Schlüssellänge:',
+    rsa_format_label: 'Format:',
+    rsa_public_key_label: 'Öffentlicher Schlüssel:',
+    rsa_private_key_label: 'Privater Schlüssel:',
+    rsa_info_title: 'Information:',
+    rsa_info_1: '1024 Bit: Schnelle Generierung, geeignet zum Testen',
+    rsa_info_2: '2048 Bit: Empfohlen für allgemeine Verwendung',
+    rsa_info_3: '4096 Bit: Hohe Sicherheit, langsamere Generierung',
+    error_rsa_generate_failed: 'RSA-Schlüsselgenerierung fehlgeschlagen',
+    success_rsa_generated: 'RSA-Schlüsselpaar erfolgreich generiert',
+
+    // YAML-Properties-Konverter
+    yaml_title: 'YAML-Properties-Konverter',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: 'Eingabe:',
+    yaml_output_label: 'Ausgabe:',
+    yaml_input_placeholder: 'Fügen Sie YAML- oder Properties-Formatdaten ein...',
+    yaml_output_placeholder: 'Das konvertierte Ergebnis wird hier angezeigt',
+    error_yaml_invalid: 'Ungültiges YAML-Format',
+    error_properties_invalid: 'Ungültiges Properties-Format',
+    success_yaml_converted: 'YAML erfolgreich konvertiert',
+    success_properties_converted: 'Properties erfolgreich konvertiert',
+
+    // SQL-Formatierer
+    sql_format_title: 'SQL-Formatierer',
+    sql_input_label: 'Eingabe:',
+    sql_output_label: 'Ausgabe:',
+    sql_input_placeholder: 'Fügen Sie SQL-Anweisung ein...',
+    sql_output_placeholder: 'Die formatierte SQL wird hier angezeigt',
+    error_sql_invalid: 'Ungültiges SQL-Format',
+
+    // SQL-Validator
+    sql_validator_title: 'SQL-Validator',
+    sql_validator_input_placeholder: 'Fügen Sie SQL-DDL-Anweisung ein...',
+    sql_validator_output_placeholder: 'Das Validierungsergebnis wird hier angezeigt',
+    validate_btn: 'Validieren',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'SQL-Validierung erfolgreich',
+    validation_error: 'SQL-Validierung fehlgeschlagen',
+    validation_warning: 'SQL-Validierungswarnung',
+    error_sql_syntax: 'SQL-Syntaxfehler',
+    error_sql_reserved_word: 'Falsche Verwendung des reservierten Wortes',
+    error_sql_invalid_type: 'Ungültiger Datentyp',
+    error_sql_missing_constraint: 'Fehlende Constraint-Definition',
+
+    // CSS-Formatierer
+    css_title: 'CSS-Formatierer',
+    css_input_label: 'Eingabe:',
+    css_output_label: 'Ausgabe:',
+    css_input_placeholder: 'CSS-Code hier einfügen...',
+    css_output_placeholder: 'Formatierter oder komprimierter CSS wird hier angezeigt',
+    error_css_invalid: 'Ungültiges CSS-Format',
+
+    // Namenskonverter
+    naming_title: 'Namenskonverter',
+    naming_input_label: 'Eingabe:',
+    naming_output_label: 'Ausgabe:',
+    naming_input_placeholder: 'Geben Sie Namenstext ein (unterstützt camelCase, snake_case, etc.)...',
+    convert_btn: 'Konvertieren',
+    error_naming_invalid: 'Ungültiges Namensformat',
+
+    // Unicode-Konverter
+    unicode_title: 'Unicode-Konverter',
+    unicode_input_label: 'Eingabe:',
+    unicode_output_label: 'Ausgabe:',
+    unicode_input_placeholder: 'Geben Sie chinesischen Text oder Unicode-Kodierung ein...',
+    unicode_output_placeholder: 'Das Konvertierungsergebnis wird hier angezeigt',
+    to_unicode_btn: 'Zu Unicode',
+    from_unicode_btn: 'Von Unicode',
+    unicode_info_title: 'Unicode-Formatbeispiele:',
+    error_unicode_invalid: 'Ungültiges Unicode-Format',
+
+
 };
 
 // 葡萄牙语翻译
@@ -1317,7 +2958,6 @@ translations['pt'] = {
     tool_css: 'Formatador CSS',
     tool_naming: 'Conversor de Nomenclatura',
     tool_unicode: 'Conversor Unicode',
-    tool_chinese: 'Conversor Chinês',
 
     // Ferramentas de tempo e agendamento
     tool_timestamp: 'Conversor de Timestamp',
@@ -1336,6 +2976,42 @@ translations['pt'] = {
     tool_calculator: 'Calculadora Simples',
     tool_ascii: 'Arte ASCII',
     tool_color: 'Seletor de Cores',
+
+    // Gerador UUID
+    uuid_generate_settings: 'Configurações de Geração',
+    uuid_results: 'Resultados de Geração',
+    uuid_info_title: 'Informações de Versão UUID',
+    uuid_info_v1: '• UUID v1: UUID baseado em timestamp e endereço MAC, com ordem temporal',
+    uuid_info_v3: '• UUID v3: UUID de namespace baseado em MD5, geração determinística',
+    uuid_info_v4: '• UUID v4: UUID baseado em aleatório, versão mais comumente usada',
+    uuid_info_v5: '• UUID v5: UUID de namespace baseado em SHA-1, geração determinística',
+    uuid_info_nil: '• UUID NIL: UUID todo zero (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'Validação UUID',
+    uuid_validate_desc: 'Validar se a string de entrada é um UUID válido',
+    uuid_validate_placeholder: 'Digite UUID para validar',
+    uuid_value: 'UUID:',
+    uuid_version: 'Versão:',
+    uuid_type: 'Tipo:',
+    uuid_input_required: 'Por favor, digite UUID',
+    uuid_invalid: 'Formato UUID inválido',
+    uuid_copy_all: 'Copiar Tudo',
+    uuid_download: 'Baixar',
+
+    // Gerador de Senha
+    password_generate_settings: 'Configurações de Geração',
+    password_length_placeholder: 'Comprimento da Senha',
+    password_uppercase: 'Letras Maiúsculas (A-Z)',
+    password_lowercase: 'Letras Minúsculas (a-z)',
+    password_numbers: 'Números (0-9)',
+    password_special: 'Caracteres Especiais (!@#$%^&*)',
+    password_results: 'Resultados de Geração',
+    password_info_title: 'Informações de Geração de Senha',
+    password_info_desc: '• Suporta comprimento de senha personalizado (4-128 caracteres)',
+    password_info_chars: '• Escolha incluir letras maiúsculas, minúsculas, números e caracteres especiais',
+    password_info_secure: '• As senhas geradas são completamente aleatórias, todo o processamento é feito localmente no seu navegador',
+    password_error_length: 'O comprimento da senha deve estar entre 4 e 128',
+    password_error_no_options: 'Por favor, selecione pelo menos um tipo de caractere',
+    password_copy_success: 'Senha copiada para a área de transferência',
 
     // Traduções antigas
     json_tab: 'Formatador JSON',
@@ -1434,7 +3110,159 @@ translations['pt'] = {
     url_character: 'Caractere',
     url_ascii_code: 'Código ASCII',
     url_encoded: 'Codificado em URL',
-    error_decode_failed: 'Falha na decodificação de URL'
+    error_decode_failed: 'Falha na decodificação de URL',
+
+    // Criptografia de Texto
+    encryption_title: 'Ferramenta de Criptografia e Descriptografia de Texto',
+    encryption_input_label: 'Texto de Entrada:',
+    encryption_input_placeholder: 'Digite o texto para criptografar ou descriptografar...',
+    encryption_password_label: 'Senha:',
+    encryption_password_placeholder: 'Digite a senha para criptografia/descriptografia',
+    encryption_output_label: 'Resultado:',
+    encryption_output_placeholder: 'O resultado criptografado ou descriptografado será exibido aqui',
+    encrypt_btn: 'Criptografar',
+    decrypt_btn: 'Descriptografar',
+    show_password: 'Mostrar Senha',
+    error_encryption_no_input: 'Por favor, digite o texto para criptografar',
+    error_encryption_no_password: 'Por favor, digite a senha',
+    error_decryption_failed: 'Falha na descriptografia, verifique se a senha está correta',
+    success_encrypted: 'Criptografia bem-sucedida',
+    success_decrypted: 'Descriptografia bem-sucedida',
+
+    // Codificação Base64
+    base64_title: 'Ferramenta de Codificação Base64',
+    base64_input_label: 'Texto de Entrada:',
+    base64_input_placeholder: 'Digite o texto para codificar ou decodificar...',
+    base64_file_label: 'Ou Carregar Arquivo:',
+    base64_file_hint: 'Tamanho máximo do arquivo: 10MB',
+    base64_output_label: 'Resultado:',
+    base64_output_placeholder: 'O resultado codificado ou decodificado será exibido aqui',
+    base64_encode_btn: 'Codificar',
+    base64_decode_btn: 'Decodificar',
+    error_base64_encode_failed: 'Falha na codificação Base64',
+    error_base64_decode_failed: 'Falha na decodificação Base64, verifique se a entrada é uma string Base64 válida',
+    error_file_too_large: 'O arquivo é muito grande, selecione um arquivo menor que 10MB',
+    error_file_read_failed: 'Falha na leitura do arquivo',
+
+    // Criptografia MD5
+    md5_title: 'Ferramenta de Criptografia MD5',
+    md5_input_label: 'Texto de Entrada:',
+    md5_input_placeholder: 'Digite o texto para converter em MD5...',
+    md5_output_label: 'Resultado:',
+    md5_output_placeholder: 'O resultado do hash MD5 será exibido aqui',
+    md5_compute_btn: 'Calcular',
+    md5_lowercase: 'Minúsculas',
+    md5_uppercase: 'Maiúsculas',
+    md5_32bit: '32 bits',
+    md5_16bit: '16 bits',
+    error_md5_compute_failed: 'Falha no cálculo MD5',
+
+    // Gerador e Analisador de JWT Token
+    jwt_title: 'Gerador e Analisador de JWT Token',
+    jwt_generate_btn: 'Gerar',
+    jwt_parse_btn: 'Analisar',
+    jwt_generate_mode: 'Modo Geração',
+    jwt_parse_mode: 'Modo Análise',
+    jwt_input_label: 'Entrada',
+    jwt_output_label: 'Saída',
+    jwt_header_label: 'Cabeçalho:',
+    jwt_payload_label: 'Carga Útil:',
+    jwt_secret_label: 'Chave Secreta:',
+    jwt_algorithm_label: 'Algoritmo:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: 'Token de Entrada:',
+    jwt_signature_label: 'Assinatura:',
+    error_jwt_invalid_json: 'Formato JSON inválido',
+    error_jwt_invalid_token: 'Formato de token inválido',
+    error_jwt_verification_failed: 'Falha na verificação do token',
+    success_jwt_generated: 'JWT Token gerado com sucesso',
+    success_jwt_parsed: 'JWT Token analisado com sucesso',
+
+    // Gerador de Pares de Chaves RSA
+    rsa_title: 'Gerador de Pares de Chaves RSA',
+    rsa_generate_btn: 'Gerar',
+    rsa_copy_public_btn: 'Copiar Chave Pública',
+    rsa_copy_private_btn: 'Copiar Chave Privada',
+    rsa_config_label: 'Configuração',
+    rsa_output_label: 'Saída',
+    rsa_key_length_label: 'Comprimento da Chave:',
+    rsa_format_label: 'Formato:',
+    rsa_public_key_label: 'Chave Pública:',
+    rsa_private_key_label: 'Chave Privada:',
+    rsa_info_title: 'Informação:',
+    rsa_info_1: '1024 bits: Geração rápida, adequado para testes',
+    rsa_info_2: '2048 bits: Recomendado para uso geral',
+    rsa_info_3: '4096 bits: Alta segurança, geração mais lenta',
+    error_rsa_generate_failed: 'Falha na geração de chaves RSA',
+    success_rsa_generated: 'Par de chaves RSA gerado com sucesso',
+
+    // Conversor YAML-Properties
+    yaml_title: 'Conversor YAML-Properties',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: 'Entrada:',
+    yaml_output_label: 'Saída:',
+    yaml_input_placeholder: 'Cole dados em formato YAML ou Properties...',
+    yaml_output_placeholder: 'O resultado convertido aparecerá aqui',
+    error_yaml_invalid: 'Formato YAML inválido',
+    error_properties_invalid: 'Formato Properties inválido',
+    success_yaml_converted: 'YAML convertido com sucesso',
+    success_properties_converted: 'Properties convertido com sucesso',
+
+    // Formatador SQL
+    sql_format_title: 'Formatador SQL',
+    sql_input_label: 'Entrada:',
+    sql_output_label: 'Saída:',
+    sql_input_placeholder: 'Cole a declaração SQL...',
+    sql_output_placeholder: 'O SQL formatado aparecerá aqui',
+    error_sql_invalid: 'Formato SQL inválido',
+
+    // Validador SQL
+    sql_validator_title: 'Validador SQL',
+    sql_validator_input_placeholder: 'Cole a declaração SQL DDL...',
+    sql_validator_output_placeholder: 'O resultado da validação aparecerá aqui',
+    validate_btn: 'Validar',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'Validação SQL bem-sucedida',
+    validation_error: 'Validação SQL falhou',
+    validation_warning: 'Aviso de validação SQL',
+    error_sql_syntax: 'Erro de sintaxe SQL',
+    error_sql_reserved_word: 'Uso incorreto de palavra reservada',
+    error_sql_invalid_type: 'Tipo de dados inválido',
+    error_sql_missing_constraint: 'Definição de restrição ausente',
+
+    // Formatador CSS
+    css_title: 'Formatador CSS',
+    css_input_label: 'Entrada:',
+    css_output_label: 'Saída:',
+    css_input_placeholder: 'Cole código CSS aqui...',
+    css_output_placeholder: 'CSS formatado ou comprimido aparecerá aqui',
+    error_css_invalid: 'Formato CSS inválido',
+
+    // Conversor de Nomes
+    naming_title: 'Conversor de Nomes',
+    naming_input_label: 'Entrada:',
+    naming_output_label: 'Saída:',
+    naming_input_placeholder: 'Digite o texto de nomes (suporta camelCase, snake_case, etc.)...',
+    convert_btn: 'Converter',
+    error_naming_invalid: 'Formato de nome inválido',
+
+    // Conversor Unicode
+    unicode_title: 'Conversor Unicode',
+    unicode_input_label: 'Entrada:',
+    unicode_output_label: 'Saída:',
+    unicode_input_placeholder: 'Digite texto chinês ou codificação Unicode...',
+    unicode_output_placeholder: 'O resultado da conversão aparecerá aqui',
+    to_unicode_btn: 'Para Unicode',
+    from_unicode_btn: 'De Unicode',
+    unicode_info_title: 'Exemplos de Formato Unicode:',
+    error_unicode_invalid: 'Formato Unicode inválido',
+
+
 };
 
 // 俄语翻译
@@ -1467,7 +3295,6 @@ translations['ru'] = {
     tool_css: 'Форматтер CSS',
     tool_naming: 'Конвертер Именования',
     tool_unicode: 'Конвертер Unicode',
-    tool_chinese: 'Конвертер Китайского',
 
     // Инструменты времени и планирования
     tool_timestamp: 'Конвертер Временных Меток',
@@ -1486,6 +3313,42 @@ translations['ru'] = {
     tool_calculator: 'Простой Калькулятор',
     tool_ascii: 'ASCII Искусство',
     tool_color: 'Выбор Цвета',
+
+    // Генератор UUID
+    uuid_generate_settings: 'Параметры Генерации',
+    uuid_results: 'Результаты Генерации',
+    uuid_info_title: 'Информация о Версии UUID',
+    uuid_info_v1: '• UUID v1: UUID на основе временной метки и MAC-адреса, с временным порядком',
+    uuid_info_v3: '• UUID v3: UUID пространства имен на основе MD5, детерминированное создание',
+    uuid_info_v4: '• UUID v4: UUID на основе случайных чисел, наиболее часто используемая версия',
+    uuid_info_v5: '• UUID v5: UUID пространства имен на основе SHA-1, детерминированное создание',
+    uuid_info_nil: '• UUID NIL: UUID со всеми нулями (00000000-0000-0000-0000-000000000000)',
+    uuid_validate_title: 'Проверка UUID',
+    uuid_validate_desc: 'Проверить, является ли входная строка действительным UUID',
+    uuid_validate_placeholder: 'Введите UUID для проверки',
+    uuid_value: 'UUID:',
+    uuid_version: 'Версия:',
+    uuid_type: 'Тип:',
+    uuid_input_required: 'Пожалуйста, введите UUID',
+    uuid_invalid: 'Неверный формат UUID',
+    uuid_copy_all: 'Копировать Все',
+    uuid_download: 'Скачать',
+
+    // Генератор Паролей
+    password_generate_settings: 'Параметры Генерации',
+    password_length_placeholder: 'Длина Пароля',
+    password_uppercase: 'Прописные Буквы (A-Z)',
+    password_lowercase: 'Строчные Буквы (a-z)',
+    password_numbers: 'Цифры (0-9)',
+    password_special: 'Специальные Символы (!@#$%^&*)',
+    password_results: 'Результаты Генерации',
+    password_info_title: 'Информация о Генерации Пароля',
+    password_info_desc: '• Поддерживает пользовательскую длину пароля (4-128 символов)',
+    password_info_chars: '• Выберите включение прописных букв, строчных букв, цифр и специальных символов',
+    password_info_secure: '• Сгенерированные пароли полностью случайны, вся обработка выполняется локально в вашем браузере',
+    password_error_length: 'Длина пароля должна быть от 4 до 128',
+    password_error_no_options: 'Пожалуйста, выберите хотя бы один тип символа',
+    password_copy_success: 'Пароль скопирован в буфер обмена',
 
     // Старые переводы
     json_tab: 'Форматтер JSON',
@@ -1584,7 +3447,159 @@ translations['ru'] = {
     url_character: 'Символ',
     url_ascii_code: 'Код ASCII',
     url_encoded: 'Кодировано URL',
-    error_decode_failed: 'Ошибка при декодировании URL'
+    error_decode_failed: 'Ошибка при декодировании URL',
+
+    // Шифрование Текста
+    encryption_title: 'Инструмент шифрования и расшифровки текста',
+    encryption_input_label: 'Входной текст:',
+    encryption_input_placeholder: 'Введите текст для шифрования или расшифровки...',
+    encryption_password_label: 'Пароль:',
+    encryption_password_placeholder: 'Введите пароль для шифрования/расшифровки',
+    encryption_output_label: 'Результат:',
+    encryption_output_placeholder: 'Зашифрованный или расшифрованный результат будет отображен здесь',
+    encrypt_btn: 'Зашифровать',
+    decrypt_btn: 'Расшифровать',
+    show_password: 'Показать пароль',
+    error_encryption_no_input: 'Пожалуйста, введите текст для шифрования',
+    error_encryption_no_password: 'Пожалуйста, введите пароль',
+    error_decryption_failed: 'Ошибка при расшифровке, проверьте правильность пароля',
+    success_encrypted: 'Шифрование успешно',
+    success_decrypted: 'Расшифровка успешна',
+
+    // Кодирование Base64
+    base64_title: 'Инструмент кодирования Base64',
+    base64_input_label: 'Входной текст:',
+    base64_input_placeholder: 'Введите текст для кодирования или декодирования...',
+    base64_file_label: 'Или загрузить файл:',
+    base64_file_hint: 'Максимальный размер файла: 10MB',
+    base64_output_label: 'Результат:',
+    base64_output_placeholder: 'Закодированный или декодированный результат будет отображен здесь',
+    base64_encode_btn: 'Кодировать',
+    base64_decode_btn: 'Декодировать',
+    error_base64_encode_failed: 'Ошибка при кодировании Base64',
+    error_base64_decode_failed: 'Ошибка при декодировании Base64, проверьте, является ли входные данные действительной строкой Base64',
+    error_file_too_large: 'Файл слишком большой, выберите файл размером менее 10MB',
+    error_file_read_failed: 'Ошибка при чтении файла',
+
+    // Шифрование MD5
+    md5_title: 'Инструмент шифрования MD5',
+    md5_input_label: 'Входной текст:',
+    md5_input_placeholder: 'Введите текст для преобразования в MD5...',
+    md5_output_label: 'Результат:',
+    md5_output_placeholder: 'Результат хеша MD5 будет отображен здесь',
+    md5_compute_btn: 'Вычислить',
+    md5_lowercase: 'Строчные буквы',
+    md5_uppercase: 'Прописные буквы',
+    md5_32bit: '32-бит',
+    md5_16bit: '16-бит',
+    error_md5_compute_failed: 'Ошибка при вычислении MD5',
+
+    // Генератор и Анализатор JWT Token
+    jwt_title: 'Генератор и Анализатор JWT Token',
+    jwt_generate_btn: 'Генерировать',
+    jwt_parse_btn: 'Анализировать',
+    jwt_generate_mode: 'Режим генерации',
+    jwt_parse_mode: 'Режим анализа',
+    jwt_input_label: 'Вход',
+    jwt_output_label: 'Выход',
+    jwt_header_label: 'Заголовок:',
+    jwt_payload_label: 'Полезная нагрузка:',
+    jwt_secret_label: 'Секретный ключ:',
+    jwt_algorithm_label: 'Алгоритм:',
+    jwt_token_label: 'JWT Token:',
+    jwt_input_token_label: 'Входной Token:',
+    jwt_signature_label: 'Подпись:',
+    error_jwt_invalid_json: 'Неверный формат JSON',
+    error_jwt_invalid_token: 'Неверный формат токена',
+    error_jwt_verification_failed: 'Ошибка при проверке токена',
+    success_jwt_generated: 'JWT Token успешно сгенерирован',
+    success_jwt_parsed: 'JWT Token успешно проанализирован',
+
+    // Генератор пар ключей RSA
+    rsa_title: 'Генератор пар ключей RSA',
+    rsa_generate_btn: 'Генерировать',
+    rsa_copy_public_btn: 'Копировать открытый ключ',
+    rsa_copy_private_btn: 'Копировать закрытый ключ',
+    rsa_config_label: 'Конфигурация',
+    rsa_output_label: 'Выход',
+    rsa_key_length_label: 'Длина ключа:',
+    rsa_format_label: 'Формат:',
+    rsa_public_key_label: 'Открытый ключ:',
+    rsa_private_key_label: 'Закрытый ключ:',
+    rsa_info_title: 'Информация:',
+    rsa_info_1: '1024 бит: Быстрое создание, подходит для тестирования',
+    rsa_info_2: '2048 бит: Рекомендуется для общего использования',
+    rsa_info_3: '4096 бит: Высокая безопасность, медленное создание',
+    error_rsa_generate_failed: 'Ошибка при генерации ключей RSA',
+    success_rsa_generated: 'Пара ключей RSA успешно сгенерирована',
+
+    // Конвертер YAML-Properties
+    yaml_title: 'Конвертер YAML-Properties',
+    yaml_to_properties_btn: 'YAML → Properties',
+    properties_to_yaml_btn: 'Properties → YAML',
+    yaml_input_label: 'Вход:',
+    yaml_output_label: 'Выход:',
+    yaml_input_placeholder: 'Вставьте данные в формате YAML или Properties...',
+    yaml_output_placeholder: 'Результат преобразования будет отображен здесь',
+    error_yaml_invalid: 'Неверный формат YAML',
+    error_properties_invalid: 'Неверный формат Properties',
+    success_yaml_converted: 'YAML успешно преобразован',
+    success_properties_converted: 'Properties успешно преобразован',
+
+    // Форматер SQL
+    sql_format_title: 'Форматер SQL',
+    sql_input_label: 'Вход:',
+    sql_output_label: 'Выход:',
+    sql_input_placeholder: 'Вставьте SQL-оператор...',
+    sql_output_placeholder: 'Отформатированный SQL будет отображен здесь',
+    error_sql_invalid: 'Неверный формат SQL',
+
+    // Валидатор SQL
+    sql_validator_title: 'Валидатор SQL',
+    sql_validator_input_placeholder: 'Вставьте SQL DDL оператор...',
+    sql_validator_output_placeholder: 'Результат валидации будет отображен здесь',
+    validate_btn: 'Валидировать',
+    db_mysql: 'MySQL',
+    db_postgresql: 'PostgreSQL',
+    db_sqlserver: 'SQL Server',
+    db_oracle: 'Oracle',
+    db_sqlite: 'SQLite',
+    validation_success: 'Валидация SQL успешна',
+    validation_error: 'Валидация SQL не удалась',
+    validation_warning: 'Предупреждение валидации SQL',
+    error_sql_syntax: 'Ошибка синтаксиса SQL',
+    error_sql_reserved_word: 'Неправильное использование зарезервированного слова',
+    error_sql_invalid_type: 'Неверный тип данных',
+    error_sql_missing_constraint: 'Отсутствует определение ограничения',
+
+    // Форматер CSS
+    css_title: 'Форматер CSS',
+    css_input_label: 'Ввод:',
+    css_output_label: 'Вывод:',
+    css_input_placeholder: 'Вставьте CSS код здесь...',
+    css_output_placeholder: 'Отформатированный или сжатый CSS будет отображен здесь',
+    error_css_invalid: 'Неверный формат CSS',
+
+    // Конвертер Имен
+    naming_title: 'Конвертер Имен',
+    naming_input_label: 'Вход:',
+    naming_output_label: 'Выход:',
+    naming_input_placeholder: 'Введите текст имен (поддерживает camelCase, snake_case и т.д.)...',
+    convert_btn: 'Конвертировать',
+    error_naming_invalid: 'Неверный формат имени',
+
+    // Конвертер Unicode
+    unicode_title: 'Конвертер Unicode',
+    unicode_input_label: 'Вход:',
+    unicode_output_label: 'Выход:',
+    unicode_input_placeholder: 'Введите китайский текст или кодировку Unicode...',
+    unicode_output_placeholder: 'Результат преобразования будет отображаться здесь',
+    to_unicode_btn: 'В Unicode',
+    from_unicode_btn: 'Из Unicode',
+    unicode_info_title: 'Примеры формата Unicode:',
+    error_unicode_invalid: 'Неверный формат Unicode',
+
+
 };
 
 let currentLang = 'en';
@@ -1821,6 +3836,849 @@ function compressXML() {
     } catch (error) {
         showError(errorDiv, translations[currentLang].error_json_invalid || 'XML format error: ' + error.message);
         output.value = '';
+    }
+}
+
+// ==========================================
+// SQL 格式化功能
+// ==========================================
+function formatSQL() {
+    const input = document.getElementById('sql-input').value.trim();
+    const output = document.getElementById('sql-output');
+    const errorDiv = document.getElementById('sql-error');
+
+    errorDiv.textContent = '';
+
+    if (!input) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const formatted = formatSQLString(input);
+        output.value = formatted;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_sql_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+function compressSQL() {
+    const input = document.getElementById('sql-input').value.trim();
+    const output = document.getElementById('sql-output');
+    const errorDiv = document.getElementById('sql-error');
+
+    errorDiv.textContent = '';
+
+    if (!input) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        // 压缩 SQL：移除多余空白和换行
+        const compressed = input
+            .replace(/\s+/g, ' ')
+            .replace(/\s*([,;()=<>])\s*/g, '$1')
+            .trim();
+        output.value = compressed;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_sql_invalid;
+        output.value = '';
+    }
+}
+
+function formatSQLString(sql) {
+    // SQL 关键字列表
+    const keywords = [
+        'SELECT', 'FROM', 'WHERE', 'AND', 'OR', 'NOT', 'IN', 'EXISTS',
+        'JOIN', 'INNER', 'LEFT', 'RIGHT', 'FULL', 'OUTER', 'ON',
+        'GROUP', 'BY', 'HAVING', 'ORDER', 'ASC', 'DESC',
+        'INSERT', 'INTO', 'VALUES', 'UPDATE', 'SET', 'DELETE',
+        'CREATE', 'TABLE', 'ALTER', 'DROP', 'ADD', 'COLUMN',
+        'DISTINCT', 'LIMIT', 'OFFSET', 'UNION', 'ALL', 'CASE', 'WHEN', 'THEN', 'ELSE', 'END',
+        'AS', 'WITH', 'CROSS', 'USING', 'BETWEEN', 'LIKE', 'IS', 'NULL'
+    ];
+
+    // 主要关键字（需要换行）
+    const mainKeywords = ['SELECT', 'FROM', 'WHERE', 'GROUP', 'HAVING', 'ORDER', 'LIMIT', 'UNION', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'ALTER', 'DROP'];
+
+    // 条件关键字（在 WHERE 中需要换行）
+    const conditionKeywords = ['AND', 'OR'];
+
+    let formatted = sql;
+    const tab = '  ';
+    let result = '';
+    let currentLine = '';
+    let inWhere = false;
+
+    // 规范化空白
+    formatted = formatted.replace(/\s+/g, ' ').trim();
+
+    // 分割 SQL 语句
+    const tokens = formatted.split(/(\s+|[(),;])/);
+
+    for (let i = 0; i < tokens.length; i++) {
+        let token = tokens[i];
+        if (!token || token === '') continue;
+
+        const upperToken = token.toUpperCase();
+
+        // 处理主要关键字
+        if (mainKeywords.includes(upperToken)) {
+            // 保存当前行
+            if (currentLine.trim()) {
+                result += tab + currentLine.trim() + '\n';
+                currentLine = '';
+            }
+
+            result += upperToken + '\n';
+            inWhere = (upperToken === 'WHERE');
+        }
+        // 处理条件关键字（AND, OR）
+        else if (inWhere && conditionKeywords.includes(upperToken)) {
+            if (currentLine.trim()) {
+                result += tab + currentLine.trim() + '\n';
+                currentLine = '';
+            }
+            result += tab + upperToken + ' ';
+        }
+        // 处理其他关键字
+        else if (keywords.includes(upperToken)) {
+            currentLine += upperToken + ' ';
+        }
+        // 处理括号
+        else if (token === '(') {
+            currentLine += '(';
+        }
+        else if (token === ')') {
+            currentLine = currentLine.trim() + ')';
+        }
+        // 处理逗号
+        else if (token === ',') {
+            currentLine += ',\n' + tab;
+        }
+        // 处理分号
+        else if (token === ';') {
+            currentLine += ';';
+        }
+        // 处理其他 token
+        else if (token.trim()) {
+            currentLine += token.trim() + ' ';
+        }
+    }
+
+    // 保存最后一行
+    if (currentLine.trim()) {
+        result += tab + currentLine.trim();
+    }
+
+    // 清理多余空白和换行
+    result = result.replace(/\s+\n/g, '\n').replace(/\n\s+\n/g, '\n').trim();
+
+    return result;
+}
+
+function copySQLResult() {
+    const output = document.getElementById('sql-output');
+    const errorDiv = document.getElementById('sql-error');
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    // 显示复制成功提示
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + translations[currentLang].success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
+}
+
+function clearSQLAll() {
+    const input = document.getElementById('sql-input');
+    const output = document.getElementById('sql-output');
+    const errorDiv = document.getElementById('sql-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+// ==========================================
+// SQL 验证器功能
+// ==========================================
+let currentDBType = 'mysql';
+
+function updateDBType() {
+    const select = document.getElementById('db-type');
+    if (select) {
+        currentDBType = select.value;
+    }
+}
+
+function validateSQL() {
+    const input = document.getElementById('sql-validator-input');
+    const output = document.getElementById('sql-validator-output');
+    const errorDiv = document.getElementById('sql-validator-error');
+    const resultDiv = document.getElementById('sql-validator-result');
+    const t = translations[currentLang];
+
+    if (!input || !output) return;
+
+    const sql = input.value.trim();
+    errorDiv.textContent = '';
+    resultDiv.textContent = '';
+    resultDiv.classList.remove('show', 'success', 'error', 'warning');
+
+    if (!sql) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const validation = validateSQLStatement(sql, currentDBType);
+
+        if (validation.valid) {
+            output.value = formatSQLString(sql);
+            resultDiv.innerHTML = `<h3>✓ ${t.validation_success}</h3>`;
+            resultDiv.classList.add('show', 'success');
+        } else {
+            output.value = '';
+            let errorHTML = `<h3>❌ ${t.validation_error}</h3><ul>`;
+            validation.errors.forEach(err => {
+                errorHTML += `<li>${err}</li>`;
+            });
+            errorHTML += '</ul>';
+            resultDiv.innerHTML = errorHTML;
+            resultDiv.classList.add('show', 'error');
+        }
+
+        if (validation.warnings && validation.warnings.length > 0) {
+            let warningHTML = `<h3>⚠️ ${t.validation_warning}</h3><ul>`;
+            validation.warnings.forEach(warn => {
+                warningHTML += `<li>${warn}</li>`;
+            });
+            warningHTML += '</ul>';
+            resultDiv.innerHTML += warningHTML;
+            resultDiv.classList.add('warning');
+        }
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + t.error_sql_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+function validateSQLStatement(sql, dbType) {
+    const result = {
+        valid: true,
+        errors: [],
+        warnings: []
+    };
+
+    const t = translations[currentLang];
+    const upperSQL = sql.toUpperCase();
+
+    // 移除注释和多余空白
+    let cleanSQL = sql.replace(/--.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '').trim();
+    let cleanUpperSQL = cleanSQL.toUpperCase();
+
+    // 检查基本语法
+    if (!cleanUpperSQL.match(/^(CREATE|ALTER|DROP|INSERT|UPDATE|DELETE|SELECT)/)) {
+        result.valid = false;
+        result.errors.push(t.error_sql_syntax + ': 不支持的 SQL 语句类型');
+        return result;
+    }
+
+    // 检查括号匹配
+    let parenCount = 0;
+    for (let char of cleanSQL) {
+        if (char === '(') parenCount++;
+        if (char === ')') parenCount--;
+        if (parenCount < 0) {
+            result.valid = false;
+            result.errors.push(t.error_sql_syntax + ': 括号不匹配');
+            return result;
+        }
+    }
+    if (parenCount !== 0) {
+        result.valid = false;
+        result.errors.push(t.error_sql_syntax + ': 括号不匹配');
+        return result;
+    }
+
+    // 检查 SELECT 语句的列定义
+    if (cleanUpperSQL.includes('SELECT')) {
+        // 更灵活的 FROM 匹配，处理没有空格的情况
+        const selectMatch = cleanSQL.match(/SELECT\s+([\s\S]*?)\s+FROM\s+/i);
+        if (selectMatch) {
+            const columns = selectMatch[1];
+            // 检查列之间是否有逗号分隔
+            const columnList = columns.split(',').map(c => c.trim());
+            for (let col of columnList) {
+                if (!col || col.length === 0) {
+                    result.valid = false;
+                    result.errors.push(t.error_sql_syntax + ': SELECT 列定义错误，检查逗号分隔');
+                    return result;
+                }
+            }
+        } else {
+            // 检查是否有 FROM 但没有正确的空格
+            if (cleanUpperSQL.includes('FROM')) {
+                // 检查 FROM 前是否有有效的列定义
+                const selectPart = cleanSQL.match(/SELECT\s+([\s\S]*?)FROM/i);
+                if (selectPart) {
+                    const columns = selectPart[1].trim();
+                    // 检查是否缺少逗号（多个单词在一行上）
+                    const words = columns.split(/\s+/);
+                    if (words.length > 1) {
+                        // 检查是否应该有逗号
+                        const hasComma = columns.includes(',');
+                        if (!hasComma && words.length > 1) {
+                            result.valid = false;
+                            result.errors.push(t.error_sql_syntax + ': SELECT 列定义错误，缺少逗号分隔符');
+                            return result;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 检查 FROM 子句
+    if (cleanUpperSQL.includes('FROM')) {
+        // 检查 FROM 后是否有表名（处理没有空格的情况）
+        const fromMatch = cleanSQL.match(/FROM\s+(\S+)/i);
+        if (!fromMatch) {
+            result.valid = false;
+            result.errors.push(t.error_sql_syntax + ': FROM 子句缺少表名');
+            return result;
+        }
+
+        // 检查 FROM 后面是否紧跟表名（没有空格）
+        const fromNoSpaceMatch = cleanSQL.match(/FROM(\S)/i);
+        if (fromNoSpaceMatch && fromNoSpaceMatch[1] !== ' ') {
+            result.valid = false;
+            result.errors.push(t.error_sql_syntax + ': FROM 后缺少空格');
+            return result;
+        }
+    }
+
+    // 检查 WHERE 子句的条件
+    if (cleanUpperSQL.includes('WHERE')) {
+        const whereMatch = cleanSQL.match(/WHERE\s+([\s\S]*?)(?:GROUP|ORDER|LIMIT|$)/i);
+        if (whereMatch) {
+            const conditions = whereMatch[1].trim();
+            // 检查条件是否为空
+            if (!conditions || conditions.length === 0) {
+                result.valid = false;
+                result.errors.push(t.error_sql_syntax + ': WHERE 子句缺少条件');
+                return result;
+            }
+            // 检查 AND/OR 的使用
+            const andOrPattern = /\s+(AND|OR)\s+/gi;
+            const matches = conditions.match(andOrPattern);
+            if (matches) {
+                // 检查 AND/OR 前后是否有有效的条件
+                const parts = conditions.split(/\s+(AND|OR)\s+/i);
+                for (let i = 0; i < parts.length; i++) {
+                    if (i % 2 === 0) { // 条件部分
+                        if (!parts[i] || parts[i].trim().length === 0) {
+                            result.valid = false;
+                            result.errors.push(t.error_sql_syntax + ': WHERE 条件不完整');
+                            return result;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 检查保留字使用
+    const reservedWords = ['TABLE', 'DATABASE', 'USER', 'PASSWORD', 'KEY', 'INDEX'];
+    reservedWords.forEach(word => {
+        if (cleanUpperSQL.includes(` ${word} `) && !cleanUpperSQL.includes(`\`${word}\``)) {
+            result.warnings.push(`${word} 是保留字，建议使用反引号包围`);
+        }
+    });
+
+    // 检查数据类型（针对 CREATE TABLE）
+    if (cleanUpperSQL.includes('CREATE TABLE')) {
+        const validTypes = ['INT', 'VARCHAR', 'TEXT', 'DATETIME', 'DATE', 'TIMESTAMP', 'DECIMAL', 'FLOAT', 'DOUBLE', 'BIGINT', 'SMALLINT', 'TINYINT', 'BOOLEAN', 'JSON'];
+        const typePattern = /\b(INT|VARCHAR|TEXT|DATETIME|DATE|TIMESTAMP|DECIMAL|FLOAT|DOUBLE|BIGINT|SMALLINT|TINYINT|BOOLEAN|JSON)\b/gi;
+        const matches = cleanSQL.match(typePattern);
+        if (!matches) {
+            result.warnings.push(t.error_sql_invalid_type + ': 未找到数据类型定义');
+        }
+    }
+
+    // 检查约束
+    if (cleanUpperSQL.includes('CREATE TABLE') && !cleanUpperSQL.includes('PRIMARY KEY') && !cleanUpperSQL.includes('UNIQUE')) {
+        result.warnings.push(t.error_sql_missing_constraint + ': 建议添加主键或唯一约束');
+    }
+
+    return result;
+}
+
+// ==========================================
+// CSS 格式化功能
+// ==========================================
+function formatCSS() {
+    const input = document.getElementById('css-input');
+    const output = document.getElementById('css-output');
+    const errorDiv = document.getElementById('css-error');
+    const t = translations[currentLang];
+
+    if (!input || !output) return;
+
+    const css = input.value.trim();
+    errorDiv.textContent = '';
+
+    if (!css) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const formatted = formatCSSString(css);
+        output.value = formatted;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + t.error_css_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+function compressCSS() {
+    const input = document.getElementById('css-input');
+    const output = document.getElementById('css-output');
+    const errorDiv = document.getElementById('css-error');
+    const t = translations[currentLang];
+
+    if (!input || !output) return;
+
+    const css = input.value.trim();
+    errorDiv.textContent = '';
+
+    if (!css) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const compressed = compressCSSString(css);
+        output.value = compressed;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + t.error_css_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+function formatCSSString(css) {
+    // 移除注释
+    let result = css.replace(/\/\*[\s\S]*?\*\//g, '');
+
+    // 添加换行和缩进
+    result = result
+        .replace(/\s*{\s*/g, ' {\n  ')
+        .replace(/\s*}\s*/g, '\n}\n')
+        .replace(/\s*;\s*/g, ';\n  ')
+        .replace(/\s*,\s*/g, ',\n  ')
+        .replace(/\n\s*\n/g, '\n');
+
+    // 清理多余空白
+    result = result.split('\n').map(line => {
+        return line.replace(/\s+$/g, '').replace(/^\s+/, (match) => {
+            return match.replace(/  /g, '  ');
+        });
+    }).join('\n');
+
+    // 移除最后的空行
+    result = result.replace(/\n\s*$/, '');
+
+    return result;
+}
+
+function compressCSSString(css) {
+    // 移除注释
+    let result = css.replace(/\/\*[\s\S]*?\*\//g, '');
+
+    // 移除所有空白
+    result = result
+        .replace(/\s+/g, ' ')
+        .replace(/\s*{\s*/g, '{')
+        .replace(/\s*}\s*/g, '}')
+        .replace(/\s*;\s*/g, ';')
+        .replace(/\s*,\s*/g, ',')
+        .replace(/\s*:\s*/g, ':')
+        .replace(/;}/g, '}')
+        .trim();
+
+    return result;
+}
+
+function copyCSS() {
+    const output = document.getElementById('css-output');
+    const errorDiv = document.getElementById('css-error');
+    const t = translations[currentLang];
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + t.success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
+}
+
+function clearCSS() {
+    const input = document.getElementById('css-input');
+    const output = document.getElementById('css-output');
+    const errorDiv = document.getElementById('css-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+// ==========================================
+// 命名格式转换功能
+// ==========================================
+function convertNaming() {
+    const input = document.getElementById('naming-input');
+    const errorDiv = document.getElementById('naming-error');
+    const t = translations[currentLang];
+
+    if (!input) return;
+
+    const text = input.value.trim();
+    errorDiv.textContent = '';
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        clearNamingOutputs();
+        return;
+    }
+
+    try {
+        // 解析输入文本，识别其格式
+        const formats = parseNamingFormat(text);
+
+        // 生成所有格式的输出
+        document.getElementById('naming-output-camel').value = formats.camelCase;
+        document.getElementById('naming-output-pascal').value = formats.pascalCase;
+        document.getElementById('naming-output-snake').value = formats.snakeCase;
+        document.getElementById('naming-output-constant').value = formats.constantCase;
+        document.getElementById('naming-output-kebab').value = formats.kebabCase;
+        document.getElementById('naming-output-screaming').value = formats.screamingKebab;
+
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + t.error_naming_invalid + ': ' + e.message;
+        clearNamingOutputs();
+    }
+}
+
+function parseNamingFormat(text) {
+    // 移除前后空白
+    text = text.trim();
+
+    // 检测分隔符和格式
+    let words = [];
+
+    // 尝试识别格式
+    if (text.includes('_')) {
+        // snake_case 或 CONSTANT_CASE
+        words = text.split('_').filter(w => w.length > 0);
+    } else if (text.includes('-')) {
+        // kebab-case 或 SCREAMING-KEBAB-CASE
+        words = text.split('-').filter(w => w.length > 0);
+    } else if (/[a-z][A-Z]/.test(text)) {
+        // camelCase 或 PascalCase
+        words = text.split(/(?=[A-Z])/).filter(w => w.length > 0);
+    } else {
+        // 单个单词
+        words = [text];
+    }
+
+    // 转换为小写单词数组
+    words = words.map(w => w.toLowerCase());
+
+    return {
+        camelCase: toCamelCase(words),
+        pascalCase: toPascalCase(words),
+        snakeCase: toSnakeCase(words),
+        constantCase: toConstantCase(words),
+        kebabCase: toKebabCase(words),
+        screamingKebab: toScreamingKebab(words)
+    };
+}
+
+function toCamelCase(words) {
+    if (words.length === 0) return '';
+    return words[0].toLowerCase() + words.slice(1).map(w => capitalize(w)).join('');
+}
+
+function toPascalCase(words) {
+    return words.map(w => capitalize(w)).join('');
+}
+
+function toSnakeCase(words) {
+    return words.join('_').toLowerCase();
+}
+
+function toConstantCase(words) {
+    return words.join('_').toUpperCase();
+}
+
+function toKebabCase(words) {
+    return words.join('-').toLowerCase();
+}
+
+function toScreamingKebab(words) {
+    return words.join('-').toUpperCase();
+}
+
+function capitalize(word) {
+    if (!word) return '';
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+function clearNamingOutputs() {
+    document.getElementById('naming-output-camel').value = '';
+    document.getElementById('naming-output-pascal').value = '';
+    document.getElementById('naming-output-snake').value = '';
+    document.getElementById('naming-output-constant').value = '';
+    document.getElementById('naming-output-kebab').value = '';
+    document.getElementById('naming-output-screaming').value = '';
+}
+
+function copyNamingResult() {
+    const camelOutput = document.getElementById('naming-output-camel');
+    const errorDiv = document.getElementById('naming-error');
+    const t = translations[currentLang];
+
+    if (!camelOutput || !camelOutput.value) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        return;
+    }
+
+    camelOutput.select();
+    document.execCommand('copy');
+
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + t.success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
+}
+
+function clearNaming() {
+    const input = document.getElementById('naming-input');
+    const errorDiv = document.getElementById('naming-error');
+
+    if (input) input.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+    clearNamingOutputs();
+}
+
+// ==========================================
+// Unicode 转换功能
+// ==========================================
+function toUnicode() {
+    const input = document.getElementById('unicode-input');
+    const output = document.getElementById('unicode-output');
+    const errorDiv = document.getElementById('unicode-error');
+    const t = translations[currentLang];
+
+    if (!input || !output) return;
+
+    const text = input.value.trim();
+    errorDiv.textContent = '';
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const result = chineseToUnicode(text);
+        output.value = result;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + t.error_unicode_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+function fromUnicode() {
+    const input = document.getElementById('unicode-input');
+    const output = document.getElementById('unicode-output');
+    const errorDiv = document.getElementById('unicode-error');
+    const t = translations[currentLang];
+
+    if (!input || !output) return;
+
+    const text = input.value.trim();
+    errorDiv.textContent = '';
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const result = unicodeToChinese(text);
+        output.value = result;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + t.error_unicode_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+function chineseToUnicode(text) {
+    let result = '';
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const code = char.charCodeAt(0);
+
+        // 检查是否是中文字符（CJK 统一表意文字）
+        if (code >= 0x4E00 && code <= 0x9FFF) {
+            result += '\\u' + code.toString(16).padStart(4, '0');
+        } else {
+            result += char;
+        }
+    }
+    return result;
+}
+
+function unicodeToChinese(text) {
+    // 支持多种 Unicode 格式
+    let result = text;
+
+    // 处理 \uXXXX 格式
+    result = result.replace(/\\u([0-9a-fA-F]{4})/g, function(match, hex) {
+        return String.fromCharCode(parseInt(hex, 16));
+    });
+
+    // 处理 &#xXXXX; 格式
+    result = result.replace(/&#x([0-9a-fA-F]+);/g, function(match, hex) {
+        return String.fromCharCode(parseInt(hex, 16));
+    });
+
+    // 处理 &#XXXXX; 格式
+    result = result.replace(/&#(\d+);/g, function(match, dec) {
+        return String.fromCharCode(parseInt(dec, 10));
+    });
+
+    return result;
+}
+
+function copyUnicodeResult() {
+    const output = document.getElementById('unicode-output');
+    const errorDiv = document.getElementById('unicode-error');
+    const t = translations[currentLang];
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + t.success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
+}
+
+function clearUnicode() {
+    const input = document.getElementById('unicode-input');
+    const output = document.getElementById('unicode-output');
+    const errorDiv = document.getElementById('unicode-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+
+
+function copySQLValidatorResult() {
+    const output = document.getElementById('sql-validator-output');
+    const errorDiv = document.getElementById('sql-validator-error');
+    const t = translations[currentLang];
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + t.error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + t.success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
+}
+
+function clearSQLValidator() {
+    const input = document.getElementById('sql-validator-input');
+    const output = document.getElementById('sql-validator-output');
+    const errorDiv = document.getElementById('sql-validator-error');
+    const resultDiv = document.getElementById('sql-validator-result');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+    if (resultDiv) {
+        resultDiv.textContent = '';
+        resultDiv.classList.remove('show', 'success', 'error', 'warning');
     }
 }
 
@@ -2096,6 +4954,68 @@ function initializePageFeatures() {
         });
     }
 
+    const yamlInput = document.getElementById('yaml-input');
+    if (yamlInput) {
+        yamlInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                // 检测输入内容格式，自动选择转换方向
+                const input = yamlInput.value.trim();
+                if (input.includes('=') && !input.includes(':')) {
+                    // 看起来是 Properties 格式
+                    propertiesToYaml();
+                } else {
+                    // 默认当作 YAML 格式
+                    yamlToProperties();
+                }
+            }
+        });
+    }
+
+    const sqlInput = document.getElementById('sql-input');
+    if (sqlInput) {
+        sqlInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                formatSQL();
+            }
+        });
+    }
+
+    const sqlValidatorInput = document.getElementById('sql-validator-input');
+    if (sqlValidatorInput) {
+        sqlValidatorInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                validateSQL();
+            }
+        });
+    }
+
+    const cssInput = document.getElementById('css-input');
+    if (cssInput) {
+        cssInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                formatCSS();
+            }
+        });
+    }
+
+    const namingInput = document.getElementById('naming-input');
+    if (namingInput) {
+        namingInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                convertNaming();
+            }
+        });
+    }
+
+    const unicodeInput = document.getElementById('unicode-input');
+    if (unicodeInput) {
+        unicodeInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                toUnicode();
+            }
+        });
+    }
+
     console.log('🛠️ Toolhub 已加载完成');
 }
 
@@ -2143,7 +5063,6 @@ const headerHTML = `<div class="header-content">
                     <a href="css-formatter.html" class="dropdown-item" data-i18n="tool_css">CSS 压缩和格式化</a>
                     <a href="naming-converter.html" class="dropdown-item" data-i18n="tool_naming">命名格式转换</a>
                     <a href="unicode.html" class="dropdown-item" data-i18n="tool_unicode">Unicode 转换</a>
-                    <a href="chinese-converter.html" class="dropdown-item" data-i18n="tool_chinese">中文简繁转换</a>
                 </div>
             </div>
 
@@ -2554,8 +5473,107 @@ function performURLDecode() {
         errorDiv.textContent = '';
         const decoded = decodeURIComponent(text);
         result.value = decoded;
-    } catch (e) {
+    } catch (error) {
         errorDiv.textContent = '❌ ' + translations[currentLang].error_decode_failed;
+    }
+}
+
+// ==========================================
+// 文本加解密功能
+// ==========================================
+function encryptText() {
+    const input = document.getElementById('encryption-input');
+    const password = document.getElementById('encryption-password');
+    const output = document.getElementById('encryption-output');
+    const errorDiv = document.getElementById('encryption-error');
+
+    const text = input.value.trim();
+    const pwd = password.value.trim();
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_encryption_no_input;
+        return;
+    }
+
+    if (!pwd) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_encryption_no_password;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        // 使用 CryptoJS 进行 AES 加密
+        const encrypted = CryptoJS.AES.encrypt(text, pwd).toString();
+        output.value = encrypted;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_encryption_no_input;
+    }
+}
+
+function decryptText() {
+    const input = document.getElementById('encryption-input');
+    const password = document.getElementById('encryption-password');
+    const output = document.getElementById('encryption-output');
+    const errorDiv = document.getElementById('encryption-error');
+
+    const text = input.value.trim();
+    const pwd = password.value.trim();
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_encryption_no_input;
+        return;
+    }
+
+    if (!pwd) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_encryption_no_password;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        // 使用 CryptoJS 进行 AES 解密
+        const decrypted = CryptoJS.AES.decrypt(text, pwd).toString(CryptoJS.enc.Utf8);
+
+        if (!decrypted) {
+            errorDiv.textContent = '❌ ' + translations[currentLang].error_decryption_failed;
+            return;
+        }
+
+        output.value = decrypted;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_decryption_failed;
+    }
+}
+
+function clearEncryption() {
+    document.getElementById('encryption-input').value = '';
+    document.getElementById('encryption-password').value = '';
+    document.getElementById('encryption-output').value = '';
+    document.getElementById('encryption-error').textContent = '';
+}
+
+function copyEncryption() {
+    const output = document.getElementById('encryption-output');
+
+    if (!output.value) {
+        alert(translations[currentLang].error_no_input);
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    // 显示复制成功提示
+    const originalText = '复制';
+    const successText = '✓ ' + translations[currentLang].success_copied;
+
+    // 使用 Clipboard API 如果可用
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(output.value).then(() => {
+            // 成功
+        }).catch(() => {
+            // 失败
+        });
     }
 }
 
@@ -2591,6 +5609,739 @@ function clearURLAll() {
     if (input) input.value = '';
     if (result) result.value = '';
     if (errorDiv) errorDiv.textContent = '';
+}
+
+// ==========================================
+// Base64 编码解码功能
+// ==========================================
+function encodeBase64() {
+    const input = document.getElementById('base64-input');
+    const output = document.getElementById('base64-output');
+    const errorDiv = document.getElementById('base64-error');
+
+    if (!input || !output) return;
+
+    const text = input.value.trim();
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        const encoded = btoa(unescape(encodeURIComponent(text)));
+        output.value = encoded;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_base64_encode_failed;
+    }
+}
+
+function decodeBase64() {
+    const input = document.getElementById('base64-input');
+    const output = document.getElementById('base64-output');
+    const errorDiv = document.getElementById('base64-error');
+
+    if (!input || !output) return;
+
+    const text = input.value.trim();
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        const decoded = decodeURIComponent(escape(atob(text)));
+        output.value = decoded;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_base64_decode_failed;
+    }
+}
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    const input = document.getElementById('base64-input');
+    const errorDiv = document.getElementById('base64-error');
+
+    if (!file) return;
+
+    // 检查文件大小（10MB）
+    if (file.size > 10 * 1024 * 1024) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_file_too_large;
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            errorDiv.textContent = '';
+            input.value = e.target.result;
+        } catch (error) {
+            errorDiv.textContent = '❌ ' + translations[currentLang].error_file_read_failed;
+        }
+    };
+    reader.onerror = function() {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_file_read_failed;
+    };
+    reader.readAsDataURL(file);
+}
+
+function clearBase64() {
+    const input = document.getElementById('base64-input');
+    const output = document.getElementById('base64-output');
+    const fileInput = document.getElementById('base64-file');
+    const errorDiv = document.getElementById('base64-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (fileInput) fileInput.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+function copyBase64() {
+    const output = document.getElementById('base64-output');
+    const errorDiv = document.getElementById('base64-error');
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    // 使用 Clipboard API 如果可用
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(output.value).then(() => {
+            // 成功
+        }).catch(() => {
+            // 失败
+        });
+    }
+}
+
+// ==========================================
+// MD5 加密功能
+// ==========================================
+function computeMD5() {
+    const input = document.getElementById('md5-input');
+    const output = document.getElementById('md5-output');
+    const errorDiv = document.getElementById('md5-error');
+
+    if (!input || !output) return;
+
+    const text = input.value.trim();
+
+    if (!text) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    try {
+        errorDiv.textContent = '';
+        // 使用 CryptoJS 计算 MD5
+        let hash = CryptoJS.MD5(text).toString();
+
+        // 获取大小写选择
+        const caseOption = document.querySelector('input[name="md5-case"]:checked');
+        const caseValue = caseOption ? caseOption.value : 'lowercase';
+
+        // 获取长度选择
+        const lengthOption = document.querySelector('input[name="md5-length"]:checked');
+        const lengthValue = lengthOption ? lengthOption.value : '32';
+
+        // 根据大小写选择转换
+        if (caseValue === 'uppercase') {
+            hash = hash.toUpperCase();
+        } else {
+            hash = hash.toLowerCase();
+        }
+
+        // 根据长度选择转换（16位是中间32位）
+        if (lengthValue === '16') {
+            hash = hash.substring(8, 24);
+        }
+
+        output.value = hash;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_md5_compute_failed;
+    }
+}
+
+function clearMD5() {
+    const input = document.getElementById('md5-input');
+    const output = document.getElementById('md5-output');
+    const errorDiv = document.getElementById('md5-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+function copyMD5() {
+    const output = document.getElementById('md5-output');
+    const errorDiv = document.getElementById('md5-error');
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    // 使用 Clipboard API 如果可用
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(output.value).then(() => {
+            // 成功
+        }).catch(() => {
+            // 失败
+        });
+    }
+}
+
+// ==========================================
+// JWT Token 生成与解析功能
+// ==========================================
+function generateJWT() {
+    const headerInput = document.getElementById('jwt-header');
+    const payloadInput = document.getElementById('jwt-payload');
+    const secretInput = document.getElementById('jwt-secret');
+    const tokenOutput = document.getElementById('jwt-token');
+    const errorDiv = document.getElementById('jwt-error');
+    const successDiv = document.getElementById('jwt-success');
+
+    if (!headerInput || !payloadInput || !secretInput || !tokenOutput) return;
+
+    try {
+        errorDiv.textContent = '';
+        successDiv.textContent = '';
+
+        // 解析 Header 和 Payload
+        const header = JSON.parse(headerInput.value || '{"alg":"HS256","typ":"JWT"}');
+        const payload = JSON.parse(payloadInput.value || '{}');
+        const secret = secretInput.value || '';
+
+        // 获取选择的算法
+        const algorithmOption = document.querySelector('input[name="jwt-algorithm"]:checked');
+        const algorithm = algorithmOption ? algorithmOption.value : 'HS256';
+
+        // 更新 header 中的算法
+        header.alg = algorithm;
+
+        // Base64 编码
+        const headerEncoded = btoa(JSON.stringify(header)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+        const payloadEncoded = btoa(JSON.stringify(payload)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+
+        // 创建签名
+        const message = headerEncoded + '.' + payloadEncoded;
+        let signature = '';
+
+        if (algorithm === 'HS256') {
+            signature = CryptoJS.HmacSHA256(message, secret).toString();
+        } else if (algorithm === 'HS384') {
+            signature = CryptoJS.HmacSHA384(message, secret).toString();
+        } else if (algorithm === 'HS512') {
+            signature = CryptoJS.HmacSHA512(message, secret).toString();
+        }
+
+        // Base64 编码签名
+        const signatureEncoded = btoa(signature).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+
+        // 生成 JWT
+        const jwt = message + '.' + signatureEncoded;
+        tokenOutput.value = jwt;
+
+        successDiv.textContent = '✅ ' + translations[currentLang].success_jwt_generated;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_jwt_invalid_json;
+    }
+}
+
+function parseJWT() {
+    // 支持从 jwt-token 或 jwt-input-token 读取
+    let tokenInput = document.getElementById('jwt-token');
+    if (!tokenInput || !tokenInput.value) {
+        tokenInput = document.getElementById('jwt-input-token');
+    }
+
+    const secretInput = document.getElementById('jwt-secret');
+    const headerOutput = document.getElementById('jwt-parsed-header');
+    const payloadOutput = document.getElementById('jwt-parsed-payload');
+    const signatureOutput = document.getElementById('jwt-parsed-signature');
+    const errorDiv = document.getElementById('jwt-error');
+    const successDiv = document.getElementById('jwt-success');
+
+    if (!tokenInput || !headerOutput || !payloadOutput || !signatureOutput) return;
+
+    try {
+        errorDiv.textContent = '';
+        successDiv.textContent = '';
+
+        const token = tokenInput.value.trim();
+        if (!token) {
+            errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+            return;
+        }
+
+        // 分割 JWT
+        const parts = token.split('.');
+        if (parts.length !== 3) {
+            errorDiv.textContent = '❌ ' + translations[currentLang].error_jwt_invalid_token;
+            return;
+        }
+
+        // Base64 解码
+        const headerDecoded = JSON.parse(atob(parts[0]));
+        const payloadDecoded = JSON.parse(atob(parts[1]));
+
+        headerOutput.value = JSON.stringify(headerDecoded, null, 2);
+        payloadOutput.value = JSON.stringify(payloadDecoded, null, 2);
+        signatureOutput.value = parts[2];
+
+        // 验证签名（如果提供了密钥）
+        if (secretInput && secretInput.value) {
+            const secret = secretInput.value;
+            const message = parts[0] + '.' + parts[1];
+            const algorithm = headerDecoded.alg || 'HS256';
+
+            let expectedSignature = '';
+            if (algorithm === 'HS256') {
+                expectedSignature = CryptoJS.HmacSHA256(message, secret).toString();
+            } else if (algorithm === 'HS384') {
+                expectedSignature = CryptoJS.HmacSHA384(message, secret).toString();
+            } else if (algorithm === 'HS512') {
+                expectedSignature = CryptoJS.HmacSHA512(message, secret).toString();
+            }
+
+            // 比较签名
+            const expectedSignatureEncoded = btoa(expectedSignature).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+            if (expectedSignatureEncoded !== parts[2]) {
+                errorDiv.textContent = '⚠️ ' + translations[currentLang].error_jwt_verification_failed;
+            } else {
+                successDiv.textContent = '✅ ' + translations[currentLang].success_jwt_parsed;
+            }
+        } else {
+            successDiv.textContent = '✅ ' + translations[currentLang].success_jwt_parsed;
+        }
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_jwt_invalid_token;
+    }
+}
+
+function clearJWT() {
+    const elements = [
+        'jwt-header', 'jwt-payload', 'jwt-secret', 'jwt-token',
+        'jwt-input-token', 'jwt-parse-secret',
+        'jwt-parsed-header', 'jwt-parsed-payload', 'jwt-parsed-signature',
+        'jwt-error', 'jwt-success'
+    ];
+
+    elements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
+                element.value = '';
+            } else {
+                element.textContent = '';
+            }
+        }
+    });
+}
+
+function copyJWT() {
+    const tokenOutput = document.getElementById('jwt-token');
+    const errorDiv = document.getElementById('jwt-error');
+
+    if (!tokenOutput || !tokenOutput.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    tokenOutput.select();
+    document.execCommand('copy');
+
+    // 使用 Clipboard API 如果可用
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(tokenOutput.value).then(() => {
+            // 成功
+        }).catch(() => {
+            // 失败
+        });
+    }
+}
+
+// ==========================================
+// RSA 公私钥生成功能
+// ==========================================
+function generateRSAKeys() {
+    const keyLengthOption = document.querySelector('input[name="rsa-key-length"]:checked');
+    const formatOption = document.querySelector('input[name="rsa-format"]:checked');
+    const publicKeyOutput = document.getElementById('rsa-public-key');
+    const privateKeyOutput = document.getElementById('rsa-private-key');
+    const errorDiv = document.getElementById('rsa-error');
+    const successDiv = document.getElementById('rsa-success');
+
+    if (!keyLengthOption || !formatOption || !publicKeyOutput || !privateKeyOutput) return;
+
+    try {
+        errorDiv.textContent = '';
+        successDiv.textContent = '';
+
+        const keyLength = parseInt(keyLengthOption.value);
+        const format = formatOption.value;
+
+        // 使用 JSEncrypt 库生成 RSA 密钥对
+        const encrypt = new JSEncrypt({ default_key_size: keyLength });
+
+        // 获取公钥和私钥
+        const publicKey = encrypt.getPublicKey();
+        const privateKey = encrypt.getPrivateKey();
+
+        // 显示密钥
+        publicKeyOutput.value = publicKey;
+        privateKeyOutput.value = privateKey;
+
+        successDiv.textContent = '✅ ' + translations[currentLang].success_rsa_generated;
+    } catch (error) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_rsa_generate_failed;
+    }
+}
+
+function clearRSA() {
+    const publicKeyOutput = document.getElementById('rsa-public-key');
+    const privateKeyOutput = document.getElementById('rsa-private-key');
+    const errorDiv = document.getElementById('rsa-error');
+    const successDiv = document.getElementById('rsa-success');
+
+    if (publicKeyOutput) publicKeyOutput.value = '';
+    if (privateKeyOutput) privateKeyOutput.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+    if (successDiv) successDiv.textContent = '';
+}
+
+function copyRSAPublic() {
+    const publicKeyOutput = document.getElementById('rsa-public-key');
+    const errorDiv = document.getElementById('rsa-error');
+
+    if (!publicKeyOutput || !publicKeyOutput.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    publicKeyOutput.select();
+    document.execCommand('copy');
+
+    // 使用 Clipboard API 如果可用
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(publicKeyOutput.value).then(() => {
+            // 成功
+        }).catch(() => {
+            // 失败
+        });
+    }
+}
+
+function copyRSAPrivate() {
+    const privateKeyOutput = document.getElementById('rsa-private-key');
+    const errorDiv = document.getElementById('rsa-error');
+
+    if (!privateKeyOutput || !privateKeyOutput.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    privateKeyOutput.select();
+    document.execCommand('copy');
+
+    // 使用 Clipboard API 如果可用
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(privateKeyOutput.value).then(() => {
+            // 成功
+        }).catch(() => {
+            // 失败
+        });
+    }
+}
+
+// ==========================================
+// YAML-Properties 转换功能
+// ==========================================
+
+// 将 YAML 转换为 Properties
+function yamlToProperties() {
+    const input = document.getElementById('yaml-input').value.trim();
+    const output = document.getElementById('yaml-output');
+    const errorDiv = document.getElementById('yaml-error');
+
+    errorDiv.textContent = '';
+
+    if (!input) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const properties = convertYamlToProperties(input);
+        output.value = properties;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_yaml_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+// 将 Properties 转换为 YAML
+function propertiesToYaml() {
+    const input = document.getElementById('yaml-input').value.trim();
+    const output = document.getElementById('yaml-output');
+    const errorDiv = document.getElementById('yaml-error');
+
+    errorDiv.textContent = '';
+
+    if (!input) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        output.value = '';
+        return;
+    }
+
+    try {
+        const yaml = convertPropertiesToYaml(input);
+        output.value = yaml;
+        errorDiv.textContent = '';
+    } catch (e) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_properties_invalid + ': ' + e.message;
+        output.value = '';
+    }
+}
+
+// YAML 转 Properties 的核心逻辑
+function convertYamlToProperties(yamlStr) {
+    const lines = yamlStr.split('\n');
+    const properties = [];
+    let currentPath = [];
+
+    for (let line of lines) {
+        const trimmed = line.trim();
+
+        // 跳过空行和注释
+        if (!trimmed || trimmed.startsWith('#')) continue;
+
+        // 计算缩进级别
+        const indent = line.search(/\S/);
+        const indentLevel = Math.floor(indent / 2);
+
+        // 调整当前路径
+        currentPath = currentPath.slice(0, indentLevel);
+
+        // 解析键值对
+        if (trimmed.includes(':')) {
+            const [key, ...valueParts] = trimmed.split(':');
+            const value = valueParts.join(':').trim();
+
+            currentPath.push(key.trim());
+            const fullKey = currentPath.join('.');
+
+            if (value) {
+                properties.push(`${fullKey}=${value}`);
+            }
+        }
+    }
+
+    return properties.join('\n');
+}
+
+// Properties 转 YAML 的核心逻辑
+function convertPropertiesToYaml(propertiesStr) {
+    const lines = propertiesStr.split('\n');
+    const yamlObj = {};
+
+    for (let line of lines) {
+        const trimmed = line.trim();
+
+        // 跳过空行和注释
+        if (!trimmed || trimmed.startsWith('#')) continue;
+
+        // 解析键值对
+        if (trimmed.includes('=')) {
+            const [key, ...valueParts] = trimmed.split('=');
+            const value = valueParts.join('=').trim();
+            const keys = key.trim().split('.');
+
+            // 构建嵌套对象
+            let current = yamlObj;
+            for (let i = 0; i < keys.length - 1; i++) {
+                if (!current[keys[i]]) {
+                    current[keys[i]] = {};
+                }
+                current = current[keys[i]];
+            }
+            current[keys[keys.length - 1]] = value;
+        }
+    }
+
+    return objectToYaml(yamlObj);
+}
+
+// 将对象转换为 YAML 格式
+function objectToYaml(obj, indent = 0) {
+    let yaml = '';
+    const indentStr = '  '.repeat(indent);
+
+    for (const [key, value] of Object.entries(obj)) {
+        if (typeof value === 'object' && value !== null) {
+            yaml += `${indentStr}${key}:\n`;
+            yaml += objectToYaml(value, indent + 1);
+        } else {
+            yaml += `${indentStr}${key}: ${value}\n`;
+        }
+    }
+
+    return yaml;
+}
+
+function copyYamlResult() {
+    const output = document.getElementById('yaml-output');
+    const errorDiv = document.getElementById('yaml-error');
+
+    if (!output || !output.value) {
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        return;
+    }
+
+    output.select();
+    document.execCommand('copy');
+
+    // 显示复制成功提示
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + translations[currentLang].success_copied;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
+}
+
+function clearYamlAll() {
+    const input = document.getElementById('yaml-input');
+    const output = document.getElementById('yaml-output');
+    const errorDiv = document.getElementById('yaml-error');
+
+    if (input) input.value = '';
+    if (output) output.value = '';
+    if (errorDiv) errorDiv.textContent = '';
+}
+
+// ==========================================
+// 密码生成器
+// ==========================================
+function generatePassword() {
+    const lengthInput = document.getElementById('password-length');
+    const includeUppercase = document.getElementById('include-uppercase');
+    const includeLowercase = document.getElementById('include-lowercase');
+    const includeNumbers = document.getElementById('include-numbers');
+    const includeSpecial = document.getElementById('include-special');
+    const resultsDiv = document.getElementById('password-results');
+
+    // 验证长度
+    const length = parseInt(lengthInput.value);
+    if (isNaN(length) || length < 4 || length > 128) {
+        resultsDiv.innerHTML = '<div style="color: #f56c6c; padding: 12px; background: #fef0f0; border-radius: 6px;">❌ ' + translations[currentLang].password_error_length + '</div>';
+        return;
+    }
+
+    // 检查是否至少选择了一种字符类型
+    if (!includeUppercase.checked && !includeLowercase.checked && !includeNumbers.checked && !includeSpecial.checked) {
+        resultsDiv.innerHTML = '<div style="color: #f56c6c; padding: 12px; background: #fef0f0; border-radius: 6px;">❌ ' + translations[currentLang].password_error_no_options + '</div>';
+        return;
+    }
+
+    // 定义字符集
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    const special = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+    let chars = '';
+    if (includeUppercase.checked) chars += uppercase;
+    if (includeLowercase.checked) chars += lowercase;
+    if (includeNumbers.checked) chars += numbers;
+    if (includeSpecial.checked) chars += special;
+
+    // 生成密码
+    let password = '';
+    for (let i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    // 显示结果
+    displayPasswordResult(password);
+}
+
+function displayPasswordResult(password) {
+    const resultsDiv = document.getElementById('password-results');
+
+    const resultHTML = `
+        <div class="password-result-box">
+            <div class="password-result-item">
+                <div class="password-result-label">${translations[currentLang].password_results}:</div>
+                <div class="password-result-value large" id="generated-password">${password}</div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+                <button class="password-button" onclick="copyPasswordToClipboard()" style="flex: 1;">${translations[currentLang].copy_btn}</button>
+                <button class="password-button secondary" onclick="generatePassword()" style="flex: 1;">${translations[currentLang].generate_btn}</button>
+            </div>
+        </div>
+    `;
+
+    resultsDiv.innerHTML = resultHTML;
+}
+
+function copyPasswordToClipboard() {
+    const passwordElement = document.getElementById('generated-password');
+    if (!passwordElement) return;
+
+    const password = passwordElement.textContent;
+
+    // 使用现代 Clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(password).then(() => {
+            showCopySuccess();
+        }).catch(() => {
+            // 降级到旧方法
+            fallbackCopyToClipboard(password);
+        });
+    } else {
+        // 降级到旧方法
+        fallbackCopyToClipboard(password);
+    }
+}
+
+function fallbackCopyToClipboard(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    showCopySuccess();
+}
+
+function showCopySuccess() {
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ ' + translations[currentLang].password_copy_success;
+    btn.style.background = '#67c23a';
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 1500);
 }
 
 // 页面加载时动态加载 header 和 footer

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Converter - Toolhub</title>
+    <meta name="description" content="Free online Chinese converter. Convert between Simplified and Traditional Chinese characters.">
+    <meta name="keywords" content="chinese converter, simplified chinese, traditional chinese, character conversion">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="chinese-converter-tool">
+            <div class="tool-header">
+                <h1 data-i18n="chinese_title">Chinese Converter</h1>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="toTraditional()" data-i18n="to_traditional_btn">To Traditional</button>
+                    <button class="btn btn-warning" onclick="toSimplified()" data-i18n="to_simplified_btn">To Simplified</button>
+                    <button class="btn btn-success" onclick="copyChineseResult()" data-i18n="copy_btn">Copy</button>
+                    <button class="btn btn-danger" onclick="clearChinese()" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="chinese_input_label">Input:</label>
+                    <textarea id="chinese-input" placeholder="Enter Chinese text..." data-i18n-placeholder="chinese_input_placeholder"></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="chinese_output_label">Output:</label>
+                    <textarea id="chinese-output" readonly placeholder="Conversion result..." data-i18n-placeholder="chinese_output_placeholder"></textarea>
+                </div>
+            </div>
+            
+            <div id="chinese-error" class="error-message"></div>
+            
+            <div style="margin-top: 20px;">
+                <h3 style="margin-top: 0; color: #303133;" data-i18n="chinese_file_title">File Conversion:</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;" data-i18n="chinese_file_label">Select File:</label>
+                        <input type="file" id="chinese-file-input" accept=".txt,.md,.json,.xml,.html,.csv" style="width: 100%; padding: 8px; border: 1px solid #dcdfe6; border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;" data-i18n="chinese_file_encoding">Encoding:</label>
+                        <select id="chinese-file-encoding" style="width: 100%; padding: 8px; border: 1px solid #dcdfe6; border-radius: 4px;">
+                            <option value="utf-8">UTF-8</option>
+                            <option value="gbk">GBK</option>
+                            <option value="gb2312">GB2312</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="convertFileToTraditional()" data-i18n="convert_file_traditional">Convert File to Traditional</button>
+                    <button class="btn btn-warning" onclick="convertFileToSimplified()" data-i18n="convert_file_simplified">Convert File to Simplified</button>
+                </div>
+                <div id="chinese-file-error" class="error-message" style="margin-top: 10px;"></div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

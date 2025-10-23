@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Formatter - Toolhub</title>
+    <meta name="description" content="Free online CSS formatter and compressor. Format CSS code for readability or compress for optimization.">
+    <meta name="keywords" content="CSS formatter, CSS compressor, CSS beautifier, CSS minifier, format CSS">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="css-formatter-tool">
+            <div class="tool-header">
+                <h1 data-i18n="css_title">CSS Formatter</h1>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="formatCSS()" data-i18n="format_btn">Format</button>
+                    <button class="btn btn-warning" onclick="compressCSS()" data-i18n="compress_btn">Compress</button>
+                    <button class="btn btn-success" onclick="copyCSS()" data-i18n="copy_btn">Copy</button>
+                    <button class="btn btn-danger" onclick="clearCSS()" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="css_input_label">Input:</label>
+                    <textarea id="css-input" placeholder="Paste CSS code here..." data-i18n-placeholder="css_input_placeholder"></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="css_output_label">Output:</label>
+                    <textarea id="css-output" readonly placeholder="Formatted or compressed CSS will appear here..." data-i18n-placeholder="css_output_placeholder"></textarea>
+                </div>
+            </div>
+            
+            <div id="css-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

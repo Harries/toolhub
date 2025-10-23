@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Encryption - Toolhub</title>
+    <meta name="description" content="Free online text encryption and decryption tool. Encrypt and decrypt text using AES encryption with a simple password.">
+    <meta name="keywords" content="text encryption, text decryption, AES encryption, online encryption tool, password encryption">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- 文本加解密工具 -->
+        <div id="encryption-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="encryption_title">Text Encryption & Decryption Tool</h1>
+                <div class="button-group">
+                    <button onclick="encryptText()" class="btn btn-primary" data-i18n="encrypt_btn">Encrypt</button>
+                    <button onclick="decryptText()" class="btn btn-secondary" data-i18n="decrypt_btn">Decrypt</button>
+                    <button onclick="clearEncryption()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                    <button onclick="copyEncryption()" class="btn btn-success" data-i18n="copy_btn">Copy</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="encryption_input_label">Input Text:</label>
+                    <textarea id="encryption-input" data-i18n="encryption_input_placeholder" placeholder="Enter text to encrypt or decrypt..."></textarea>
+                </div>
+
+                <div class="editor-section">
+                    <label data-i18n="encryption_password_label">Password:</label>
+                    <input type="password" id="encryption-password" data-i18n="encryption_password_placeholder" placeholder="Enter password for encryption/decryption">
+                    <div style="margin-top: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="checkbox" id="show-password" style="cursor: pointer;">
+                            <span data-i18n="show_password">Show Password</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <label data-i18n="encryption_output_label">Result:</label>
+                    <textarea id="encryption-output" readonly data-i18n="encryption_output_placeholder" placeholder="Encrypted or decrypted result will be displayed here"></textarea>
+                </div>
+            </div>
+            
+            <div id="encryption-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // 密码显示/隐藏切换
+        document.getElementById('show-password').addEventListener('change', function() {
+            const passwordInput = document.getElementById('encryption-password');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Viewer - Toolhub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calendar-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .calendar-nav button {
+            padding: 8px 16px;
+            background: #409eff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .calendar-nav button:hover {
+            background: #66b1ff;
+        }
+
+        .calendar-nav .month-year {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e5e7eb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .calendar-weekday {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .calendar-day {
+            background: white;
+            padding: 12px;
+            min-height: 100px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calendar-day:hover {
+            background: #f0f9ff;
+        }
+
+        .calendar-day.other-month {
+            background: #f9f9f9;
+            color: #ccc;
+        }
+
+        .calendar-day.today {
+            background: #e6f7ff;
+            border: 2px solid #409eff;
+        }
+
+        .day-number {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .day-lunar {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        .day-solar-term {
+            font-size: 11px;
+            color: #f56c6c;
+            font-weight: 500;
+            background: #fef0f0;
+            padding: 2px 4px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .calendar-info {
+            background: #f5f7fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .calendar-info h3 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #409eff;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-header {
+                flex-direction: column;
+            }
+
+            .calendar-day {
+                min-height: 80px;
+                padding: 8px;
+            }
+
+            .day-number {
+                font-size: 12px;
+            }
+
+            .day-lunar {
+                font-size: 10px;
+            }
+
+            .day-solar-term {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="calendar-tool">
+            <div class="tool-header">
+                <h1 data-i18n="tool_calendar">📅 Calendar Viewer</h1>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <button id="prevBtn" onclick="previousMonth()">← Prev</button>
+                        <div class="month-year" id="monthYear"></div>
+                        <button id="nextBtn" onclick="nextMonth()">Next →</button>
+                    </div>
+                    <button onclick="goToToday()" style="padding: 8px 16px; background: #67c23a; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Today</button>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid"></div>
+
+                <div class="calendar-info">
+                    <h3>Selected Date Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Gregorian Date</div>
+                            <div class="info-value" id="gregorianDate">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Lunar Date</div>
+                            <div class="info-value" id="lunarDate">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Day of Week</div>
+                            <div class="info-value" id="dayOfWeek">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Solar Term</div>
+                            <div class="info-value" id="solarTerm">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Week Number</div>
+                            <div class="info-value" id="weekNumber">-</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Day of Year</div>
+                            <div class="info-value" id="dayOfYear">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="calendar-lib.js"></script>
+    <script>
+        let currentDate = new Date();
+        let selectedDate = new Date();
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            // Update month-year display
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
+
+            // Get first day of month and number of days
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+
+            // Add weekday headers
+            const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            weekdays.forEach(day => {
+                const header = document.createElement('div');
+                header.className = 'calendar-weekday';
+                header.textContent = day;
+                calendarGrid.appendChild(header);
+            });
+
+            // Add previous month's days
+            for (let i = firstDay - 1; i >= 0; i--) {
+                const day = daysInPrevMonth - i;
+                const dayEl = createDayElement(day, month - 1, year, true);
+                calendarGrid.appendChild(dayEl);
+            }
+
+            // Add current month's days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayEl = createDayElement(day, month, year, false);
+                calendarGrid.appendChild(dayEl);
+            }
+
+            // Add next month's days
+            const totalCells = calendarGrid.children.length - 7; // Subtract weekday headers
+            const remainingCells = 42 - totalCells; // 6 rows * 7 days
+            for (let day = 1; day <= remainingCells; day++) {
+                const dayEl = createDayElement(day, month + 1, year, true);
+                calendarGrid.appendChild(dayEl);
+            }
+        }
+
+        function createDayElement(day, month, year, isOtherMonth) {
+            const dayEl = document.createElement('div');
+            dayEl.className = 'calendar-day';
+            
+            if (isOtherMonth) {
+                dayEl.classList.add('other-month');
+            }
+
+            const actualMonth = ((month % 12) + 12) % 12;
+            const actualYear = year + Math.floor(month / 12);
+            const date = new Date(actualYear, actualMonth, day);
+
+            // Check if today
+            const today = new Date();
+            if (date.toDateString() === today.toDateString()) {
+                dayEl.classList.add('today');
+            }
+
+            // Day number
+            const dayNum = document.createElement('div');
+            dayNum.className = 'day-number';
+            dayNum.textContent = day;
+            dayEl.appendChild(dayNum);
+
+            // Lunar date
+            const lunar = gregorianToLunar(actualYear, actualMonth + 1, day);
+            const lunarDiv = document.createElement('div');
+            lunarDiv.className = 'day-lunar';
+            lunarDiv.textContent = `农${lunar.lunarMonth}月${lunar.lunarDay}`;
+            dayEl.appendChild(lunarDiv);
+
+            // Solar term
+            const solarTerm = getSolarTerm(actualYear, actualMonth + 1, day);
+            if (solarTerm) {
+                const termDiv = document.createElement('div');
+                termDiv.className = 'day-solar-term';
+                termDiv.textContent = solarTerm;
+                dayEl.appendChild(termDiv);
+            }
+
+            dayEl.onclick = () => selectDate(date);
+            return dayEl;
+        }
+
+        function selectDate(date) {
+            selectedDate = new Date(date);
+            updateDateInfo();
+        }
+
+        function updateDateInfo() {
+            const year = selectedDate.getFullYear();
+            const month = selectedDate.getMonth() + 1;
+            const day = selectedDate.getDate();
+
+            // Gregorian date
+            const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            document.getElementById('gregorianDate').textContent = selectedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            // Lunar date
+            const lunar = gregorianToLunar(year, month, day);
+            document.getElementById('lunarDate').textContent = `Lunar ${lunar.lunarMonth}/${lunar.lunarDay}`;
+
+            // Day of week
+            document.getElementById('dayOfWeek').textContent = weekdays[selectedDate.getDay()];
+
+            // Solar term
+            const solarTerm = getSolarTerm(year, month, day);
+            document.getElementById('solarTerm').textContent = solarTerm || 'None';
+
+            // Week number
+            const weekNum = getWeekNumber(selectedDate);
+            document.getElementById('weekNumber').textContent = `Week ${weekNum}`;
+
+            // Day of year
+            const dayOfYear = getDayOfYear(selectedDate);
+            document.getElementById('dayOfYear').textContent = dayOfYear;
+        }
+
+        function previousMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+
+        function goToToday() {
+            currentDate = new Date();
+            selectedDate = new Date();
+            renderCalendar();
+            updateDateInfo();
+        }
+
+        function getWeekNumber(date) {
+            const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+            const dayNum = d.getUTCDay() || 7;
+            d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        }
+
+        function getDayOfYear(date) {
+            const start = new Date(date.getFullYear(), 0, 0);
+            const diff = date - start;
+            const oneDay = 1000 * 60 * 60 * 24;
+            return Math.floor(diff / oneDay);
+        }
+
+        // Initialize
+        renderCalendar();
+        selectDate(new Date());
+    </script>
+</body>
+</html>
+

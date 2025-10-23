@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter - Toolhub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .char-counter-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .char-counter-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .char-counter-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        .char-counter-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card.characters {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stat-card.words {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stat-card.lines {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stat-card.spaces {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .info-section {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .info-section h3 {
+            margin: 0 0 10px 0;
+            color: #1e40af;
+            font-size: 14px;
+        }
+
+        .info-section p {
+            margin: 5px 0;
+            color: #1e3a8a;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="char-counter-container">
+            <h1 class="char-counter-title" data-i18n="tool_char_counter">字符数统计</h1>
+
+            <textarea 
+                id="textInput" 
+                class="char-counter-input" 
+                placeholder="输入或粘贴文本内容..."
+                data-i18n-placeholder="char_counter_input_placeholder">
+            </textarea>
+
+            <div class="stats-grid">
+                <div class="stat-card characters">
+                    <div class="stat-label" data-i18n="char_counter_characters">字符数</div>
+                    <div class="stat-value" id="charCount">0</div>
+                </div>
+                <div class="stat-card words">
+                    <div class="stat-label" data-i18n="char_counter_words">单词数</div>
+                    <div class="stat-value" id="wordCount">0</div>
+                </div>
+                <div class="stat-card lines">
+                    <div class="stat-label" data-i18n="char_counter_lines">行数</div>
+                    <div class="stat-value" id="lineCount">0</div>
+                </div>
+                <div class="stat-card spaces">
+                    <div class="stat-label" data-i18n="char_counter_spaces">空格数</div>
+                    <div class="stat-value" id="spaceCount">0</div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" id="copyBtn" data-i18n="copy_btn">复制统计结果</button>
+                <button class="btn btn-secondary" id="clearBtn" data-i18n="clear_btn">清空</button>
+            </div>
+
+            <div class="info-section">
+                <h3 data-i18n="char_counter_info_title">统计说明</h3>
+                <p data-i18n="char_counter_info_1">• 字符数：包括所有字符（包括空格、标点符号等）</p>
+                <p data-i18n="char_counter_info_2">• 单词数：以空格分隔的单词数量</p>
+                <p data-i18n="char_counter_info_3">• 行数：按换行符分隔的行数</p>
+                <p data-i18n="char_counter_info_4">• 空格数：文本中的空格数量</p>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const textInput = document.getElementById('textInput');
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+        const lineCount = document.getElementById('lineCount');
+        const spaceCount = document.getElementById('spaceCount');
+        const copyBtn = document.getElementById('copyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        function updateStats() {
+            const text = textInput.value;
+
+            // 字符数
+            const chars = text.length;
+            charCount.textContent = chars;
+
+            // 单词数
+            const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            wordCount.textContent = words;
+
+            // 行数
+            const lines = text === '' ? 0 : text.split('\n').length;
+            lineCount.textContent = lines;
+
+            // 空格数
+            const spaces = (text.match(/ /g) || []).length;
+            spaceCount.textContent = spaces;
+        }
+
+        textInput.addEventListener('input', updateStats);
+
+        copyBtn.addEventListener('click', () => {
+            const stats = `字符数: ${charCount.textContent}\n单词数: ${wordCount.textContent}\n行数: ${lineCount.textContent}\n空格数: ${spaceCount.textContent}`;
+            navigator.clipboard.writeText(stats).then(() => {
+                alert('统计结果已复制到剪贴板');
+            });
+        });
+
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            updateStats();
+        });
+
+        // 初始化多语言
+        initializeI18n();
+    </script>
+</body>
+</html>
+

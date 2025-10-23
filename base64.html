@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoding - Toolhub</title>
+    <meta name="description" content="Free online Base64 encoder and decoder. Encode text or files to Base64 format, or decode Base64 strings. Support for text and file uploads.">
+    <meta name="keywords" content="Base64 encoder, Base64 decoder, Base64 encoding, Base64 decoding, online Base64 tool">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- Base64 编码工具 -->
+        <div id="base64-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="base64_title">Base64 Encoding Tool</h1>
+                <div class="button-group">
+                    <button onclick="encodeBase64()" class="btn btn-primary" data-i18n="base64_encode_btn">Encode</button>
+                    <button onclick="decodeBase64()" class="btn btn-secondary" data-i18n="base64_decode_btn">Decode</button>
+                    <button onclick="clearBase64()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                    <button onclick="copyBase64()" class="btn btn-success" data-i18n="copy_btn">Copy</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="base64_input_label">Input Text:</label>
+                    <textarea id="base64-input" data-i18n="base64_input_placeholder" placeholder="Enter text to encode or decode..."></textarea>
+                </div>
+
+                <div class="editor-section">
+                    <label data-i18n="base64_file_label">Or Upload File:</label>
+                    <input type="file" id="base64-file" onchange="handleFileUpload(event)">
+                    <div style="margin-top: 10px; font-size: 12px; color: #909399;">
+                        <span data-i18n="base64_file_hint">Max file size: 10MB</span>
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <label data-i18n="base64_output_label">Result:</label>
+                    <textarea id="base64-output" readonly data-i18n="base64_output_placeholder" placeholder="Encoded or decoded result will be displayed here"></textarea>
+                </div>
+            </div>
+            
+            <div id="base64-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

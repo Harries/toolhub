@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML-Properties Converter - Toolhub</title>
+    <meta name="description" content="Free online YAML to Properties converter and vice versa. Convert between YAML and Properties formats easily.">
+    <meta name="keywords" content="YAML converter, Properties converter, YAML to Properties, online converter">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="yaml-tool">
+            <div class="tool-header">
+                <h1 data-i18n="yaml_title">YAML-Properties Converter</h1>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="yamlToProperties()" data-i18n="yaml_to_properties_btn">YAML → Properties</button>
+                    <button class="btn btn-primary" onclick="propertiesToYaml()" data-i18n="properties_to_yaml_btn">Properties → YAML</button>
+                    <button class="btn btn-success" onclick="copyYamlResult()" data-i18n="copy_btn">Copy</button>
+                    <button class="btn btn-danger" onclick="clearYamlAll()" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="yaml_input_label">Input:</label>
+                    <textarea id="yaml-input" placeholder="Paste YAML or Properties format here..." data-i18n-placeholder="yaml_input_placeholder"></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="yaml_output_label">Output:</label>
+                    <textarea id="yaml-output" readonly placeholder="Converted result will appear here..." data-i18n-placeholder="yaml_output_placeholder"></textarea>
+                </div>
+            </div>
+            
+            <div id="yaml-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

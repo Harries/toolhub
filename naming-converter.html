@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naming Converter - Toolhub</title>
+    <meta name="description" content="Free online naming format converter. Convert between camelCase, PascalCase, snake_case, kebab-case and more.">
+    <meta name="keywords" content="naming converter, camelCase, PascalCase, snake_case, kebab-case, naming format">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="naming-converter-tool">
+            <div class="tool-header">
+                <h1 data-i18n="naming_title">Naming Converter</h1>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="convertNaming()" data-i18n="convert_btn">Convert</button>
+                    <button class="btn btn-success" onclick="copyNamingResult()" data-i18n="copy_btn">Copy</button>
+                    <button class="btn btn-danger" onclick="clearNaming()" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="naming_input_label">Input:</label>
+                    <textarea id="naming-input" placeholder="Enter naming text..." data-i18n-placeholder="naming_input_placeholder"></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="naming_output_label">Output:</label>
+                    <div id="naming-output-container" style="display: flex; flex-direction: column; gap: 10px;">
+                        <div>
+                            <label style="font-size: 12px; color: #606266;">camelCase</label>
+                            <textarea id="naming-output-camel" readonly placeholder="camelCase result..." style="height: 60px;"></textarea>
+                        </div>
+                        <div>
+                            <label style="font-size: 12px; color: #606266;">PascalCase</label>
+                            <textarea id="naming-output-pascal" readonly placeholder="PascalCase result..." style="height: 60px;"></textarea>
+                        </div>
+                        <div>
+                            <label style="font-size: 12px; color: #606266;">snake_case</label>
+                            <textarea id="naming-output-snake" readonly placeholder="snake_case result..." style="height: 60px;"></textarea>
+                        </div>
+                        <div>
+                            <label style="font-size: 12px; color: #606266;">CONSTANT_CASE</label>
+                            <textarea id="naming-output-constant" readonly placeholder="CONSTANT_CASE result..." style="height: 60px;"></textarea>
+                        </div>
+                        <div>
+                            <label style="font-size: 12px; color: #606266;">kebab-case</label>
+                            <textarea id="naming-output-kebab" readonly placeholder="kebab-case result..." style="height: 60px;"></textarea>
+                        </div>
+                        <div>
+                            <label style="font-size: 12px; color: #606266;">SCREAMING-KEBAB-CASE</label>
+                            <textarea id="naming-output-screaming" readonly placeholder="SCREAMING-KEBAB-CASE result..." style="height: 60px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="naming-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

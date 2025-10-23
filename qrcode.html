@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Tool - Toolhub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <style>
+        .qrcode-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .qrcode-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .qrcode-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .qrcode-tab {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .qrcode-tab.active {
+            color: #409eff;
+            border-bottom-color: #409eff;
+        }
+
+        .qrcode-tab:hover {
+            color: #409eff;
+        }
+
+        .qrcode-content {
+            display: none;
+        }
+
+        .qrcode-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #409eff;
+            box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #409eff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #66b1ff;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .qrcode-output {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        #qrcodeCanvas {
+            max-width: 100%;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .decode-result {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            border-left: 3px solid #409eff;
+        }
+
+        .result-label {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .result-text {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            word-break: break-all;
+            color: #666;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 12px;
+            background: #f0f0f0;
+            border: 1px dashed #ddd;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-input-label:hover {
+            background: #e8e8e8;
+            border-color: #409eff;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .error-message {
+            color: #f56c6c;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fef0f0;
+            border-radius: 4px;
+            border-left: 3px solid #f56c6c;
+        }
+
+        .success-message {
+            color: #67c23a;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f9ff;
+            border-radius: 4px;
+            border-left: 3px solid #67c23a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="qrcode-container">
+            <h1 class="qrcode-title" data-i18n="tool_qrcode">二维码工具</h1>
+
+            <div class="qrcode-tabs">
+                <button class="qrcode-tab active" onclick="switchTab('generate')">生成二维码</button>
+                <button class="qrcode-tab" onclick="switchTab('decode')">解码二维码</button>
+            </div>
+
+            <!-- 生成二维码 -->
+            <div id="generate" class="qrcode-content active">
+                <div class="form-group">
+                    <label class="form-label">输入内容</label>
+                    <textarea class="form-input" id="generateInput" placeholder="输入要生成二维码的文本、URL或其他内容..." style="min-height: 100px; resize: vertical;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">二维码大小</label>
+                    <select class="form-input" id="qrcodeSize">
+                        <option value="200">小 (200x200)</option>
+                        <option value="300" selected>中 (300x300)</option>
+                        <option value="400">大 (400x400)</option>
+                        <option value="500">超大 (500x500)</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="generateQRCode()">生成二维码</button>
+                    <button class="btn btn-secondary" onclick="clearGenerate()">清空</button>
+                </div>
+
+                <div class="qrcode-output">
+                    <div id="qrcodeContainer"></div>
+                    <div id="generateMessage"></div>
+                    <button class="btn btn-secondary" id="downloadBtn" style="display: none; margin-top: 15px;" onclick="downloadQRCode()">下载二维码</button>
+                </div>
+            </div>
+
+            <!-- 解码二维码 -->
+            <div id="decode" class="qrcode-content">
+                <div class="form-group">
+                    <label class="form-label">上传二维码图片</label>
+                    <div class="file-input-wrapper">
+                        <label class="file-input-label">
+                            点击选择图片或拖拽上传
+                            <input type="file" id="decodeFile" accept="image/*" onchange="decodeQRCode()">
+                        </label>
+                    </div>
+                </div>
+
+                <div id="decodeMessage"></div>
+                <div id="decodeResult"></div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function switchTab(tab) {
+            // 隐藏所有内容
+            document.querySelectorAll('.qrcode-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.qrcode-tab').forEach(el => el.classList.remove('active'));
+
+            // 显示选中的标签
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function generateQRCode() {
+            const input = document.getElementById('generateInput').value.trim();
+            const size = parseInt(document.getElementById('qrcodeSize').value);
+            const container = document.getElementById('qrcodeContainer');
+            const message = document.getElementById('generateMessage');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            if (!input) {
+                message.innerHTML = '<div class="error-message">请输入要生成二维码的内容</div>';
+                container.innerHTML = '';
+                downloadBtn.style.display = 'none';
+                return;
+            }
+
+            container.innerHTML = '';
+            message.innerHTML = '';
+
+            try {
+                const qr = new QRCode(container, {
+                    text: input,
+                    width: size,
+                    height: size,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+
+                setTimeout(() => {
+                    message.innerHTML = '<div class="success-message">二维码生成成功！</div>';
+                    downloadBtn.style.display = 'block';
+                }, 100);
+            } catch (error) {
+                message.innerHTML = '<div class="error-message">生成二维码失败：' + error.message + '</div>';
+                downloadBtn.style.display = 'none';
+            }
+        }
+
+        function clearGenerate() {
+            document.getElementById('generateInput').value = '';
+            document.getElementById('qrcodeContainer').innerHTML = '';
+            document.getElementById('generateMessage').innerHTML = '';
+            document.getElementById('downloadBtn').style.display = 'none';
+        }
+
+        function downloadQRCode() {
+            const canvas = document.querySelector('#qrcodeContainer canvas');
+            if (canvas) {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qrcode.png';
+                link.click();
+            }
+        }
+
+        function decodeQRCode() {
+            const file = document.getElementById('decodeFile').files[0];
+            const message = document.getElementById('decodeMessage');
+            const result = document.getElementById('decodeResult');
+
+            if (!file) {
+                return;
+            }
+
+            if (!file.type.startsWith('image/')) {
+                message.innerHTML = '<div class="error-message">请选择图片文件</div>';
+                result.innerHTML = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                    if (code) {
+                        result.innerHTML = `
+                            <div class="decode-result">
+                                <div class="result-label">解码结果：</div>
+                                <div class="result-text">${escapeHtml(code.data)}</div>
+                            </div>
+                        `;
+                        message.innerHTML = '<div class="success-message">二维码解码成功！</div>';
+                    } else {
+                        message.innerHTML = '<div class="error-message">无法识别二维码，请确保图片清晰</div>';
+                        result.innerHTML = '';
+                    }
+                };
+                img.onerror = function() {
+                    message.innerHTML = '<div class="error-message">图片加载失败</div>';
+                    result.innerHTML = '';
+                };
+                img.src = e.target.result;
+            };
+            reader.onerror = function() {
+                message.innerHTML = '<div class="error-message">文件读取失败</div>';
+                result.innerHTML = '';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+</body>
+</html>
+

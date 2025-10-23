@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UUID Generator - Toolhub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .uuid-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .uuid-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .uuid-card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .uuid-card-desc {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 24px;
+        }
+
+        .uuid-section {
+            margin-bottom: 24px;
+        }
+
+        .uuid-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .uuid-controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .uuid-select {
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .uuid-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .uuid-button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .uuid-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .uuid-button:active {
+            transform: translateY(0);
+        }
+
+        .uuid-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .uuid-button.secondary {
+            background: #f0f0f0;
+            color: #333;
+            flex: 0;
+        }
+
+        .uuid-button.secondary:hover {
+            background: #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .uuid-result-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f0f0 100%);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 20px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .uuid-result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .uuid-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .uuid-result-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .uuid-result-value {
+            color: #333;
+            font-size: 14px;
+            word-break: break-all;
+            text-align: right;
+            flex: 1;
+            margin-left: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .uuid-result-value.large {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .uuid-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .uuid-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .uuid-list-item-value {
+            flex: 1;
+            word-break: break-all;
+            color: #333;
+        }
+
+        .uuid-list-item-actions {
+            display: flex;
+            gap: 8px;
+            margin-left: 12px;
+        }
+
+        .copy-btn {
+            padding: 6px 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .delete-btn {
+            padding: 6px 12px;
+            background: #f56c6c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #dd001b;
+            transform: scale(1.05);
+        }
+
+        .uuid-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .uuid-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s;
+        }
+
+        .uuid-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .uuid-info {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #0369a1;
+            line-height: 1.6;
+        }
+
+        .uuid-info-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .uuid-card {
+                padding: 20px;
+            }
+
+            .uuid-controls {
+                flex-direction: column;
+            }
+
+            .uuid-select,
+            .uuid-button {
+                width: 100%;
+            }
+
+            .uuid-result-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .uuid-result-value {
+                text-align: left;
+                margin-left: 0;
+                margin-top: 8px;
+            }
+
+            .uuid-list-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .uuid-list-item-actions {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 8px;
+            }
+
+            .uuid-list-item-actions .copy-btn,
+            .uuid-list-item-actions .delete-btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="uuid-wrapper">
+            <!-- UUID 生成卡片 -->
+            <div class="uuid-card">
+                <h2 class="uuid-card-title" data-i18n="tool_uuid">UUID 生成器</h2>
+                <p class="uuid-card-desc" data-i18n="tool_uuid_desc">支持生成 v1、v3、v4、v5 和 NIL 版本的 UUID，满足不同场景需求</p>
+
+                <div class="uuid-section">
+                    <div class="uuid-section-title" data-i18n="uuid_generate_settings">生成设置</div>
+                    <div class="uuid-controls">
+                        <select id="uuid-version" class="uuid-select">
+                            <option value="v4">UUID v4 (Random)</option>
+                            <option value="v1">UUID v1 (Time-based)</option>
+                            <option value="nil">UUID NIL</option>
+                            <option value="v3">UUID v3 (MD5 Namespace)</option>
+                            <option value="v5">UUID v5 (SHA-1 Namespace)</option>
+                        </select>
+                        <input type="number" id="uuid-count" class="uuid-select" min="1" max="100" value="1" placeholder="数量" style="width: 80px;">
+                        <button class="uuid-button" onclick="generateUUIDs()" data-i18n="generate_btn">生成</button>
+                    </div>
+                </div>
+
+                <div class="uuid-section">
+                    <div class="uuid-section-title" data-i18n="uuid_results">生成结果</div>
+                    <div id="uuid-results"></div>
+                </div>
+
+                <div class="uuid-info">
+                    <div class="uuid-info-title" data-i18n="uuid_info_title">UUID 版本说明</div>
+                    <div data-i18n="uuid_info_v1">• UUID v1: 基于时间戳和 MAC 地址生成，具有时间顺序性</div>
+                    <div data-i18n="uuid_info_v3">• UUID v3: 基于 MD5 哈希的命名空间 UUID，确定性生成</div>
+                    <div data-i18n="uuid_info_v4">• UUID v4: 基于随机数生成，最常用的 UUID 版本</div>
+                    <div data-i18n="uuid_info_v5">• UUID v5: 基于 SHA-1 哈希的命名空间 UUID，确定性生成</div>
+                    <div data-i18n="uuid_info_nil">• UUID NIL: 全零 UUID (00000000-0000-0000-0000-000000000000)</div>
+                </div>
+            </div>
+
+            <!-- UUID 验证卡片 -->
+            <div class="uuid-card">
+                <h2 class="uuid-card-title" data-i18n="uuid_validate_title">UUID 验证</h2>
+                <p class="uuid-card-desc" data-i18n="uuid_validate_desc">验证输入的字符串是否为有效的 UUID</p>
+
+                <div class="uuid-section">
+                    <div class="uuid-input-group">
+                        <input type="text" id="validate-uuid" class="uuid-input" placeholder="输入 UUID 进行验证" data-i18n-placeholder="uuid_validate_placeholder">
+                        <button class="uuid-button" onclick="validateUUID()" data-i18n="validate_btn">验证</button>
+                    </div>
+                </div>
+
+                <div class="uuid-section">
+                    <div id="validate-result"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="uuid-generator.js"></script>
+</body>
+</html>
+

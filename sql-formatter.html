@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Formatter - Toolhub</title>
+    <meta name="description" content="Free online SQL formatter. Format SQL statements to improve code readability, maintainability and comprehension.">
+    <meta name="keywords" content="SQL formatter, SQL beautifier, SQL formatter online, format SQL">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="sql-tool">
+            <div class="tool-header">
+                <h1 data-i18n="sql_format_title">SQL Formatter</h1>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="formatSQL()" data-i18n="format_btn">Format</button>
+                    <button class="btn btn-primary" onclick="compressSQL()" data-i18n="compress_btn">Compress</button>
+                    <button class="btn btn-success" onclick="copySQLResult()" data-i18n="copy_btn">Copy</button>
+                    <button class="btn btn-danger" onclick="clearSQLAll()" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="sql_input_label">Input:</label>
+                    <textarea id="sql-input" placeholder="Paste SQL statement here..." data-i18n-placeholder="sql_input_placeholder"></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="sql_output_label">Output:</label>
+                    <textarea id="sql-output" readonly placeholder="Formatted SQL will appear here..." data-i18n-placeholder="sql_output_placeholder"></textarea>
+                </div>
+            </div>
+            
+            <div id="sql-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

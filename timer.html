@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Timer - Toolhub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .timer-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timer-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .timer-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .timer-tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #999;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .timer-tab.active {
+            color: #409eff;
+            border-bottom-color: #409eff;
+        }
+
+        .timer-tab:hover {
+            color: #409eff;
+        }
+
+        .timer-content {
+            display: none;
+        }
+
+        .timer-content.active {
+            display: block;
+        }
+
+        .timer-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .timer-time {
+            font-size: 64px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .timer-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .timer-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .timer-btn.primary {
+            background: #409eff;
+            color: white;
+        }
+
+        .timer-btn.primary:hover {
+            background: #66b1ff;
+        }
+
+        .timer-btn.primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .timer-btn.danger {
+            background: #f56c6c;
+            color: white;
+        }
+
+        .timer-btn.danger:hover {
+            background: #f78989;
+        }
+
+        .timer-btn.success {
+            background: #67c23a;
+            color: white;
+        }
+
+        .timer-btn.success:hover {
+            background: #85ce61;
+        }
+
+        .timer-input-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .timer-input-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timer-input-item label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .timer-input-item input {
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .timer-input-item input:focus {
+            outline: none;
+            border-color: #409eff;
+            box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.1);
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #67c23a;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="timer-container">
+            <h1 class="timer-title" data-i18n="tool_timer">简单计时器</h1>
+
+            <!-- Tabs -->
+            <div class="timer-tabs">
+                <button class="timer-tab active" onclick="switchTimerTab('stopwatch')" data-i18n="timer_stopwatch">计时器</button>
+                <button class="timer-tab" onclick="switchTimerTab('countdown')" data-i18n="timer_countdown">倒计时</button>
+            </div>
+
+            <!-- Stopwatch Tab -->
+            <div id="stopwatch-content" class="timer-content active">
+                <div class="timer-display">
+                    <div class="timer-time" id="stopwatch-display">00:00:00</div>
+                    <div class="timer-label" data-i18n="timer_stopwatch_label">计时器</div>
+                </div>
+
+                <div class="timer-controls">
+                    <button class="timer-btn primary" id="stopwatch-start-btn" onclick="startStopwatch()" data-i18n="timer_start">开始</button>
+                    <button class="timer-btn primary" id="stopwatch-pause-btn" onclick="pauseStopwatch()" style="display:none;" data-i18n="timer_pause">暂停</button>
+                    <button class="timer-btn danger" onclick="resetStopwatch()" data-i18n="timer_reset">重置</button>
+                </div>
+            </div>
+
+            <!-- Countdown Tab -->
+            <div id="countdown-content" class="timer-content">
+                <div class="timer-display">
+                    <div class="timer-time" id="countdown-display">00:00:00</div>
+                    <div class="timer-label" data-i18n="timer_countdown_label">倒计时</div>
+                </div>
+
+                <div class="timer-input-group">
+                    <div class="timer-input-item">
+                        <label for="countdown-hours" data-i18n="timer_hours">小时</label>
+                        <input type="number" id="countdown-hours" min="0" max="23" value="0">
+                    </div>
+                    <div class="timer-input-item">
+                        <label for="countdown-minutes" data-i18n="timer_minutes">分钟</label>
+                        <input type="number" id="countdown-minutes" min="0" max="59" value="1">
+                    </div>
+                    <div class="timer-input-item">
+                        <label for="countdown-seconds" data-i18n="timer_seconds">秒</label>
+                        <input type="number" id="countdown-seconds" min="0" max="59" value="0">
+                    </div>
+                </div>
+
+                <div class="timer-controls">
+                    <button class="timer-btn primary" id="countdown-start-btn" onclick="startCountdown()" data-i18n="timer_start">开始</button>
+                    <button class="timer-btn primary" id="countdown-pause-btn" onclick="pauseCountdown()" style="display:none;" data-i18n="timer_pause">暂停</button>
+                    <button class="timer-btn danger" onclick="resetCountdown()" data-i18n="timer_reset">重置</button>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Stopwatch state
+        let stopwatchInterval = null;
+        let stopwatchTime = 0;
+        let isStopwatchRunning = false;
+
+        // Countdown state
+        let countdownInterval = null;
+        let countdownTime = 0;
+        let isCountdownRunning = false;
+
+        function switchTimerTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.timer-tab').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.timer-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tab + '-content').classList.add('active');
+
+            // Stop timers if switching tabs
+            if (tab === 'stopwatch' && isCountdownRunning) {
+                pauseCountdown();
+            } else if (tab === 'countdown' && isStopwatchRunning) {
+                pauseStopwatch();
+            }
+        }
+
+        // Stopwatch functions
+        function startStopwatch() {
+            if (isStopwatchRunning) return;
+
+            isStopwatchRunning = true;
+            document.getElementById('stopwatch-start-btn').style.display = 'none';
+            document.getElementById('stopwatch-pause-btn').style.display = 'inline-block';
+
+            stopwatchInterval = setInterval(() => {
+                stopwatchTime++;
+                updateStopwatchDisplay();
+            }, 1000);
+        }
+
+        function pauseStopwatch() {
+            if (!isStopwatchRunning) return;
+
+            clearInterval(stopwatchInterval);
+            isStopwatchRunning = false;
+            document.getElementById('stopwatch-start-btn').style.display = 'inline-block';
+            document.getElementById('stopwatch-pause-btn').style.display = 'none';
+        }
+
+        function resetStopwatch() {
+            pauseStopwatch();
+            stopwatchTime = 0;
+            updateStopwatchDisplay();
+        }
+
+        function updateStopwatchDisplay() {
+            const hours = Math.floor(stopwatchTime / 3600);
+            const minutes = Math.floor((stopwatchTime % 3600) / 60);
+            const seconds = stopwatchTime % 60;
+
+            const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            document.getElementById('stopwatch-display').textContent = display;
+        }
+
+        // Countdown functions
+        function startCountdown() {
+            if (isCountdownRunning) return;
+
+            const hours = parseInt(document.getElementById('countdown-hours').value) || 0;
+            const minutes = parseInt(document.getElementById('countdown-minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('countdown-seconds').value) || 0;
+
+            countdownTime = hours * 3600 + minutes * 60 + seconds;
+
+            if (countdownTime <= 0) {
+                showNotification('请输入有效的时间', 'error');
+                return;
+            }
+
+            isCountdownRunning = true;
+            document.getElementById('countdown-start-btn').style.display = 'none';
+            document.getElementById('countdown-pause-btn').style.display = 'inline-block';
+            document.getElementById('countdown-hours').disabled = true;
+            document.getElementById('countdown-minutes').disabled = true;
+            document.getElementById('countdown-seconds').disabled = true;
+
+            countdownInterval = setInterval(() => {
+                countdownTime--;
+                updateCountdownDisplay();
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    isCountdownRunning = false;
+                    playTimerSound();
+                    showNotification('倒计时完成！', 'success');
+                    document.getElementById('countdown-start-btn').style.display = 'inline-block';
+                    document.getElementById('countdown-pause-btn').style.display = 'none';
+                    document.getElementById('countdown-hours').disabled = false;
+                    document.getElementById('countdown-minutes').disabled = false;
+                    document.getElementById('countdown-seconds').disabled = false;
+                }
+            }, 1000);
+        }
+
+        function pauseCountdown() {
+            if (!isCountdownRunning) return;
+
+            clearInterval(countdownInterval);
+            isCountdownRunning = false;
+            document.getElementById('countdown-start-btn').style.display = 'inline-block';
+            document.getElementById('countdown-pause-btn').style.display = 'none';
+            document.getElementById('countdown-hours').disabled = false;
+            document.getElementById('countdown-minutes').disabled = false;
+            document.getElementById('countdown-seconds').disabled = false;
+        }
+
+        function resetCountdown() {
+            pauseCountdown();
+            countdownTime = 0;
+            document.getElementById('countdown-hours').value = 0;
+            document.getElementById('countdown-minutes').value = 1;
+            document.getElementById('countdown-seconds').value = 0;
+            updateCountdownDisplay();
+        }
+
+        function updateCountdownDisplay() {
+            const hours = Math.floor(countdownTime / 3600);
+            const minutes = Math.floor((countdownTime % 3600) / 60);
+            const seconds = countdownTime % 60;
+
+            const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            document.getElementById('countdown-display').textContent = display;
+        }
+
+        function playTimerSound() {
+            // Create a simple beep sound using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.background = type === 'error' ? '#f56c6c' : '#67c23a';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Initialize display
+        updateStopwatchDisplay();
+        updateCountdownDisplay();
+    </script>
+</body>
+</html>
+

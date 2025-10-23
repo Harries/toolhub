@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Key Generator - Toolhub</title>
+    <meta name="description" content="Free online RSA key pair generator. Generate RSA public and private keys with support for multiple key lengths (1024, 2048, 4096 bits).">
+    <meta name="keywords" content="RSA key generator, RSA public key, RSA private key, key pair generator, online RSA tool">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- RSA 公私钥生成工具 -->
+        <div id="rsa-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="rsa_title">RSA Key Pair Generator</h1>
+                <div class="button-group">
+                    <button onclick="generateRSAKeys()" class="btn btn-primary" data-i18n="rsa_generate_btn">Generate</button>
+                    <button onclick="clearRSA()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                    <button onclick="copyRSAPublic()" class="btn btn-success" data-i18n="rsa_copy_public_btn">Copy Public</button>
+                    <button onclick="copyRSAPrivate()" class="btn btn-success" data-i18n="rsa_copy_private_btn">Copy Private</button>
+                </div>
+            </div>
+
+            <div class="rsa-container">
+                <!-- 左侧：配置区域 -->
+                <div class="rsa-panel rsa-config-panel">
+                    <div class="rsa-panel-header">
+                        <h3 data-i18n="rsa_config_label">Configuration</h3>
+                    </div>
+
+                    <div class="rsa-form-group">
+                        <label data-i18n="rsa_key_length_label">Key Length:</label>
+                        <div class="rsa-radio-group">
+                            <label class="rsa-radio-label">
+                                <input type="radio" name="rsa-key-length" value="1024">
+                                <span>1024 bits</span>
+                            </label>
+                            <label class="rsa-radio-label">
+                                <input type="radio" name="rsa-key-length" value="2048" checked>
+                                <span>2048 bits</span>
+                            </label>
+                            <label class="rsa-radio-label">
+                                <input type="radio" name="rsa-key-length" value="4096">
+                                <span>4096 bits</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="rsa-form-group">
+                        <label data-i18n="rsa_format_label">Format:</label>
+                        <div class="rsa-radio-group">
+                            <label class="rsa-radio-label">
+                                <input type="radio" name="rsa-format" value="pkcs1" checked>
+                                <span>PKCS#1</span>
+                            </label>
+                            <label class="rsa-radio-label">
+                                <input type="radio" name="rsa-format" value="pkcs8">
+                                <span>PKCS#8</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="rsa-form-group">
+                        <p style="color: #606266; font-size: 13px; margin: 10px 0;">
+                            <strong data-i18n="rsa_info_title">Info:</strong>
+                        </p>
+                        <ul style="color: #606266; font-size: 13px; margin: 0; padding-left: 20px;">
+                            <li data-i18n="rsa_info_1">1024 bits: Fast generation, suitable for testing</li>
+                            <li data-i18n="rsa_info_2">2048 bits: Recommended for general use</li>
+                            <li data-i18n="rsa_info_3">4096 bits: High security, slower generation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右侧：输出区域 -->
+                <div class="rsa-panel rsa-output-panel">
+                    <div class="rsa-panel-header">
+                        <h3 data-i18n="rsa_output_label">Output</h3>
+                    </div>
+
+                    <div class="rsa-form-group">
+                        <label data-i18n="rsa_public_key_label">Public Key:</label>
+                        <textarea id="rsa-public-key" readonly placeholder="Generated public key will appear here..." class="rsa-textarea"></textarea>
+                    </div>
+
+                    <div class="rsa-form-group">
+                        <label data-i18n="rsa_private_key_label">Private Key:</label>
+                        <textarea id="rsa-private-key" readonly placeholder="Generated private key will appear here..." class="rsa-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rsa-error" class="error-message"></div>
+            <div id="rsa-success" class="success-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.3.2/jsencrypt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

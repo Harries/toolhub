@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UUID Generator Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .test-result {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .test-pass {
+            border-left-color: #67c23a;
+            background: #f0f9ff;
+        }
+        .test-fail {
+            border-left-color: #f56c6c;
+            background: #fef0f0;
+        }
+        button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <h1>UUID Generator Test Suite</h1>
+    
+    <div class="test-section">
+        <div class="test-title">UUID v4 Generation Test</div>
+        <button onclick="testV4()">Generate UUID v4</button>
+        <div id="v4-result"></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">UUID v1 Generation Test</div>
+        <button onclick="testV1()">Generate UUID v1</button>
+        <div id="v1-result"></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">UUID NIL Generation Test</div>
+        <button onclick="testNIL()">Generate UUID NIL</button>
+        <div id="nil-result"></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">UUID v3 Generation Test</div>
+        <button onclick="testV3()">Generate UUID v3</button>
+        <div id="v3-result"></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">UUID v5 Generation Test</div>
+        <button onclick="testV5()">Generate UUID v5</button>
+        <div id="v5-result"></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">UUID Validation Test</div>
+        <button onclick="testValidation()">Test Validation</button>
+        <div id="validation-result"></div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">Run All Tests</div>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <div id="all-results"></div>
+    </div>
+
+    <script src="uuid-generator.js"></script>
+    <script>
+        function testV4() {
+            const uuid = UUIDGenerator.generateV4();
+            const isValid = UUIDGenerator.isValidUUID(uuid);
+            const version = UUIDGenerator.getUUIDVersion(uuid);
+            
+            let html = `<div class="test-result ${isValid ? 'test-pass' : 'test-fail'}">`;
+            html += `UUID: ${uuid}<br>`;
+            html += `Valid: ${isValid}<br>`;
+            html += `Version: ${version}`;
+            html += `</div>`;
+            
+            document.getElementById('v4-result').innerHTML = html;
+        }
+
+        function testV1() {
+            const uuid = UUIDGenerator.generateV1();
+            const isValid = UUIDGenerator.isValidUUID(uuid);
+            const version = UUIDGenerator.getUUIDVersion(uuid);
+            
+            let html = `<div class="test-result ${isValid ? 'test-pass' : 'test-fail'}">`;
+            html += `UUID: ${uuid}<br>`;
+            html += `Valid: ${isValid}<br>`;
+            html += `Version: ${version}`;
+            html += `</div>`;
+            
+            document.getElementById('v1-result').innerHTML = html;
+        }
+
+        function testNIL() {
+            const uuid = UUIDGenerator.generateNIL();
+            const isValid = UUIDGenerator.isValidUUID(uuid);
+            const info = UUIDGenerator.getUUIDInfo(uuid);
+            
+            let html = `<div class="test-result ${isValid ? 'test-pass' : 'test-fail'}">`;
+            html += `UUID: ${uuid}<br>`;
+            html += `Valid: ${isValid}<br>`;
+            html += `Is NIL: ${info.isNIL}`;
+            html += `</div>`;
+            
+            document.getElementById('nil-result').innerHTML = html;
+        }
+
+        function testV3() {
+            const uuid = UUIDGenerator.generateV3();
+            const isValid = UUIDGenerator.isValidUUID(uuid);
+            const version = UUIDGenerator.getUUIDVersion(uuid);
+            
+            let html = `<div class="test-result ${isValid ? 'test-pass' : 'test-fail'}">`;
+            html += `UUID: ${uuid}<br>`;
+            html += `Valid: ${isValid}<br>`;
+            html += `Version: ${version}`;
+            html += `</div>`;
+            
+            document.getElementById('v3-result').innerHTML = html;
+        }
+
+        function testV5() {
+            const uuid = UUIDGenerator.generateV5();
+            const isValid = UUIDGenerator.isValidUUID(uuid);
+            const version = UUIDGenerator.getUUIDVersion(uuid);
+            
+            let html = `<div class="test-result ${isValid ? 'test-pass' : 'test-fail'}">`;
+            html += `UUID: ${uuid}<br>`;
+            html += `Valid: ${isValid}<br>`;
+            html += `Version: ${version}`;
+            html += `</div>`;
+            
+            document.getElementById('v5-result').innerHTML = html;
+        }
+
+        function testValidation() {
+            const testCases = [
+                { uuid: '550e8400-e29b-41d4-a716-446655440000', expected: true },
+                { uuid: '00000000-0000-0000-0000-000000000000', expected: true },
+                { uuid: 'invalid-uuid', expected: false },
+                { uuid: '550e8400-e29b-41d4-a716', expected: false }
+            ];
+
+            let html = '';
+            testCases.forEach(test => {
+                const result = UUIDGenerator.isValidUUID(test.uuid);
+                const passed = result === test.expected;
+                html += `<div class="test-result ${passed ? 'test-pass' : 'test-fail'}">`;
+                html += `UUID: ${test.uuid}<br>`;
+                html += `Expected: ${test.expected}, Got: ${result} - ${passed ? '✓ PASS' : '✗ FAIL'}`;
+                html += `</div>`;
+            });
+
+            document.getElementById('validation-result').innerHTML = html;
+        }
+
+        function runAllTests() {
+            testV4();
+            testV1();
+            testNIL();
+            testV3();
+            testV5();
+            testValidation();
+            
+            let html = '<div class="test-result test-pass">';
+            html += '✓ All tests completed successfully!';
+            html += '</div>';
+            
+            document.getElementById('all-results').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+

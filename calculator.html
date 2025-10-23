@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator - Toolhub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calculator-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .calculator-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .calculator-display {
+            background: #f5f7fa;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            word-wrap: break-word;
+            word-break: break-all;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .calc-btn {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .calc-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .calc-btn:active {
+            transform: translateY(0);
+        }
+
+        .calc-btn.operator {
+            background: #409eff;
+            color: white;
+        }
+
+        .calc-btn.operator:hover {
+            background: #66b1ff;
+        }
+
+        .calc-btn.equals {
+            background: #67c23a;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .calc-btn.equals:hover {
+            background: #85ce61;
+        }
+
+        .calc-btn.clear {
+            background: #f56c6c;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .calc-btn.clear:hover {
+            background: #f78989;
+        }
+
+        .calc-btn.delete {
+            background: #e6a23c;
+            color: white;
+        }
+
+        .calc-btn.delete:hover {
+            background: #ebb563;
+        }
+
+        .history-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .history-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .history-list {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 8px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #409eff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .history-item:hover {
+            background: #f0f9ff;
+        }
+
+        .history-empty {
+            color: #999;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="calculator-container">
+            <h1 class="calculator-title" data-i18n="tool_calculator">简单计算器</h1>
+
+            <div class="calculator-display" id="display">0</div>
+
+            <div class="calculator-buttons">
+                <button class="calc-btn clear" onclick="clearDisplay()">C</button>
+                <button class="calc-btn delete" onclick="deleteLast()">DEL</button>
+                <button class="calc-btn operator" onclick="appendOperator('/')">÷</button>
+                <button class="calc-btn operator" onclick="appendOperator('*')">×</button>
+
+                <button class="calc-btn" onclick="appendNumber('7')">7</button>
+                <button class="calc-btn" onclick="appendNumber('8')">8</button>
+                <button class="calc-btn" onclick="appendNumber('9')">9</button>
+                <button class="calc-btn operator" onclick="appendOperator('-')">−</button>
+
+                <button class="calc-btn" onclick="appendNumber('4')">4</button>
+                <button class="calc-btn" onclick="appendNumber('5')">5</button>
+                <button class="calc-btn" onclick="appendNumber('6')">6</button>
+                <button class="calc-btn operator" onclick="appendOperator('+')">+</button>
+
+                <button class="calc-btn" onclick="appendNumber('1')">1</button>
+                <button class="calc-btn" onclick="appendNumber('2')">2</button>
+                <button class="calc-btn" onclick="appendNumber('3')">3</button>
+                <button class="calc-btn operator" onclick="appendOperator('%')">%</button>
+
+                <button class="calc-btn" onclick="appendNumber('0')">0</button>
+                <button class="calc-btn" onclick="appendNumber('.')">.</button>
+                <button class="calc-btn equals" onclick="calculate()">=</button>
+            </div>
+
+            <div class="history-section">
+                <div class="history-title" data-i18n="history">计算历史</div>
+                <div class="history-list" id="historyList">
+                    <div class="history-empty" data-i18n="history_empty">暂无历史记录</div>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let display = document.getElementById('display');
+        let currentValue = '0';
+        let previousValue = '';
+        let operator = '';
+        let shouldResetDisplay = false;
+        let history = JSON.parse(localStorage.getItem('calculatorHistory')) || [];
+
+        function updateDisplay() {
+            display.textContent = currentValue;
+        }
+
+        function appendNumber(num) {
+            if (shouldResetDisplay) {
+                currentValue = num;
+                shouldResetDisplay = false;
+            } else {
+                if (currentValue === '0' && num !== '.') {
+                    currentValue = num;
+                } else if (num === '.' && currentValue.includes('.')) {
+                    return;
+                } else {
+                    currentValue += num;
+                }
+            }
+            updateDisplay();
+        }
+
+        function appendOperator(op) {
+            if (operator && !shouldResetDisplay) {
+                calculate();
+            }
+            previousValue = currentValue;
+            operator = op;
+            shouldResetDisplay = true;
+        }
+
+        function calculate() {
+            if (!operator || shouldResetDisplay) return;
+
+            let result;
+            const prev = parseFloat(previousValue);
+            const current = parseFloat(currentValue);
+
+            switch (operator) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    result = current !== 0 ? prev / current : 0;
+                    break;
+                case '%':
+                    result = prev % current;
+                    break;
+                default:
+                    return;
+            }
+
+            const expression = `${previousValue} ${operator} ${currentValue} = ${result}`;
+            addToHistory(expression);
+
+            currentValue = result.toString();
+            operator = '';
+            previousValue = '';
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentValue = '0';
+            previousValue = '';
+            operator = '';
+            shouldResetDisplay = false;
+            updateDisplay();
+        }
+
+        function deleteLast() {
+            if (currentValue.length > 1) {
+                currentValue = currentValue.slice(0, -1);
+            } else {
+                currentValue = '0';
+            }
+            updateDisplay();
+        }
+
+        function addToHistory(expression) {
+            history.unshift(expression);
+            if (history.length > 10) {
+                history.pop();
+            }
+            localStorage.setItem('calculatorHistory', JSON.stringify(history));
+            updateHistoryDisplay();
+        }
+
+        function updateHistoryDisplay() {
+            const historyList = document.getElementById('historyList');
+            if (history.length === 0) {
+                historyList.innerHTML = '<div class="history-empty" data-i18n="history_empty">暂无历史记录</div>';
+            } else {
+                historyList.innerHTML = history.map((item, index) => 
+                    `<div class="history-item" onclick="useHistoryItem('${item}')">${item}</div>`
+                ).join('');
+            }
+        }
+
+        function useHistoryItem(expression) {
+            const result = expression.split('=')[1].trim();
+            currentValue = result;
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        updateHistoryDisplay();
+    </script>
+</body>
+</html>
+

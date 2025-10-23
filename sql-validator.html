@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Validator - Toolhub</title>
+    <meta name="description" content="Free online SQL validator. Validate and format SQL DDL statements with support for multiple databases.">
+    <meta name="keywords" content="SQL validator, SQL DDL, SQL checker, validate SQL, format SQL">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="tool-section active" id="sql-validator-tool">
+            <div class="tool-header">
+                <h1 data-i18n="sql_validator_title">SQL Validator</h1>
+                <div class="button-group">
+                    <select id="db-type" class="db-select" onchange="updateDBType()">
+                        <option value="mysql" data-i18n="db_mysql">MySQL</option>
+                        <option value="postgresql" data-i18n="db_postgresql">PostgreSQL</option>
+                        <option value="sqlserver" data-i18n="db_sqlserver">SQL Server</option>
+                        <option value="oracle" data-i18n="db_oracle">Oracle</option>
+                        <option value="sqlite" data-i18n="db_sqlite">SQLite</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="validateSQL()" data-i18n="validate_btn">Validate</button>
+                    <button class="btn btn-success" onclick="copySQLValidatorResult()" data-i18n="copy_btn">Copy</button>
+                    <button class="btn btn-danger" onclick="clearSQLValidator()" data-i18n="clear_btn">Clear</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="sql_input_label">Input:</label>
+                    <textarea id="sql-validator-input" placeholder="Paste SQL DDL statement here..." data-i18n-placeholder="sql_validator_input_placeholder"></textarea>
+                </div>
+                <div class="editor-section">
+                    <label data-i18n="sql_output_label">Output:</label>
+                    <textarea id="sql-validator-output" readonly placeholder="Validation result will appear here..." data-i18n-placeholder="sql_validator_output_placeholder"></textarea>
+                </div>
+            </div>
+            
+            <div id="sql-validator-error" class="error-message"></div>
+            <div id="sql-validator-result" class="validation-result"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

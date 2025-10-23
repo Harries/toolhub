@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD5 Encryption - Toolhub</title>
+    <meta name="description" content="Free online MD5 hash generator. Convert text to MD5 hash with support for uppercase or lowercase output format.">
+    <meta name="keywords" content="MD5 hash, MD5 generator, MD5 encryption, online MD5 tool, hash generator">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <!-- MD5 加密工具 -->
+        <div id="md5-tool" class="tool-section active">
+            <div class="tool-header">
+                <h1 data-i18n="md5_title">MD5 Encryption Tool</h1>
+                <div class="button-group">
+                    <button onclick="computeMD5()" class="btn btn-primary" data-i18n="md5_compute_btn">Compute</button>
+                    <button onclick="clearMD5()" class="btn btn-danger" data-i18n="clear_btn">Clear</button>
+                    <button onclick="copyMD5()" class="btn btn-success" data-i18n="copy_btn">Copy</button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-section">
+                    <label data-i18n="md5_input_label">Input Text:</label>
+                    <textarea id="md5-input" data-i18n="md5_input_placeholder" placeholder="Enter text to convert to MD5..."></textarea>
+                </div>
+
+                <div class="editor-section">
+                    <label data-i18n="md5_output_label">Result:</label>
+                    <textarea id="md5-output" readonly data-i18n="md5_output_placeholder" placeholder="MD5 hash result will be displayed here"></textarea>
+                </div>
+
+                <div class="editor-section">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="md5-case" value="lowercase" checked style="cursor: pointer;">
+                                <span data-i18n="md5_lowercase">Lowercase</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-top: 8px;">
+                                <input type="radio" name="md5-case" value="uppercase" style="cursor: pointer;">
+                                <span data-i18n="md5_uppercase">Uppercase</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="md5-length" value="32" checked style="cursor: pointer;">
+                                <span data-i18n="md5_32bit">32-bit</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-top: 8px;">
+                                <input type="radio" name="md5-length" value="16" style="cursor: pointer;">
+                                <span data-i18n="md5_16bit">16-bit</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="md5-error" class="error-message"></div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
