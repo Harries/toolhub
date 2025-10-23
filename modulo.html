@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo Calculator - Toolhub</title>
+    <meta name="description" content="Calculate the modulo (remainder) of two numbers. Simple and fast modulo calculator tool.">
+    <meta name="keywords" content="modulo calculator, remainder calculator, mod operation, division remainder">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modulo-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modulo-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .modulo-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .input-group input {
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #409eff;
+        }
+
+        .formula-display {
+            background: #f5f7fa;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .formula-display .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .calculate-btn {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            background: #409eff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn:hover {
+            background: #66b1ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(0);
+        }
+
+        .result-container {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            color: white;
+            display: none;
+        }
+
+        .result-container.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .result-explanation {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .error-message {
+            background: #fef0f0;
+            border: 1px solid #fde2e2;
+            color: #f56c6c;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.3s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .examples {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .examples h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .example-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .example-item:hover {
+            border-color: #409eff;
+            transform: translateX(5px);
+        }
+
+        .example-item code {
+            font-family: 'Courier New', monospace;
+            color: #409eff;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .modulo-container {
+                padding: 20px;
+            }
+
+            .result-value {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="modulo-container">
+            <h1 class="modulo-title" data-i18n="modulo_title">取模计算器</h1>
+
+            <div class="modulo-form">
+                <div class="input-group">
+                    <label for="dividend" data-i18n="modulo_dividend">被除数 (Dividend):</label>
+                    <input type="number" id="dividend" placeholder="输入被除数" data-i18n-placeholder="modulo_dividend_placeholder">
+                </div>
+
+                <div class="formula-display">
+                    <span class="formula" id="formula">a mod b = ?</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="divisor" data-i18n="modulo_divisor">除数 (Divisor):</label>
+                    <input type="number" id="divisor" placeholder="输入除数" data-i18n-placeholder="modulo_divisor_placeholder">
+                </div>
+
+                <button class="calculate-btn" onclick="calculateModulo()" data-i18n="modulo_calculate">计算</button>
+
+                <div class="error-message" id="errorMessage"></div>
+
+                <div class="result-container" id="resultContainer">
+                    <div class="result-label" data-i18n="modulo_result_label">计算结果:</div>
+                    <div class="result-value" id="resultValue">0</div>
+                    <div class="result-explanation" id="resultExplanation"></div>
+                </div>
+            </div>
+
+            <div class="examples">
+                <h3 data-i18n="modulo_examples">常见示例:</h3>
+                <div class="example-item" onclick="setExample(10, 3)">
+                    <code>10 mod 3 = 1</code>
+                    <span data-i18n="modulo_example_1"> (10 除以 3 余 1)</span>
+                </div>
+                <div class="example-item" onclick="setExample(17, 5)">
+                    <code>17 mod 5 = 2</code>
+                    <span data-i18n="modulo_example_2"> (17 除以 5 余 2)</span>
+                </div>
+                <div class="example-item" onclick="setExample(100, 7)">
+                    <code>100 mod 7 = 2</code>
+                    <span data-i18n="modulo_example_3"> (100 除以 7 余 2)</span>
+                </div>
+                <div class="example-item" onclick="setExample(256, 16)">
+                    <code>256 mod 16 = 0</code>
+                    <span data-i18n="modulo_example_4"> (256 能被 16 整除)</span>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 更新公式显示
+        function updateFormula() {
+            const dividend = document.getElementById('dividend').value || 'a';
+            const divisor = document.getElementById('divisor').value || 'b';
+            document.getElementById('formula').textContent = `${dividend} mod ${divisor} = ?`;
+        }
+
+        // 监听输入变化
+        document.getElementById('dividend').addEventListener('input', updateFormula);
+        document.getElementById('divisor').addEventListener('input', updateFormula);
+
+        // 支持回车键计算
+        document.getElementById('dividend').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateModulo();
+        });
+        document.getElementById('divisor').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateModulo();
+        });
+
+        // 计算取模
+        function calculateModulo() {
+            const dividendInput = document.getElementById('dividend');
+            const divisorInput = document.getElementById('divisor');
+            const errorMessage = document.getElementById('errorMessage');
+            const resultContainer = document.getElementById('resultContainer');
+            const resultValue = document.getElementById('resultValue');
+            const resultExplanation = document.getElementById('resultExplanation');
+
+            // 清除之前的错误和结果
+            errorMessage.classList.remove('show');
+            resultContainer.classList.remove('show');
+
+            const dividend = parseFloat(dividendInput.value);
+            const divisor = parseFloat(divisorInput.value);
+
+            // 验证输入
+            if (isNaN(dividend) || dividendInput.value.trim() === '') {
+                showError(translations[currentLang].modulo_error_dividend || '请输入被除数');
+                return;
+            }
+
+            if (isNaN(divisor) || divisorInput.value.trim() === '') {
+                showError(translations[currentLang].modulo_error_divisor || '请输入除数');
+                return;
+            }
+
+            if (divisor === 0) {
+                showError(translations[currentLang].modulo_error_zero || '除数不能为 0');
+                return;
+            }
+
+            // 计算取模
+            const result = dividend % divisor;
+            const quotient = Math.floor(dividend / divisor);
+
+            // 显示结果
+            resultValue.textContent = result;
+            
+            const lang = currentLang || 'zh-CN';
+            if (lang === 'zh-CN' || lang === 'zh-TW') {
+                resultExplanation.innerHTML = `
+                    <strong>${dividend} ÷ ${divisor} = ${quotient} ... ${result}</strong><br>
+                    说明: ${dividend} 除以 ${divisor} 等于 ${quotient}，余数为 ${result}
+                `;
+            } else {
+                resultExplanation.innerHTML = `
+                    <strong>${dividend} ÷ ${divisor} = ${quotient} remainder ${result}</strong><br>
+                    Explanation: ${dividend} divided by ${divisor} equals ${quotient} with a remainder of ${result}
+                `;
+            }
+
+            resultContainer.classList.add('show');
+        }
+
+        // 显示错误
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 3000);
+        }
+
+        // 设置示例
+        function setExample(dividend, divisor) {
+            document.getElementById('dividend').value = dividend;
+            document.getElementById('divisor').value = divisor;
+            updateFormula();
+            calculateModulo();
+        }
+    </script>
+</body>
+</html>
+

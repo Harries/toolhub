@@ -20,7 +20,7 @@ body {
 .container > *:not(header):not(footer) {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin-top: 20px;
 }
 
@@ -384,9 +384,12 @@ header {
     border-bottom: 2px solid #f3f4f6;
 }
 
+.tool-header-center {
+}
+
 .tool-header h1,
 .tool-header h2 {
-    font-size: 28px;
+    font-size: 20px;
     color: #1f2937;
     font-weight: 600;
     margin: 0;
@@ -677,6 +680,7 @@ textarea::placeholder {
 
 /* 页脚 */
 footer {
+    margin-top:10px;
     padding: 40px 0;
     text-align: center;
     background: linear-gradient(to bottom, #2c3e50 0%, #1a252f 100%);
@@ -957,12 +961,11 @@ footer .footer-copyright span {
 
 /* Crontab 编写器样式 */
 .crontab-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 30px;
     background: white;
     border-radius: 8px;
-    padding: 30px;
     margin-bottom: 20px;
 }
 
@@ -976,33 +979,44 @@ footer .footer-copyright span {
     font-size: 16px;
     font-weight: 600;
     color: #333;
-    margin: 0;
+    margin: 0 0 15px 0;
+}
+
+.form-fields-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .form-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     gap: 8px;
 }
 
 .form-group label {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #606266;
+    white-space: nowrap;
 }
 
 .input-group {
     display: flex;
-    gap: 10px;
+    gap: 5px;
+    align-items: center;
 }
 
 .input-group select,
 .input-group input {
-    flex: 1;
-    padding: 10px 12px;
+    padding: 6px 10px;
     border: 1px solid #dcdfe6;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
+    width: auto;
+    max-width: 140px;
 }
 
 .input-group select:focus,
@@ -1130,9 +1144,32 @@ footer .footer-copyright span {
 /* 响应式设计 */
 @media (max-width: 1024px) {
     .crontab-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
         padding: 20px;
+    }
+
+    .form-fields-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .form-group label {
+        width: 100%;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .input-group select,
+    .input-group input {
+        flex: 1;
+        max-width: none;
     }
 }
 
@@ -1140,7 +1177,6 @@ footer .footer-copyright span {
 .url-encoder-container {
     background: white;
     border-radius: 8px;
-    padding: 30px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -1218,7 +1254,6 @@ footer .footer-copyright span {
 .url-mapping-section {
     background: white;
     border-radius: 8px;
-    padding: 20px;
     margin-bottom: 20px;
 }
 

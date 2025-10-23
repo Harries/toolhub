@@ -79,6 +79,49 @@ const translations = {
         tool_color: '颜色选择器',
         tool_color_desc: '能够让用户通过直观简单的操作方式精确选取所需颜色',
 
+        // 取模计算器工具
+        modulo_title: '取模计算器',
+        modulo_dividend: '被除数 (Dividend)',
+        modulo_divisor: '除数 (Divisor)',
+        modulo_dividend_placeholder: '输入被除数',
+        modulo_divisor_placeholder: '输入除数',
+        modulo_calculate: '计算',
+        modulo_result_label: '计算结果:',
+        modulo_examples: '常见示例:',
+        modulo_example_1: '(10 除以 3 余 1)',
+        modulo_example_2: '(17 除以 5 余 2)',
+        modulo_example_3: '(100 除以 7 余 2)',
+        modulo_example_4: '(256 能被 16 整除)',
+        modulo_error_dividend: '请输入被除数',
+        modulo_error_divisor: '请输入除数',
+        modulo_error_zero: '除数不能为 0',
+
+        // ASCII 艺术字工具
+        ascii_title: 'ASCII 艺术字生成器',
+        ascii_input_label: '输入文本 (仅支持英文字符)',
+        ascii_input_placeholder: '在此输入您的文本...',
+        ascii_font_label: '选择字体样式',
+        ascii_font_standard: '标准',
+        ascii_font_banner: '横幅',
+        ascii_font_block: '方块',
+        ascii_font_slant: '斜体',
+        ascii_font_small: '小型',
+        ascii_font_big: '大型',
+        ascii_generate: '生成',
+        ascii_output_placeholder: 'ASCII 艺术字将显示在这里...',
+        ascii_info_title: '使用说明',
+        ascii_info_1: '• 仅支持英文字母、数字和常见符号',
+        ascii_info_2: '• 建议输入文本长度不超过 20 个字符以获得最佳显示效果',
+        ascii_info_3: '• 不同字体样式有不同的视觉效果，可以尝试多种样式',
+        ascii_info_4: '• 生成的 ASCII 艺术字可以直接复制到文本编辑器或社交媒体',
+
+        // 颜色选择器工具
+        color_title: '颜色选择器',
+        color_picker_label: '颜色选择器',
+        color_rgb_sliders: 'RGB 滑块',
+        color_values_title: '颜色值 (点击复制)',
+        color_presets: '常用颜色',
+
         // IP地址查询工具
         ip_get_my_ip: '获取 IP',
         ip_query: '查询',
@@ -133,7 +176,13 @@ const translations = {
         date_to_ts_title: '日期转时间戳',
         select_datetime_label: '选择日期时间:',
         footer_text: '© 2025 开发者工具箱 | 纯静态工具，数据不会上传到服务器',
-        error_no_input: '请输入 JSON 数据',
+        error_no_input: '请输入数据',
+        error_no_input_json: '请输入 JSON 数据',
+        error_no_input_xml: '请输入 XML 数据',
+        error_no_input_url: '请输入 URL 或文本',
+        error_no_input_base64: '请输入要编码的文本',
+        error_no_input_md5: '请输入要加密的文本',
+        error_no_input_text: '请输入文本',
         error_json_invalid: 'JSON 格式错误',
         error_no_timestamp: '请输入时间戳',
         error_timestamp_invalid: '时间戳格式错误，请输入数字',
@@ -491,6 +540,49 @@ const translations = {
         tool_color: '顏色選擇器',
         tool_color_desc: '能夠讓用戶通過直觀簡單的操作方式精確選取所需顏色',
 
+        // 取模計算器工具
+        modulo_title: '取模計算器',
+        modulo_dividend: '被除數 (Dividend)',
+        modulo_divisor: '除數 (Divisor)',
+        modulo_dividend_placeholder: '輸入被除數',
+        modulo_divisor_placeholder: '輸入除數',
+        modulo_calculate: '計算',
+        modulo_result_label: '計算結果:',
+        modulo_examples: '常見示例:',
+        modulo_example_1: '(10 除以 3 餘 1)',
+        modulo_example_2: '(17 除以 5 餘 2)',
+        modulo_example_3: '(100 除以 7 餘 2)',
+        modulo_example_4: '(256 能被 16 整除)',
+        modulo_error_dividend: '請輸入被除數',
+        modulo_error_divisor: '請輸入除數',
+        modulo_error_zero: '除數不能為 0',
+
+        // ASCII 藝術字工具
+        ascii_title: 'ASCII 藝術字生成器',
+        ascii_input_label: '輸入文本 (僅支持英文字符)',
+        ascii_input_placeholder: '在此輸入您的文本...',
+        ascii_font_label: '選擇字體樣式',
+        ascii_font_standard: '標準',
+        ascii_font_banner: '橫幅',
+        ascii_font_block: '方塊',
+        ascii_font_slant: '斜體',
+        ascii_font_small: '小型',
+        ascii_font_big: '大型',
+        ascii_generate: '生成',
+        ascii_output_placeholder: 'ASCII 藝術字將顯示在這裡...',
+        ascii_info_title: '使用說明',
+        ascii_info_1: '• 僅支持英文字母、數字和常見符號',
+        ascii_info_2: '• 建議輸入文本長度不超過 20 個字符以獲得最佳顯示效果',
+        ascii_info_3: '• 不同字體樣式有不同的視覺效果，可以嘗試多種樣式',
+        ascii_info_4: '• 生成的 ASCII 藝術字可以直接複製到文本編輯器或社交媒體',
+
+        // 顏色選擇器工具
+        color_title: '顏色選擇器',
+        color_picker_label: '顏色選擇器',
+        color_rgb_sliders: 'RGB 滑塊',
+        color_values_title: '顏色值 (點擊複製)',
+        color_presets: '常用顏色',
+
         // 舊的翻譯保留
         json_tab: 'JSON 格式化',
         json_card_desc: '格式化、壓縮和驗證 JSON 資料，支援語法高亮',
@@ -522,7 +614,13 @@ const translations = {
         date_to_ts_title: '日期轉時間戳',
         select_datetime_label: '選擇日期時間:',
         footer_text: '© 2025 開發者工具箱 | 純靜態工具，資料不會上傳到伺服器',
-        error_no_input: '請輸入 JSON 資料',
+        error_no_input: '請輸入資料',
+        error_no_input_json: '請輸入 JSON 資料',
+        error_no_input_xml: '請輸入 XML 資料',
+        error_no_input_url: '請輸入 URL 或文字',
+        error_no_input_base64: '請輸入要編碼的文字',
+        error_no_input_md5: '請輸入要加密的文字',
+        error_no_input_text: '請輸入文字',
         error_json_invalid: 'JSON 格式錯誤',
         error_no_timestamp: '請輸入時間戳',
         error_timestamp_invalid: '時間戳格式錯誤，請輸入數字',
@@ -878,6 +976,49 @@ const translations = {
         tool_color: 'Color Picker',
         tool_color_desc: 'Precisely select colors through intuitive and simple operations',
 
+        // Modulo Calculator Tool
+        modulo_title: 'Modulo Calculator',
+        modulo_dividend: 'Dividend',
+        modulo_divisor: 'Divisor',
+        modulo_dividend_placeholder: 'Enter dividend',
+        modulo_divisor_placeholder: 'Enter divisor',
+        modulo_calculate: 'Calculate',
+        modulo_result_label: 'Result:',
+        modulo_examples: 'Common Examples:',
+        modulo_example_1: '(10 divided by 3 remainder 1)',
+        modulo_example_2: '(17 divided by 5 remainder 2)',
+        modulo_example_3: '(100 divided by 7 remainder 2)',
+        modulo_example_4: '(256 is divisible by 16)',
+        modulo_error_dividend: 'Please enter dividend',
+        modulo_error_divisor: 'Please enter divisor',
+        modulo_error_zero: 'Divisor cannot be 0',
+
+        // ASCII Art Tool
+        ascii_title: 'ASCII Art Generator',
+        ascii_input_label: 'Input Text (English characters only)',
+        ascii_input_placeholder: 'Enter your text here...',
+        ascii_font_label: 'Select Font Style',
+        ascii_font_standard: 'Standard',
+        ascii_font_banner: 'Banner',
+        ascii_font_block: 'Block',
+        ascii_font_slant: 'Slant',
+        ascii_font_small: 'Small',
+        ascii_font_big: 'Big',
+        ascii_generate: 'Generate',
+        ascii_output_placeholder: 'ASCII art will be displayed here...',
+        ascii_info_title: 'Usage Instructions',
+        ascii_info_1: '• Only English letters, numbers and common symbols are supported',
+        ascii_info_2: '• Recommended text length is no more than 20 characters for best display',
+        ascii_info_3: '• Different font styles have different visual effects, try multiple styles',
+        ascii_info_4: '• Generated ASCII art can be copied directly to text editors or social media',
+
+        // Color Picker Tool
+        color_title: 'Color Picker',
+        color_picker_label: 'Color Picker',
+        color_rgb_sliders: 'RGB Sliders',
+        color_values_title: 'Color Values (Click to Copy)',
+        color_presets: 'Common Colors',
+
         // IP Address Lookup Tool
         ip_get_my_ip: 'Get IP',
         ip_query: 'Query',
@@ -932,7 +1073,13 @@ const translations = {
         date_to_ts_title: 'Date to Timestamp',
         select_datetime_label: 'Select Date Time:',
         footer_text: '© 2025 Toolhub | Static tool, data is not uploaded to server',
-        error_no_input: 'Please input JSON data',
+        error_no_input: 'Please input data',
+        error_no_input_json: 'Please input JSON data',
+        error_no_input_xml: 'Please input XML data',
+        error_no_input_url: 'Please input URL or text',
+        error_no_input_base64: 'Please input text to encode',
+        error_no_input_md5: 'Please input text to encrypt',
+        error_no_input_text: 'Please input text',
         error_json_invalid: 'Invalid JSON format',
         error_no_timestamp: 'Please input timestamp',
         error_timestamp_invalid: 'Invalid timestamp format, please input numbers',
@@ -1313,6 +1460,49 @@ translations['ja'] = {
     password_copy_success: 'パスワードをクリップボードにコピーしました',
     validate_btn: '検証',
 
+    // モジュロ計算機
+    modulo_title: 'モジュロ計算機',
+    modulo_dividend: '被除数 (Dividend)',
+    modulo_divisor: '除数 (Divisor)',
+    modulo_dividend_placeholder: '被除数を入力',
+    modulo_divisor_placeholder: '除数を入力',
+    modulo_calculate: '計算',
+    modulo_result_label: '計算結果:',
+    modulo_examples: '一般的な例:',
+    modulo_example_1: '(10 を 3 で割った余りは 1)',
+    modulo_example_2: '(17 を 5 で割った余りは 2)',
+    modulo_example_3: '(100 を 7 で割った余りは 2)',
+    modulo_example_4: '(256 は 16 で割り切れる)',
+    modulo_error_dividend: '被除数を入力してください',
+    modulo_error_divisor: '除数を入力してください',
+    modulo_error_zero: '除数は 0 にできません',
+
+    // ASCIIアートツール
+    ascii_title: 'ASCIIアートジェネレーター',
+    ascii_input_label: 'テキスト入力 (英字のみ)',
+    ascii_input_placeholder: 'ここにテキストを入力...',
+    ascii_font_label: 'フォントスタイルを選択',
+    ascii_font_standard: '標準',
+    ascii_font_banner: 'バナー',
+    ascii_font_block: 'ブロック',
+    ascii_font_slant: 'スラント',
+    ascii_font_small: '小',
+    ascii_font_big: '大',
+    ascii_generate: '生成',
+    ascii_output_placeholder: 'ASCIIアートがここに表示されます...',
+    ascii_info_title: '使用方法',
+    ascii_info_1: '• 英字、数字、一般的な記号のみサポート',
+    ascii_info_2: '• 最適な表示のため、テキスト長は20文字以下を推奨',
+    ascii_info_3: '• フォントスタイルによって異なる視覚効果があります',
+    ascii_info_4: '• 生成されたASCIIアートはテキストエディタやSNSに直接コピー可能',
+
+    // カラーピッカーツール
+    color_title: 'カラーピッカー',
+    color_picker_label: 'カラーピッカー',
+    color_rgb_sliders: 'RGB スライダー',
+    color_values_title: 'カラー値 (クリックしてコピー)',
+    color_presets: '一般的な色',
+
     // 旧翻訳
     json_tab: 'JSONフォーマッター',
     json_card_desc: 'JSON データのフォーマット、圧縮、検証をシンタックスハイライト付きで実行',
@@ -1350,6 +1540,12 @@ translations['ja'] = {
     select_datetime_label: '日時を選択:',
     footer_text: '© 2025 デベロッパーツールボックス | 静的ツール、データはサーバーにアップロードされません',
     error_no_input: 'データを入力してください',
+    error_no_input_json: 'JSONデータを入力してください',
+    error_no_input_xml: 'XMLデータを入力してください',
+    error_no_input_url: 'URLまたはテキストを入力してください',
+    error_no_input_base64: 'エンコードするテキストを入力してください',
+    error_no_input_md5: '暗号化するテキストを入力してください',
+    error_no_input_text: 'テキストを入力してください',
     error_json_invalid: '無効なJSON形式',
     error_no_timestamp: 'タイムスタンプを入力してください',
     error_timestamp_invalid: '無効なタイムスタンプ形式、数字を入力してください',
@@ -1665,6 +1861,49 @@ translations['ko'] = {
     password_error_no_options: '최소 1개의 문자 유형을 선택하세요',
     password_copy_success: '비밀번호가 클립보드에 복사되었습니다',
 
+    // 모듈로 계산기
+    modulo_title: '모듈로 계산기',
+    modulo_dividend: '피제수 (Dividend)',
+    modulo_divisor: '제수 (Divisor)',
+    modulo_dividend_placeholder: '피제수 입력',
+    modulo_divisor_placeholder: '제수 입력',
+    modulo_calculate: '계산',
+    modulo_result_label: '계산 결과:',
+    modulo_examples: '일반적인 예:',
+    modulo_example_1: '(10을 3으로 나눈 나머지는 1)',
+    modulo_example_2: '(17을 5로 나눈 나머지는 2)',
+    modulo_example_3: '(100을 7로 나눈 나머지는 2)',
+    modulo_example_4: '(256은 16으로 나누어떨어짐)',
+    modulo_error_dividend: '피제수를 입력하세요',
+    modulo_error_divisor: '제수를 입력하세요',
+    modulo_error_zero: '제수는 0이 될 수 없습니다',
+
+    // ASCII 아트 도구
+    ascii_title: 'ASCII 아트 생성기',
+    ascii_input_label: '텍스트 입력 (영문만 지원)',
+    ascii_input_placeholder: '여기에 텍스트를 입력하세요...',
+    ascii_font_label: '글꼴 스타일 선택',
+    ascii_font_standard: '표준',
+    ascii_font_banner: '배너',
+    ascii_font_block: '블록',
+    ascii_font_slant: '기울임',
+    ascii_font_small: '작게',
+    ascii_font_big: '크게',
+    ascii_generate: '생성',
+    ascii_output_placeholder: 'ASCII 아트가 여기에 표시됩니다...',
+    ascii_info_title: '사용 방법',
+    ascii_info_1: '• 영문자, 숫자 및 일반 기호만 지원',
+    ascii_info_2: '• 최적의 표시를 위해 텍스트 길이는 20자 이하 권장',
+    ascii_info_3: '• 글꼴 스타일에 따라 다른 시각 효과가 있습니다',
+    ascii_info_4: '• 생성된 ASCII 아트는 텍스트 편집기나 소셜 미디어에 직접 복사 가능',
+
+    // 컬러 피커 도구
+    color_title: '컬러 피커',
+    color_picker_label: '컬러 피커',
+    color_rgb_sliders: 'RGB 슬라이더',
+    color_values_title: '색상 값 (클릭하여 복사)',
+    color_presets: '일반 색상',
+
     // 기존 번역
     json_tab: 'JSON 포맷터',
     json_card_desc: '구문 강조 표시로 JSON 데이터 형식 지정, 압축 및 검증',
@@ -1702,6 +1941,12 @@ translations['ko'] = {
     select_datetime_label: '날짜/시간 선택:',
     footer_text: '© 2025 개발자 도구 상자 | 정적 도구, 데이터는 서버에 업로드되지 않습니다',
     error_no_input: '데이터를 입력하세요',
+    error_no_input_json: 'JSON 데이터를 입력하세요',
+    error_no_input_xml: 'XML 데이터를 입력하세요',
+    error_no_input_url: 'URL 또는 텍스트를 입력하세요',
+    error_no_input_base64: '인코딩할 텍스트를 입력하세요',
+    error_no_input_md5: '암호화할 텍스트를 입력하세요',
+    error_no_input_text: '텍스트를 입력하세요',
     error_json_invalid: '잘못된 JSON 형식',
     error_no_timestamp: '타임스탬프를 입력하세요',
     error_timestamp_invalid: '잘못된 타임스탬프 형식, 숫자를 입력하세요',
@@ -2002,6 +2247,49 @@ translations['es'] = {
     password_error_no_options: 'Por favor seleccione al menos un tipo de carácter',
     password_copy_success: 'Contraseña copiada al portapapeles',
 
+    // Calculadora de Módulo
+    modulo_title: 'Calculadora de Módulo',
+    modulo_dividend: 'Dividendo',
+    modulo_divisor: 'Divisor',
+    modulo_dividend_placeholder: 'Ingresar dividendo',
+    modulo_divisor_placeholder: 'Ingresar divisor',
+    modulo_calculate: 'Calcular',
+    modulo_result_label: 'Resultado:',
+    modulo_examples: 'Ejemplos Comunes:',
+    modulo_example_1: '(10 dividido por 3 resto 1)',
+    modulo_example_2: '(17 dividido por 5 resto 2)',
+    modulo_example_3: '(100 dividido por 7 resto 2)',
+    modulo_example_4: '(256 es divisible por 16)',
+    modulo_error_dividend: 'Por favor ingrese el dividendo',
+    modulo_error_divisor: 'Por favor ingrese el divisor',
+    modulo_error_zero: 'El divisor no puede ser 0',
+
+    // Herramienta de Arte ASCII
+    ascii_title: 'Generador de Arte ASCII',
+    ascii_input_label: 'Ingresar Texto (solo caracteres en inglés)',
+    ascii_input_placeholder: 'Ingrese su texto aquí...',
+    ascii_font_label: 'Seleccionar Estilo de Fuente',
+    ascii_font_standard: 'Estándar',
+    ascii_font_banner: 'Banner',
+    ascii_font_block: 'Bloque',
+    ascii_font_slant: 'Inclinado',
+    ascii_font_small: 'Pequeño',
+    ascii_font_big: 'Grande',
+    ascii_generate: 'Generar',
+    ascii_output_placeholder: 'El arte ASCII se mostrará aquí...',
+    ascii_info_title: 'Instrucciones de Uso',
+    ascii_info_1: '• Solo se admiten letras en inglés, números y símbolos comunes',
+    ascii_info_2: '• Se recomienda una longitud de texto no mayor a 20 caracteres para mejor visualización',
+    ascii_info_3: '• Diferentes estilos de fuente tienen diferentes efectos visuales',
+    ascii_info_4: '• El arte ASCII generado se puede copiar directamente a editores de texto o redes sociales',
+
+    // Herramienta de Selector de Color
+    color_title: 'Selector de Color',
+    color_picker_label: 'Selector de Color',
+    color_rgb_sliders: 'Deslizadores RGB',
+    color_values_title: 'Valores de Color (Clic para Copiar)',
+    color_presets: 'Colores Comunes',
+
     // Traducciones antiguas
     json_tab: 'Formateador JSON',
     json_card_desc: 'Formatear, comprimir y validar datos JSON con resaltado de sintaxis',
@@ -2039,6 +2327,12 @@ translations['es'] = {
     select_datetime_label: 'Seleccionar Fecha/Hora:',
     footer_text: '© 2025 Caja de Herramientas para Desarrolladores | Herramienta estática, los datos no se cargan en el servidor',
     error_no_input: 'Por favor ingrese datos',
+    error_no_input_json: 'Por favor ingrese datos JSON',
+    error_no_input_xml: 'Por favor ingrese datos XML',
+    error_no_input_url: 'Por favor ingrese URL o texto',
+    error_no_input_base64: 'Por favor ingrese texto para codificar',
+    error_no_input_md5: 'Por favor ingrese texto para encriptar',
+    error_no_input_text: 'Por favor ingrese texto',
     error_json_invalid: 'Formato JSON inválido',
     error_no_timestamp: 'Por favor ingrese marca de tiempo',
     error_timestamp_invalid: 'Formato de marca de tiempo inválido, por favor ingrese números',
@@ -2339,6 +2633,49 @@ translations['fr'] = {
     password_error_no_options: 'Veuillez sélectionner au moins un type de caractère',
     password_copy_success: 'Mot de passe copié dans le presse-papiers',
 
+    // Calculatrice de Modulo
+    modulo_title: 'Calculatrice de Modulo',
+    modulo_dividend: 'Dividende',
+    modulo_divisor: 'Diviseur',
+    modulo_dividend_placeholder: 'Entrer le dividende',
+    modulo_divisor_placeholder: 'Entrer le diviseur',
+    modulo_calculate: 'Calculer',
+    modulo_result_label: 'Résultat:',
+    modulo_examples: 'Exemples Courants:',
+    modulo_example_1: '(10 divisé par 3 reste 1)',
+    modulo_example_2: '(17 divisé par 5 reste 2)',
+    modulo_example_3: '(100 divisé par 7 reste 2)',
+    modulo_example_4: '(256 est divisible par 16)',
+    modulo_error_dividend: 'Veuillez entrer le dividende',
+    modulo_error_divisor: 'Veuillez entrer le diviseur',
+    modulo_error_zero: 'Le diviseur ne peut pas être 0',
+
+    // Outil d'Art ASCII
+    ascii_title: 'Générateur d\'Art ASCII',
+    ascii_input_label: 'Saisir le Texte (caractères anglais uniquement)',
+    ascii_input_placeholder: 'Entrez votre texte ici...',
+    ascii_font_label: 'Sélectionner le Style de Police',
+    ascii_font_standard: 'Standard',
+    ascii_font_banner: 'Bannière',
+    ascii_font_block: 'Bloc',
+    ascii_font_slant: 'Incliné',
+    ascii_font_small: 'Petit',
+    ascii_font_big: 'Grand',
+    ascii_generate: 'Générer',
+    ascii_output_placeholder: 'L\'art ASCII sera affiché ici...',
+    ascii_info_title: 'Instructions d\'Utilisation',
+    ascii_info_1: '• Seuls les lettres anglaises, chiffres et symboles courants sont pris en charge',
+    ascii_info_2: '• Longueur de texte recommandée de 20 caractères maximum pour un meilleur affichage',
+    ascii_info_3: '• Différents styles de police ont différents effets visuels',
+    ascii_info_4: '• L\'art ASCII généré peut être copié directement dans des éditeurs de texte ou réseaux sociaux',
+
+    // Outil de Sélecteur de Couleur
+    color_title: 'Sélecteur de Couleur',
+    color_picker_label: 'Sélecteur de Couleur',
+    color_rgb_sliders: 'Curseurs RGB',
+    color_values_title: 'Valeurs de Couleur (Cliquer pour Copier)',
+    color_presets: 'Couleurs Courantes',
+
     // Anciennes traductions
     json_tab: 'Formateur JSON',
     json_card_desc: 'Formater, compresser et valider les données JSON avec coloration syntaxique',
@@ -2376,6 +2713,12 @@ translations['fr'] = {
     select_datetime_label: 'Sélectionner Date/Heure:',
     footer_text: '© 2025 Boîte à Outils pour Développeurs | Outil statique, les données ne sont pas téléchargées sur le serveur',
     error_no_input: 'Veuillez saisir des données',
+    error_no_input_json: 'Veuillez saisir des données JSON',
+    error_no_input_xml: 'Veuillez saisir des données XML',
+    error_no_input_url: 'Veuillez saisir une URL ou du texte',
+    error_no_input_base64: 'Veuillez saisir le texte à encoder',
+    error_no_input_md5: 'Veuillez saisir le texte à chiffrer',
+    error_no_input_text: 'Veuillez saisir du texte',
     error_json_invalid: 'Format JSON invalide',
     error_no_timestamp: 'Veuillez saisir l\'horodatage',
     error_timestamp_invalid: 'Format d\'horodatage invalide, veuillez saisir des nombres',
@@ -2676,6 +3019,49 @@ translations['de'] = {
     password_error_no_options: 'Bitte wählen Sie mindestens einen Zeichentyp',
     password_copy_success: 'Passwort in die Zwischenablage kopiert',
 
+    // Modulo-Rechner
+    modulo_title: 'Modulo-Rechner',
+    modulo_dividend: 'Dividend',
+    modulo_divisor: 'Divisor',
+    modulo_dividend_placeholder: 'Dividend eingeben',
+    modulo_divisor_placeholder: 'Divisor eingeben',
+    modulo_calculate: 'Berechnen',
+    modulo_result_label: 'Ergebnis:',
+    modulo_examples: 'Häufige Beispiele:',
+    modulo_example_1: '(10 geteilt durch 3 Rest 1)',
+    modulo_example_2: '(17 geteilt durch 5 Rest 2)',
+    modulo_example_3: '(100 geteilt durch 7 Rest 2)',
+    modulo_example_4: '(256 ist durch 16 teilbar)',
+    modulo_error_dividend: 'Bitte Dividend eingeben',
+    modulo_error_divisor: 'Bitte Divisor eingeben',
+    modulo_error_zero: 'Divisor kann nicht 0 sein',
+
+    // ASCII-Kunst-Tool
+    ascii_title: 'ASCII-Kunst-Generator',
+    ascii_input_label: 'Text Eingeben (nur englische Zeichen)',
+    ascii_input_placeholder: 'Geben Sie Ihren Text hier ein...',
+    ascii_font_label: 'Schriftstil Auswählen',
+    ascii_font_standard: 'Standard',
+    ascii_font_banner: 'Banner',
+    ascii_font_block: 'Block',
+    ascii_font_slant: 'Schräg',
+    ascii_font_small: 'Klein',
+    ascii_font_big: 'Groß',
+    ascii_generate: 'Generieren',
+    ascii_output_placeholder: 'ASCII-Kunst wird hier angezeigt...',
+    ascii_info_title: 'Nutzungshinweise',
+    ascii_info_1: '• Nur englische Buchstaben, Zahlen und gängige Symbole werden unterstützt',
+    ascii_info_2: '• Empfohlene Textlänge von maximal 20 Zeichen für beste Anzeige',
+    ascii_info_3: '• Verschiedene Schriftstile haben unterschiedliche visuelle Effekte',
+    ascii_info_4: '• Generierte ASCII-Kunst kann direkt in Texteditoren oder soziale Medien kopiert werden',
+
+    // Farbwähler-Tool
+    color_title: 'Farbwähler',
+    color_picker_label: 'Farbwähler',
+    color_rgb_sliders: 'RGB-Schieberegler',
+    color_values_title: 'Farbwerte (Klicken zum Kopieren)',
+    color_presets: 'Häufige Farben',
+
     // Alte Übersetzungen
     json_tab: 'JSON-Formatierer',
     json_card_desc: 'JSON-Daten mit Syntaxhervorhebung formatieren, komprimieren und validieren',
@@ -2713,6 +3099,12 @@ translations['de'] = {
     select_datetime_label: 'Datum/Uhrzeit Auswählen:',
     footer_text: '© 2025 Entwickler-Toolbox | Statisches Tool, Daten werden nicht auf den Server hochgeladen',
     error_no_input: 'Bitte Daten eingeben',
+    error_no_input_json: 'Bitte JSON-Daten eingeben',
+    error_no_input_xml: 'Bitte XML-Daten eingeben',
+    error_no_input_url: 'Bitte URL oder Text eingeben',
+    error_no_input_base64: 'Bitte Text zum Kodieren eingeben',
+    error_no_input_md5: 'Bitte Text zum Verschlüsseln eingeben',
+    error_no_input_text: 'Bitte Text eingeben',
     error_json_invalid: 'Ungültiges JSON-Format',
     error_no_timestamp: 'Bitte Zeitstempel eingeben',
     error_timestamp_invalid: 'Ungültiges Zeitstempelformat, bitte Zahlen eingeben',
@@ -3013,6 +3405,49 @@ translations['pt'] = {
     password_error_no_options: 'Por favor, selecione pelo menos um tipo de caractere',
     password_copy_success: 'Senha copiada para a área de transferência',
 
+    // Calculadora de Módulo
+    modulo_title: 'Calculadora de Módulo',
+    modulo_dividend: 'Dividendo',
+    modulo_divisor: 'Divisor',
+    modulo_dividend_placeholder: 'Inserir dividendo',
+    modulo_divisor_placeholder: 'Inserir divisor',
+    modulo_calculate: 'Calcular',
+    modulo_result_label: 'Resultado:',
+    modulo_examples: 'Exemplos Comuns:',
+    modulo_example_1: '(10 dividido por 3 resto 1)',
+    modulo_example_2: '(17 dividido por 5 resto 2)',
+    modulo_example_3: '(100 dividido por 7 resto 2)',
+    modulo_example_4: '(256 é divisível por 16)',
+    modulo_error_dividend: 'Por favor, insira o dividendo',
+    modulo_error_divisor: 'Por favor, insira o divisor',
+    modulo_error_zero: 'O divisor não pode ser 0',
+
+    // Ferramenta de Arte ASCII
+    ascii_title: 'Gerador de Arte ASCII',
+    ascii_input_label: 'Inserir Texto (apenas caracteres em inglês)',
+    ascii_input_placeholder: 'Digite seu texto aqui...',
+    ascii_font_label: 'Selecionar Estilo de Fonte',
+    ascii_font_standard: 'Padrão',
+    ascii_font_banner: 'Banner',
+    ascii_font_block: 'Bloco',
+    ascii_font_slant: 'Inclinado',
+    ascii_font_small: 'Pequeno',
+    ascii_font_big: 'Grande',
+    ascii_generate: 'Gerar',
+    ascii_output_placeholder: 'A arte ASCII será exibida aqui...',
+    ascii_info_title: 'Instruções de Uso',
+    ascii_info_1: '• Apenas letras em inglês, números e símbolos comuns são suportados',
+    ascii_info_2: '• Comprimento de texto recomendado de no máximo 20 caracteres para melhor exibição',
+    ascii_info_3: '• Diferentes estilos de fonte têm diferentes efeitos visuais',
+    ascii_info_4: '• A arte ASCII gerada pode ser copiada diretamente para editores de texto ou redes sociais',
+
+    // Ferramenta de Seletor de Cores
+    color_title: 'Seletor de Cores',
+    color_picker_label: 'Seletor de Cores',
+    color_rgb_sliders: 'Controles Deslizantes RGB',
+    color_values_title: 'Valores de Cor (Clique para Copiar)',
+    color_presets: 'Cores Comuns',
+
     // Traduções antigas
     json_tab: 'Formatador JSON',
     json_card_desc: 'Formatar, comprimir e validar dados JSON com destaque de sintaxe',
@@ -3050,6 +3485,12 @@ translations['pt'] = {
     select_datetime_label: 'Selecionar Data/Hora:',
     footer_text: '© 2025 Caixa de Ferramentas do Desenvolvedor | Ferramenta estática, os dados não são enviados para o servidor',
     error_no_input: 'Por favor, insira dados',
+    error_no_input_json: 'Por favor, insira dados JSON',
+    error_no_input_xml: 'Por favor, insira dados XML',
+    error_no_input_url: 'Por favor, insira URL ou texto',
+    error_no_input_base64: 'Por favor, insira texto para codificar',
+    error_no_input_md5: 'Por favor, insira texto para criptografar',
+    error_no_input_text: 'Por favor, insira texto',
     error_json_invalid: 'Formato JSON inválido',
     error_no_timestamp: 'Por favor, insira o timestamp',
     error_timestamp_invalid: 'Formato de timestamp inválido, por favor insira números',
@@ -3350,6 +3791,49 @@ translations['ru'] = {
     password_error_no_options: 'Пожалуйста, выберите хотя бы один тип символа',
     password_copy_success: 'Пароль скопирован в буфер обмена',
 
+    // Калькулятор Модуля
+    modulo_title: 'Калькулятор Модуля',
+    modulo_dividend: 'Делимое',
+    modulo_divisor: 'Делитель',
+    modulo_dividend_placeholder: 'Введите делимое',
+    modulo_divisor_placeholder: 'Введите делитель',
+    modulo_calculate: 'Вычислить',
+    modulo_result_label: 'Результат:',
+    modulo_examples: 'Общие Примеры:',
+    modulo_example_1: '(10 делить на 3 остаток 1)',
+    modulo_example_2: '(17 делить на 5 остаток 2)',
+    modulo_example_3: '(100 делить на 7 остаток 2)',
+    modulo_example_4: '(256 делится на 16 без остатка)',
+    modulo_error_dividend: 'Пожалуйста, введите делимое',
+    modulo_error_divisor: 'Пожалуйста, введите делитель',
+    modulo_error_zero: 'Делитель не может быть 0',
+
+    // Инструмент ASCII Искусства
+    ascii_title: 'Генератор ASCII Искусства',
+    ascii_input_label: 'Введите Текст (только английские символы)',
+    ascii_input_placeholder: 'Введите ваш текст здесь...',
+    ascii_font_label: 'Выберите Стиль Шрифта',
+    ascii_font_standard: 'Стандартный',
+    ascii_font_banner: 'Баннер',
+    ascii_font_block: 'Блок',
+    ascii_font_slant: 'Наклонный',
+    ascii_font_small: 'Маленький',
+    ascii_font_big: 'Большой',
+    ascii_generate: 'Генерировать',
+    ascii_output_placeholder: 'ASCII искусство будет отображено здесь...',
+    ascii_info_title: 'Инструкции по Использованию',
+    ascii_info_1: '• Поддерживаются только английские буквы, цифры и общие символы',
+    ascii_info_2: '• Рекомендуемая длина текста не более 20 символов для лучшего отображения',
+    ascii_info_3: '• Разные стили шрифтов имеют разные визуальные эффекты',
+    ascii_info_4: '• Сгенерированное ASCII искусство можно скопировать напрямую в текстовые редакторы или социальные сети',
+
+    // Инструмент Выбора Цвета
+    color_title: 'Выбор Цвета',
+    color_picker_label: 'Выбор Цвета',
+    color_rgb_sliders: 'RGB Ползунки',
+    color_values_title: 'Значения Цвета (Нажмите для Копирования)',
+    color_presets: 'Общие Цвета',
+
     // Старые переводы
     json_tab: 'Форматтер JSON',
     json_card_desc: 'Форматирование, сжатие и проверка данных JSON с подсветкой синтаксиса',
@@ -3387,6 +3871,12 @@ translations['ru'] = {
     select_datetime_label: 'Выбрать дату/время:',
     footer_text: '© 2025 Инструменты разработчика | Статический инструмент, данные не загружаются на сервер',
     error_no_input: 'Пожалуйста, введите данные',
+    error_no_input_json: 'Пожалуйста, введите данные JSON',
+    error_no_input_xml: 'Пожалуйста, введите данные XML',
+    error_no_input_url: 'Пожалуйста, введите URL или текст',
+    error_no_input_base64: 'Пожалуйста, введите текст для кодирования',
+    error_no_input_md5: 'Пожалуйста, введите текст для шифрования',
+    error_no_input_text: 'Пожалуйста, введите текст',
     error_json_invalid: 'Неверный формат JSON',
     error_no_timestamp: 'Пожалуйста, введите временную метку',
     error_timestamp_invalid: 'Неверный формат временной метки, пожалуйста, введите числа',
@@ -3660,7 +4150,7 @@ function formatJSON() {
     errorDiv.textContent = '';
 
     if (!input) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_json;
         output.value = '';
         return;
     }
@@ -3684,7 +4174,7 @@ function compressJSON() {
     errorDiv.textContent = '';
 
     if (!input) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_json;
         output.value = '';
         return;
     }
@@ -3741,7 +4231,7 @@ function formatXML() {
     const xmlText = input.value.trim();
 
     if (!xmlText) {
-        showError(errorDiv, translations[currentLang].error_no_input || 'Please input XML data');
+        showError(errorDiv, translations[currentLang].error_no_input_xml || 'Please input XML data');
         return;
     }
 
@@ -3811,7 +4301,7 @@ function compressXML() {
     const xmlText = input.value.trim();
 
     if (!xmlText) {
-        showError(errorDiv, translations[currentLang].error_no_input || 'Please input XML data');
+        showError(errorDiv, translations[currentLang].error_no_input_xml || 'Please input XML data');
         return;
     }
 
@@ -5435,7 +5925,7 @@ function performURLEncode() {
     const text = input.value;
 
     if (!text) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_url;
         return;
     }
 
@@ -5465,7 +5955,7 @@ function performURLDecode() {
     const text = input.value;
 
     if (!text) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_url;
         return;
     }
 
@@ -5624,7 +6114,7 @@ function encodeBase64() {
     const text = input.value.trim();
 
     if (!text) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_base64;
         return;
     }
 
@@ -5647,7 +6137,7 @@ function decodeBase64() {
     const text = input.value.trim();
 
     if (!text) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_base64;
         return;
     }
 
@@ -5735,7 +6225,7 @@ function computeMD5() {
     const text = input.value.trim();
 
     if (!text) {
-        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input;
+        errorDiv.textContent = '❌ ' + translations[currentLang].error_no_input_md5;
         return;
     }
 

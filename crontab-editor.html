@@ -26,11 +26,12 @@
             </div>
 
             <div class="crontab-container">
-                <!-- 左侧：可视化表单 -->
+                <!-- 可视化表单 -->
                 <div class="crontab-form-section">
                     <h3 data-i18n="crontab_schedule_settings">Schedule Settings:</h3>
 
-                    <div class="form-group">
+                    <div class="form-fields-row">
+                        <div class="form-group">
                         <label data-i18n="crontab_minute">Minute:</label>
                         <div class="input-group">
                             <select id="minute-type" onchange="updateCrontab()">
@@ -42,10 +43,10 @@
                             <input type="number" id="minute-value" min="0" max="59" value="0" onchange="updateCrontab()" style="display:none;">
                             <input type="number" id="minute-interval" min="1" max="59" value="15" onchange="updateCrontab()" style="display:none;">
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label data-i18n="crontab_hour">Hour:</label>
+                        <div class="form-group">
+                            <label data-i18n="crontab_hour">Hour:</label>
                         <div class="input-group">
                             <select id="hour-type" onchange="updateCrontab()">
                                 <option value="*" data-i18n="crontab_every">Every</option>
@@ -56,10 +57,10 @@
                             <input type="number" id="hour-value" min="0" max="23" value="0" onchange="updateCrontab()" style="display:none;">
                             <input type="number" id="hour-interval" min="1" max="23" value="4" onchange="updateCrontab()" style="display:none;">
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label data-i18n="crontab_day">Day of Month:</label>
+                        <div class="form-group">
+                            <label data-i18n="crontab_day">Day of Month:</label>
                         <div class="input-group">
                             <select id="day-type" onchange="updateCrontab()">
                                 <option value="*" data-i18n="crontab_every">Every</option>
@@ -69,10 +70,10 @@
                             </select>
                             <input type="number" id="day-value" min="1" max="31" value="1" onchange="updateCrontab()" style="display:none;">
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label data-i18n="crontab_month">Month:</label>
+                        <div class="form-group">
+                            <label data-i18n="crontab_month">Month:</label>
                         <div class="input-group">
                             <select id="month-type" onchange="updateCrontab()">
                                 <option value="*" data-i18n="crontab_every">Every</option>
@@ -94,10 +95,10 @@
                                 <option value="12">December</option>
                             </select>
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label data-i18n="crontab_weekday">Day of Week:</label>
+                        <div class="form-group">
+                            <label data-i18n="crontab_weekday">Day of Week:</label>
                         <div class="input-group">
                             <select id="weekday-type" onchange="updateCrontab()">
                                 <option value="?" data-i18n="crontab_not_specified">Not Specified</option>
@@ -114,6 +115,7 @@
                                 <option value="5">Friday</option>
                                 <option value="6">Saturday</option>
                             </select>
+                        </div>
                         </div>
                     </div>
 

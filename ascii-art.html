@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator - Toolhub</title>
+    <meta name="description" content="Convert English text to ASCII art with multiple font styles. Create beautiful text art instantly.">
+    <meta name="keywords" content="ASCII art, text art, ASCII generator, text to ASCII, ASCII fonts">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .ascii-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ascii-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .input-section {
+            margin-bottom: 25px;
+        }
+
+        .input-section label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .input-section input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .input-section input:focus {
+            outline: none;
+            border-color: #409eff;
+        }
+
+        .font-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .font-option {
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .font-option:hover {
+            border-color: #409eff;
+            background: #f0f8ff;
+        }
+
+        .font-option.active {
+            border-color: #409eff;
+            background: #409eff;
+            color: white;
+            font-weight: 600;
+        }
+
+        .font-option .font-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #409eff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #66b1ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+        }
+
+        .btn-success {
+            background: #67c23a;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #85ce61;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(103, 194, 58, 0.3);
+        }
+
+        .btn-secondary {
+            background: #909399;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #a6a9ad;
+        }
+
+        .output-section {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .output-section pre {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.2;
+            margin: 0;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .empty-output {
+            color: #666;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+        }
+
+        .copy-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #67c23a;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .copy-indicator.show {
+            opacity: 1;
+        }
+
+        .info-box {
+            background: #f0f8ff;
+            border-left: 4px solid #409eff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .info-box h4 {
+            margin: 0 0 10px 0;
+            color: #409eff;
+            font-size: 14px;
+        }
+
+        .info-box ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .ascii-container {
+                padding: 20px;
+            }
+
+            .font-selector {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .output-section pre {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <div class="ascii-container">
+            <h1 class="ascii-title" data-i18n="ascii_title">ASCII 艺术字生成器</h1>
+
+            <div class="input-section">
+                <label for="textInput" data-i18n="ascii_input_label">输入文本 (仅支持英文字符):</label>
+                <input type="text" id="textInput" placeholder="Enter your text here..." 
+                       data-i18n-placeholder="ascii_input_placeholder" maxlength="50">
+            </div>
+
+            <div class="input-section">
+                <label data-i18n="ascii_font_label">选择字体样式:</label>
+                <div class="font-selector">
+                    <div class="font-option active" data-font="standard" onclick="selectFont('standard')">
+                        <div class="font-name" data-i18n="ascii_font_standard">标准</div>
+                    </div>
+                    <div class="font-option" data-font="banner" onclick="selectFont('banner')">
+                        <div class="font-name" data-i18n="ascii_font_banner">横幅</div>
+                    </div>
+                    <div class="font-option" data-font="block" onclick="selectFont('block')">
+                        <div class="font-name" data-i18n="ascii_font_block">方块</div>
+                    </div>
+                    <div class="font-option" data-font="slant" onclick="selectFont('slant')">
+                        <div class="font-name" data-i18n="ascii_font_slant">斜体</div>
+                    </div>
+                    <div class="font-option" data-font="small" onclick="selectFont('small')">
+                        <div class="font-name" data-i18n="ascii_font_small">小型</div>
+                    </div>
+                    <div class="font-option" data-font="big" onclick="selectFont('big')">
+                        <div class="font-name" data-i18n="ascii_font_big">大型</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="generateAsciiArt()" data-i18n="ascii_generate">生成</button>
+                <button class="btn btn-success" onclick="copyToClipboard()" data-i18n="copy_btn">复制</button>
+                <button class="btn btn-secondary" onclick="clearAll()" data-i18n="clear_btn">清空</button>
+            </div>
+
+            <div class="output-section" id="outputSection">
+                <div class="copy-indicator" id="copyIndicator" data-i18n="success_copied">已复制</div>
+                <pre id="asciiOutput" class="empty-output" data-i18n="ascii_output_placeholder">ASCII 艺术字将显示在这里...</pre>
+            </div>
+
+            <div class="info-box">
+                <h4 data-i18n="ascii_info_title">使用说明:</h4>
+                <ul>
+                    <li data-i18n="ascii_info_1">• 仅支持英文字母、数字和常见符号</li>
+                    <li data-i18n="ascii_info_2">• 建议输入文本长度不超过 20 个字符以获得最佳显示效果</li>
+                    <li data-i18n="ascii_info_3">• 不同字体样式有不同的视觉效果，可以尝试多种样式</li>
+                    <li data-i18n="ascii_info_4">• 生成的 ASCII 艺术字可以直接复制到文本编辑器或社交媒体</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let currentFont = 'standard';
+
+        // ASCII 字体定义（简化版本）
+        const asciiFonts = {
+            standard: {
+                height: 6,
+                chars: {
+                    'A': [' ___  ', '|   | ', '|___| ', '|   | ', '|   | ', '      '],
+                    'B': ['___   ', '|  \\  ', '|___| ', '|   | ', '|___/ ', '      '],
+                    'C': [' ___  ', '|     ', '|     ', '|     ', ' \\__  ', '      '],
+                    // 更多字符将在后面添加
+                }
+            }
+        };
+
+        // 选择字体
+        function selectFont(font) {
+            currentFont = font;
+            document.querySelectorAll('.font-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            document.querySelector(`[data-font="${font}"]`).classList.add('active');
+            
+            // 如果已有输入，自动重新生成
+            const input = document.getElementById('textInput').value;
+            if (input.trim()) {
+                generateAsciiArt();
+            }
+        }
+
+        // 生成 ASCII 艺术字
+        function generateAsciiArt() {
+            const input = document.getElementById('textInput').value.toUpperCase();
+            const output = document.getElementById('asciiOutput');
+            
+            if (!input.trim()) {
+                output.className = 'empty-output';
+                output.textContent = translations[currentLang]?.ascii_output_placeholder || 'ASCII 艺术字将显示在这里...';
+                return;
+            }
+
+            // 使用 figlet.js 库生成 ASCII 艺术字
+            // 这里使用简化的实现
+            const art = generateSimpleAsciiArt(input, currentFont);
+            
+            output.className = '';
+            output.textContent = art;
+        }
+
+        // 简化的 ASCII 艺术字生成（使用预定义模式）
+        function generateSimpleAsciiArt(text, font) {
+            const patterns = {
+                standard: generateStandardArt,
+                banner: generateBannerArt,
+                block: generateBlockArt,
+                slant: generateSlantArt,
+                small: generateSmallArt,
+                big: generateBigArt
+            };
+
+            return patterns[font] ? patterns[font](text) : generateStandardArt(text);
+        }
+
+        function generateStandardArt(text) {
+            const lines = ['', '', '', '', ''];
+            for (let char of text) {
+                if (char === ' ') {
+                    lines[0] += '   ';
+                    lines[1] += '   ';
+                    lines[2] += '   ';
+                    lines[3] += '   ';
+                    lines[4] += '   ';
+                } else {
+                    const art = getStandardChar(char);
+                    for (let i = 0; i < 5; i++) {
+                        lines[i] += art[i] + ' ';
+                    }
+                }
+            }
+            return lines.join('\n');
+        }
+
+        function getStandardChar(char) {
+            const chars = {
+                'A': [' ▄▀█ ', ' █▀█ ', ' ▀ ▀ ', '     ', '     '],
+                'B': [' █▄▄ ', ' █▄█ ', ' ▀▀▀ ', '     ', '     '],
+                'C': [' █▀▀ ', ' █▄▄ ', ' ▀▀▀ ', '     ', '     '],
+                'D': [' █▀▄ ', ' █▄▀ ', ' ▀▀  ', '     ', '     '],
+                'E': [' █▀▀ ', ' █▀▀ ', ' ▀▀▀ ', '     ', '     '],
+                'F': [' █▀▀ ', ' █▀  ', ' ▀   ', '     ', '     '],
+                'G': [' █▀▀ ', ' █▄█ ', ' ▀▀▀ ', '     ', '     '],
+                'H': [' █ █ ', ' █▀█ ', ' ▀ ▀ ', '     ', '     '],
+                'I': [' █ ', ' █ ', ' ▀ ', '   ', '   '],
+                'J': [' ░░█ ', ' █▄█ ', ' ▀▀▀ ', '     ', '     '],
+                'K': [' █▄▀ ', ' █ █ ', ' ▀ ▀ ', '     ', '     '],
+                'L': [' █   ', ' █▄▄ ', ' ▀▀▀ ', '     ', '     '],
+                'M': [' █▀▄▀█ ', ' █ ▀ █ ', ' ▀   ▀ ', '       ', '       '],
+                'N': [' █▄ █ ', ' █ ▀█ ', ' ▀  ▀ ', '      ', '      '],
+                'O': [' █▀█ ', ' █▄█ ', ' ▀▀▀ ', '     ', '     '],
+                'P': [' █▀█ ', ' █▀▀ ', ' ▀   ', '     ', '     '],
+                'Q': [' █▀█ ', ' █▄█ ', ' ▀▀█ ', '     ', '     '],
+                'R': [' █▀█ ', ' █▀▄ ', ' ▀ ▀ ', '     ', '     '],
+                'S': [' █▀▀ ', ' ▀▀█ ', ' ▀▀▀ ', '     ', '     '],
+                'T': [' ▀█▀ ', ' ░█░ ', ' ░▀░ ', '     ', '     '],
+                'U': [' █ █ ', ' █▄█ ', ' ▀▀▀ ', '     ', '     '],
+                'V': [' █ █ ', ' █ █ ', ' ▀▄▀ ', '     ', '     '],
+                'W': [' █ ░ █ ', ' █▄█▄█ ', ' ▀ ░ ▀ ', '       ', '       '],
+                'X': [' ▀▄▀ ', ' █ █ ', ' ▀ ▀ ', '     ', '     '],
+                'Y': [' █ █ ', ' ▀█▀ ', ' ░▀░ ', '     ', '     '],
+                'Z': [' ▀█ ', ' █▄ ', ' ▀▀ ', '    ', '    '],
+                '0': [' █▀█ ', ' █▄█ ', ' ▀▀▀ ', '     ', '     '],
+                '1': [' ▄█ ', ' ░█ ', ' ▄█ ', '    ', '    '],
+                '2': [' ▀█ ', ' █▄ ', ' ▀▀ ', '    ', '    '],
+                '3': [' ▀█ ', ' ▄█ ', ' ▀▀ ', '    ', '    '],
+                '4': [' █ █ ', ' ▀▀█ ', ' ░░▀ ', '     ', '     '],
+                '5': [' █▀ ', ' ▀█ ', ' ▀▀ ', '    ', '    '],
+                '6': [' █▀ ', ' █▀ ', ' ▀▀ ', '    ', '    '],
+                '7': [' ▀█ ', ' ░█ ', ' ░▀ ', '    ', '    '],
+                '8': [' █▀█ ', ' █▀█ ', ' ▀▀▀ ', '     ', '     '],
+                '9': [' █▀█ ', ' ▀▀█ ', ' ░░▀ ', '     ', '     '],
+                '!': [' █ ', ' █ ', ' ▄ ', '   ', '   '],
+                '?': [' ▀█ ', ' ▄█ ', ' ░  ', '    ', '    '],
+                '.': [' ░ ', ' ░ ', ' ▄ ', '   ', '   '],
+                '-': [' ░░░ ', ' ▀▀▀ ', ' ░░░ ', '     ', '     '],
+                '+': [' ░█░ ', ' ▀█▀ ', ' ░▀░ ', '     ', '     '],
+            };
+            return chars[char] || ['     ', '     ', '     ', '     ', '     '];
+        }
+
+        // 其他字体样式的生成函数（简化版）
+        function generateBannerArt(text) {
+            return `
+ ╔═══════════════════════════╗
+ ║   ${text.padEnd(23)}║
+ ╚═══════════════════════════╝`;
+        }
+
+        function generateBlockArt(text) {
+            const top = '█'.repeat(text.length * 3);
+            const mid = text.split('').map(c => ` ${c} `).join('');
+            const bot = '█'.repeat(text.length * 3);
+            return `${top}\n${mid}\n${bot}`;
+        }
+
+        function generateSlantArt(text) {
+            return text.split('').map((c, i) => ' '.repeat(i) + c).join('\n');
+        }
+
+        function generateSmallArt(text) {
+            return `▔▔▔▔▔▔▔▔▔▔\n  ${text}\n▁▁▁▁▁▁▁▁▁▁`;
+        }
+
+        function generateBigArt(text) {
+            const lines = ['', '', '', '', '', '', ''];
+            for (let char of text) {
+                const art = getBigChar(char);
+                for (let i = 0; i < 7; i++) {
+                    lines[i] += art[i] + '  ';
+                }
+            }
+            return lines.join('\n');
+        }
+
+        function getBigChar(char) {
+            return [
+                '  ███  ',
+                ' █   █ ',
+                '█     █',
+                '███████',
+                '█     █',
+                '█     █',
+                '       '
+            ];
+        }
+
+        // 复制到剪贴板
+        function copyToClipboard() {
+            const output = document.getElementById('asciiOutput');
+            if (output.classList.contains('empty-output')) {
+                return;
+            }
+
+            navigator.clipboard.writeText(output.textContent).then(() => {
+                const indicator = document.getElementById('copyIndicator');
+                indicator.classList.add('show');
+                setTimeout(() => {
+                    indicator.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+        // 清空
+        function clearAll() {
+            document.getElementById('textInput').value = '';
+            const output = document.getElementById('asciiOutput');
+            output.className = 'empty-output';
+            output.textContent = translations[currentLang]?.ascii_output_placeholder || 'ASCII 艺术字将显示在这里...';
+        }
+
+        // 监听输入
+        document.getElementById('textInput').addEventListener('input', function(e) {
+            // 只允许英文字符、数字和常见符号
+            this.value = this.value.replace(/[^a-zA-Z0-9\s!?.,\-+]/g, '');
+        });
+
+        // 支持回车键生成
+        document.getElementById('textInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateAsciiArt();
+            }
+        });
+    </script>
+</body>
+</html>
+
